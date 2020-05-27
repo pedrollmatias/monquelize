@@ -1,0 +1,41 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/theming";
+@import "./styles-variables.scss";
+@import "./app-theme.scss";
+
+$custom-typography: mat-typography-config(
+  $font-family: '"Poppins", sans-serif;',
+);
+@include mat-core($custom-typography);
+
+html,
+body {
+  height: 100%;
+  background-color: $bg-color;
+}
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+:focus {
+  outline: none !important;
+}
+
+// Overrides
+
+.mat-card,
+.mat-expansion-panel {
+  border-radius: 3px !important;
+  box-shadow: 10px 10px 51px -29px rgba(0, 0, 0, 0.75) !important;
+}
+
+// Utils
+
+.color-white {
+  color: $color-white !important;
+}
+
+.color-black {
+  color: $color-black !important;
+}

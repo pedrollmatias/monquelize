@@ -1,0 +1,11 @@
+<div class="d-flex align-items-center">
+  <ng-container *ngFor="let breadcrumbItem of breadcrumb; let i = index">
+    <span
+      [ngClass]="['page-router-label', breadcrumbItem.isLink ? 'page-router-link' : '']"
+      (click)="navigateToRoute(breadcrumbItem)"
+    >
+      {{ breadcrumbItem.label }}
+    </span>
+    <mat-icon>keyboard_arrow_right</mat-icon>
+  </ng-container>
+</div>

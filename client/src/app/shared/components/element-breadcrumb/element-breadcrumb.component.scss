@@ -1,0 +1,11 @@
+@import "../../../../styles-variables.scss";
+
+.page-router-label {
+  font-size: 13px;
+  outline: none;
+
+  &.page-router-link {
+    color: $color-primary;
+    cursor: pointer;
+  }
+}

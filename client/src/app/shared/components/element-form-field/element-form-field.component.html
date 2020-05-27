@@ -1,0 +1,13 @@
+<div class="d-flex align-items-center">
+  <div class="d-flex justify-content-end pr-4" [ngStyle]="{ 'min-width': minWidth }">
+    <span>
+      <strong>{{ _label }}</strong>
+    </span>
+  </div>
+  <div class="flex-grow-1">
+    <mat-form-field class="w-100">
+      <input matInput [formControl]="_formControl" [placeholder]="_placehoder" [required]="_required" />
+      <mat-error *ngIf="_formControl.hasError('required')"> {{ _label }} required </mat-error>
+    </mat-form-field>
+  </div>
+</div>
