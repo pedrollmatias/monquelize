@@ -4,9 +4,10 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const saleStatusEnum = {
-  '100': 'draft',
-  '200': 'budget',
-  '300': 'done',
+  '100': 'Draft',
+  '200': 'Budget',
+  '300': 'Done',
+  '400': 'Canceled',
 };
 
 const opts = {
@@ -27,7 +28,6 @@ const SaleSchema = new Schema(
     status: {
       type: String,
       enum: Object.keys(saleStatusEnum),
-      required: true,
       default: '100',
     },
     products: [
@@ -53,20 +53,59 @@ const SaleSchema = new Schema(
         ref: 'PaymentMethod',
         required: true,
       },
-      value: {
+      paymentValue: {
         type: Number,
         required: true,
       },
+    },
+    seller: {
+      type: Schema.Types.ObjectId,
     },
   },
   opts
 );
 
+SaleSchema.virtual('totalValue').get(function () {
+  const sale = this;
+
+  return sale.products.reduce((totalValue, product) => (totalValue += product.amount * product.salePrice), 0);
+});
+
+SaleSchema.static({
+  async load(saleId, session) {
+    const Sale = this;
+    const sale = session ? await Sale.findById(saleId).session(session) : await Sale.findById(sale);
+
+    if (!sale) {
+      throw new Error('Sale not found');
+    }
+
+    return sale;
+  },
+  async create(sale, session) {
+    const Sale = this;
+    const saleDoc = new Sale(sale).session(session);
+
+    return saleDoc.save();
+  },
+});
+
 SaleSchema.method({
   async edit(data) {
-    this.overwrite(data);
+    const sale = this;
 
-    return this;
+    sale.overwrite(data);
+
+    return sale.save();
+  },
+  async editFields(data) {
+    const sale = this;
+
+    for (const key of Object.keys(data)) {
+      sale.set(key, data[key]);
+    }
+
+    return sale.save();
   },
 });
 

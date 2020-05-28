@@ -18,22 +18,41 @@ module.exports = {
 
     res.send(product);
   },
-  query(req, res) {
+  async query(req, res) {
+    const queryPopulate = [
+      { path: 'category', select: 'name' },
+      { path: 'unit', select: ['unit', 'shortUnit'] },
+    ];
+
+    await req.product.populate(queryPopulate).execPopulate();
+
     res.send(req.product);
   },
   async create(req, res) {
     const product = new Product(req.body);
     const productDoc = await product.save();
+    const queryPopulate = [
+      { path: 'category', select: 'name' },
+      { path: 'unit', select: ['unit', 'shortUnit'] },
+    ];
+
+    await productDoc.populate(queryPopulate).execPopulate();
 
     res.send(productDoc);
   },
   async edit(req, res) {
     const product = await req.product.edit(req.body);
+    const queryPopulate = [
+      { path: 'category', select: 'name' },
+      { path: 'unit', select: ['unit', 'shortUnit'] },
+    ];
+
+    await product.populate(queryPopulate).execPopulate();
 
     res.send(product);
   },
   async remove(req, res) {
-    await req.product.remove();
+    await req.product.editField({ removed: true });
     res.status(200).end();
   },
 };

@@ -5,17 +5,15 @@ const router = express.Router();
 const path = require('path');
 
 module.exports = (app, serverId) => {
-  const dirPath = path.join(__dirname, `api-${serverId}`, 'product.api');
+  const dirPath = path.join(__dirname, `api-${serverId}`, 'user.api');
   const api = require(dirPath);
 
-  app.use('/products', router);
+  app.use('/users', router);
 
   router.route('/').get(api.get);
 
   router.route('/create').post(api.create);
 
-  router.param('productId', api.load);
-  router.route('/:productId').get(api.query).delete(api.remove);
-
-  router.route('/:productId.edit').put(api.edit);
+  router.param('userId', api.load);
+  router.route('/:userId').get(api.query).post(api.edit).put(api.block);
 };

@@ -8,6 +8,7 @@ const UserSchema = new Schema(
     username: {
       type: String,
       required: true,
+      immutable: true,
       index: true,
       unique: true,
     },
@@ -34,8 +35,24 @@ const UserSchema = new Schema(
       type: Date,
       required: true,
     },
+    blocked: {
+      type: Boolean,
+      default: false,
+    },
   },
   { collection: 'users' }
 );
+
+UserSchema.method({
+  async editFields(data) {
+    const user = this;
+
+    for (const key of Object.keys(data)) {
+      user.set(key, data[key]);
+    }
+
+    return user.save();
+  },
+});
 
 module.exports = mongoose.model('User', UserSchema);
