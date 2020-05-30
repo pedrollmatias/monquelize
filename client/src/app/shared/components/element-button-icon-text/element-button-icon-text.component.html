@@ -1,0 +1,18 @@
+<button
+  mat-button
+  class="{{ style }} {{ color }}"
+  type="{{ btnType }}"
+  [matTooltip]="tooltipText"
+  [matTooltipPosition]="tooltipPosition"
+  [disabled]="disabled"
+  (click)="btnClick.emit($event)"
+>
+  <div class="d-flex align-items-center">
+    <div class="d-flex align-items-center pr-3">
+      <i class="material-icons-outlined">{{ icon }}</i>
+    </div>
+    <div>
+      <span>{{ text }}</span>
+    </div>
+  </div>
+</button>

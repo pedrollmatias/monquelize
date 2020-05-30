@@ -1,10 +1,10 @@
-<mat-toolbar class="navbar color-white">
+<mat-toolbar class="navbar">
   <div class="d-flex justify-content-around align-items-center w-100">
     <span><strong>Comparing</strong></span>
     <div class="d-flex">
       <ng-container *ngFor="let navItem of navList">
         <div class="px-2">
-          <button mat-button [routerLink]="navItem.path">{{ navItem.label }}</button>
+          <button mat-button [routerLink]="navItem.path">{{ navItem.label.toUpperCase() }}</button>
         </div>
       </ng-container>
     </div>
