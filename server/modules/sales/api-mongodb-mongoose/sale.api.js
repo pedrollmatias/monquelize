@@ -1,7 +1,7 @@
 'use strict';
 
 const Sale = require('./sale.model');
-const Product = require('../../product/api-mongodb-mongoose/product.model');
+const Product = require('../../products/api-mongodb-mongoose/product.model');
 
 module.exports = {
   async load(req, res, next, saleId) {

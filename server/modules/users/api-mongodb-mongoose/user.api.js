@@ -22,10 +22,9 @@ module.exports = {
     res.send(req.user);
   },
   async create(req, res) {
-    const user = new User(req.body);
-    const userDoc = await user.save();
+    const user = await User.create(req.body);
 
-    res.send(userDoc);
+    res.send(user);
   },
   async edit(req, res) {
     const user = await req.user.edit(req.body);
@@ -33,7 +32,7 @@ module.exports = {
     res.send(user);
   },
   async block(req, res) {
-    await req.user.remove();
-    res.status(200).end();
+    await req.user.editFields({ block: true });
+    res.sendStatus(200);
   },
 };

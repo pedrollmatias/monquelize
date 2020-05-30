@@ -15,7 +15,7 @@ async function startServer() {
         Logger.error(err);
         process.exit(1);
       }
-      Logger.info(`${server.name} server listening on port ${server.port}`);
+      Logger.info(`"${server.name}" server listening on port ${server.port}`);
     });
   }
 }

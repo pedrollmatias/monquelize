@@ -32,14 +32,32 @@ const PurchaseSchema = new Schema(
     },
     products: [
       {
-        item: {
+        productRef: {
           type: Schema.Types.ObjectId,
+        },
+        sku: {
+          type: String,
           required: true,
         },
-        salePrice: {
+        name: {
+          type: String,
+        },
+        category: {
+          type: Schema.Types.ObjectId,
+        },
+        unit: {
+          unitRef: {
+            type: Schema.Types.ObjectId,
+            required: true,
+          },
+          shortUnit: {
+            type: String,
+            required: true,
+          },
+        },
+        costPrice: {
           type: Number,
           required: true,
-          min: 0,
         },
         amount: {
           type: Number,

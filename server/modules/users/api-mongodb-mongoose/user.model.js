@@ -43,6 +43,15 @@ const UserSchema = new Schema(
   { collection: 'users' }
 );
 
+UserSchema.static({
+  async create(unit) {
+    const User = this;
+    const user = new User(unit);
+
+    return user.save();
+  },
+});
+
 UserSchema.method({
   async editFields(data) {
     const user = this;

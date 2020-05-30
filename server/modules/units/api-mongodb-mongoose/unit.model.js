@@ -32,4 +32,23 @@ UnitSchema.pre('remove', async function preventRemoveFromRelatedProduct() {
   }
 });
 
+UnitSchema.static({
+  async load(unitId, session) {
+    const Unit = this;
+    const unit = session ? await Unit.findById(unitId).session(session) : await Unit.findById(unitId);
+
+    if (!unit) {
+      throw new Error('Unit not found');
+    }
+
+    return unit;
+  },
+  async create(unit) {
+    const Unit = this;
+    const unitDoc = new Unit(unit);
+
+    return unitDoc.save();
+  },
+});
+
 module.exports = mongoose.model('Unit', UnitSchema);

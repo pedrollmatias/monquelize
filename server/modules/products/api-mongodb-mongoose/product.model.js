@@ -12,10 +12,12 @@ const ProductSchema = new Schema(
   {
     sku: {
       type: String,
+      index: true,
       required: true,
     },
     name: {
       type: String,
+      index: true,
       required: true,
       trim: true,
     },
@@ -24,9 +26,11 @@ const ProductSchema = new Schema(
     },
     category: {
       type: Schema.Types.ObjectId,
+      ref: 'Category',
     },
     unit: {
       type: Schema.Types.ObjectId,
+      ref: 'Unit',
       required: true,
     },
     salePrice: {
@@ -63,10 +67,6 @@ const ProductSchema = new Schema(
         },
       },
     ],
-    removed: {
-      type: Boolean,
-      default: false,
-    },
   },
   { collection: 'products' }
 );
@@ -97,16 +97,15 @@ ProductSchema.static({
 
     return product;
   },
+  async create(product, session) {
+    const Product = this;
+    const productDoc = new Product(product);
+
+    return productDoc.save().session(session);
+  },
 });
 
 ProductSchema.method({
-  async edit(data) {
-    const product = this;
-
-    product.overwrite(data);
-
-    return product;
-  },
   async editFields(data) {
     const product = this;
 

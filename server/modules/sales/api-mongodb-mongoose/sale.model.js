@@ -32,14 +32,32 @@ const SaleSchema = new Schema(
     },
     products: [
       {
-        item: {
+        productRef: {
           type: Schema.Types.ObjectId,
+        },
+        sku: {
+          type: String,
           required: true,
+        },
+        name: {
+          type: String,
+        },
+        category: {
+          type: Schema.Types.ObjectId,
+        },
+        unit: {
+          unitRef: {
+            type: Schema.Types.ObjectId,
+            required: true,
+          },
+          shortUnit: {
+            type: String,
+            required: true,
+          },
         },
         salePrice: {
           type: Number,
           required: true,
-          min: 0,
         },
         amount: {
           type: Number,
@@ -48,12 +66,15 @@ const SaleSchema = new Schema(
       },
     ],
     payment: {
-      paymentMethod: {
+      paymentMethodRef: {
         type: Schema.Types.ObjectId,
-        ref: 'PaymentMethod',
-        required: true,
       },
-      paymentValue: {
+      name: {
+        type: String,
+        required: true,
+        trim: true,
+      },
+      value: {
         type: Number,
         required: true,
       },
