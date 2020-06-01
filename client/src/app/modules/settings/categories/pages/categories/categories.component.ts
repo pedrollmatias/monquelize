@@ -1,28 +1,82 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-
-const ELEMENT_DATA: any[] = [
-	{ position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
-	{ position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
-	{ position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li' },
-	{ position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be' },
-	{ position: 5, name: 'Boron', weight: 10.811, symbol: 'B' },
-	{ position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C' },
-	{ position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N' },
-	{ position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O' },
-	{ position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F' },
-	{ position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne' },
-];
+import { ICategory } from 'src/app/shared/models/category.model';
+import { ApiCategoryService } from 'src/app/core/api/api-category.service';
+import { UtilsService } from 'src/app/core/services/utils.service';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogCategoryDetailsComponent } from '../../components/dialog-category-details/dialog-category-details.component';
+import { switchMap } from 'rxjs/operators';
+import { of } from 'rxjs';
+import { IHttpRes } from 'src/app/shared/models/http-res.model';
+import { IBreadcrumb } from 'src/app/shared/models/breadcrumb.model';
 
 @Component({
-	selector: 'app-categories',
-	templateUrl: './categories.component.html',
-	styleUrls: ['./categories.component.scss'],
+  selector: 'app-categories',
+  templateUrl: './categories.component.html',
+  styleUrls: ['./categories.component.scss'],
 })
 export class CategoriesComponent implements OnInit {
-	displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-	dataSource = new MatTableDataSource(ELEMENT_DATA);
-	constructor() {}
+  breadcrumb: IBreadcrumb = [{ label: 'Settings', isLink: true, path: '/settings' }];
 
-	ngOnInit(): void {}
+  categoriesColumns: string[] = ['path', 'name'];
+  categoriesDataSource: MatTableDataSource<ICategory>;
+
+  constructor(private categoryApi: ApiCategoryService, private dialog: MatDialog) {}
+
+  categories: ICategory[];
+
+  mongodbMongooseTime: number;
+
+  ngOnInit(): void {
+    this.resetData();
+    this.categoryApi.getCategories().subscribe((categoryRes) => {
+      this.categories = <ICategory[]>categoryRes.res;
+      this.mongodbMongooseTime = categoryRes.time;
+      this.setDataSource(this.categories);
+    });
+  }
+
+  setDataSource(categories: ICategory[]): void {
+    this.categoriesDataSource = new MatTableDataSource(categories);
+  }
+
+  resetData(): void {
+    this.mongodbMongooseTime = null;
+    this.categories = undefined;
+  }
+
+  refreshComponent(): void {
+    this.ngOnInit();
+  }
+
+  openCategoryDetailsDialog(categoryId: string = null): void {
+    const categoryDetailsDialogRef = this.dialog.open(DialogCategoryDetailsComponent, {
+      autoFocus: false,
+      restoreFocus: false,
+      width: '70vw',
+      data: {
+        categories: this.categories,
+        categoryId: categoryId,
+      },
+    });
+
+    categoryDetailsDialogRef
+      .beforeClosed()
+      .pipe(
+        switchMap((confirmed) => {
+          if (confirmed) {
+            this.resetData();
+            return this.categoryApi.getCategories();
+          } else {
+            const categoryRes: IHttpRes = { res: this.categories, time: this.mongodbMongooseTime };
+            return of(categoryRes);
+          }
+        })
+      )
+      .subscribe((categoryRes: IHttpRes) => {
+        this.categories = <ICategory[]>categoryRes.res;
+        this.mongodbMongooseTime = categoryRes.time;
+        this.setDataSource(this.categories);
+      });
+  }
 }

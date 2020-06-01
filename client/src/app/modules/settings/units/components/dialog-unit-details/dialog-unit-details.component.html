@@ -1,0 +1,65 @@
+<div class="d-flex justify-content-between align-items-center pb-4">
+  <div>
+    <span class="mat-title">{{ dialogTitle }}</span>
+  </div>
+  <div class="d-flex align-items-center" *ngIf="!dialogRef.disableClose">
+    <div class="pr-5" *ngIf="!isNewUnit && unit">
+      <app-element-button-icon-text
+        icon="delete"
+        text="Remove unit"
+        (btnClick)="removeUnit()"
+      ></app-element-button-icon-text>
+    </div>
+    <div>
+      <button mat-icon-button (click)="closeDialog(false)">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>
+<div class="px-4">
+  <ng-container *ngIf="showLoadingArea">
+    <div class="pb-5">
+      <app-element-loading-area [mongodbMongooseTime]="mongodbMongooseTime"></app-element-loading-area>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="showDoneButton">
+    <div class="d-flex justify-content-center pb-5">
+      <button mat-flat-button color="primary" (click)="closeDialog(true)">Done!</button>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="(isNewUnit || (!isNewUnit && unit)) && !showDoneButton">
+    <div class="pb-5">
+      <form [formGroup]="unitForm">
+        <div class="d-flex">
+          <div class="flex-grow-1 pr-5">
+            <mat-form-field class="w-100">
+              <mat-label>Unit</mat-label>
+              <input matInput formControlName="unit" required />
+            </mat-form-field>
+          </div>
+          <div class="flex-grow-1 pr-5">
+            <mat-form-field class="w-100">
+              <mat-label>Short unit</mat-label>
+              <input matInput formControlName="shortUnit" required />
+            </mat-form-field>
+          </div>
+          <div class="flex-grow-1">
+            <mat-form-field class="w-100">
+              <mat-label>Decimal plances</mat-label>
+              <input matInput formControlName="decimalPlaces" />
+            </mat-form-field>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="d-flex justify-content-center align-items-center pb-5">
+      <div class="pr-5">
+        <button mat-button (click)="closeDialog()">Cancel</button>
+      </div>
+      <div>
+        <button mat-flat-button color="primary" (click)="saveUnit()">Save unit</button>
+      </div>
+    </div>
+  </ng-container>
+</div>
