@@ -56,6 +56,18 @@ body {
 
 // Utils
 
+.color-primary {
+  color: $color-primary !important;
+}
+
+.color-warn {
+  color: $color-warn !important;
+}
+
+.color-accent {
+  color: $color-accent !important;
+}
+
 .color-white {
   color: $color-white !important;
 }
@@ -70,4 +82,22 @@ body {
 
 .color-grey {
   color: $color-grey !important;
+}
+
+// Cores background
+
+.bg-primary {
+  background-color: $color-primary !important;
+}
+
+.bg-warn {
+  background-color: $color-warn !important;
+}
+
+.box-shadow-none {
+  box-shadow: none !important;
+}
+
+.cursor-pointer {
+  cursor: pointer !important;
 }

@@ -1,0 +1,64 @@
+<div class="d-flex justify-content-between align-items-center pb-4">
+  <div>
+    <span class="mat-title">{{ dialogTitle }}</span>
+  </div>
+  <div class="d-flex align-items-center" *ngIf="!dialogRef.disableClose">
+    <div class="pr-5" *ngIf="!isNewCategory && category">
+      <app-element-button-icon-text
+        icon="delete"
+        text="Remove category"
+        (btnClick)="removeCategroy()"
+      ></app-element-button-icon-text>
+    </div>
+    <div>
+      <button mat-icon-button (click)="closeDialog(false)">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>
+<div class="px-4">
+  <ng-container *ngIf="showLoadingArea">
+    <div class="pb-5">
+      <app-element-loading-area [mongodbMongooseTime]="mongodbMongooseTime"></app-element-loading-area>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="showDoneButton">
+    <div class="d-flex justify-content-center pb-5">
+      <button mat-flat-button color="primary" (click)="closeDialog(true)">Done!</button>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="(isNewCategory || (!isNewCategory && category)) && !showDoneButton">
+    <div class="pb-5">
+      <form [formGroup]="categoryForm">
+        <div class="d-flex">
+          <div class="flex-grow-1 pr-5">
+            <mat-form-field class="w-100">
+              <mat-label>Name</mat-label>
+              <input matInput formControlName="name" required />
+            </mat-form-field>
+          </div>
+          <div class="flex-grow-1">
+            <mat-form-field class="w-100">
+              <mat-label>Parent category</mat-label>
+              <mat-select formControlName="parent" [compareWith]="compareCategories">
+                <mat-option value="">Root category</mat-option>
+                <mat-option *ngFor="let parentCategory of categories" [value]="parentCategory">
+                  {{ parentCategory.path }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="d-flex justify-content-center align-items-center pb-5">
+      <div class="pr-5">
+        <button mat-button (click)="closeDialog()">Cancel</button>
+      </div>
+      <div>
+        <button mat-flat-button color="primary" (click)="saveCategory()">Save category</button>
+      </div>
+    </div>
+  </ng-container>
+</div>

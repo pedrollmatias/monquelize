@@ -1,41 +1,56 @@
 'use strict';
 
 const Unit = require('./unit.model');
-// const Category = require('../../categories/api-mongodb-mongoose/category.model');
 const Sale = require('../../sales/api-mongodb-mongoose/sale.model');
 const Purchase = require('../../purchases/api-mongodb-mongoose/purchase.model');
+const utils = require('../../../utils');
 
 module.exports = {
-  async load(req, res, next, unitId) {
-    const unit = await Unit.findById(unitId);
+  async get(req, res, next) {
+    const startTime = process.hrtime();
 
-    if (!unit) {
-      throw new Error('Unit not found');
+    try {
+      const query = req.query || {};
+      const unit = await Unit.find(query);
+      const diffTime = utils.getExecutionTimeInMs(process.hrtime(startTime));
+
+      res.send({ res: unit, time: diffTime });
+    } catch (err) {
+      next(err);
     }
-    req.unit = unit;
-    next();
   },
-  async get(req, res) {
-    const query = req.query || {};
-    const unit = await Unit.find(query);
+  async query(req, res, next) {
+    const startTime = process.hrtime();
 
-    res.send(unit);
-  },
-  query(req, res) {
-    res.send(req.unit);
-  },
-  async create(req, res) {
-    const unit = await Unit.create(req.body);
+    try {
+      const unit = await Unit.load(req.params.unitId);
+      const diffTime = utils.getExecutionTimeInMs(process.hrtime(startTime));
 
-    res.send(unit);
+      res.send({ res: unit, time: diffTime });
+    } catch (err) {
+      next(err);
+    }
   },
-  async edit(req, res) {
+  async create(req, res, next) {
+    const startTime = process.hrtime();
+
+    try {
+      const unit = await Unit.create(req.body);
+      const diffTime = utils.getExecutionTimeInMs(process.hrtime(startTime));
+
+      res.send({ res: unit, time: diffTime });
+    } catch (err) {
+      next(err);
+    }
+  },
+  async edit(req, res, next) {
+    const startTime = process.hrtime();
     const session = await Unit.startSession();
 
     session.startTransaction();
     try {
       // Update unit
-      const unit = await Unit.load(req.params.unitIdSession, session);
+      const unit = await Unit.load(req.params.unitId, session);
       const updatedUnit = await unit.editFields(req.body);
 
       // Update product in sales and purchases if unit and shortUnit was modified
@@ -75,20 +90,23 @@ module.exports = {
 
       await session.commitTransaction();
       session.endSession();
-      res.send(updatedUnit);
+      const diffTime = utils.getExecutionTimeInMs(process.hrtime(startTime));
+
+      res.send({ res: updatedUnit, time: diffTime });
     } catch (err) {
       await session.abortTransacttion();
       session.endSession();
-      throw err;
+      next(err);
     }
   },
-  async remove(req, res) {
+  async remove(req, res, next) {
+    const startTime = process.hrtime();
     const session = await Unit.startSession();
 
     session.startTransaction();
     try {
       // Get unit
-      const unit = await Unit.load(req.params.unitIdSession, session);
+      const unit = await Unit.load(req.params.unitId, session);
 
       // Remove unit reference in sales and purchases
       const query = { 'products.unit.unitRef': unit._id };
@@ -124,11 +142,13 @@ module.exports = {
 
       await session.commitTransaction();
       session.endSession();
-      res.sendStatus(200);
+      const diffTime = utils.getExecutionTimeInMs(process.hrtime(startTime));
+
+      res.sendStatus({ res: { status: 200 }, time: diffTime });
     } catch (err) {
       await session.abortTransacttion();
       session.endSession();
-      throw err;
+      next(err);
     }
   },
 };

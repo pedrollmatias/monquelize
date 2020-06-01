@@ -1,0 +1,25 @@
+<div class="d-flex justify-content-between pb-4">
+  <div class="d-flex align-items-center">
+    <div class="d-flex align-items-center pr-3">
+      <div class="d-flex align-items-center">
+        <i class="material-icons-outlined color-{{ data.iconColor }}">{{ data.icon }}</i>
+      </div>
+    </div>
+    <div>
+      <span class="mat-title m-0">{{ data.title }}</span>
+    </div>
+  </div>
+  <div>
+    <button mat-icon-button (click)="closeDialog()">
+      <i class="material-icons-outlined">close</i>
+    </button>
+  </div>
+</div>
+<div class="container pb-5">
+  <div class="text-justify" [innerHtml]="data.message | noSanitize"></div>
+</div>
+<div class="d-flex justify-content-center pb-4">
+  <div>
+    <button mat-flat-button color="primary" (click)="closeDialog()">{{ data.btnText }}</button>
+  </div>
+</div>

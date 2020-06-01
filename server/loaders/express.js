@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const routes = require('../modules');
 const config = require('../config');
+const Logger = require('./logger');
 
 module.exports = (app, serverId) => {
   // Health Check endpoints
@@ -17,27 +18,23 @@ module.exports = (app, serverId) => {
   app.enable('trust proxy');
   app.use(cors());
   app.use(bodyParser.json());
+
+  app.use((req, res, next) => {
+    Logger.info(`Request URL: ${req.originalUrl}`);
+    next();
+  });
+
   app.use(config.api.prefix, routes(serverId));
 
-  /// catch 404 and forward to error handler
-  app.use((req, res, next) => {
-    const err = new Error('Not Found');
+  // /// catch 404 and forward to error handler
+  // app.use((req, res, next) => {
+  //   const err = new Error('Not Found');
 
-    err.status = 404;
-    next(err);
-  });
+  //   err.status = 404;
+  //   next(err);
+  // });
 
-  // Error handlers
   app.use((err, req, res, next) => {
-    // Handle 401 thrown by express-jwt library
-    if (err.name === 'UnauthorizedError') {
-      return res.status(err.status).send({ message: err.message }).end();
-    }
-
-    return next(err);
-  });
-  app.use((err, req, res) => {
-    res.status(err.status || 500);
-    res.json({ errors: { message: err.message } });
+    res.status(err.status || 500).send(err.message);
   });
 };

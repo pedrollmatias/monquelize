@@ -3,17 +3,19 @@
     <span class="mat-headline"><strong>Settings</strong></span>
   </div>
   <div>
-    <mat-nav-list>
-      <ng-container *ngFor="let item of settingItems">
-        <div class="py-1">
-          <mat-list-item class="nav-list-item-border-radius" [routerLink]="item.path">
-            <div class="d-flex align-items-center">
-              <i class="material-icons-outlined pr-5">{{ item.icon }}</i>
-              <span>{{ item.label }}</span>
-            </div>
-          </mat-list-item>
-        </div>
-      </ng-container>
-    </mat-nav-list>
+    <mat-card>
+      <mat-nav-list>
+        <ng-container *ngFor="let item of settingItems">
+          <div class="py-1">
+            <mat-list-item class="nav-list-item-border-radius" [routerLink]="item.path">
+              <div class="d-flex align-items-center">
+                <i class="material-icons-outlined pr-5">{{ item.icon }}</i>
+                <span>{{ item.label }}</span>
+              </div>
+            </mat-list-item>
+          </div>
+        </ng-container>
+      </mat-nav-list>
+    </mat-card>
   </div>
 </div>

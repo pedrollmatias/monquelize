@@ -1,57 +1,80 @@
 <div class="container py-5">
-	<div class="pb-5">
-		<app-element-loading-area></app-element-loading-area>
-	</div>
-	<div class="pb-5">
-		<span class="mat-headline"><strong>Units</strong></span>
-	</div>
-	<div class="d-flex pb-5">
-		<div>
-			<button mat-stroked-button color="primary" routerLink="add">Add unit</button>
-		</div>
-		<div class="flex-grow-1 px-5">
-			<mat-form-field class="w-100">
-				<mat-label>Search</mat-label>
-				<input matInput />
-			</mat-form-field>
-		</div>
-		<div class="d-flex justify-content-end flex-wrap">
-			<div class="pr-4">
-				<button mat-stroked-button color="primary">Remove all</button>
-			</div>
-			<div>
-				<button mat-stroked-button color="primary">Refresh</button>
-			</div>
-		</div>
-	</div>
-	<div>
-		<table mat-table [dataSource]="dataSource" class="w-100">
-			<!-- Position Column -->
-			<ng-container matColumnDef="position">
-				<th mat-header-cell *matHeaderCellDef>No.</th>
-				<td mat-cell *matCellDef="let element">{{ element.position }}</td>
-			</ng-container>
+  <div class="pb-5">
+    <app-element-loading-area [mongodbMongooseTime]="mongodbMongooseTime"></app-element-loading-area>
+  </div>
+  <div class="pb-5">
+    <div>
+      <app-element-breadcrumb [breadcrumb]="breadcrumb"></app-element-breadcrumb>
+    </div>
+    <span class="mat-headline m-0">
+      <strong>Units</strong>
+    </span>
+  </div>
+  <div class="d-flex pb-5">
+    <div>
+      <app-element-button-icon-text
+        icon="add"
+        text="Add unit"
+        color="primary"
+        (click)="openUnitDetailsDialog()"
+      ></app-element-button-icon-text>
+    </div>
+    <div class="flex-grow-1 px-5">
+      <mat-form-field class="inline-input w-100" floatLabel="never">
+        <mat-label>Search</mat-label>
+        <input matInput />
+      </mat-form-field>
+    </div>
+    <div class="d-flex justify-content-end flex-wrap">
+      <div>
+        <app-element-button-icon-text
+          icon="refresh"
+          text="Refresh"
+          color="primary"
+          (click)="refreshComponent()"
+        ></app-element-button-icon-text>
+      </div>
+    </div>
+  </div>
+  <div>
+    <ng-container *ngIf="units; else loading">
+      <ng-container *ngIf="unitsDataSource?.data.length; else noUnitsFound">
+        <mat-card>
+          <table mat-table [dataSource]="unitsDataSource" class="w-100">
+            <ng-container matColumnDef="unit">
+              <th mat-header-cell *matHeaderCellDef>Unit</th>
+              <td mat-cell class="cursor-pointer" *matCellDef="let unit" (click)="openUnitDetailsDialog(unit._id)">
+                {{ unit.unit }}
+              </td>
+            </ng-container>
 
-			<!-- Name Column -->
-			<ng-container matColumnDef="name">
-				<th mat-header-cell *matHeaderCellDef>Name</th>
-				<td mat-cell *matCellDef="let element">{{ element.name }}</td>
-			</ng-container>
+            <ng-container matColumnDef="shortUnit">
+              <th mat-header-cell *matHeaderCellDef>Short unit</th>
+              <td mat-cell class="cursor-pointer" *matCellDef="let unit" (click)="openUnitDetailsDialog(unit._id)">
+                {{ unit.shortUnit }}
+              </td>
+            </ng-container>
 
-			<!-- Weight Column -->
-			<ng-container matColumnDef="weight">
-				<th mat-header-cell *matHeaderCellDef>Weight</th>
-				<td mat-cell *matCellDef="let element">{{ element.weight }}</td>
-			</ng-container>
+            <ng-container matColumnDef="decimalPlaces">
+              <th mat-header-cell *matHeaderCellDef>Decimal places</th>
+              <td mat-cell class="cursor-pointer" *matCellDef="let unit" (click)="openUnitDetailsDialog(unit._id)">
+                {{ unit.decimalPlaces || '-' }}
+              </td>
+            </ng-container>
 
-			<!-- Symbol Column -->
-			<ng-container matColumnDef="symbol">
-				<th mat-header-cell *matHeaderCellDef>Symbol</th>
-				<td mat-cell *matCellDef="let element">{{ element.symbol }}</td>
-			</ng-container>
-
-			<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-			<tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-		</table>
-	</div>
+            <tr mat-header-row *matHeaderRowDef="unitsColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: unitsColumns"></tr>
+          </table>
+        </mat-card>
+      </ng-container>
+      <ng-template #noUnitsFound>
+        <app-element-card-no-data-found text="No units found"></app-element-card-no-data-found>
+      </ng-template>
+    </ng-container>
+    <ng-template #loading>
+      <div class="d-flex justify-content-center align-items-center py-5">
+        <mat-spinner [diameter]="30"></mat-spinner>
+      </div>
+    </ng-template>
+  </div>
 </div>

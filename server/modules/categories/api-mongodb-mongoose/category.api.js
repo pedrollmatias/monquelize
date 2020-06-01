@@ -4,6 +4,7 @@ const Category = require('./category.model');
 const Sale = require('../../sales/api-mongodb-mongoose/sale.model');
 const Purchase = require('../../purchases/api-mongodb-mongoose/purchase.model');
 const Product = require('../../products/api-mongodb-mongoose/product.model');
+const utils = require('../../../utils');
 
 function unpopulate(category) {
   category.parent = category.parent ? category.parent._id || category.parent : undefined;
@@ -12,48 +13,75 @@ function unpopulate(category) {
 }
 
 module.exports = {
-  async load(req, res, next, categoryId) {
-    const category = await Category.findById(categoryId).select({ name: 1, parent: 1, path: 1, _id: 1 });
+  async get(req, res, next) {
+    const startTime = process.hrtime();
 
-    if (!category) {
-      throw new Error('Category not found');
+    try {
+      let categories;
+
+      if (req.query.getProducts) {
+        categories = await Category.find().sort({ path: 1 });
+      } else {
+        categories = await Category.find().select({ name: 1, parent: 1, path: 1, _id: 1 }).sort({ path: 1 });
+      }
+
+      const diffTime = utils.getExecutionTimeInMs(process.hrtime(startTime));
+
+      res.send({ res: categories, time: diffTime });
+    } catch (err) {
+      next(err);
     }
-    req.category = category;
-    next();
   },
-  async get(req, res) {
-    let categories;
+  async query(req, res, next) {
+    const startTime = process.hrtime();
 
-    if (req.query.getProducts) {
-      categories = await Category.find().sort({ path: 1 });
-    } else {
-      categories = await Category.find().select({ name: 1, parent: 1, path: 1, _id: 1 }).sort({ path: 1 });
+    try {
+      const category = await Category.load(req.params.categoryId);
+
+      const diffTime = utils.getExecutionTimeInMs(process.hrtime(startTime));
+
+      res.send({ res: category, time: diffTime });
+    } catch (err) {
+      next(err);
     }
+  },
+  async create(req, res, next) {
+    const startTime = process.hrtime();
 
-    res.send(categories);
-  },
-  query(req, res) {
-    res.send(req.category);
-  },
-  async create(req, res) {
-    const category = await Category.create(req.body);
+    try {
+      const category = await Category.create(req.body);
 
-    res.send(category);
-  },
-  async edit(req, res) {
-    const oldName = req.category.name;
-    const updatedCategory = await req.category.editFields(unpopulate(req.body));
+      const diffTime = utils.getExecutionTimeInMs(process.hrtime(startTime));
 
-    await updatedCategory.updateChildrenPaths(oldName);
-    res.send(updatedCategory);
+      res.send({ res: category, time: diffTime });
+    } catch (err) {
+      next(err);
+    }
   },
-  async remove(req, res) {
+  async edit(req, res, next) {
+    const startTime = process.hrtime();
+
+    try {
+      const category = await Category.load(req.params.categoryId);
+      const oldName = category.name;
+      const updatedCategory = await category.editFields(unpopulate(req.body));
+
+      await updatedCategory.updateChildrenPaths(oldName);
+      const diffTime = utils.getExecutionTimeInMs(process.hrtime(startTime));
+
+      res.send({ res: updatedCategory, time: diffTime });
+    } catch (err) {
+      next(err);
+    }
+  },
+  async remove(req, res, next) {
+    const startTime = process.hrtime();
     const session = await Category.startSession();
 
     session.startTransaction();
     try {
       // Get category
-      const category = await Category.load(req.params.categoryIdSession, session);
+      const category = await Category.load(req.params.categoryId, session);
 
       // Remove category from sales and purchases
       const query = { 'products.category': category._id };
@@ -96,11 +124,13 @@ module.exports = {
 
       await session.commitTransaction();
       session.endSession();
-      res.sendStatus(200);
+      const diffTime = utils.getExecutionTimeInMs(process.hrtime(startTime));
+
+      res.send({ res: { status: 200 }, time: diffTime });
     } catch (err) {
       await session.abortTransaction();
       session.endSession();
-      throw err;
+      next(err);
     }
   },
 };
