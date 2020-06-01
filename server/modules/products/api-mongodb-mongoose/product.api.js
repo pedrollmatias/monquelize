@@ -37,7 +37,7 @@ module.exports = {
     session.startTransaction();
     try {
       // Add product
-      const product = Product.create(req.body, session);
+      const product = await Product.create(req.body);
 
       // Populate product
       const queryPopulate = [

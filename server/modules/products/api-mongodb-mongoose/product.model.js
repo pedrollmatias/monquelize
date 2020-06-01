@@ -13,6 +13,7 @@ const ProductSchema = new Schema(
     sku: {
       type: String,
       index: true,
+      unique: true,
       required: true,
     },
     name: {
@@ -97,11 +98,11 @@ ProductSchema.static({
 
     return product;
   },
-  async create(product, session) {
+  async create(product) {
     const Product = this;
     const productDoc = new Product(product);
 
-    return productDoc.save().session(session);
+    return productDoc.save();
   },
 });
 
