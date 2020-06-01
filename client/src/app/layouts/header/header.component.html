@@ -4,7 +4,9 @@
     <div class="d-flex">
       <ng-container *ngFor="let navItem of navList">
         <div class="px-2">
-          <button mat-button [routerLink]="navItem.path">{{ navItem.label.toUpperCase() }}</button>
+          <button mat-button [routerLink]="navItem.path">
+            <span class="nav-item">{{ navItem.label }}</span>
+          </button>
         </div>
       </ng-container>
     </div>
