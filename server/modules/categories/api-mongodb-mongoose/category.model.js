@@ -84,9 +84,18 @@ CategorySchema.pre('validate', async function () {
   return category.setPath();
 });
 
-// CategorySchema.pre('findOne', function () {
-//   this.populate('parent');
-// });
+CategorySchema.pre('remove', async function preventRemoveCategoryWithChildren() {
+  const category = this;
+  const childrenCategories = await category.findChildren(category.name);
+
+  if (childrenCategories.length) {
+    throw new Error('Can not remove category with children categories');
+  }
+});
+
+CategorySchema.pre('findOne', function populateCategory() {
+  this.populate('parent');
+});
 
 CategorySchema.static({
   async load(categoryId, session) {
@@ -101,11 +110,23 @@ CategorySchema.static({
 
     return category;
   },
-  async create(category, session) {
+  async create(category) {
     const Category = this;
     const categoryDoc = new Category(category);
 
-    return categoryDoc.save().session(session);
+    return categoryDoc.save();
+  },
+});
+
+CategorySchema.method({
+  async editFields(data) {
+    const category = this;
+
+    for (const key of Object.keys(data)) {
+      category.set(key, data[key]);
+    }
+
+    return category.save();
   },
   isParent(category) {
     return getPathRegex(this.name).test(category.path);
@@ -131,18 +152,6 @@ CategorySchema.static({
 
       await child.save();
     }
-  },
-});
-
-CategorySchema.method({
-  async editFields(data) {
-    const category = this;
-
-    for (const key of Object.keys(data)) {
-      category.set(key, data[key]);
-    }
-
-    return category.save();
   },
 });
 
