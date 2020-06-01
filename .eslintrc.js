@@ -11,7 +11,7 @@ module.exports = {
   },
   rules: {
     radix: ['error', 'always'],
-    'no-unused-vars': ['error', { ignoreRestSiblings: true }],
+    'no-unused-vars': ['error', { ignoreRestSiblings: true, argsIgnorePattern: 'next' }],
     strict: ['error', 'global'],
     'eol-last': ['error', 'always'],
     indent: 'off',
