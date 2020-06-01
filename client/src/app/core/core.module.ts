@@ -1,10 +1,17 @@
-import { NgModule, SkipSelf, Optional } from '@angular/core';
+import { NgModule, SkipSelf, Optional, ErrorHandler } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ServerInterceptor } from './interceptors/server.interceptor';
+import { GlobalErrorHandler } from './classes/global-error-handler';
 import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [],
   imports: [HttpClientModule, CommonModule],
+  providers: [
+    { provide: ErrorHandler, useClass: GlobalErrorHandler },
+    { provide: HTTP_INTERCEPTORS, useClass: ServerInterceptor, multi: true },
+  ],
 })
 export class CoreModule {
   constructor(@Optional() @SkipSelf() parentModule: CoreModule) {
