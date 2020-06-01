@@ -1,3 +1,12 @@
-.form-group-title {
-	width: 200px;
+.product-img-card {
+  width: 252px;
+  height: 252px;
+}
+
+.lg-text-input {
+  font-size: 17px;
+
+  .mat-error {
+    font-size: 10px !important;
+  }
 }
