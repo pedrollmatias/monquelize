@@ -10,4 +10,8 @@ export class UtilsService {
   getFormArrayControl(form: AbstractControl, path: string[]): FormArray {
     return <FormArray>form.get(path);
   }
+
+  round(value: number, decimals: number): number {
+    return Number(value.toFixed(decimals));
+  }
 }
