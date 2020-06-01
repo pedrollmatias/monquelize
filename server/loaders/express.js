@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const routes = require('../modules');
 const config = require('../config');
+const Logger = require('./logger');
 
 module.exports = (app, serverId) => {
   // Health Check endpoints
@@ -17,15 +18,21 @@ module.exports = (app, serverId) => {
   app.enable('trust proxy');
   app.use(cors());
   app.use(bodyParser.json());
+
+  app.use((req, res, next) => {
+    Logger.info(`Request URL: ${req.originalUrl}`);
+    next();
+  });
+
   app.use(config.api.prefix, routes(serverId));
 
-  /// catch 404 and forward to error handler
-  app.use((req, res, next) => {
-    const err = new Error('Not Found');
+  // /// catch 404 and forward to error handler
+  // app.use((req, res, next) => {
+  //   const err = new Error('Not Found');
 
-    err.status = 404;
-    next(err);
-  });
+  //   err.status = 404;
+  //   next(err);
+  // });
 
   // Error handlers
   app.use((err, req, res, next) => {
@@ -36,8 +43,8 @@ module.exports = (app, serverId) => {
 
     return next(err);
   });
-  app.use((err, req, res) => {
-    res.status(err.status || 500);
-    res.json({ errors: { message: err.message } });
+
+  app.use((err, req, res, next) => {
+    res.status(err.status || 500).send(err.message);
   });
 };
