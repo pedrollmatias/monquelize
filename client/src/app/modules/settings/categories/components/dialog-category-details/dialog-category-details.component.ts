@@ -99,14 +99,13 @@ export class DialogCategoryDetailsComponent implements OnInit {
     } else {
       this.dialogRef.disableClose = true;
       this.showLoadingArea = true;
+      const category = this.formatCategory(this.categoryForm.value);
       if (this.isNewCategory) {
-        const category = this.formatCategory(this.categoryForm.value);
         this.categoryApi.createCategory(category).subscribe((categoryRes: IHttpRes) => {
           this.showDoneButton = true;
           this.mongodbMongooseTime = categoryRes.time;
         });
       } else {
-        const category = this.formatCategory(this.categoryForm.value);
         this.categoryApi.editCategory(this.categoryId, category).subscribe((categoryRes: IHttpRes) => {
           this.showDoneButton = true;
           this.mongodbMongooseTime = categoryRes.time;

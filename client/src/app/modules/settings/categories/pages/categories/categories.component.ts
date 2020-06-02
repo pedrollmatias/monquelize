@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { ICategory } from 'src/app/shared/models/category.model';
 import { ApiCategoryService } from 'src/app/core/api/api-category.service';
-import { UtilsService } from 'src/app/core/services/utils.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogCategoryDetailsComponent } from '../../components/dialog-category-details/dialog-category-details.component';
 import { switchMap } from 'rxjs/operators';

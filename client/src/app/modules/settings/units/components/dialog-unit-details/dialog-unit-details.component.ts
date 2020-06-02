@@ -93,14 +93,13 @@ export class DialogUnitDetailsComponent implements OnInit {
     } else {
       this.dialogRef.disableClose = true;
       this.showLoadingArea = true;
+      const unit = this.formatUnit(this.unitForm.value);
       if (this.isNewUnit) {
-        const unit = this.formatUnit(this.unitForm.value);
         this.unitApi.createUnit(unit).subscribe((unitRes: IHttpRes) => {
           this.showDoneButton = true;
           this.mongodbMongooseTime = unitRes.time;
         });
       } else {
-        const unit = this.formatUnit(this.unitForm.value);
         this.unitApi.editUnit(this.unitId, unit).subscribe((unitRes: IHttpRes) => {
           this.showDoneButton = true;
           this.mongodbMongooseTime = unitRes.time;
