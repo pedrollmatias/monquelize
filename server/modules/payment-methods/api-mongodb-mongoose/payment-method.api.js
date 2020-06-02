@@ -3,38 +3,53 @@
 const PaymentMethod = require('./payment-method.model');
 const Sale = require('../../sales/api-mongodb-mongoose/sale.model');
 const Purchase = require('../../purchases/api-mongodb-mongoose/purchase.model');
+const utils = require('../../../utils');
 
 module.exports = {
-  async load(req, res, next, paymentMethodId) {
-    const paymentMethod = await PaymentMethod.findById(paymentMethodId);
+  async get(req, res, next) {
+    try {
+      const startTime = process.hrtime();
+      const query = req.query || {};
+      const paymentMethod = await PaymentMethod.find(query);
+      const diffTime = utils.getExecutionTimeInMs(process.hrtime(startTime));
 
-    if (!paymentMethod) {
-      throw new Error('Payment method not found');
+      res.send({ res: paymentMethod, time: diffTime });
+    } catch (err) {
+      next(err);
     }
-    req.paymentMethod = paymentMethod;
-    next();
   },
-  async get(req, res) {
-    const query = req.query || {};
-    const paymentMethod = await PaymentMethod.find(query);
+  async query(req, res, next) {
+    try {
+      const startTime = process.hrtime();
+      const paymentMethod = await PaymentMethod.load(req.params.paymentMethodId);
 
-    res.send(paymentMethod);
-  },
-  query(req, res) {
-    res.send(req.paymentMethod);
-  },
-  async create(req, res) {
-    const paymentMethod = await PaymentMethod.create(req.body);
+      const diffTime = utils.getExecutionTimeInMs(process.hrtime(startTime));
 
-    res.send(paymentMethod);
+      res.send({ res: paymentMethod, time: diffTime });
+    } catch (err) {
+      next(err);
+    }
   },
-  async edit(req, res) {
+  async create(req, res, next) {
+    const startTime = process.hrtime();
+
+    try {
+      const paymentMethod = await PaymentMethod.create(req.body);
+      const diffTime = utils.getExecutionTimeInMs(process.hrtime(startTime));
+
+      res.send({ res: paymentMethod, time: diffTime });
+    } catch (err) {
+      next(err);
+    }
+  },
+  async edit(req, res, next) {
+    const startTime = process.hrtime();
     const session = await PaymentMethod.startSession();
 
     session.startTransaction();
     try {
       // Update payment method
-      const paymentMethod = await PaymentMethod.load(req.params.paymentMethodIdSession, session);
+      const paymentMethod = await PaymentMethod.load(req.params.paymentMethodId, session);
       const updatedPaymentMethod = await paymentMethod.editFields(req.body);
 
       // Update payment method in sales and purchases if name was modified
@@ -62,20 +77,23 @@ module.exports = {
 
       await session.commitTransaction();
       session.endSession();
-      res.send(updatedPaymentMethod);
+      const diffTime = utils.getExecutionTimeInMs(process.hrtime(startTime));
+
+      res.send({ res: updatedPaymentMethod, time: diffTime });
     } catch (err) {
       await session.abortTransacttion();
       session.endSession();
-      throw err;
+      next(err);
     }
   },
-  async remove(req, res) {
+  async remove(req, res, next) {
+    const startTime = process.hrtime();
     const session = await PaymentMethod.startSession();
 
     session.startTransaction();
     try {
       // Get payment method
-      const paymentMethod = await PaymentMethod.load(req.params.paymentMethodIdSession, session);
+      const paymentMethod = await PaymentMethod.load(req.params.paymentMethodId, session);
 
       // Remove payment method ref in sales and purchases
       const query = { 'payment.paymentMethodRef': paymentMethod._id };
@@ -103,11 +121,13 @@ module.exports = {
 
       await session.commitTransaction();
       session.endSession();
-      res.sendStatus(200);
+      const diffTime = utils.getExecutionTimeInMs(process.hrtime(startTime));
+
+      res.send({ res: { status: 200 }, time: diffTime });
     } catch (err) {
       await session.abortTransacttion();
       session.endSession();
-      throw err;
+      next(err);
     }
   },
 };

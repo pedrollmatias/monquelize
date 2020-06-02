@@ -14,8 +14,5 @@ module.exports = (app, serverId) => {
 
   router.route('/create').post(api.create);
 
-  router.param('paymentMethodId', api.load);
-  router.route('/:paymentMethodId').get(api.query);
-
-  router.route('/:paymentMethodIdSession').post(api.edit).delete(api.remove);
+  router.route('/:paymentMethodId').get(api.query).post(api.edit).delete(api.remove);
 };
