@@ -1,4 +1,7 @@
 <div class="container py-5">
+  <div class="pb-5">
+    <app-element-loading-area [mongodbMongooseTime]="mongodbMongooseTime"></app-element-loading-area>
+  </div>
   <div class="d-flex align-items-center justify-content-between pb-5">
     <div>
       <div>
@@ -13,195 +16,139 @@
     </div>
   </div>
   <div>
-    <form [formGroup]="productForm" autocomplete="off">
-      <mat-card class="px-5 py-4">
-        <div class="d-flex pb-4">
-          <div class="pr-5">
-            <mat-card class="product-img-card d-flex flex-column justify-content-center align-items-center color-grey">
-              <div class="pb-2">
-                <i class="material-icons-outlined">image</i>
-              </div>
-              <div>
-                <span><em>No image</em></span>
-              </div>
-            </mat-card>
-          </div>
-          <div class="d-flex justify-content-center flex-column flex-grow-1">
-            <div class="d-flex pt-3 pb-2">
-              <div class="pr-5">
-                <mat-form-field class="lg-text-input">
-                  <mat-label>SKU</mat-label>
-                  <input matInput formControlName="sku" required />
-                  <mat-error>Field required</mat-error>
-                </mat-form-field>
+    <ng-container *ngIf="dataReady; else loading">
+      <form [formGroup]="productForm" (ngSubmit)="saveProduct()">
+        <mat-card class="px-5 py-4">
+          <div class="d-flex pb-4">
+            <div class="pr-5">
+              <mat-card
+                class="product-img-card d-flex flex-column justify-content-center align-items-center color-grey"
+              >
+                <div class="pb-2">
+                  <i class="material-icons-outlined">image</i>
+                </div>
+                <div>
+                  <span><em>No image</em></span>
+                </div>
+              </mat-card>
+            </div>
+            <div class="d-flex justify-content-center flex-column flex-grow-1">
+              <div class="d-flex pt-3 pb-2">
+                <div class="pr-5">
+                  <mat-form-field class="lg-text-input">
+                    <mat-label>SKU</mat-label>
+                    <input matInput formControlName="sku" required />
+                    <mat-error>Field required</mat-error>
+                  </mat-form-field>
+                </div>
+                <div class="flex-grow-1">
+                  <mat-form-field class="lg-text-input w-100">
+                    <mat-label>Name</mat-label>
+                    <input matInput formControlName="name" required />
+                    <mat-error>Field required</mat-error>
+                  </mat-form-field>
+                </div>
+                <div class="pl-5" *ngIf="productForm.get('salePrice').value">
+                  <span class="mat-title m-0">
+                    <strong>$ {{ productForm.get('salePrice').value }}</strong>
+                  </span>
+                </div>
               </div>
               <div class="flex-grow-1">
-                <mat-form-field class="lg-text-input w-100">
-                  <mat-label>Name</mat-label>
-                  <input matInput formControlName="name" required />
-                  <mat-error>Field required</mat-error>
+                <mat-form-field class="w-100 h-100" appearance="outline">
+                  <mat-label>Description</mat-label>
+                  <textarea
+                    matInput
+                    matTextareaAutosize
+                    matAutosizeMinRows="9"
+                    matAutosizeMaxRows="9"
+                    formControlName="description"
+                  ></textarea>
                 </mat-form-field>
               </div>
-              <div class="pl-5" *ngIf="productForm.get('salePrice').value">
-                <span class="mat-title m-0">
-                  <strong>$ {{ productForm.get('salePrice').value }}</strong>
-                </span>
-              </div>
-            </div>
-            <div class="flex-grow-1">
-              <mat-form-field class="w-100 h-100" appearance="outline">
-                <mat-label>Description</mat-label>
-                <textarea
-                  matInput
-                  matTextareaAutosize
-                  matAutosizeMinRows="9"
-                  matAutosizeMaxRows="9"
-                  formControlName="description"
-                ></textarea>
-              </mat-form-field>
             </div>
           </div>
-        </div>
-        <div>
-          <mat-tab-group>
-            <mat-tab label="Product info">
-              <div class="d-flex pt-4 pb-5">
-                <div class="flex-grow-1 pr-5">
-                  <mat-form-field class="w-100">
-                    <mat-label>Category</mat-label>
-                    <input matInput class="mat-title" formControlName="category" />
-                  </mat-form-field>
+          <div>
+            <mat-tab-group>
+              <mat-tab label="Product info">
+                <div class="d-flex pt-4 pb-5">
+                  <div class="flex-grow-1 pr-5">
+                    <mat-form-field class="w-100">
+                      <mat-label>Category</mat-label>
+                      <mat-select matInput formControlName="category">
+                        <mat-option value="">None</mat-option>
+                        <ng-container *ngFor="let category of categories">
+                          <mat-option [value]="category">
+                            {{ category.path }}
+                          </mat-option>
+                        </ng-container>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+                  <div class="flex-grow-1 pr-5">
+                    <mat-form-field class="w-100">
+                      <mat-label>Unit</mat-label>
+                      <mat-select matInput formControlName="unit" required>
+                        <mat-option value="">None</mat-option>
+                        <ng-container *ngFor="let unit of units">
+                          <mat-option [value]="unit"> {{ unit.unit }} ({{ unit.shortUnit }}) </mat-option>
+                        </ng-container>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+                  <div class="flex-grow-1 pr-5">
+                    <mat-form-field class="w-100">
+                      <mat-label>Sale price</mat-label>
+                      <input matInput formControlName="salePrice" required />
+                    </mat-form-field>
+                  </div>
+                  <div class="flex-grow-1">
+                    <mat-form-field class="w-100">
+                      <mat-label>Cost price</mat-label>
+                      <input matInput formControlName="costPrice" />
+                    </mat-form-field>
+                  </div>
                 </div>
-                <div class="flex-grow-1 pr-5">
-                  <mat-form-field class="w-100">
-                    <mat-label>Unit</mat-label>
-                    <input matInput class="mat-title" formControlName="unit" required />
-                  </mat-form-field>
+              </mat-tab>
+              <mat-tab label="Inventory">
+                <div class="d-flex pt-4 pb-5" formGroupName="inventory">
+                  <div class="flex-grow-1 pr-5">
+                    <mat-form-field class="w-100">
+                      <mat-label>Current amount</mat-label>
+                      <input matInput formControlName="currentAmount" required />
+                    </mat-form-field>
+                  </div>
+                  <div class="flex-grow-1 pr-5">
+                    <mat-form-field class="w-100">
+                      <mat-label>Minimum amount</mat-label>
+                      <input matInput formControlName="minAmount" required />
+                    </mat-form-field>
+                  </div>
+                  <div class="flex-grow-1">
+                    <mat-form-field class="w-100">
+                      <mat-label>Maximum amount</mat-label>
+                      <input matInput formControlName="maxAmount" />
+                    </mat-form-field>
+                  </div>
                 </div>
-                <div class="flex-grow-1 pr-5">
-                  <mat-form-field class="w-100">
-                    <mat-label>Sale price</mat-label>
-                    <input matInput class="mat-title" formControlName="salePrice" required />
-                  </mat-form-field>
-                </div>
-                <div class="flex-grow-1">
-                  <mat-form-field class="w-100">
-                    <mat-label>Cost price</mat-label>
-                    <input matInput class="mat-title" formControlName="costPrice" />
-                  </mat-form-field>
-                </div>
-              </div>
-            </mat-tab>
-            <mat-tab label="Inventory">
-              <div class="d-flex pt-4 pb-5" formGroupName="inventory">
-                <div class="flex-grow-1 pr-5">
-                  <mat-form-field class="w-100">
-                    <mat-label>Current amount</mat-label>
-                    <input matInput class="mat-title" formControlName="currentAmount" required />
-                  </mat-form-field>
-                </div>
-                <div class="flex-grow-1 pr-5">
-                  <mat-form-field class="w-100">
-                    <mat-label>Minimum amount</mat-label>
-                    <input matInput class="mat-title" formControlName="minAmount" required />
-                  </mat-form-field>
-                </div>
-                <div class="flex-grow-1">
-                  <mat-form-field class="w-100">
-                    <mat-label>Maximum amount</mat-label>
-                    <input matInput class="mat-title" formControlName="maxAmount" />
-                  </mat-form-field>
-                </div>
-              </div>
-            </mat-tab>
-          </mat-tab-group>
-        </div>
-        <!-- <div class="d-flex">
-          <div class="form-group-title d-flex align-items-center pr-5">
-            <strong class="mat-title">Product details</strong>
+              </mat-tab>
+            </mat-tab-group>
           </div>
-          <div class="flex-grow-1">
-            <app-element-form-field
-              _label="SKU"
-              minWidth="210px"
-              [_formControl]="productForm.get('sku')"
-              [_required]="true"
-            ></app-element-form-field>
-            <app-element-form-field
-              _label="Name"
-              minWidth="210px"
-              [_formControl]="productForm.get('name')"
-              [_required]="true"
-            ></app-element-form-field>
-            <app-element-form-field
-              _label="Description"
-              minWidth="210px"
-              [_formControl]="productForm.get('description')"
-              [_required]="true"
-            ></app-element-form-field>
-            <app-element-form-field
-              _label="Category"
-              minWidth="210px"
-              [_formControl]="productForm.get('category')"
-              [_required]="true"
-            ></app-element-form-field>
-            <app-element-form-field
-              _label="Unit"
-              minWidth="210px"
-              [_formControl]="productForm.get('unit')"
-              [_required]="true"
-            ></app-element-form-field>
-            <app-element-form-field
-              _label="Sale price"
-              minWidth="210px"
-              [_formControl]="productForm.get('salePrice')"
-              [_required]="true"
-            ></app-element-form-field>
-            <app-element-form-field
-              _label="Cost price"
-              minWidth="210px"
-              [_formControl]="productForm.get('costPrice')"
-              [_required]="true"
-            ></app-element-form-field>
+        </mat-card>
+        <div class="d-flex justify-content-end py-5">
+          <div class="pr-4">
+            <button mat-button type="button" routerLink="/products">Cancel</button>
+          </div>
+          <div>
+            <button mat-flat-button color="primary" type="submit">Save product</button>
           </div>
         </div>
-        <div class="py-5">
-          <mat-divider></mat-divider>
-        </div>
-        <div class="d-flex">
-          <div class="form-group-title d-flex align-items-center pr-5">
-            <strong class="mat-title">Inventory</strong>
-          </div>
-          <div class="flex-grow-1">
-            <app-element-form-field
-              _label="Initial amount"
-              minWidth="210px"
-              [_formControl]="productForm.get(['inventory', 'initialAmount'])"
-              [_required]="true"
-            ></app-element-form-field>
-            <app-element-form-field
-              _label="Minimum Amount"
-              minWidth="210px"
-              [_formControl]="productForm.get(['inventory', 'minimumAmount'])"
-              [_required]="true"
-            ></app-element-form-field>
-            <app-element-form-field
-              _label="Maximum amount"
-              minWidth="210px"
-              [_formControl]="productForm.get(['inventory', 'maximumAmount'])"
-              [_required]="true"
-            ></app-element-form-field>
-          </div>
-        </div> -->
-      </mat-card>
-      <div class="d-flex justify-content-end py-5">
-        <div class="pr-4">
-          <button mat-button type="button" routerLink="/products">Cancel</button>
-        </div>
-        <div>
-          <button mat-flat-button color="primary" type="submit">Save product</button>
-        </div>
+      </form>
+    </ng-container>
+    <ng-template #loading>
+      <div class="d-flex justify-content-center align-items-center py-5">
+        <mat-spinner [diameter]="30"></mat-spinner>
       </div>
-    </form>
+    </ng-template>
   </div>
 </div>

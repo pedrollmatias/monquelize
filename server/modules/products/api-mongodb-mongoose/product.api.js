@@ -4,34 +4,47 @@ const Product = require('./product.model');
 const Category = require('../../categories/api-mongodb-mongoose/category.model');
 const Sale = require('../../sales/api-mongodb-mongoose/sale.model');
 const Purchase = require('../../purchases/api-mongodb-mongoose/purchase.model');
+const utils = require('../../../utils');
 
 module.exports = {
-  async load(req, res, next, productId) {
-    const product = await Product.findById(productId);
+  async get(req, res, next) {
+    const startTime = process.hrtime();
 
-    if (!product) {
-      throw new Error('Product not found');
+    try {
+      const query = req.query || {};
+      const queryPopulate = [
+        { path: 'category', select: 'name' },
+        { path: 'unit', select: ['unit', 'shortUnit'] },
+      ];
+      const product = await Product.find(query).populate(queryPopulate);
+      const diffTime = utils.getExecutionTimeInMs(process.hrtime(startTime));
+
+      res.send({ res: product, time: diffTime });
+    } catch (err) {
+      next(err);
     }
-    req.product = product;
-    next();
   },
-  async get(req, res) {
-    const query = req.query || {};
-    const product = await Product.find(query);
+  async query(req, res, next) {
+    const startTime = process.hrtime();
 
-    res.send(product);
+    try {
+      const queryPopulate = [
+        { path: 'category', select: 'name' },
+        { path: 'unit', select: ['unit', 'shortUnit'] },
+      ];
+      const product = await Product.load(req.params.productId);
+
+      await product.populate(queryPopulate).execPopulate();
+
+      const diffTime = utils.getExecutionTimeInMs(process.hrtime(startTime));
+
+      res.send({ res: product, time: diffTime });
+    } catch (err) {
+      next(err);
+    }
   },
-  async query(req, res) {
-    const queryPopulate = [
-      { path: 'category', select: 'name' },
-      { path: 'unit', select: ['unit', 'shortUnit'] },
-    ];
-
-    await req.product.populate(queryPopulate).execPopulate();
-
-    res.send(req.product);
-  },
-  async create(req, res) {
+  async create(req, res, next) {
+    const startTime = process.hrtime();
     const session = await Product.startSession();
 
     session.startTransaction();
@@ -66,20 +79,23 @@ module.exports = {
 
       await session.commitTransaction();
       session.endSession();
-      res.send(product);
+      const diffTime = utils.getExecutionTimeInMs(process.hrtime(startTime));
+
+      res.send({ res: product, time: diffTime });
     } catch (err) {
       await session.abortTransaction();
       session.endSession();
-      throw err;
+      next(err);
     }
   },
-  async edit(req, res) {
+  async edit(req, res, next) {
+    const startTime = process.hrtime();
     const session = await Product.startSession();
 
     session.startTransaction();
     try {
       // Edit product
-      const product = await Product.load(req.params.productIdSession, session);
+      const product = await Product.load(req.params.productId, session);
       const updatedProduct = await product.editFields(req.body);
 
       //Populate product
@@ -157,20 +173,23 @@ module.exports = {
 
       await session.commitTransaction();
       session.endSession();
-      res.send(updatedProduct);
+      const diffTime = utils.getExecutionTimeInMs(process.hrtime(startTime));
+
+      res.send({ res: updatedProduct, time: diffTime });
     } catch (err) {
       await session.abortTransaction();
       session.endSession();
-      throw err;
+      next(err);
     }
   },
-  async remove(req, res) {
+  async remove(req, res, next) {
+    const startTime = process.hrtime();
     const session = await Product.startSession();
 
     session.startTransaction();
     try {
       // Get product
-      const product = await Product.load(req.params.productIdSession, session);
+      const product = await Product.load(req.params.productId, session);
 
       // Remove product in category
       const category = await Category.load(product.category, session);
@@ -212,11 +231,13 @@ module.exports = {
 
       await session.commitTransaction();
       session.endSession();
-      res.sendStatus(200);
+      const diffTime = utils.getExecutionTimeInMs(process.hrtime(startTime));
+
+      res.sendStatus({ res: { status: 200 }, time: diffTime });
     } catch (err) {
       await session.abortTransaction();
       session.endSession();
-      throw err;
+      next(err);
     }
   },
 };

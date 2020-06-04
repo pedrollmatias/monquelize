@@ -14,8 +14,5 @@ module.exports = (app, serverId) => {
 
   router.route('/create').post(api.create);
 
-  router.param('productId', api.load);
   router.route('/:productId').get(api.query).post(api.edit).delete(api.remove);
-
-  router.route('/:productIdSession').post(api.edit).delete(api.remove);
 };
