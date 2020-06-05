@@ -6,6 +6,12 @@ const Sale = require('../../sales/api-mongodb-mongoose/sale.model');
 const Purchase = require('../../purchases/api-mongodb-mongoose/purchase.model');
 const utils = require('../../../utils');
 
+function hasToUpdateInSalesOrPurchases(oldProduct, newProduct) {
+  const relevantFields = ['sku', 'name', 'category', 'unit'];
+
+  return relevantFields.some((field) => oldProduct[field] !== newProduct[field]);
+}
+
 module.exports = {
   async get(req, res, next) {
     const startTime = process.hrtime();
@@ -60,22 +66,24 @@ module.exports = {
 
       await product.populate(queryPopulate).execPopulate();
 
-      // Add prodcut in category
-      const category = await Category.load(product.category._id, session);
-      const categoryProducts = category.products;
+      if (product.category) {
+        // Add prodcut in category
+        const category = await Category.load(product.category._id, session);
+        const categoryProducts = category.products;
 
-      categoryProducts.push({
-        productRef: product._id,
-        sku: product.sku,
-        name: product.name,
-        unit: {
-          unitRef: product.unit._id,
-          shortUnit: product.unit.shortUnit,
-        },
-        salePrice: product.salePrice,
-      });
+        categoryProducts.push({
+          productRef: product._id,
+          sku: product.sku,
+          name: product.name,
+          unit: {
+            unitRef: product.unit._id,
+            shortUnit: product.unit.shortUnit,
+          },
+          salePrice: product.salePrice,
+        });
 
-      await category.editFields({ products: categoryProducts });
+        await category.editFields({ products: categoryProducts });
+      }
 
       await session.commitTransaction();
       session.endSession();
@@ -95,8 +103,11 @@ module.exports = {
     session.startTransaction();
     try {
       // Edit product
-      const product = await Product.load(req.params.productId, session);
-      const updatedProduct = await product.editFields(req.body);
+      let product = await Product.load(req.params.productId, session);
+      const productObj = product.toObject();
+      const updatedProduct = await product.edit(req.body);
+
+      product = productObj; // Restore old product object
 
       //Populate product
       const queryPopulate = [
@@ -107,69 +118,48 @@ module.exports = {
       await updatedProduct.populate(queryPopulate).execPopulate();
 
       // Update product in sales and purchases if sku, name, category, unit was modified
-      const hasToUpdateInSalesOrPurchases = ['sku', 'name', 'category', 'unit'].some((field) =>
-        Object.prototype.hasOwnProperty.call(req.body, field)
-      );
-
-      if (hasToUpdateInSalesOrPurchases) {
+      if (hasToUpdateInSalesOrPurchases(product, updatedProduct)) {
         const query = { 'products.productRef': updatedProduct._id };
         const sales = await Sale.find(query);
         const purchases = await Purchase.find(query);
 
         for (const sale in sales) {
-          const saleProducts = sale.products.map((saleProduct) => {
-            if (saleProduct.productRef.equals(updatedProduct._id)) {
-              saleProduct.sku = updatedProduct.sku;
-              saleProduct.name = updatedProduct.name;
-              saleProduct.category = (updatedProduct.category && updatedProduct.category._id) || undefined;
-              saleProduct.unit = {
-                unitRef: updatedProduct.unit._id,
-                shortUnit: updatedProduct.unit.shortUnit,
-              };
-            }
-
-            return saleProduct;
-          });
-
-          await sale.editFields({ products: saleProducts });
+          await sale.editProduct(updatedProduct);
         }
 
         for (const purchase in purchases) {
-          const purchaseProducts = purchase.products.map((purchaseProduct) => {
-            if (purchaseProduct.productRef.equals(updatedProduct._id)) {
-              purchaseProduct.sku = updatedProduct.sku;
-              purchaseProduct.name = updatedProduct.name;
-              purchaseProduct.category = (updatedProduct.category && updatedProduct.category._id) || undefined;
-              purchaseProduct.unit = {
-                unitRef: updatedProduct.unit._id,
-                shortUnit: updatedProduct.unit.shortUnit,
-              };
-            }
-
-            return purchaseProduct;
-          });
-
-          await purchase.editFields({ products: purchaseProducts });
+          await purchase.editProduct(updatedProduct);
         }
       }
 
       // Update product in category
-      const category = await Category.load(product.category._id, session);
-      const categoryProducts = category.products.map((categoryProduct) => {
-        if (categoryProduct.productRef.equals(updatedProduct._id)) {
-          categoryProduct.sku = updatedProduct.sku;
-          categoryProduct.name = updatedProduct.name;
-          categoryProduct.unit = {
-            unitRef: updatedProduct.unit._id,
-            shortUnit: updatedProduct.unit.shortUnit,
-          };
-          categoryProduct.salePrice = updatedProduct.salePrice;
+      if (updatedProduct.category) {
+        if (!product.category) {
+          // Add category
+          const category = await Category.load(product.category, session);
+
+          await category.addProduct(updatedProduct.toObject());
+        } else if (product.category && product.category.equals(updatedProduct.category._id)) {
+          // Same category
+          const category = await Category.load(updatedProduct.category._id, session);
+
+          await category.editProcut(updatedProduct);
+        } else if (product.category && !product.category.equals(updatedProduct.category._id)) {
+          // Change category
+          const oldCategory = await Category.load(product.category, session);
+          const category = await Category.load(updatedProduct.category._id, session);
+
+          await oldCategory.removeProduct(updatedProduct._id);
+          await category.addProduct(updatedProduct.toObject());
         }
+      } else {
+        if (product.category) {
+          // Remove category
+          const category = await Category.load(product.category, session);
 
-        return updatedProduct;
-      });
-
-      await category.editFields({ products: categoryProducts });
+          await category.removeProduct(updatedProduct._id);
+        }
+      }
 
       await session.commitTransaction();
       session.endSession();
@@ -192,10 +182,11 @@ module.exports = {
       const product = await Product.load(req.params.productId, session);
 
       // Remove product in category
-      const category = await Category.load(product.category, session);
-      const categoryProducts = category.products.filter((categoryProduct) => !categoryProduct._id.equals(product._id));
+      if (product.category) {
+        const category = await Category.load(product.category, session);
 
-      await category.editFields({ products: categoryProducts });
+        await category.removeProduct(product._id);
+      }
 
       // Remove product reference in sales and purchases
       const query = { 'products.productRef': product._id };
@@ -203,27 +194,11 @@ module.exports = {
       const purchases = await Purchase.find(query);
 
       for (const sale in sales) {
-        const saleProducts = sale.products.map((saleProduct) => {
-          if (saleProduct.productRef.equals(product._id)) {
-            saleProduct.productRef = undefined;
-          }
-
-          return saleProduct;
-        });
-
-        await sale.editFields({ products: saleProducts });
+        await sale.removeProduct(product._id);
       }
 
       for (const purchase in purchases) {
-        const purchaseProducts = purchase.products.map((purchaseProduct) => {
-          if (purchaseProduct.productRef.equals(product._id)) {
-            purchaseProduct.productRef = undefined;
-          }
-
-          return purchaseProduct;
-        });
-
-        await purchase.editFields({ products: purchaseProducts });
+        await purchase.removeProduct(product._id);
       }
 
       // Remove product
@@ -233,7 +208,7 @@ module.exports = {
       session.endSession();
       const diffTime = utils.getExecutionTimeInMs(process.hrtime(startTime));
 
-      res.sendStatus({ res: { status: 200 }, time: diffTime });
+      res.send({ res: { status: 200 }, time: diffTime });
     } catch (err) {
       await session.abortTransaction();
       session.endSession();

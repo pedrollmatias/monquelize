@@ -112,6 +112,13 @@ ProductSchema.static({
 });
 
 ProductSchema.method({
+  async edit(data) {
+    const product = this;
+
+    product.overwrite(data);
+
+    return product.save();
+  },
   async editFields(data) {
     const product = this;
 

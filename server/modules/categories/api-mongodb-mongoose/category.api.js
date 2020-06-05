@@ -64,7 +64,7 @@ module.exports = {
     try {
       const category = await Category.load(req.params.categoryId);
       const oldName = category.name;
-      const updatedCategory = await category.editFields(unpopulate(req.body));
+      const updatedCategory = await category.edit(unpopulate(req.body));
 
       await updatedCategory.updateChildrenPaths(oldName);
       const diffTime = utils.getExecutionTimeInMs(process.hrtime(startTime));

@@ -128,6 +128,36 @@ SaleSchema.method({
 
     return sale.save();
   },
+  async editProduct(product) {
+    const sale = this;
+    const saleProducts = sale.products.map((saleProduct) => {
+      if (saleProduct.productRef.equals(product._id)) {
+        saleProduct.sku = product.sku;
+        saleProduct.name = product.name;
+        saleProduct.category = (product.category && product.category._id) || undefined;
+        saleProduct.unit = {
+          unitRef: product.unit._id,
+          shortUnit: product.unit.shortUnit,
+        };
+      }
+
+      return saleProduct;
+    });
+
+    return sale.editFields({ products: saleProducts });
+  },
+  async removeProductRef(productId) {
+    const sale = this;
+    const saleProducts = sale.products.map((saleProduct) => {
+      if (saleProduct.productRef.equals(productId)) {
+        saleProduct.productRef = undefined;
+      }
+
+      return saleProduct;
+    });
+
+    return sale.editFields({ products: saleProducts });
+  },
 });
 
 module.exports = mongoose.model('Sale', SaleSchema);

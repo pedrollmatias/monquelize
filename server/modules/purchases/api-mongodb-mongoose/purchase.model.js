@@ -125,6 +125,36 @@ PurchaseSchema.method({
 
     return purchase.save();
   },
+  async editProduct(product) {
+    const purchase = this;
+    const purchaseProducts = purchase.products.map((purchaseProduct) => {
+      if (purchaseProduct.productRef.equals(product._id)) {
+        purchaseProduct.sku = product.sku;
+        purchaseProduct.name = product.name;
+        purchaseProduct.category = (product.category && product.category._id) || undefined;
+        purchaseProduct.unit = {
+          unitRef: product.unit._id,
+          shortUnit: product.unit.shortUnit,
+        };
+      }
+
+      return purchaseProduct;
+    });
+
+    return purchase.editFields({ products: purchaseProducts });
+  },
+  async removeProductRef(productId) {
+    const purchase = this;
+    const purchaseProducts = purchase.products.map((purchaseProduct) => {
+      if (purchaseProduct.productRef.equals(productId)) {
+        purchaseProduct.productRef = undefined;
+      }
+
+      return purchaseProduct;
+    });
+
+    return purchase.editFields({ products: purchaseProducts });
+  },
 });
 
 module.exports = mongoose.model('Purchase', PurchaseSchema);

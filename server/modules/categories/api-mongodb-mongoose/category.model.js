@@ -119,6 +119,13 @@ CategorySchema.static({
 });
 
 CategorySchema.method({
+  async edit(data) {
+    const category = this;
+
+    category.overwrite(data);
+
+    return category.save();
+  },
   async editFields(data) {
     const category = this;
 
@@ -152,6 +159,48 @@ CategorySchema.method({
 
       await child.save();
     }
+  },
+  async addProduct(product) {
+    const category = this;
+
+    product.productRef = product._id;
+    product.unit.unitRef = product.unit.unitRef || product.unit._id;
+
+    const categoryProducts = category.products;
+
+    categoryProducts.push(product);
+
+    return category.editFields({ products: categoryProducts });
+  },
+  async editProcut(product) {
+    const category = this;
+    const categoryProducts = category.products.map((categoryProduct) => {
+      if (categoryProduct.productRef.equals(product._id)) {
+        categoryProduct.sku = product.sku;
+        categoryProduct.name = product.name;
+        categoryProduct.unit = {
+          unitRef: product.unit._id,
+          shortUnit: product.unit.shortUnit,
+        };
+        categoryProduct.salePrice = product.salePrice;
+      }
+
+      return categoryProduct;
+    });
+
+    return category.editFields({ products: categoryProducts });
+  },
+  async removeProduct(productId) {
+    const category = this;
+
+    console.log(productId);
+    console.log(category);
+
+    const categoryProducts = category.products.filter(
+      (categoryProduct) => !categoryProduct.productRef.equals(productId)
+    );
+
+    await category.editFields({ products: categoryProducts });
   },
 });
 
