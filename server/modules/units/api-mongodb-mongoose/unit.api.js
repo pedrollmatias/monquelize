@@ -51,7 +51,7 @@ module.exports = {
     try {
       // Update unit
       const unit = await Unit.load(req.params.unitId, session);
-      const updatedUnit = await unit.editFields(req.body);
+      const updatedUnit = await unit.edit(req.body);
 
       // Update product in sales and purchases if unit and shortUnit was modified
       const hasToUpdateInSalesOrPurchases = ['sku', 'name', 'category', 'unit'].some((field) =>

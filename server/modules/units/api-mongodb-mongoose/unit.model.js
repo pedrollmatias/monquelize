@@ -51,4 +51,14 @@ UnitSchema.static({
   },
 });
 
+UnitSchema.method({
+  async edit(data) {
+    const unit = this;
+
+    unit.overwrite(data);
+
+    return unit.save();
+  },
+});
+
 module.exports = mongoose.model('Unit', UnitSchema);
