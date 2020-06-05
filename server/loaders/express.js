@@ -35,7 +35,7 @@ module.exports = (app, serverId) => {
   // });
 
   app.use((err, req, res, next) => {
-    Logger.info(err);
+    Logger.error(err.stack);
     res.status(err.status || 500).send(err.message);
   });
 };
