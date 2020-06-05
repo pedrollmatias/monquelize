@@ -17,6 +17,7 @@ import { SnackbarErrorComponent } from './components/snackbar-error/snackbar-err
 import { SnackbarSuccessComponent } from './components/snackbar-success/snackbar-success.component';
 import { SnackbarWarningComponent } from './components/snackbar-warning/snackbar-warning.component';
 import { NoSanitizePipe } from './pipes/no-sanitize.pipe';
+import { DialogLoadingComponent } from './components/dialog-loading/dialog-loading.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { NoSanitizePipe } from './pipes/no-sanitize.pipe';
     SnackbarSuccessComponent,
     SnackbarWarningComponent,
     NoSanitizePipe,
+    DialogLoadingComponent,
   ],
   imports: [CommonModule, FormsModule, ReactiveFormsModule, RouterModule, MaterialModule],
   exports: [

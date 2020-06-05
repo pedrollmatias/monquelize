@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { IConfirmation } from '../../models/confirmation.model';
 
 @Component({
   selector: 'app-dialog-confirmation',
@@ -12,6 +13,7 @@ export class DialogConfirmationComponent implements OnInit {
   ngOnInit() {}
 
   closeDialog(confirmed: boolean): void {
-    this.dialogRef.close({ confirmed: confirmed });
+    const confirmation: IConfirmation = { confirmed: confirmed };
+    this.dialogRef.close(confirmation);
   }
 }

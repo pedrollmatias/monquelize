@@ -1,12 +1,14 @@
 import { Injectable, NgZone } from '@angular/core';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar, MatSnackBarRef } from '@angular/material/snack-bar';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { SnackbarWarningComponent } from 'src/app/shared/components/snackbar-warning/snackbar-warning.component';
 import { Observable } from 'rxjs';
 import { SnackbarErrorComponent } from 'src/app/shared/components/snackbar-error/snackbar-error.component';
 import { SnackbarSuccessComponent } from 'src/app/shared/components/snackbar-success/snackbar-success.component';
 import { DialogConfirmationComponent } from 'src/app/shared/components/dialog-confirmation/dialog-confirmation.component';
 import { DialogMessageComponent } from 'src/app/shared/components/dialog-message/dialog-message.component';
+import { DialogLoadingComponent } from 'src/app/shared/components/dialog-loading/dialog-loading.component';
+import { IHttpRes } from 'src/app/shared/models/http-res.model';
 
 @Injectable({
   providedIn: 'root',
@@ -14,7 +16,7 @@ import { DialogMessageComponent } from 'src/app/shared/components/dialog-message
 export class SharedComponentsService {
   constructor(private snackbar: MatSnackBar, public dialog: MatDialog, private zone: NgZone) {}
 
-  openSnackbarError(message: string, duracao?: number) {
+  openSnackbarError(message: string, duracao?: number): void {
     this.zone.run(() => {
       setTimeout(() => {
         return this.snackbar.openFromComponent(SnackbarErrorComponent, {
@@ -26,7 +28,7 @@ export class SharedComponentsService {
     });
   }
 
-  openSnackbarSuccess(message: string, duracao?: number) {
+  openSnackbarSuccess(message: string, duracao?: number): MatSnackBarRef<SnackbarSuccessComponent> {
     return this.snackbar.openFromComponent(SnackbarSuccessComponent, {
       data: { message: message },
       panelClass: ['bg-primary'],
@@ -34,18 +36,24 @@ export class SharedComponentsService {
     });
   }
 
-  openSnackbarWarning(message: string, duracao?: number) {
+  openSnackbarWarning(message: string, duracao?: number): MatSnackBarRef<SnackbarWarningComponent> {
     return this.snackbar.openFromComponent(SnackbarWarningComponent, {
       data: { message: message },
       duration: duracao || 3000,
     });
   }
 
-  closeSnackbar() {
+  closeSnackbar(): void {
     this.snackbar.dismiss();
   }
 
-  openDialogConfirmation(icon: string, iconColor: string, title: string, message: string, btnText?: string) {
+  openDialogConfirmation(
+    icon: string,
+    iconColor: string,
+    title: string,
+    message: string,
+    btnText?: string
+  ): MatDialogRef<DialogConfirmationComponent> {
     return this.dialog.open(DialogConfirmationComponent, {
       autoFocus: false,
       restoreFocus: false,
@@ -61,7 +69,13 @@ export class SharedComponentsService {
     });
   }
 
-  openDialogMessage(icon: string, iconColor: string, title: string, message: string, btnText?: string) {
+  openDialogMessage(
+    icon: string,
+    iconColor: string,
+    title: string,
+    message: string,
+    btnText?: string
+  ): MatDialogRef<DialogMessageComponent> {
     return this.dialog.open(DialogMessageComponent, {
       autoFocus: false,
       restoreFocus: false,
@@ -73,6 +87,17 @@ export class SharedComponentsService {
         title: title,
         message: message,
         btnText: btnText,
+      },
+    });
+  }
+
+  openLoadingDialog(httpRequest: Observable<IHttpRes>): MatDialogRef<DialogLoadingComponent> {
+    return this.dialog.open(DialogLoadingComponent, {
+      autoFocus: false,
+      restoreFocus: false,
+      width: '70vw',
+      data: {
+        httpRequest: httpRequest,
       },
     });
   }

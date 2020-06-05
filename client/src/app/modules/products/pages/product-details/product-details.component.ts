@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IBreadcrumb } from 'src/app/shared/models/breadcrumb.model';
-import { UtilsService } from 'src/app/core/services/utils.service';
-import { forkJoin } from 'rxjs';
+import { forkJoin, of } from 'rxjs';
 import { ApiCategoryService } from 'src/app/core/api/api-category.service';
 import { ApiUnitService } from 'src/app/core/api/api-unit.service';
 import { ApiProductService } from 'src/app/core/api/api-product.service';
@@ -12,6 +11,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { IProduct } from 'src/app/shared/models/product.model';
 import { SharedComponentsService } from 'src/app/core/services/shared-components.service';
 import { IHttpRes } from 'src/app/shared/models/http-res.model';
+import { switchMap } from 'rxjs/operators';
+import { IConfirmation } from 'src/app/shared/models/confirmation.model';
 
 @Component({
   selector: 'app-product-details',
@@ -35,7 +36,7 @@ export class ProductDetailsComponent implements OnInit {
 
   isNewProduct: boolean;
 
-  dataReady = false;
+  showPageData = false;
 
   constructor(
     private fb: FormBuilder,
@@ -51,6 +52,21 @@ export class ProductDetailsComponent implements OnInit {
     this.productId = this.route.snapshot.paramMap.get('id');
     this.isNewProduct = this.productId ? false : true;
     if (!this.isNewProduct) {
+      forkJoin(
+        this.apiProduct.getProduct(this.productId),
+        this.apiCategory.getCategories(),
+        this.apiUnit.getUnits()
+      ).subscribe((res) => {
+        const [productRes, categoryRes, unitRes] = res;
+        this.product = productRes.res;
+        this.categories = categoryRes.res;
+        this.units = unitRes.res;
+        this.mongodbMongooseTime = this.getGreatestTime([categoryRes.time, unitRes.time]);
+        this.pageTitle = 'Edit product';
+        this.createProductForm();
+        this.initFormData(this.product);
+        this.showPageData = true;
+      });
     } else {
       forkJoin(this.apiCategory.getCategories(), this.apiUnit.getUnits()).subscribe((res) => {
         const [categoryRes, unitRes] = res;
@@ -59,7 +75,7 @@ export class ProductDetailsComponent implements OnInit {
         this.mongodbMongooseTime = this.getGreatestTime([categoryRes.time, unitRes.time]);
         this.pageTitle = 'New product';
         this.createProductForm();
-        this.dataReady = true;
+        this.showPageData = true;
       });
     }
   }
@@ -73,8 +89,8 @@ export class ProductDetailsComponent implements OnInit {
       sku: [this.generateSKU(), Validators.required],
       name: [null, Validators.required],
       description: null,
-      category: '',
-      unit: ['', Validators.required],
+      category: null,
+      unit: [null, Validators.required],
       salePrice: [null, Validators.required],
       costPrice: [null],
       inventory: this.fb.group({
@@ -83,6 +99,15 @@ export class ProductDetailsComponent implements OnInit {
         maxAmount: [null, Validators.min(0)],
       }),
     });
+  }
+
+  initFormData(product: IProduct): void {
+    this.productForm.reset();
+    this.productForm.patchValue(product);
+  }
+
+  compareSelect(option: any, selection: any) {
+    return option?._id === selection?._id;
   }
 
   generateSKU(): string {
@@ -95,14 +120,54 @@ export class ProductDetailsComponent implements OnInit {
     return product;
   }
 
+  refreshPage(): void {
+    this.ngOnInit();
+  }
+
   saveProduct(): void {
     if (this.productForm.invalid) {
       this.sharedComponents.openSnackbarWarning('There are fields with invalid values');
     } else {
-      const product = this.formatProduct(this.productForm.value);
-      this.apiProduct.createProduct(product).subscribe((res: IHttpRes) => {
-        console.log(res);
-      });
+      if (this.isNewProduct) {
+        const product = this.formatProduct(this.productForm.value);
+        this.sharedComponents
+          .openLoadingDialog(this.apiProduct.createProduct(product))
+          .beforeClosed()
+          .subscribe((productRes: IHttpRes) => {
+            this.router.navigate(['/products', 'edit', productRes.res._id]);
+          });
+      } else {
+        const product = this.formatProduct(this.productForm.value);
+        this.sharedComponents
+          .openLoadingDialog(this.apiProduct.editProduct(this.productId, product))
+          .beforeClosed()
+          .subscribe((productRes) => {
+            this.initFormData(productRes.res);
+          });
+      }
     }
+  }
+
+  removeProduct(): void {
+    const message =
+      '<p>This product will be removed. Your sales will not be affected, but all information about the product will be lost. Are you sure?</p>';
+    this.sharedComponents
+      .openDialogConfirmation('warning', 'warn', 'Remove product', message, 'Remove product')
+      .beforeClosed()
+      .pipe(
+        switchMap((confirmation: IConfirmation) => {
+          if (confirmation?.confirmed) {
+            return this.sharedComponents
+              .openLoadingDialog(this.apiProduct.removeProduct(this.productId))
+              .beforeClosed();
+          }
+          return of();
+        })
+      )
+      .subscribe((res: any) => {
+        if (res) {
+          this.router.navigate(['/products']);
+        }
+      });
   }
 }

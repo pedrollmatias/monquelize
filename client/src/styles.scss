@@ -26,6 +26,7 @@ body {
 
 .mat-button,
 .mat-flat-button,
+.mat-stroked-button,
 .mat-raised-button {
   border-radius: 100px !important;
 }
@@ -55,6 +56,10 @@ body {
 }
 
 // Utils
+
+.overflow-auto {
+  overflow: auto !important;
+}
 
 .color-primary {
   color: $color-primary !important;

@@ -83,7 +83,7 @@ export class DialogCategoryDetailsComponent implements OnInit {
   }
 
   compareCategories(option: any, selection: any) {
-    return option._id === selection._id;
+    return option?._id === selection?._id;
   }
 
   formatCategory(category: ICategory): ICategory {

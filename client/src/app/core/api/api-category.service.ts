@@ -12,9 +12,9 @@ export class ApiCategoryService {
 
   constructor(private http: HttpClient) {}
 
-  getCategories(): Observable<IHttpRes> {
+  getCategories(query?: any): Observable<IHttpRes> {
     const uri = `${this.baseUrl}/categories`;
-    return this.http.get<IHttpRes>(uri);
+    return this.http.get<IHttpRes>(uri, { params: query });
   }
 
   getCategory(categoryId: string): Observable<IHttpRes> {

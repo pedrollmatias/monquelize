@@ -29,7 +29,6 @@ export class PaymentMethodsComponent implements OnInit {
   ngOnInit(): void {
     this.resetData();
     this.paymentMethodApi.getPaymentMethods().subscribe((paymentMethodRes) => {
-      console.log(paymentMethodRes);
       this.paymentMethods = <IPaymentMethod[]>paymentMethodRes.res;
       this.mongodbMongooseTime = paymentMethodRes.time;
       this.setDataSource(this.paymentMethods);
