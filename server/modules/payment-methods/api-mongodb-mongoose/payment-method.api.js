@@ -50,7 +50,7 @@ module.exports = {
     try {
       // Update payment method
       const paymentMethod = await PaymentMethod.load(req.params.paymentMethodId, session);
-      const updatedPaymentMethod = await paymentMethod.editFields(req.body);
+      const updatedPaymentMethod = await paymentMethod.edit(req.body);
 
       // Update payment method in sales and purchases if name was modified
       if (Object.prototype.hasOwnProperty.call(req.body, 'name')) {

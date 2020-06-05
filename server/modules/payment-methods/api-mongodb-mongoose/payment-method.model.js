@@ -40,6 +40,13 @@ PaymentMethodSchema.static({
 });
 
 PaymentMethodSchema.method({
+  async edit(data) {
+    const paymentMethod = this;
+
+    paymentMethod.overwrite(data);
+
+    return paymentMethod.save();
+  },
   async editFields(data) {
     const paymentMethod = this;
 
