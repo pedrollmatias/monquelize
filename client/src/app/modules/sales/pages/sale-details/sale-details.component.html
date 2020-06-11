@@ -17,7 +17,7 @@
   </div>
   <div>
     <ng-container *ngIf="showPageData; else loading">
-      <form [formGroup]="saleForm" autocomplete="off">
+      <form [formGroup]="saleForm" autocomplete="off" (ngSubmit)="saveSale()">
         <mat-card class="px-5 pt-4 pb-5">
           <div class="d-flex justify-content-between align-items-center">
             <div>
@@ -160,7 +160,16 @@
           <div>
             <mat-form-field class="w-100">
               <mat-label>Payment method</mat-label>
-              <input matInput formControlName="paymentMethod" required />
+              <mat-select
+                [formControl]="paymentMethodFormControl"
+                (selectionChange)="handlePaymentMethodSelection($event.value)"
+                [compareWith]="compareSelection"
+                required
+              >
+                <mat-option *ngFor="let paymentMethod of paymentMethods" [value]="paymentMethod">
+                  {{ paymentMethod.name }}
+                </mat-option>
+              </mat-select>
             </mat-form-field>
           </div>
         </mat-card>

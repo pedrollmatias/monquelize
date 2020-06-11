@@ -4,13 +4,16 @@ import { IBreadcrumb } from 'src/app/shared/models/breadcrumb.model';
 import { MatTableDataSource } from '@angular/material/table';
 import { UtilsService } from 'src/app/core/services/utils.service';
 import { SharedComponentsService } from 'src/app/core/services/shared-components.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ApiProductService } from 'src/app/core/api/api-product.service';
 import { ApiPaymentMethodService } from 'src/app/core/api/api-payment-method.service';
 import { forkJoin, Observable, of } from 'rxjs';
 import { IPaymentMethod } from 'src/app/shared/models/payment-method.model';
 import { ISaleProduct } from 'src/app/shared/models/sale-product.model';
-import { startWith, map } from 'rxjs/operators';
+import { startWith, map, switchMap } from 'rxjs/operators';
+import { IHttpRes } from 'src/app/shared/models/http-res.model';
+import { ApiSaleService } from 'src/app/core/api/api-sale.service';
+import { IConfirmation } from 'src/app/shared/models/confirmation.model';
 
 export const SALE_STATUS_ENUM = {
   '100': 'Draft',
@@ -44,6 +47,7 @@ export class SaleDetailsComponent implements OnInit {
   mongodbMongooseTime: number;
 
   saleForm: FormGroup;
+  paymentMethodFormControl = new FormControl(null, Validators.required);
   totalValue = 0;
 
   pageTitle = 'Loading...';
@@ -61,11 +65,13 @@ export class SaleDetailsComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
+    private saleApi: ApiSaleService,
     private productApi: ApiProductService,
     private paymentMethodApi: ApiPaymentMethodService,
     private sharedComponents: SharedComponentsService,
     private route: ActivatedRoute,
-    public utils: UtilsService
+    public utils: UtilsService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -123,7 +129,13 @@ export class SaleDetailsComponent implements OnInit {
       date: new Date(),
       seller: null,
       products: this.fb.array([], Validators.required),
-      paymentMethod: [null, Validators.required],
+      paymentMethod: this.fb.group(
+        {
+          paymentMethodRef: [null, Validators.required],
+          name: [null, Validators.required],
+        },
+        Validators.required
+      ),
     });
   }
 
@@ -169,8 +181,8 @@ export class SaleDetailsComponent implements OnInit {
       name: [null, Validators.required],
       category: null,
       unit: null,
-      amount: [null, Validators.required],
-      price: [null, Validators.required],
+      amount: [{ value: null, disabled: true }, Validators.required],
+      price: [{ value: null, disabled: true }, Validators.required],
       subtotal: null,
     });
   }
@@ -194,7 +206,7 @@ export class SaleDetailsComponent implements OnInit {
   }
 
   addSearchInput(): void {
-    this.searchInputs.push(new FormControl());
+    this.searchInputs.push(new FormControl(null, Validators.required));
   }
 
   addFilteredProducts$(): void {
@@ -221,7 +233,7 @@ export class SaleDetailsComponent implements OnInit {
     }
   }
 
-  initProductData(product: ISaleProduct, index: number): void {
+  initProductData(product: any, index: number): void {
     const controle = <FormArray>this.saleForm.get('products');
     const productFormValue = {
       ...product,
@@ -230,7 +242,15 @@ export class SaleDetailsComponent implements OnInit {
       price: product.salePrice,
       subtotal: product.salePrice,
     };
+    if (product.unit) {
+      productFormValue.unit = {
+        unitRef: product.unit._id,
+        shortUnit: product.unit.shortUnit,
+      };
+    }
     controle.at(index).patchValue(productFormValue);
+    controle.at(index).get('amount').enable();
+    controle.at(index).get('price').enable();
   }
 
   getProductTotalValue(index: number): number {
@@ -261,5 +281,60 @@ export class SaleDetailsComponent implements OnInit {
   isLastFormArrayItemInvalid(): boolean {
     const control = <FormArray>this.saleForm.get('products');
     return control.at(control.length - 1).invalid;
+  }
+
+  handlePaymentMethodSelection(payment: any): void {
+    const paymentMethodFormValue = { ...payment, paymentMethodRef: payment._id };
+    this.saleForm.get('paymentMethod').patchValue(paymentMethodFormValue);
+  }
+
+  compareSelection(option: any, selection: any) {
+    return option?._id === selection?.paymentMethodRef;
+  }
+
+  saveSale(): void {
+    if (this.saleForm.invalid) {
+      this.sharedComponents.openSnackbarWarning('There are fields with invalid values');
+    } else {
+      if (this.isNewSale) {
+        const sale = this.saleForm.value;
+        this.sharedComponents
+          .openLoadingDialog(this.saleApi.createSale(sale))
+          .beforeClosed()
+          .subscribe((saleRes: IHttpRes) => {
+            if (saleRes) {
+              this.router.navigate(['/sale', 'edit', saleRes.res._id]);
+            }
+          });
+      } else {
+        // const product = this.formatProduct(this.productForm.value);
+        // this.sharedComponents
+        //   .openLoadingDialog(this.productApi.editProduct(this.productId, product))
+        //   .beforeClosed()
+        //   .subscribe((productRes) => {
+        //     this.initFormData(productRes.res);
+        //   });
+      }
+    }
+  }
+
+  removeSale(): void {
+    const message = '<p>This sale will be removed. Product amount will be recovered. Are you sure?</p>';
+    this.sharedComponents
+      .openDialogConfirmation('warning', 'warn', 'Remove sale', message, 'Remove sale')
+      .beforeClosed()
+      .pipe(
+        switchMap((confirmation: IConfirmation) => {
+          if (confirmation?.confirmed) {
+            return this.sharedComponents.openLoadingDialog(this.saleApi.removeSale(this.saleId)).beforeClosed();
+          }
+          return of();
+        })
+      )
+      .subscribe((res: any) => {
+        if (res) {
+          this.router.navigate(['/products']);
+        }
+      });
   }
 }

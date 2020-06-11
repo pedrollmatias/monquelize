@@ -4,7 +4,7 @@ const Category = require('./category.model');
 const Sale = require('../../sales/api-mongodb-mongoose/sale.model');
 const Purchase = require('../../purchases/api-mongodb-mongoose/purchase.model');
 const Product = require('../../products/api-mongodb-mongoose/product.model');
-const utils = require('../../../utils');
+const timer = require('../../../timer');
 
 function unpopulate(category) {
   category.parent = category.parent ? category.parent._id || category.parent : undefined;
@@ -14,7 +14,7 @@ function unpopulate(category) {
 
 module.exports = {
   async get(req, res, next) {
-    const startTime = process.hrtime();
+    timer.startTimer();
 
     try {
       let categories;
@@ -25,7 +25,7 @@ module.exports = {
         categories = await Category.find().select({ name: 1, parent: 1, path: 1, _id: 1 }).sort({ path: 1 });
       }
 
-      const diffTime = utils.getExecutionTimeInMs(process.hrtime(startTime));
+      const diffTime = timer.diffTimer();
 
       res.send({ res: categories, time: diffTime });
     } catch (err) {
@@ -33,12 +33,12 @@ module.exports = {
     }
   },
   async query(req, res, next) {
-    const startTime = process.hrtime();
+    timer.startTimer();
 
     try {
       const category = await Category.load(req.params.categoryId);
 
-      const diffTime = utils.getExecutionTimeInMs(process.hrtime(startTime));
+      const diffTime = timer.diffTimer();
 
       res.send({ res: category, time: diffTime });
     } catch (err) {
@@ -46,12 +46,12 @@ module.exports = {
     }
   },
   async create(req, res, next) {
-    const startTime = process.hrtime();
+    timer.startTimer();
 
     try {
       const category = await Category.create(req.body);
 
-      const diffTime = utils.getExecutionTimeInMs(process.hrtime(startTime));
+      const diffTime = timer.diffTimer();
 
       res.send({ res: category, time: diffTime });
     } catch (err) {
@@ -59,7 +59,7 @@ module.exports = {
     }
   },
   async edit(req, res, next) {
-    const startTime = process.hrtime();
+    timer.startTimer();
 
     try {
       const category = await Category.load(req.params.categoryId);
@@ -67,7 +67,7 @@ module.exports = {
       const updatedCategory = await category.edit(unpopulate(req.body));
 
       await updatedCategory.updateChildrenPaths(oldName);
-      const diffTime = utils.getExecutionTimeInMs(process.hrtime(startTime));
+      const diffTime = timer.diffTimer();
 
       res.send({ res: updatedCategory, time: diffTime });
     } catch (err) {
@@ -75,7 +75,7 @@ module.exports = {
     }
   },
   async remove(req, res, next) {
-    const startTime = process.hrtime();
+    timer.startTimer();
     const session = await Category.startSession();
 
     session.startTransaction();
@@ -124,7 +124,7 @@ module.exports = {
 
       await session.commitTransaction();
       session.endSession();
-      const diffTime = utils.getExecutionTimeInMs(process.hrtime(startTime));
+      const diffTime = timer.diffTimer();
 
       res.send({ res: { status: 200 }, time: diffTime });
     } catch (err) {

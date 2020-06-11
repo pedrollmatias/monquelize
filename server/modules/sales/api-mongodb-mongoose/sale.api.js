@@ -2,48 +2,58 @@
 
 const Sale = require('./sale.model');
 const Product = require('../../products/api-mongodb-mongoose/product.model');
+const timer = require('../../../timer');
 
 module.exports = {
-  async load(req, res, next, saleId) {
-    const sale = await Sale.findById(saleId);
+  async get(req, res, next) {
+    timer.startTimer();
 
-    if (!sale) {
-      throw new Error('Sale not found');
+    try {
+      const query = req.query || {};
+      const sale = await Sale.find(query);
+      const diffTime = timer.diffTimer();
+
+      res.send({ res: sale, time: diffTime });
+    } catch (err) {
+      next(err);
     }
-    req.sale = sale;
-    next();
   },
-  async get(req, res) {
-    const query = req.query || {};
-    const sale = await Sale.find(query);
+  async query(req, res, next) {
+    timer.startTimer();
 
-    res.send(sale);
+    try {
+      const sale = await Sale.load(req.param.saleId);
+      const queryPopulate = [{ path: 'seller', select: ['name', 'username'] }];
+
+      await sale.populate(queryPopulate).execPopulate();
+      const diffTime = timer.diffTimer();
+
+      res.send({ res: sale, time: diffTime });
+    } catch (err) {
+      next(err);
+    }
   },
-  async query(req, res) {
-    const queryPopulate = [{ path: 'products.item' }, { path: 'seller', select: ['name', 'username'] }];
+  async create(req, res, next) {
+    timer.startTimer();
 
-    await req.sale.populate(queryPopulate).execPopulate();
-
-    res.send(req.sale);
-  },
-  async create(req, res) {
+    await Sale.createCollection();
     const session = await Sale.startSession();
 
     session.startTransaction();
     try {
-      const sale = await Sale.create(req.body, session);
-      const queryPopulate = [{ path: 'products.item' }, { path: 'seller', select: ['name', 'username'] }];
+      const sale = await Sale.createSale(req.body, session);
+      const queryPopulate = [{ path: 'seller', select: ['name', 'username'] }];
 
       await sale.populate(queryPopulate).execPopulate();
 
       if (sale.status === '300') {
         for (const product of sale.products) {
-          const productDoc = Product.load(product.item, session);
-          const productInventory = product.inventory;
-          const productHistory = product.history || [];
+          const productDoc = await Product.load(product.productRef, session);
+          const productInventory = productDoc.inventory;
+          const productHistory = productDoc.history || [];
 
-          productInventory.currentAmount -= productDoc.amount;
-          productHistory.push({ date: Date.now(), movementType: '200' });
+          productInventory.currentAmount -= product.amount;
+          productHistory.push({ date: Date.now(), movementType: '200', amount: product.amount });
           const data = { inventory: productInventory, history: productHistory };
 
           await productDoc.editFields(data);
@@ -52,32 +62,36 @@ module.exports = {
 
       await session.commitTransaction();
       session.endSession();
-      res.send(sale);
+      const diffTime = timer.diffTimer();
+
+      res.send({ res: sale, time: diffTime });
     } catch (err) {
       await session.abortTransaction();
       session.endSession();
-      throw new Error(err);
+      next(err);
     }
   },
-  async edit(req, res) {
+  async edit(req, res, next) {
+    timer.startTimer();
+
     if (req.body.status === '400') {
       const session = await Sale.startSession();
 
       session.startTransaction();
       try {
         const sale = await Sale.load(req.params.saleId, session);
-        const updatedSale = await sale.editFields(req.body);
-        const queryPopulate = [{ path: 'products.item' }, { path: 'seller', select: ['name', 'username'] }];
+        const updatedSale = await sale.edit(req.body);
+        const queryPopulate = [{ path: 'seller', select: ['name', 'username'] }];
 
         await updatedSale.populate(queryPopulate).execPopulate();
 
         for (const product of sale.products) {
-          const productDoc = Product.load(product.item, session);
-          const productInventory = product.inventory;
-          const productHistory = product.history || [];
+          const productDoc = await Product.load(product.productRef, session);
+          const productInventory = productDoc.inventory;
+          const productHistory = productDoc.history || [];
 
-          productInventory.currentAmount += productDoc.amount;
-          productHistory.push({ date: Date.now(), movementType: '100' });
+          productInventory.currentAmount += product.amount;
+          productHistory.push({ date: Date.now(), movementType: '100', amount: product.amount });
           const data = { inventory: productInventory, history: productHistory };
 
           await productDoc.editFields(data);
@@ -85,19 +99,32 @@ module.exports = {
 
         await session.commitTransaction();
         session.endSession();
-        res.send(updatedSale);
+        const diffTime = timer.diffTimer();
+
+        res.send({ res: updatedSale, time: diffTime });
       } catch (err) {
         await session.abortTransaction();
         session.endSession();
-        throw new Error(err);
+        next(err);
       }
     } else {
-      const sale = await req.sale.editFields(req.body);
+      try {
+        const sale = await Sale.load(req.params.saleId);
+        const updatedSale = await sale.edit(req.body);
+        const queryPopulate = [{ path: 'seller', select: ['name', 'username'] }];
 
-      res.send(sale);
+        await updatedSale.populate(queryPopulate).execPopulate();
+
+        const diffTime = timer.diffTimer();
+
+        res.send({ res: updatedSale, time: diffTime });
+      } catch (err) {
+        next(err);
+      }
     }
   },
-  async remove(req, res) {
+  async remove(req, res, next) {
+    timer.startTimer();
     const session = await Sale.startSession();
 
     session.startTransaction();
@@ -105,7 +132,7 @@ module.exports = {
       const sale = await Sale.load(req.param.saleId, session);
 
       for (const product of sale.products) {
-        const productDoc = Product.load(product.item, session);
+        const productDoc = Product.load(product.productRef, session);
         const productInventory = product.inventory;
         const productHistory = product.history || [];
 
@@ -120,11 +147,13 @@ module.exports = {
 
       await session.commitTransaction();
       session.endSession();
-      res.sendStatus(200);
+      const diffTime = timer.diffTimer();
+
+      res.send({ res: { status: 200 }, time: diffTime });
     } catch (err) {
       await session.abortTransaction();
       session.endSession();
-      throw new Error(err);
+      next(err);
     }
   },
 };

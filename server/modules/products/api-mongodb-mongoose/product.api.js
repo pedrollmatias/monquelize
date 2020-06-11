@@ -4,7 +4,7 @@ const Product = require('./product.model');
 const Category = require('../../categories/api-mongodb-mongoose/category.model');
 const Sale = require('../../sales/api-mongodb-mongoose/sale.model');
 const Purchase = require('../../purchases/api-mongodb-mongoose/purchase.model');
-const utils = require('../../../utils');
+const timer = require('../../../timer');
 
 function hasToUpdateInSalesOrPurchases(oldProduct, newProduct) {
   const relevantFields = ['sku', 'name', 'category', 'unit'];
@@ -14,7 +14,7 @@ function hasToUpdateInSalesOrPurchases(oldProduct, newProduct) {
 
 module.exports = {
   async get(req, res, next) {
-    const startTime = process.hrtime();
+    timer.startTimer();
 
     try {
       const query = req.query || {};
@@ -23,7 +23,7 @@ module.exports = {
         { path: 'unit', select: ['unit', 'shortUnit'] },
       ];
       const product = await Product.find(query).populate(queryPopulate);
-      const diffTime = utils.getExecutionTimeInMs(process.hrtime(startTime));
+      const diffTime = timer.diffTimer();
 
       res.send({ res: product, time: diffTime });
     } catch (err) {
@@ -31,7 +31,7 @@ module.exports = {
     }
   },
   async query(req, res, next) {
-    const startTime = process.hrtime();
+    timer.startTimer();
 
     try {
       const queryPopulate = [
@@ -42,7 +42,7 @@ module.exports = {
 
       await product.populate(queryPopulate).execPopulate();
 
-      const diffTime = utils.getExecutionTimeInMs(process.hrtime(startTime));
+      const diffTime = timer.diffTimer();
 
       res.send({ res: product, time: diffTime });
     } catch (err) {
@@ -50,7 +50,7 @@ module.exports = {
     }
   },
   async create(req, res, next) {
-    const startTime = process.hrtime();
+    timer.startTimer();
     const session = await Product.startSession();
 
     session.startTransaction();
@@ -87,7 +87,7 @@ module.exports = {
 
       await session.commitTransaction();
       session.endSession();
-      const diffTime = utils.getExecutionTimeInMs(process.hrtime(startTime));
+      const diffTime = timer.diffTimer();
 
       res.send({ res: product, time: diffTime });
     } catch (err) {
@@ -97,7 +97,7 @@ module.exports = {
     }
   },
   async edit(req, res, next) {
-    const startTime = process.hrtime();
+    timer.startTimer();
     const session = await Product.startSession();
 
     session.startTransaction();
@@ -163,7 +163,7 @@ module.exports = {
 
       await session.commitTransaction();
       session.endSession();
-      const diffTime = utils.getExecutionTimeInMs(process.hrtime(startTime));
+      const diffTime = timer.diffTimer();
 
       res.send({ res: updatedProduct, time: diffTime });
     } catch (err) {
@@ -173,7 +173,7 @@ module.exports = {
     }
   },
   async remove(req, res, next) {
-    const startTime = process.hrtime();
+    timer.startTimer();
     const session = await Product.startSession();
 
     session.startTransaction();
@@ -206,7 +206,7 @@ module.exports = {
 
       await session.commitTransaction();
       session.endSession();
-      const diffTime = utils.getExecutionTimeInMs(process.hrtime(startTime));
+      const diffTime = timer.diffTimer();
 
       res.send({ res: { status: 200 }, time: diffTime });
     } catch (err) {

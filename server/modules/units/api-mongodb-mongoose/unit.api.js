@@ -3,16 +3,16 @@
 const Unit = require('./unit.model');
 const Sale = require('../../sales/api-mongodb-mongoose/sale.model');
 const Purchase = require('../../purchases/api-mongodb-mongoose/purchase.model');
-const utils = require('../../../utils');
+const timer = require('../../../timer');
 
 module.exports = {
   async get(req, res, next) {
-    const startTime = process.hrtime();
+    timer.startTimer();
 
     try {
       const query = req.query || {};
       const unit = await Unit.find(query);
-      const diffTime = utils.getExecutionTimeInMs(process.hrtime(startTime));
+      const diffTime = timer.diffTimer();
 
       res.send({ res: unit, time: diffTime });
     } catch (err) {
@@ -20,11 +20,11 @@ module.exports = {
     }
   },
   async query(req, res, next) {
-    const startTime = process.hrtime();
+    timer.startTimer();
 
     try {
       const unit = await Unit.load(req.params.unitId);
-      const diffTime = utils.getExecutionTimeInMs(process.hrtime(startTime));
+      const diffTime = timer.diffTimer();
 
       res.send({ res: unit, time: diffTime });
     } catch (err) {
@@ -32,11 +32,11 @@ module.exports = {
     }
   },
   async create(req, res, next) {
-    const startTime = process.hrtime();
+    timer.startTimer();
 
     try {
       const unit = await Unit.create(req.body);
-      const diffTime = utils.getExecutionTimeInMs(process.hrtime(startTime));
+      const diffTime = timer.diffTimer();
 
       res.send({ res: unit, time: diffTime });
     } catch (err) {
@@ -44,7 +44,7 @@ module.exports = {
     }
   },
   async edit(req, res, next) {
-    const startTime = process.hrtime();
+    timer.startTimer();
     const session = await Unit.startSession();
 
     session.startTransaction();
@@ -90,7 +90,7 @@ module.exports = {
 
       await session.commitTransaction();
       session.endSession();
-      const diffTime = utils.getExecutionTimeInMs(process.hrtime(startTime));
+      const diffTime = timer.diffTimer();
 
       res.send({ res: updatedUnit, time: diffTime });
     } catch (err) {
@@ -100,7 +100,7 @@ module.exports = {
     }
   },
   async remove(req, res, next) {
-    const startTime = process.hrtime();
+    timer.startTimer();
     const session = await Unit.startSession();
 
     session.startTransaction();
@@ -142,7 +142,7 @@ module.exports = {
 
       await session.commitTransaction();
       session.endSession();
-      const diffTime = utils.getExecutionTimeInMs(process.hrtime(startTime));
+      const diffTime = timer.diffTimer();
 
       res.sendStatus({ res: { status: 200 }, time: diffTime });
     } catch (err) {

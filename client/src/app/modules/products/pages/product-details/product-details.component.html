@@ -11,7 +11,7 @@
         <strong>{{ pageTitle }}</strong>
       </span>
     </div>
-    <div *ngIf="showPageData">
+    <div *ngIf="showPageData && !isNewProduct">
       <app-element-button-icon-text
         icon="delete"
         text="Remove product"

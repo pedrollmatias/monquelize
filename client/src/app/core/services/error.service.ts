@@ -17,7 +17,7 @@ export class ErrorService {
   }
 
   getServerMessage(err: HttpErrorResponse): string {
-    return err.error || err.message;
+    return err.error.message;
   }
 
   getServerStack(err: HttpErrorResponse): string {

@@ -192,10 +192,6 @@ CategorySchema.method({
   },
   async removeProduct(productId) {
     const category = this;
-
-    console.log(productId);
-    console.log(category);
-
     const categoryProducts = category.products.filter(
       (categoryProduct) => !categoryProduct.productRef.equals(productId)
     );

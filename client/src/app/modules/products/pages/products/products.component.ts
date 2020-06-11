@@ -13,18 +13,31 @@ export class ProductsComponent implements OnInit {
   productsColumns: string[] = ['sku', 'name', 'category', 'unit', 'salePrice'];
   productsDataSouce = new MatTableDataSource<IProduct>();
 
+  products: IProduct[];
+
   mongodbMongooseTime: number;
 
   constructor(private apiProducts: ApiProductService) {}
 
   ngOnInit(): void {
+    this.resetData();
     this.apiProducts.getProducts().subscribe((productRes: IHttpRes) => {
       this.mongodbMongooseTime = productRes.time;
-      this.setProductsDataSource(productRes.res);
+      this.products = <IProduct[]>productRes.res;
+      this.setDataSource(this.products);
     });
   }
 
-  setProductsDataSource(products: IProduct[]): void {
+  setDataSource(products: IProduct[]): void {
     this.productsDataSouce = new MatTableDataSource(products);
+  }
+
+  resetData(): void {
+    this.mongodbMongooseTime = null;
+    this.products = undefined;
+  }
+
+  refreshComponent(): void {
+    this.ngOnInit();
   }
 }

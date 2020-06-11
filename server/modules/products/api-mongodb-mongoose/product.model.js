@@ -65,6 +65,10 @@ const ProductSchema = new Schema(
           type: String,
           enum: Object.keys(historyEnum),
         },
+        amount: {
+          type: Number,
+          required: true,
+        },
       },
     ],
   },
@@ -122,9 +126,7 @@ ProductSchema.method({
   async editFields(data) {
     const product = this;
 
-    for (const key of Object.keys(data)) {
-      product.set(key, data[key]);
-    }
+    product.set(data);
 
     return product.save();
   },

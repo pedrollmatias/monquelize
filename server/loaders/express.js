@@ -5,6 +5,7 @@ const cors = require('cors');
 const routes = require('../modules');
 const config = require('../config');
 const Logger = require('./logger');
+const timer = require('../timer');
 
 module.exports = (app, serverId) => {
   // Health Check endpoints
@@ -36,6 +37,9 @@ module.exports = (app, serverId) => {
 
   app.use((err, req, res, next) => {
     Logger.error(err.stack);
-    res.status(err.status || 500).send(err.message);
+    res.status(err.status || 500).send({
+      message: err.message,
+      time: timer.diffTimer(),
+    });
   });
 };

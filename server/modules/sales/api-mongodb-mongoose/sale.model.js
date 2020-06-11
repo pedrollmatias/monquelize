@@ -65,7 +65,7 @@ const SaleSchema = new Schema(
         },
       },
     ],
-    payment: {
+    paymentMethod: {
       paymentMethodRef: {
         type: Schema.Types.ObjectId,
       },
@@ -73,10 +73,6 @@ const SaleSchema = new Schema(
         type: String,
         required: true,
         trim: true,
-      },
-      value: {
-        type: Number,
-        required: true,
       },
     },
     seller: {
@@ -92,6 +88,14 @@ SaleSchema.virtual('totalValue').get(function () {
   return sale.products.reduce((totalValue, product) => (totalValue += product.amount * product.salePrice), 0);
 });
 
+SaleSchema.pre('remove', function () {
+  const sale = this;
+
+  if (['100', '200'].includes(sale.status)) {
+    throw new Error('Only done or canceled sales can be removed');
+  }
+});
+
 SaleSchema.static({
   async load(saleId, session) {
     const Sale = this;
@@ -103,11 +107,11 @@ SaleSchema.static({
 
     return sale;
   },
-  async create(sale, session) {
+  async createSale(sale, session) {
     const Sale = this;
-    const saleDoc = new Sale(sale).session(session);
+    const saleDoc = new Sale(sale);
 
-    return saleDoc.save();
+    return saleDoc.save({ session });
   },
 });
 

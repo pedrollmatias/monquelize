@@ -19,12 +19,6 @@ export class ServerInterceptor implements HttpInterceptor {
       finalize(() => loaderService.hide()),
       catchError((error: HttpErrorResponse) => {
         return throwError(error);
-        // if (error instanceof HttpErrorResponse && (error.status == 403 || error.status == 401) && this.router.url !== '/auth/login') {
-        //   this.router.navigateByUrl('/sem-permissao', { replaceUrl: true });
-        //   return empty();
-        // } else {
-        //   return throwError(error);
-        // }
       })
     );
   }

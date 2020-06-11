@@ -3,15 +3,16 @@
 const PaymentMethod = require('./payment-method.model');
 const Sale = require('../../sales/api-mongodb-mongoose/sale.model');
 const Purchase = require('../../purchases/api-mongodb-mongoose/purchase.model');
-const utils = require('../../../utils');
+const timer = require('../../../timer');
 
 module.exports = {
   async get(req, res, next) {
+    timer.startTimer();
+
     try {
-      const startTime = process.hrtime();
       const query = req.query || {};
       const paymentMethod = await PaymentMethod.find(query);
-      const diffTime = utils.getExecutionTimeInMs(process.hrtime(startTime));
+      const diffTime = timer.diffTimer();
 
       res.send({ res: paymentMethod, time: diffTime });
     } catch (err) {
@@ -19,11 +20,12 @@ module.exports = {
     }
   },
   async query(req, res, next) {
+    timer.startTimer();
+
     try {
-      const startTime = process.hrtime();
       const paymentMethod = await PaymentMethod.load(req.params.paymentMethodId);
 
-      const diffTime = utils.getExecutionTimeInMs(process.hrtime(startTime));
+      const diffTime = timer.diffTimer();
 
       res.send({ res: paymentMethod, time: diffTime });
     } catch (err) {
@@ -31,11 +33,11 @@ module.exports = {
     }
   },
   async create(req, res, next) {
-    const startTime = process.hrtime();
+    timer.startTimer();
 
     try {
       const paymentMethod = await PaymentMethod.create(req.body);
-      const diffTime = utils.getExecutionTimeInMs(process.hrtime(startTime));
+      const diffTime = timer.diffTimer();
 
       res.send({ res: paymentMethod, time: diffTime });
     } catch (err) {
@@ -43,7 +45,7 @@ module.exports = {
     }
   },
   async edit(req, res, next) {
-    const startTime = process.hrtime();
+    timer.startTimer();
     const session = await PaymentMethod.startSession();
 
     session.startTransaction();
@@ -77,7 +79,7 @@ module.exports = {
 
       await session.commitTransaction();
       session.endSession();
-      const diffTime = utils.getExecutionTimeInMs(process.hrtime(startTime));
+      const diffTime = timer.diffTimer();
 
       res.send({ res: updatedPaymentMethod, time: diffTime });
     } catch (err) {
@@ -87,7 +89,7 @@ module.exports = {
     }
   },
   async remove(req, res, next) {
-    const startTime = process.hrtime();
+    timer.startTimer();
     const session = await PaymentMethod.startSession();
 
     session.startTransaction();
@@ -121,7 +123,7 @@ module.exports = {
 
       await session.commitTransaction();
       session.endSession();
-      const diffTime = utils.getExecutionTimeInMs(process.hrtime(startTime));
+      const diffTime = timer.diffTimer();
 
       res.send({ res: { status: 200 }, time: diffTime });
     } catch (err) {
