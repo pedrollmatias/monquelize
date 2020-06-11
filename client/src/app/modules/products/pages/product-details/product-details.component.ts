@@ -13,6 +13,7 @@ import { SharedComponentsService } from 'src/app/core/services/shared-components
 import { IHttpRes } from 'src/app/shared/models/http-res.model';
 import { switchMap } from 'rxjs/operators';
 import { IConfirmation } from 'src/app/shared/models/confirmation.model';
+import { UtilsService } from 'src/app/core/services/utils.service';
 
 @Component({
   selector: 'app-product-details',
@@ -42,10 +43,11 @@ export class ProductDetailsComponent implements OnInit {
     private fb: FormBuilder,
     private router: Router,
     private route: ActivatedRoute,
-    private apiCategory: ApiCategoryService,
-    private apiUnit: ApiUnitService,
-    private apiProduct: ApiProductService,
-    private sharedComponents: SharedComponentsService
+    private categoryApi: ApiCategoryService,
+    private unitApi: ApiUnitService,
+    private productApi: ApiProductService,
+    private sharedComponents: SharedComponentsService,
+    private utils: UtilsService
   ) {}
 
   ngOnInit(): void {
@@ -53,35 +55,31 @@ export class ProductDetailsComponent implements OnInit {
     this.isNewProduct = this.productId ? false : true;
     if (!this.isNewProduct) {
       forkJoin(
-        this.apiProduct.getProduct(this.productId),
-        this.apiCategory.getCategories(),
-        this.apiUnit.getUnits()
+        this.productApi.getProduct(this.productId),
+        this.categoryApi.getCategories(),
+        this.unitApi.getUnits()
       ).subscribe((res) => {
         const [productRes, categoryRes, unitRes] = res;
         this.product = productRes.res;
         this.categories = categoryRes.res;
         this.units = unitRes.res;
-        this.mongodbMongooseTime = this.getGreatestTime([categoryRes.time, unitRes.time]);
+        this.mongodbMongooseTime = this.utils.getGreatestTime([categoryRes.time, unitRes.time]);
         this.pageTitle = 'Edit product';
         this.createProductForm();
         this.initFormData(this.product);
         this.showPageData = true;
       });
     } else {
-      forkJoin(this.apiCategory.getCategories(), this.apiUnit.getUnits()).subscribe((res) => {
+      forkJoin(this.categoryApi.getCategories(), this.unitApi.getUnits()).subscribe((res) => {
         const [categoryRes, unitRes] = res;
         this.categories = categoryRes.res;
         this.units = unitRes.res;
-        this.mongodbMongooseTime = this.getGreatestTime([categoryRes.time, unitRes.time]);
+        this.mongodbMongooseTime = this.utils.getGreatestTime([categoryRes.time, unitRes.time]);
         this.pageTitle = 'New product';
         this.createProductForm();
         this.showPageData = true;
       });
     }
-  }
-
-  getGreatestTime(times: number[]) {
-    return times.reduce((acc, value) => (acc > value ? acc : value));
   }
 
   createProductForm(): void {
@@ -131,7 +129,7 @@ export class ProductDetailsComponent implements OnInit {
       if (this.isNewProduct) {
         const product = this.formatProduct(this.productForm.value);
         this.sharedComponents
-          .openLoadingDialog(this.apiProduct.createProduct(product))
+          .openLoadingDialog(this.productApi.createProduct(product))
           .beforeClosed()
           .subscribe((productRes: IHttpRes) => {
             this.router.navigate(['/products', 'edit', productRes.res._id]);
@@ -139,7 +137,7 @@ export class ProductDetailsComponent implements OnInit {
       } else {
         const product = this.formatProduct(this.productForm.value);
         this.sharedComponents
-          .openLoadingDialog(this.apiProduct.editProduct(this.productId, product))
+          .openLoadingDialog(this.productApi.editProduct(this.productId, product))
           .beforeClosed()
           .subscribe((productRes) => {
             this.initFormData(productRes.res);
@@ -158,7 +156,7 @@ export class ProductDetailsComponent implements OnInit {
         switchMap((confirmation: IConfirmation) => {
           if (confirmation?.confirmed) {
             return this.sharedComponents
-              .openLoadingDialog(this.apiProduct.removeProduct(this.productId))
+              .openLoadingDialog(this.productApi.removeProduct(this.productId))
               .beforeClosed();
           }
           return of();

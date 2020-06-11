@@ -14,4 +14,8 @@ export class UtilsService {
   round(value: number, decimals: number): number {
     return Number(value.toFixed(decimals));
   }
+
+  getGreatestTime(times: number[]) {
+    return times.reduce((acc, value) => (acc > value ? acc : value));
+  }
 }

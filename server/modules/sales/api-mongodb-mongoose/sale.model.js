@@ -55,7 +55,7 @@ const SaleSchema = new Schema(
             required: true,
           },
         },
-        salePrice: {
+        price: {
           type: Number,
           required: true,
         },
