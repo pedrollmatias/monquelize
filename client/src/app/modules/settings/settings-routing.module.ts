@@ -8,8 +8,8 @@ const routes: Routes = [
     component: SettingsComponent,
   },
   {
-    path: 'users',
-    loadChildren: () => import('./users/users.module').then((mod) => mod.UsersModule),
+    path: 'sellers',
+    loadChildren: () => import('./sellers/sellers.module').then((mod) => mod.SellersModule),
   },
   {
     path: 'categories',

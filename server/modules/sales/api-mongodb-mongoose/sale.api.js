@@ -22,7 +22,7 @@ module.exports = {
     timer.startTimer();
 
     try {
-      const sale = await Sale.load(req.param.saleId);
+      const sale = await Sale.load(req.params.saleId);
       const queryPopulate = [{ path: 'seller', select: ['name', 'username'] }];
 
       await sale.populate(queryPopulate).execPopulate();
@@ -74,17 +74,17 @@ module.exports = {
   async edit(req, res, next) {
     timer.startTimer();
 
-    if (req.body.status === '400') {
-      const session = await Sale.startSession();
+    const session = await Sale.startSession();
 
-      session.startTransaction();
-      try {
-        const sale = await Sale.load(req.params.saleId, session);
-        const updatedSale = await sale.edit(req.body);
-        const queryPopulate = [{ path: 'seller', select: ['name', 'username'] }];
+    session.startTransaction();
+    try {
+      const sale = await Sale.load(req.params.saleId, session);
+      const updatedSale = await sale.edit(req.body);
+      const queryPopulate = [{ path: 'seller', select: ['name', 'username'] }];
 
-        await updatedSale.populate(queryPopulate).execPopulate();
-
+      await updatedSale.populate(queryPopulate).execPopulate();
+      if (req.body.status === '400') {
+        // Restore inventory of all products when sale is canceled
         for (const product of sale.products) {
           const productDoc = await Product.load(product.productRef, session);
           const productInventory = productDoc.inventory;
@@ -102,25 +102,78 @@ module.exports = {
         const diffTime = timer.diffTimer();
 
         res.send({ res: updatedSale, time: diffTime });
-      } catch (err) {
-        await session.abortTransaction();
+      } else {
+        for (const product of updatedSale.products) {
+          const removedProducts = sale.products.filter((_product) =>
+            updatedSale.products.some((_updatedProduct) => !_updatedProduct.productRef.equals(_product.productRef))
+          );
+
+          // Restore inventory of removed products in sale edition
+          if (removedProducts.length) {
+            for (const removedProduct of removedProducts) {
+              const productDoc = await Product.load(removedProduct.productRef, session);
+              const productInventory = productDoc.inventory;
+              const productHistory = productDoc.history || [];
+
+              productInventory.currentAmount += removedProduct.amount;
+              productHistory.push({ date: Date.now(), movementType: '100', amount: removedProduct.amount });
+              const data = { inventory: productInventory, history: productHistory };
+
+              await productDoc.editFields(data);
+            }
+          }
+
+          // Debit inventory of added products in sale edition
+          const addedProcuts = updatedSale.products.filter((_updatedProduct) =>
+            sale.products.some((_product) => !_product.productRef.equals(_updatedProduct.productRef))
+          );
+
+          if (addedProcuts.length) {
+            for (const addedProcut of addedProcuts) {
+              const productDoc = await Product.load(addedProcut.productRef, session);
+              const productInventory = productDoc.inventory;
+              const productHistory = productDoc.history || [];
+
+              productInventory.currentAmount -= addedProcut.amount;
+              productHistory.push({ date: Date.now(), movementType: '200', amount: addedProcut.amount });
+              const data = { inventory: productInventory, history: productHistory };
+
+              await productDoc.editFields(data);
+            }
+          }
+
+          // Change inventory of edited products
+          const oldProduct = sale.products.find((_product) => _product.productRef.equals(product.productRef));
+          const productDoc = await Product.load(product.productRef, session);
+          const productInventory = productDoc.inventory;
+          const productHistory = productDoc.history || [];
+          const diffAmount = oldProduct.amount - product.amount;
+
+          if (diffAmount > 0) {
+            productInventory.currentAmount += product.amount;
+            productHistory.push({ date: Date.now(), movementType: '100', amount: diffAmount });
+            const data = { inventory: productInventory, history: productHistory };
+
+            await productDoc.editFields(data);
+          } else if (diffAmount < 0) {
+            productInventory.currentAmount -= product.amount;
+            productHistory.push({ date: Date.now(), movementType: '200', amount: -diffAmount });
+            const data = { inventory: productInventory, history: productHistory };
+
+            await productDoc.editFields(data);
+          }
+        }
+
+        await session.commitTransaction();
         session.endSession();
-        next(err);
-      }
-    } else {
-      try {
-        const sale = await Sale.load(req.params.saleId);
-        const updatedSale = await sale.edit(req.body);
-        const queryPopulate = [{ path: 'seller', select: ['name', 'username'] }];
-
-        await updatedSale.populate(queryPopulate).execPopulate();
-
         const diffTime = timer.diffTimer();
 
         res.send({ res: updatedSale, time: diffTime });
-      } catch (err) {
-        next(err);
       }
+    } catch (err) {
+      await session.abortTransaction();
+      session.endSession();
+      next(err);
     }
   },
   async remove(req, res, next) {
@@ -129,15 +182,15 @@ module.exports = {
 
     session.startTransaction();
     try {
-      const sale = await Sale.load(req.param.saleId, session);
+      const sale = await Sale.load(req.params.saleId, session);
 
       for (const product of sale.products) {
-        const productDoc = Product.load(product.productRef, session);
-        const productInventory = product.inventory;
-        const productHistory = product.history || [];
+        const productDoc = await Product.load(product.productRef, session);
+        const productInventory = productDoc.inventory;
+        const productHistory = productDoc.history || [];
 
         productInventory.currentAmount += productDoc.amount;
-        productHistory.push({ date: Date.now(), movementType: '100' });
+        productHistory.push({ date: Date.now(), movementType: '100', amount: product.amount });
         const data = { inventory: productInventory, history: productHistory };
 
         await productDoc.editFields(data);

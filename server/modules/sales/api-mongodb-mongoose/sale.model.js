@@ -85,7 +85,7 @@ const SaleSchema = new Schema(
 SaleSchema.virtual('totalValue').get(function () {
   const sale = this;
 
-  return sale.products.reduce((totalValue, product) => (totalValue += product.amount * product.salePrice), 0);
+  return sale.products.reduce((totalValue, product) => (totalValue += product.amount * product.price), 0);
 });
 
 SaleSchema.pre('remove', function () {
@@ -99,7 +99,7 @@ SaleSchema.pre('remove', function () {
 SaleSchema.static({
   async load(saleId, session) {
     const Sale = this;
-    const sale = session ? await Sale.findById(saleId).session(session) : await Sale.findById(sale);
+    const sale = session ? await Sale.findById(saleId).session(session) : await Sale.findById(saleId);
 
     if (!sale) {
       throw new Error('Sale not found');

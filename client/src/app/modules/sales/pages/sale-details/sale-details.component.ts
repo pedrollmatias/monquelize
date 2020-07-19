@@ -48,6 +48,7 @@ export class SaleDetailsComponent implements OnInit {
 
   saleForm: FormGroup;
   paymentMethodFormControl = new FormControl(null, Validators.required);
+  sellerFormControl = new FormControl();
   totalValue = 0;
 
   pageTitle = 'Loading...';
@@ -55,6 +56,8 @@ export class SaleDetailsComponent implements OnInit {
   isNewSale: boolean;
 
   showPageData = false;
+
+  removedProducts: any[] = [];
 
   saleStatus = SALE_STATUS_ENUM;
   productsDataSource: MatTableDataSource<AbstractControl>;
@@ -78,20 +81,26 @@ export class SaleDetailsComponent implements OnInit {
     this.saleId = this.route.snapshot.paramMap.get('id');
     this.isNewSale = this.saleId ? false : true;
     if (!this.isNewSale) {
-      // forkJoin(
-      //   this.productApi.getProducts(),
-      //   this.paymentMethodApi.getPaymentMethods()
-      // ).subscribe((res) => {
-      //   const [productRes, paymentMethodRes] = res;
-      //   this.sale = saleRes.res;
-      //   this.categories = categoryRes.res;
-      //   this.units = unitRes.res;
-      //   this.mongodbMongooseTime = this.getGreatestTime([categoryRes.time, unitRes.time]);
-      //   this.pageTitle = 'Edit sale';
-      //   this.createSaleForm();
-      //   this.initFormData(this.sale);
-      //   this.showPageData = true;
-      // });
+      forkJoin(
+        this.saleApi.getSale(this.saleId),
+        this.productApi.getProducts(),
+        this.paymentMethodApi.getPaymentMethods()
+      ).subscribe((res) => {
+        const [saleRes, productRes, paymentMethodRes] = res;
+        this.sale = saleRes.res;
+        this.products = productRes.res;
+        this.paymentMethods = paymentMethodRes.res;
+        this.mongodbMongooseTime = this.utils.getGreatestTime([productRes.time, paymentMethodRes.time]);
+        this.sale.products = this.removeExcludedProducts();
+        this.createSaleForm();
+        this.listenSearchInputChages();
+        this.listenProductChanges();
+        this.initFormControlsData();
+        this.activateFilters();
+        this.setProductsDataSource(this.utils.getFormArrayControl(this.saleForm, ['products']));
+        this.pageTitle = 'Edit sale';
+        this.showPageData = true;
+      });
     } else {
       forkJoin(this.productApi.getProducts(), this.paymentMethodApi.getPaymentMethods()).subscribe((res) => {
         const [productRes, paymentMethodRes] = res;
@@ -99,10 +108,10 @@ export class SaleDetailsComponent implements OnInit {
         this.paymentMethods = paymentMethodRes.res;
         this.mongodbMongooseTime = this.utils.getGreatestTime([productRes.time, paymentMethodRes.time]);
         this.createSaleForm();
-        this.addProduct();
-        this.setProductsDataSource(this.utils.getFormArrayControl(this.saleForm, ['products']));
         this.listenSearchInputChages();
         this.listenProductChanges();
+        this.addProduct();
+        this.setProductsDataSource(this.utils.getFormArrayControl(this.saleForm, ['products']));
         this.pageTitle = 'New sale';
         this.showPageData = true;
       });
@@ -136,6 +145,34 @@ export class SaleDetailsComponent implements OnInit {
         },
         Validators.required
       ),
+    });
+  }
+
+  initFormControlsData(): void {
+    this.saleForm.reset();
+    this.saleForm.patchValue(this.sale);
+    this.sale.products.forEach((product: any) => {
+      this.addProduct(product);
+    });
+    this.paymentMethodFormControl.setValue(this.saleForm.get('paymentMethod').value);
+    this.sellerFormControl.setValue(this.saleForm.get('seller').value);
+  }
+
+  activateFilters(): void {
+    const control = <FormArray>this.saleForm.get('products');
+    control.value.forEach((product: any, index: number) => {
+      this.searchInputs[index].setValue(product);
+    });
+  }
+
+  removeExcludedProducts(): any[] {
+    return this.sale.products.filter((product) => {
+      if (product.productRef) {
+        return true;
+      } else {
+        this.removedProducts.push(`(${product.sku}) ${product.name}`);
+        return false;
+      }
     });
   }
 
@@ -174,25 +211,25 @@ export class SaleDetailsComponent implements OnInit {
     return product ? `(${product.sku}) ${product.name}` : '';
   }
 
-  createProduct(): FormGroup {
+  createProduct(product: any = null): FormGroup {
     return this.fb.group({
-      productRef: [null, Validators.required],
-      sku: [null, Validators.required],
-      name: [null, Validators.required],
-      category: null,
-      unit: null,
-      amount: [{ value: null, disabled: true }, Validators.required],
-      price: [{ value: null, disabled: true }, Validators.required],
-      subtotal: null,
+      productRef: [product?.productRef || product?._id || null, Validators.required],
+      sku: [product?.sku || null, Validators.required],
+      name: [product?.name || null, Validators.required],
+      category: product?.category || null,
+      unit: product?.unit || null,
+      amount: [{ value: product?.amount || null, disabled: product ? false : true }, Validators.required],
+      price: [{ value: product?.price || null, disabled: product ? false : true }, Validators.required],
+      subtotal: product?.amount && product.price ? product.amount * product.price : null,
     });
   }
 
-  addProduct(): void {
-    const control = <FormArray>this.saleForm.get('products');
-    control.push(this.createProduct());
-    this.setProductsDataSource(this.utils.getFormArrayControl(this.saleForm, ['products']));
+  addProduct(product: any = null): void {
     this.addSearchInput();
     this.addFilteredProducts$();
+    const control = <FormArray>this.saleForm.get('products');
+    control.push(this.createProduct(product));
+    this.setProductsDataSource(this.utils.getFormArrayControl(this.saleForm, ['products']));
     this.listenSearchInputChages();
   }
 
@@ -288,8 +325,12 @@ export class SaleDetailsComponent implements OnInit {
     this.saleForm.get('paymentMethod').patchValue(paymentMethodFormValue);
   }
 
-  compareSelection(option: any, selection: any) {
-    return option?._id === selection?.paymentMethodRef;
+  comparePaymentMethod(option: any, selection: any) {
+    return option?._id === selection?.paymentMethodRef || option?.paymentMethodRef === selection?.paymentMethodRef;
+  }
+
+  compareSeller(option: any, selection: any) {
+    return option?._id === selection?._id;
   }
 
   saveSale(): void {
@@ -307,13 +348,15 @@ export class SaleDetailsComponent implements OnInit {
             }
           });
       } else {
-        // const product = this.formatProduct(this.productForm.value);
-        // this.sharedComponents
-        //   .openLoadingDialog(this.productApi.editProduct(this.productId, product))
-        //   .beforeClosed()
-        //   .subscribe((productRes) => {
-        //     this.initFormData(productRes.res);
-        //   });
+        const sale = this.saleForm.value;
+        this.sharedComponents
+          .openLoadingDialog(this.saleApi.editSale(this.saleId, sale))
+          .beforeClosed()
+          .subscribe((saleRes: IHttpRes) => {
+            if (saleRes) {
+              this.ngOnInit();
+            }
+          });
       }
     }
   }
@@ -333,7 +376,7 @@ export class SaleDetailsComponent implements OnInit {
       )
       .subscribe((res: any) => {
         if (res) {
-          this.router.navigate(['/products']);
+          this.router.navigate(['/sales']);
         }
       });
   }

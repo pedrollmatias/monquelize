@@ -1,18 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-
-const ELEMENT_DATA: any[] = [
-  { position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
-  { position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
-  { position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li' },
-  { position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be' },
-  { position: 5, name: 'Boron', weight: 10.811, symbol: 'B' },
-  { position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C' },
-  { position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N' },
-  { position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O' },
-  { position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F' },
-  { position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne' },
-];
+import { IBreadcrumb } from 'src/app/shared/models/breadcrumb.model';
+import { ApiSaleService } from 'src/app/core/api/api-sale.service';
 
 @Component({
   selector: 'app-sales',
@@ -20,9 +9,36 @@ const ELEMENT_DATA: any[] = [
   styleUrls: ['./sales.component.scss'],
 })
 export class SalesComponent implements OnInit {
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = new MatTableDataSource(ELEMENT_DATA);
-  constructor() {}
+  breadcrumb: IBreadcrumb = [{ label: 'Settings', isLink: true, path: '/settings' }];
 
-  ngOnInit(): void {}
+  salesColumns: string[] = ['code', 'date', 'customer', 'totalValue', 'status'];
+  salesDataSource: MatTableDataSource<any>;
+
+  constructor(private saleApi: ApiSaleService) {}
+
+  sales: any[];
+
+  mongodbMongooseTime: number;
+
+  ngOnInit(): void {
+    this.resetData();
+    this.saleApi.getSales().subscribe((saleRes) => {
+      this.sales = <any[]>saleRes.res;
+      this.mongodbMongooseTime = saleRes.time;
+      this.setDataSource(this.sales);
+    });
+  }
+
+  setDataSource(sales: any[]): void {
+    this.salesDataSource = new MatTableDataSource(sales);
+  }
+
+  resetData(): void {
+    this.mongodbMongooseTime = null;
+    this.sales = undefined;
+  }
+
+  refreshComponent(): void {
+    this.ngOnInit();
+  }
 }
