@@ -1,0 +1,93 @@
+<div class="container py-5">
+  <div class="pb-5">
+    <app-element-loading-area [mongodbMongooseTime]="mongodbMongooseTime"></app-element-loading-area>
+  </div>
+  <div class="d-flex align-items-center justify-content-between pb-5">
+    <div>
+      <div>
+        <app-element-breadcrumb [breadcrumb]="breadcrumb"></app-element-breadcrumb>
+      </div>
+      <span class="mat-headline m-0">
+        <strong>{{ pageTitle }}</strong>
+      </span>
+    </div>
+    <div *ngIf="showPageData && !isNewUser">
+      <app-element-button-icon-text
+        [icon]="user.blocked ? 'lock_open' : 'lock'"
+        [text]="user.blocked ? 'Unlock user' : 'Block user'"
+        (btnClick)="toggleBlockUser()"
+      ></app-element-button-icon-text>
+    </div>
+  </div>
+  <div>
+    <ng-container *ngIf="showPageData; else loading">
+      <form [formGroup]="userForm" (ngSubmit)="saveUser()">
+        <mat-card class="px-5 py-4">
+          <ng-container *ngIf="user.blocked">
+            <div class="pb-4">
+              <span class="color-warn"><strong>Blocked user</strong></span>
+            </div>
+          </ng-container>
+          <div class="d-flex">
+            <div class="flex-grow-1 pr-5">
+              <mat-form-field class="w-100">
+                <mat-label>First name</mat-label>
+                <input mat-input matInput formControlName="firstName" required />
+              </mat-form-field>
+            </div>
+            <div class="flex-grow-1 pr-5">
+              <mat-form-field class="w-100">
+                <mat-label>Last name</mat-label>
+                <input mat-input matInput formControlName="lastName" required />
+              </mat-form-field>
+            </div>
+            <div class="flex-grow-1 pr-5">
+              <mat-form-field class="w-100">
+                <mat-label>Born date</mat-label>
+                <input matInput formControlName="bornDate" [matDatepicker]="picker" required />
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+            </div>
+            <div class="flex-grow-1">
+              <mat-form-field class="w-100">
+                <mat-label>Sex</mat-label>
+                <mat-select formControlName="sex" required>
+                  <mat-option value="male">Male</mat-option>
+                  <mat-option value="female">Female</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="d-flex">
+            <div class="flex-grow-1 pr-5">
+              <mat-form-field class="w-100">
+                <mat-label>E-mail</mat-label>
+                <input mat-input matInput formControlName="email" required />
+              </mat-form-field>
+            </div>
+            <div class="flex-grow-1">
+              <mat-form-field class="w-100">
+                <mat-label>Username</mat-label>
+                <input mat-input matInput formControlName="username" required />
+              </mat-form-field>
+            </div>
+          </div>
+        </mat-card>
+        <div class="d-flex justify-content-end py-5">
+          <div class="pr-4">
+            <button mat-button type="button" routerLink="/settings/users">Cancel</button>
+          </div>
+          <div>
+            <button mat-flat-button color="primary" type="submit">Save user</button>
+          </div>
+        </div>
+      </form>
+    </ng-container>
+    <ng-template #loading>
+      <div class="d-flex justify-content-center align-items-center py-5">
+        <mat-spinner [diameter]="30"></mat-spinner>
+      </div>
+    </ng-template>
+  </div>
+</div>

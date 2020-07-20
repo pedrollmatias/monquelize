@@ -1,38 +1,76 @@
 'use strict';
 
 const User = require('./user.model');
+const timer = require('../../../timer');
 
 module.exports = {
-  async load(req, res, next, userId) {
-    const user = await User.findById(userId);
+  async get(req, res, next) {
+    timer.startTimer();
 
-    if (!user) {
-      throw new Error('User not found');
+    try {
+      const query = req.query || {};
+      const user = await User.find(query);
+
+      const diffTime = timer.diffTimer();
+
+      res.send({ res: user, time: diffTime });
+    } catch (err) {
+      next(err);
     }
-    req.user = user;
-    next();
   },
-  async get(req, res) {
-    const query = req.query || {};
-    const user = await User.find(query);
+  async query(req, res, next) {
+    timer.startTimer();
 
-    res.send(user);
-  },
-  query(req, res) {
+    try {
+      const user = await User.load(req.params.userId);
+      const diffTime = timer.diffTimer();
+
+      res.send({ res: user, time: diffTime });
+    } catch (err) {
+      next(err);
+    }
+
     res.send(req.user);
   },
-  async create(req, res) {
-    const user = await User.create(req.body);
+  async create(req, res, next) {
+    timer.startTimer();
 
-    res.send(user);
-  },
-  async edit(req, res) {
-    const user = await req.user.edit(req.body);
+    try {
+      const user = await User.create(req.body);
 
-    res.send(user);
+      const diffTime = timer.diffTimer();
+
+      res.send({ res: user, time: diffTime });
+    } catch (err) {
+      next(err);
+    }
   },
-  async block(req, res) {
-    await req.user.editFields({ block: true });
-    res.sendStatus(200);
+  async edit(req, res, next) {
+    timer.startTimer();
+
+    try {
+      const user = await User.load(req.params.userId);
+      const updatedUser = await user.edit(req.body);
+
+      const diffTime = timer.diffTimer();
+
+      res.send({ res: updatedUser, time: diffTime });
+    } catch (err) {
+      next(err);
+    }
+  },
+  async toggleBlock(req, res, next) {
+    timer.startTimer();
+
+    try {
+      const user = await User.load(req.params.userId);
+      const updatedUser = await user.editFields({ blocked: !user.blocked });
+
+      const diffTime = timer.diffTimer();
+
+      res.send({ res: updatedUser, time: diffTime });
+    } catch (err) {
+      next(err);
+    }
   },
 };

@@ -15,8 +15,8 @@ export class SettingsComponent implements OnInit {
   settingItems: ISettingItem[] = [
     {
       icon: 'people',
-      label: 'Sellers',
-      path: '/settings/sellers',
+      label: 'Users',
+      path: '/settings/users',
     },
     {
       icon: 'category',

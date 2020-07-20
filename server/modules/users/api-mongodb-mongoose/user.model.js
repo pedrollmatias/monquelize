@@ -3,6 +3,11 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+const opts = {
+  collection: 'users',
+  toJSON: { virtuals: true },
+};
+
 const UserSchema = new Schema(
   {
     username: {
@@ -40,10 +45,24 @@ const UserSchema = new Schema(
       default: false,
     },
   },
-  { collection: 'users' }
+  opts
 );
 
+UserSchema.virtual('fullName').get(function () {
+  return `${this.firstName} ${this.lastName}`;
+});
+
 UserSchema.static({
+  async load(userId, session) {
+    const User = this;
+    const user = session ? await User.findById(userId).session(session) : await User.findById(userId);
+
+    if (!user) {
+      throw new Error('User not found');
+    }
+
+    return user;
+  },
   async create(unit) {
     const User = this;
     const user = new User(unit);
@@ -53,6 +72,13 @@ UserSchema.static({
 });
 
 UserSchema.method({
+  async edit(data) {
+    const user = this;
+
+    user.overwrite(data);
+
+    return user.save();
+  },
   async editFields(data) {
     const user = this;
 

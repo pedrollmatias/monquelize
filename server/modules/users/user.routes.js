@@ -14,6 +14,5 @@ module.exports = (app, serverId) => {
 
   router.route('/create').post(api.create);
 
-  router.param('userId', api.load);
-  router.route('/:userId').get(api.query).post(api.edit).put(api.block);
+  router.route('/:userId').get(api.query).post(api.edit).put(api.toggleBlock);
 };
