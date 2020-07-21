@@ -43,7 +43,7 @@ module.exports = {
     session.startTransaction();
     try {
       const sale = await Sale.createSale(req.body, session);
-      const queryPopulate = [{ path: 'seller', select: ['name', 'username'] }];
+      const queryPopulate = [{ path: 'seller' }];
 
       await sale.populate(queryPopulate).execPopulate();
 
@@ -81,7 +81,7 @@ module.exports = {
     try {
       const sale = await Sale.load(req.params.saleId, session);
       const updatedSale = await sale.edit(req.body);
-      const queryPopulate = [{ path: 'seller', select: ['name', 'username'] }];
+      const queryPopulate = [{ path: 'seller' }];
 
       await updatedSale.populate(queryPopulate).execPopulate();
       if (req.body.status === '400') {

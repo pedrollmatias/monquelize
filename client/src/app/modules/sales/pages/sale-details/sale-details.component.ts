@@ -9,7 +9,7 @@ import { ApiProductService } from 'src/app/core/api/api-product.service';
 import { ApiPaymentMethodService } from 'src/app/core/api/api-payment-method.service';
 import { forkJoin, Observable, of } from 'rxjs';
 import { IPaymentMethod } from 'src/app/shared/models/payment-method.model';
-import { ISaleProduct } from 'src/app/shared/models/sale-product.model';
+import { IOperationProduct } from 'src/app/shared/models/operation-product.model';
 import { startWith, map, switchMap } from 'rxjs/operators';
 import { IHttpRes } from 'src/app/shared/models/http-res.model';
 import { ApiSaleService } from 'src/app/core/api/api-sale.service';
@@ -34,7 +34,7 @@ export class SaleDetailsComponent implements OnInit {
 
   saleId: string;
   sale: any;
-  products: ISaleProduct[];
+  products: IOperationProduct[];
   paymentMethods: IPaymentMethod[];
   users: IUser[];
 
@@ -193,7 +193,7 @@ export class SaleDetailsComponent implements OnInit {
     });
   }
 
-  filterProducts(name: string): ISaleProduct[] {
+  filterProducts(name: string): IOperationProduct[] {
     const value = name.toLowerCase();
     return this.products.filter((product) => {
       const nameStr = product.name.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
@@ -214,7 +214,7 @@ export class SaleDetailsComponent implements OnInit {
     this.totalValue = this.utils.round(value, 2);
   }
 
-  displayProduct(product: ISaleProduct): string {
+  displayProduct(product: IOperationProduct): string {
     return product ? `(${product.sku}) ${product.name}` : '';
   }
 

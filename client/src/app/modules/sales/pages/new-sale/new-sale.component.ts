@@ -7,7 +7,7 @@ import { Observable, Subject } from 'rxjs';
 import { startWith, map } from 'rxjs/operators';
 import { SharedComponentsService } from 'src/app/core/services/shared-components.service';
 import { MatDialog } from '@angular/material/dialog';
-import { ISaleProduct } from 'src/app/shared/models/sale-product.model';
+import { IOperationProduct } from 'src/app/shared/models/operation-product.model';
 
 const DEFAULT_AMOUNT = 1;
 
@@ -25,9 +25,9 @@ export class NewSaleComponent implements OnInit {
   currentCategory: ICategory;
   currentChildrenCategories: ICategory[];
 
-  products: ISaleProduct[];
+  products: IOperationProduct[];
   searchInput = new FormControl();
-  productsList: ISaleProduct[] = [];
+  productsList: IOperationProduct[] = [];
   filteredProducts: Observable<any[]>;
   totalValue = 0;
 
@@ -69,7 +69,7 @@ export class NewSaleComponent implements OnInit {
     this.changeCurrentCategory(currentCategory);
   }
 
-  getProducts(categories: ICategory[]): ISaleProduct[] {
+  getProducts(categories: ICategory[]): IOperationProduct[] {
     return categories.reduce((products, category) => [...products, ...category.products], []);
   }
 
@@ -81,7 +81,7 @@ export class NewSaleComponent implements OnInit {
     );
   }
 
-  _filter(name: string): ISaleProduct[] {
+  _filter(name: string): IOperationProduct[] {
     const value = name.toLowerCase();
     return this.products.filter((product) => {
       const nameStr = product.name.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
@@ -91,7 +91,7 @@ export class NewSaleComponent implements OnInit {
     });
   }
 
-  createProduct(product: ISaleProduct, categoryId: string): ISaleProduct {
+  createProduct(product: IOperationProduct, categoryId: string): IOperationProduct {
     const productCopy = Object.assign({}, product);
     productCopy.amount = DEFAULT_AMOUNT;
     product.category = categoryId;
@@ -130,7 +130,7 @@ export class NewSaleComponent implements OnInit {
     this.totalValue = this.calculateTotalValue(this.productsList);
   }
 
-  calculateTotalValue(productsList: ISaleProduct[]): number {
+  calculateTotalValue(productsList: IOperationProduct[]): number {
     return productsList.reduce((totalValue, product, index) => {
       if (product.amount <= 0 || !product.amount) {
         this.productsList[index].subtotal = product.salePrice;
@@ -141,7 +141,7 @@ export class NewSaleComponent implements OnInit {
     }, 0);
   }
 
-  calculateSubtotal(product: ISaleProduct): number {
+  calculateSubtotal(product: IOperationProduct): number {
     return product.amount * product.salePrice;
   }
 

@@ -2,6 +2,7 @@
 
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const Sequence = require('../../utils/sequence/sequence.model');
 
 const purchaseStatusEnum = {
   '100': 'Draft',
@@ -10,13 +11,19 @@ const purchaseStatusEnum = {
 };
 
 const opts = {
-  collection: 'products',
+  collection: 'purchases',
   toObject: { virtuals: true },
   toJSON: { virtuals: true },
 };
 
 const PurchaseSchema = new Schema(
   {
+    code: {
+      type: Number,
+      index: true,
+      immutable: true,
+      required: true,
+    },
     vendor: {
       type: String,
       trim: true,
@@ -56,7 +63,7 @@ const PurchaseSchema = new Schema(
             required: true,
           },
         },
-        costPrice: {
+        price: {
           type: Number,
           required: true,
         },
@@ -66,19 +73,19 @@ const PurchaseSchema = new Schema(
         },
       },
     ],
-    payment: {
-      paymentMethod: {
+    paymentMethod: {
+      paymentMethodRef: {
         type: Schema.Types.ObjectId,
-        ref: 'PaymentMethod',
-        required: true,
       },
-      value: {
-        type: Number,
+      name: {
+        type: String,
         required: true,
+        trim: true,
       },
     },
     buyer: {
       type: Schema.Types.ObjectId,
+      ref: 'User',
     },
   },
   opts
@@ -87,13 +94,39 @@ const PurchaseSchema = new Schema(
 PurchaseSchema.virtual('totalValue').get(function () {
   const purchase = this;
 
-  return purchase.products.reduce((totalValue, product) => (totalValue += product.amount * product.purchasePrice), 0);
+  return purchase.products.reduce((totalValue, product) => (totalValue += product.amount * product.price), 0);
+});
+
+PurchaseSchema.pre('validate', async function () {
+  const purchase = this;
+  const sequenceDoc = await Sequence.findById('purchases');
+
+  if (sequenceDoc) {
+    const sequence = await Sequence.findByIdAndUpdate({ _id: 'purchases' }, { $inc: { seq: 1 } }, { new: true });
+
+    purchase.code = sequence.seq;
+  } else {
+    const sequenceDoc = new Sequence({ _id: 'purchases' });
+
+    await sequenceDoc.save();
+    purchase.code = 1;
+  }
+});
+
+PurchaseSchema.pre('remove', function () {
+  const purchase = this;
+
+  if (['100', '200'].includes(purchase.status)) {
+    throw new Error('Only done or canceled purchases can be removed');
+  }
 });
 
 PurchaseSchema.static({
   async load(purchaseId, session) {
     const Purchase = this;
-    const purchase = session ? await Purchase.findById(purchaseId).session(session) : await Purchase.findById(purchase);
+    const purchase = session
+      ? await Purchase.findById(purchaseId).session(session)
+      : await Purchase.findById(purchaseId);
 
     if (!purchase) {
       throw new Error('Purchase not found');
@@ -101,11 +134,11 @@ PurchaseSchema.static({
 
     return purchase;
   },
-  async create(purchase, session) {
+  async createPurchase(purchase, session) {
     const Purchase = this;
-    const purchaseDoc = new Purchase(purchase).session(session);
+    const purchaseDoc = new Purchase(purchase);
 
-    return purchaseDoc.save();
+    return purchaseDoc.save({ session });
   },
 });
 

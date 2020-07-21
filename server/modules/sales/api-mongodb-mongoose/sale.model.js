@@ -104,7 +104,6 @@ SaleSchema.pre('validate', async function () {
   if (sequenceDoc) {
     const sequence = await Sequence.findByIdAndUpdate({ _id: 'sales' }, { $inc: { seq: 1 } }, { new: true });
 
-    console.log(sequence);
     sale.code = sequence.seq;
   } else {
     const sequenceDoc = new Sequence({ _id: 'sales' });

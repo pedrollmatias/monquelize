@@ -1,4 +1,4 @@
-export declare interface ISaleProduct {
+export declare interface IOperationProduct {
   _id?: string;
   productRef?: string;
   sku: string;
@@ -9,12 +9,6 @@ export declare interface ISaleProduct {
   salePrice: number;
   amount: number;
   subtotal?: number;
-}
-
-declare interface ICategory {
-  currentAmount: number;
-  minAmount: number;
-  maxAmount: number;
 }
 
 declare interface IUnit {
