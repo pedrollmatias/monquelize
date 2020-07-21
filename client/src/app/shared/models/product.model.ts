@@ -19,7 +19,8 @@ declare interface IInvenoty {
   maxAmount: number;
 }
 
-declare interface IHistory {
+export declare interface IHistory {
   date: Date;
   movementType: String;
+  amount: number;
 }

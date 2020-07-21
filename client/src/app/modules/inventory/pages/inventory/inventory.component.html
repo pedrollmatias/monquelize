@@ -1,0 +1,77 @@
+<div class="container py-5">
+  <div class="pb-5">
+    <app-element-loading-area [mongodbMongooseTime]="mongodbMongooseTime"></app-element-loading-area>
+  </div>
+  <div class="pb-5">
+    <span class="mat-headline"><strong>Inventory</strong></span>
+  </div>
+  <div class="d-flex pb-5">
+    <div class="flex-grow-1 pr-5">
+      <mat-form-field class="inline-input w-100" floatLabel="never">
+        <mat-label>Search</mat-label>
+        <input matInput />
+      </mat-form-field>
+    </div>
+    <div>
+      <div>
+        <app-element-button-icon-text
+          icon="refresh"
+          text="Refresh"
+          color="primary"
+          (btnClick)="refreshComponent()"
+        ></app-element-button-icon-text>
+      </div>
+    </div>
+  </div>
+  <div>
+    <ng-container *ngIf="products; else loading">
+      <ng-container *ngIf="productsDataSouce.data.length; else noProductsFound">
+        <mat-card>
+          <table mat-table [dataSource]="productsDataSouce" class="w-100">
+            <ng-container matColumnDef="sku">
+              <th mat-header-cell *matHeaderCellDef>SKU</th>
+              <td mat-cell *matCellDef="let product" [routerLink]="[product._id]">{{ product.sku }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef>Name</th>
+              <td mat-cell *matCellDef="let product" [routerLink]="[product._id]">{{ product.name }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="category">
+              <th mat-header-cell *matHeaderCellDef>Category</th>
+              <td mat-cell *matCellDef="let product" [routerLink]="[product._id]">
+                {{ product.category?.name || '-' }}
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="unit">
+              <th mat-header-cell *matHeaderCellDef>Unit</th>
+              <td mat-cell *matCellDef="let product" [routerLink]="[product._id]">
+                {{ product.unit?.shortUnit || '-' }}
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="currentAmount">
+              <th mat-header-cell *matHeaderCellDef>Current amount</th>
+              <td mat-cell *matCellDef="let product" [routerLink]="[product._id]">
+                {{ product.inventory?.currentAmount }}
+              </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="productsColumns"></tr>
+            <tr mat-row class="cursor-pointer" *matRowDef="let row; columns: productsColumns"></tr>
+          </table>
+        </mat-card>
+      </ng-container>
+      <ng-template #noProductsFound>
+        <app-element-card-no-data-found text="No products found"></app-element-card-no-data-found>
+      </ng-template>
+    </ng-container>
+    <ng-template #loading>
+      <div class="d-flex justify-content-center align-items-center py-5">
+        <mat-spinner [diameter]="30"></mat-spinner>
+      </div>
+    </ng-template>
+  </div>
+</div>
