@@ -14,6 +14,8 @@ import { startWith, map, switchMap } from 'rxjs/operators';
 import { IHttpRes } from 'src/app/shared/models/http-res.model';
 import { ApiSaleService } from 'src/app/core/api/api-sale.service';
 import { IConfirmation } from 'src/app/shared/models/confirmation.model';
+import { ApiUserService } from 'src/app/core/api/api-user.service';
+import { IUser } from 'src/app/shared/models/user.model';
 
 export const SALE_STATUS_ENUM = {
   '100': 'Draft',
@@ -21,15 +23,6 @@ export const SALE_STATUS_ENUM = {
   '300': 'Done',
   '400': 'Canceled',
 };
-
-declare interface IProduct {
-  productRef: string;
-  sku: string;
-  description?: string;
-  amount: number;
-  price: number;
-  subtotal?: number;
-}
 
 @Component({
   selector: 'app-sale-details',
@@ -43,6 +36,7 @@ export class SaleDetailsComponent implements OnInit {
   sale: any;
   products: ISaleProduct[];
   paymentMethods: IPaymentMethod[];
+  users: IUser[];
 
   mongodbMongooseTime: number;
 
@@ -71,6 +65,7 @@ export class SaleDetailsComponent implements OnInit {
     private saleApi: ApiSaleService,
     private productApi: ApiProductService,
     private paymentMethodApi: ApiPaymentMethodService,
+    private usersApi: ApiUserService,
     private sharedComponents: SharedComponentsService,
     private route: ActivatedRoute,
     public utils: UtilsService,
@@ -84,13 +79,20 @@ export class SaleDetailsComponent implements OnInit {
       forkJoin(
         this.saleApi.getSale(this.saleId),
         this.productApi.getProducts(),
-        this.paymentMethodApi.getPaymentMethods()
+        this.paymentMethodApi.getPaymentMethods(),
+        this.usersApi.getUsers()
       ).subscribe((res) => {
-        const [saleRes, productRes, paymentMethodRes] = res;
+        const [saleRes, productRes, paymentMethodRes, userRes] = res;
         this.sale = saleRes.res;
         this.products = productRes.res;
         this.paymentMethods = paymentMethodRes.res;
-        this.mongodbMongooseTime = this.utils.getGreatestTime([productRes.time, paymentMethodRes.time]);
+        this.users = userRes.res;
+        this.mongodbMongooseTime = this.utils.getGreatestTime([
+          saleRes.time,
+          productRes.time,
+          paymentMethodRes.time,
+          userRes.time,
+        ]);
         this.sale.products = this.removeExcludedProducts();
         this.createSaleForm();
         this.listenSearchInputChages();
@@ -102,11 +104,16 @@ export class SaleDetailsComponent implements OnInit {
         this.showPageData = true;
       });
     } else {
-      forkJoin(this.productApi.getProducts(), this.paymentMethodApi.getPaymentMethods()).subscribe((res) => {
-        const [productRes, paymentMethodRes] = res;
+      forkJoin(
+        this.productApi.getProducts(),
+        this.paymentMethodApi.getPaymentMethods(),
+        this.usersApi.getUsers()
+      ).subscribe((res) => {
+        const [productRes, paymentMethodRes, userRes] = res;
         this.products = productRes.res;
         this.paymentMethods = paymentMethodRes.res;
-        this.mongodbMongooseTime = this.utils.getGreatestTime([productRes.time, paymentMethodRes.time]);
+        this.users = userRes.res;
+        this.mongodbMongooseTime = this.utils.getGreatestTime([productRes.time, paymentMethodRes.time, userRes.time]);
         this.createSaleForm();
         this.listenSearchInputChages();
         this.listenProductChanges();
@@ -325,12 +332,20 @@ export class SaleDetailsComponent implements OnInit {
     this.saleForm.get('paymentMethod').patchValue(paymentMethodFormValue);
   }
 
+  handleSellerSelection(seller: IUser): void {
+    this.saleForm.get('seller').setValue(seller._id);
+  }
+
   comparePaymentMethod(option: any, selection: any) {
-    return option?._id === selection?.paymentMethodRef || option?.paymentMethodRef === selection?.paymentMethodRef;
+    return (
+      option &&
+      selection &&
+      (option._id === selection.paymentMethodRef || option.paymentMethodRef === selection.paymentMethodRef)
+    );
   }
 
   compareSeller(option: any, selection: any) {
-    return option?._id === selection?._id;
+    return option && selection && option._id === selection._id;
   }
 
   saveSale(): void {
@@ -344,7 +359,7 @@ export class SaleDetailsComponent implements OnInit {
           .beforeClosed()
           .subscribe((saleRes: IHttpRes) => {
             if (saleRes) {
-              this.router.navigate(['/sale', 'edit', saleRes.res._id]);
+              this.router.navigate(['/sales', 'edit', saleRes.res._id]);
             }
           });
       } else {

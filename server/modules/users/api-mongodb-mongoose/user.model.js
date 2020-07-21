@@ -5,6 +5,7 @@ const Schema = mongoose.Schema;
 
 const opts = {
   collection: 'users',
+  toObject: { virtuals: true },
   toJSON: { virtuals: true },
 };
 

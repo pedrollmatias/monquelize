@@ -11,7 +11,7 @@ import { ApiSaleService } from 'src/app/core/api/api-sale.service';
 export class SalesComponent implements OnInit {
   breadcrumb: IBreadcrumb = [{ label: 'Settings', isLink: true, path: '/settings' }];
 
-  salesColumns: string[] = ['code', 'date', 'customer', 'totalValue', 'status'];
+  salesColumns: string[] = ['code', 'date', 'customer', 'totalValue', 'seller', 'status'];
   salesDataSource: MatTableDataSource<any>;
 
   constructor(private saleApi: ApiSaleService) {}
@@ -24,6 +24,7 @@ export class SalesComponent implements OnInit {
     this.resetData();
     this.saleApi.getSales().subscribe((saleRes) => {
       this.sales = <any[]>saleRes.res;
+      console.log(this.sales);
       this.mongodbMongooseTime = saleRes.time;
       this.setDataSource(this.sales);
     });

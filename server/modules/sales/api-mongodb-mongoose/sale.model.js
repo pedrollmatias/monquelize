@@ -2,6 +2,7 @@
 
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const Sequence = require('../../utils/sequence/sequence.model');
 
 const saleStatusEnum = {
   '100': 'Draft',
@@ -12,11 +13,18 @@ const saleStatusEnum = {
 
 const opts = {
   collection: 'sales',
+  toObject: { virtuals: true },
   toJSON: { virtuals: true },
 };
 
 const SaleSchema = new Schema(
   {
+    code: {
+      type: Number,
+      index: true,
+      immutable: true,
+      required: true,
+    },
     customer: {
       type: String,
       trim: true,
@@ -77,6 +85,7 @@ const SaleSchema = new Schema(
     },
     seller: {
       type: Schema.Types.ObjectId,
+      ref: 'User',
     },
   },
   opts
@@ -86,6 +95,23 @@ SaleSchema.virtual('totalValue').get(function () {
   const sale = this;
 
   return sale.products.reduce((totalValue, product) => (totalValue += product.amount * product.price), 0);
+});
+
+SaleSchema.pre('validate', async function () {
+  const sale = this;
+  const sequenceDoc = await Sequence.findById('sales');
+
+  if (sequenceDoc) {
+    const sequence = await Sequence.findByIdAndUpdate({ _id: 'sales' }, { $inc: { seq: 1 } }, { new: true });
+
+    console.log(sequence);
+    sale.code = sequence.seq;
+  } else {
+    const sequenceDoc = new Sequence({ _id: 'sales' });
+
+    await sequenceDoc.save();
+    sale.code = 1;
+  }
 });
 
 SaleSchema.pre('remove', function () {

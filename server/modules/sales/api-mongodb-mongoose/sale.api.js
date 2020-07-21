@@ -10,7 +10,8 @@ module.exports = {
 
     try {
       const query = req.query || {};
-      const sale = await Sale.find(query);
+      const queryPopulate = [{ path: 'seller' }];
+      const sale = await Sale.find(query).populate(queryPopulate);
       const diffTime = timer.diffTimer();
 
       res.send({ res: sale, time: diffTime });
@@ -23,7 +24,7 @@ module.exports = {
 
     try {
       const sale = await Sale.load(req.params.saleId);
-      const queryPopulate = [{ path: 'seller', select: ['name', 'username'] }];
+      const queryPopulate = [{ path: 'seller' }];
 
       await sale.populate(queryPopulate).execPopulate();
       const diffTime = timer.diffTimer();

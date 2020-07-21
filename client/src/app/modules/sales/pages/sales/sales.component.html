@@ -41,7 +41,7 @@
             <ng-container matColumnDef="code">
               <th mat-header-cell *matHeaderCellDef>#</th>
               <td mat-cell class="cursor-pointer" *matCellDef="let sale" [routerLink]="['edit', sale._id]">
-                {{ sale._id }}
+                {{ sale.code }}
               </td>
             </ng-container>
 
@@ -63,6 +63,13 @@
               <th mat-header-cell *matHeaderCellDef>Total value</th>
               <td mat-cell class="cursor-pointer" *matCellDef="let sale" [routerLink]="['edit', sale._id]">
                 $ {{ sale.totalValue }}
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="seller">
+              <th mat-header-cell *matHeaderCellDef>Seller</th>
+              <td mat-cell class="cursor-pointer" *matCellDef="let sale" [routerLink]="['edit', sale._id]">
+                {{ sale.seller?.fullName }}
               </td>
             </ng-container>
 

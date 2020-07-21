@@ -26,7 +26,7 @@
           <div class="d-flex justify-content-between align-items-center">
             <div>
               <span class="mat-title">
-                <strong>Sale</strong>
+                <strong>{{ !isNewSale ? 'Sale #' + sale.code : 'New sale' }}</strong>
               </span>
             </div>
             <div class="d-flex align-items-end">
@@ -200,21 +200,20 @@
               </mat-select>
             </mat-form-field>
           </div>
-          <!-- <div>
+          <div>
             <mat-form-field class="w-100">
               <mat-label>Seller</mat-label>
               <mat-select
                 [formControl]="sellerFormControl"
-                (selectionChange)="handlePaymentMethodSelection($event.value)"
+                (selectionChange)="handleSellerSelection($event.value)"
                 [compareWith]="compareSeller"
-                required
               >
-                <mat-option *ngFor="let seller of sellers" [value]="seller">
-                  {{ seller.name }}
+                <mat-option *ngFor="let seller of users" [value]="seller">
+                  <span>{{ seller.fullName }}</span>
                 </mat-option>
               </mat-select>
             </mat-form-field>
-          </div> -->
+          </div>
         </mat-card>
         <div class="d-flex justify-content-end py-5">
           <div class="pr-4">

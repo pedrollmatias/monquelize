@@ -11,6 +11,7 @@ const purchaseStatusEnum = {
 
 const opts = {
   collection: 'products',
+  toObject: { virtuals: true },
   toJSON: { virtuals: true },
 };
 
