@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
 declare interface INavItem {
-  icon: string;
   label: string;
   path: string;
 }
@@ -14,27 +13,26 @@ declare interface INavItem {
 export class HeaderComponent implements OnInit {
   navList: INavItem[] = [
     {
-      icon: 'home',
+      label: 'Reports',
+      path: '/reports',
+    },
+    {
       label: 'Inventory',
       path: '/inventory',
     },
     {
-      icon: 'home',
       label: 'Purchases',
       path: '/purchases',
     },
     {
-      icon: 'home',
       label: 'Sales',
       path: '/sales',
     },
     {
-      icon: 'home',
       label: 'Products',
       path: '/products',
     },
     {
-      icon: 'settings',
       label: 'Settings',
       path: '/settings',
     },

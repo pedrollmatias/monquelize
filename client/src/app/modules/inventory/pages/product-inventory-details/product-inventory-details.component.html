@@ -38,8 +38,9 @@
         <div>
           <app-element-button-icon-text
             icon="swap_vert"
-            text="Add movement"
+            text="Inventory adjustment"
             color="primary"
+            (btnClick)="openCategoryDetailsDialog()"
           ></app-element-button-icon-text>
         </div>
       </div>
@@ -64,6 +65,7 @@
             <tr mat-header-row *matHeaderRowDef="historyColumns"></tr>
             <tr mat-row class="cursor-pointer" *matRowDef="let row; columns: historyColumns"></tr>
           </table>
+          <mat-paginator [pageSize]="10" [pageSizeOptions]="[10, 50, 100]"> </mat-paginator>
         </mat-card>
       </ng-container>
       <ng-template #noHistoryFound>

@@ -20,7 +20,7 @@ export class ElementButtonIconTextComponent implements OnInit {
 
   ngOnInit() {
     this.color = this.color ? `mat-${this.color}` : '';
-    this.style = this.style || 'mat-flat-button';
+    this.style = this.style || 'mat-button';
     this.btnType = this.btnType || 'button';
     this.disabled = this.disabled || false;
   }

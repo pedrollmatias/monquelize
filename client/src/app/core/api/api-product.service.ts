@@ -36,4 +36,9 @@ export class ApiProductService {
     const uri = `${this.baseUrl}/products/${productId}`;
     return this.http.delete<IHttpRes>(uri);
   }
+
+  inventoryAdjustment(productId: string, data: any): Observable<IHttpRes> {
+    const uri = `${this.baseUrl}/products/${productId}/inventory`;
+    return this.http.post<IHttpRes>(uri, data);
+  }
 }

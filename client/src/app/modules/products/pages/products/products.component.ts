@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { ApiProductService } from 'src/app/core/api/api-product.service';
 import { IProduct } from 'src/app/shared/models/product.model';
 import { IHttpRes } from 'src/app/shared/models/http-res.model';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-products',
@@ -17,6 +18,10 @@ export class ProductsComponent implements OnInit {
 
   mongodbMongooseTime: number;
 
+  @ViewChild(MatPaginator) set paginator(paginator: MatPaginator) {
+    this.productsDataSouce.paginator = paginator;
+  }
+
   constructor(private apiProducts: ApiProductService) {}
 
   ngOnInit(): void {
@@ -30,6 +35,7 @@ export class ProductsComponent implements OnInit {
 
   setDataSource(products: IProduct[]): void {
     this.productsDataSouce = new MatTableDataSource(products);
+    this.productsDataSouce.paginator = this.paginator;
   }
 
   resetData(): void {

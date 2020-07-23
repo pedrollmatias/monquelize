@@ -2,7 +2,7 @@
 
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const routes = require('../modules');
+const { routeRegister } = require('../modules');
 const config = require('../config');
 const Logger = require('./logger');
 const timer = require('../timer');
@@ -25,7 +25,7 @@ module.exports = (app, serverId) => {
     next();
   });
 
-  app.use(config.api.prefix, routes(serverId));
+  app.use(config.api.prefix, routeRegister(serverId));
 
   // /// catch 404 and forward to error handler
   // app.use((req, res, next) => {

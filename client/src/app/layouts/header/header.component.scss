@@ -1,6 +1,8 @@
 @import '../../../styles-variables.scss';
 
 .navbar {
+  position: fixed;
+  z-index: 100;
   background-image: linear-gradient(to right, #326690, #30bc6a);
   color: white;
 }
