@@ -1,7 +1,7 @@
 'use strict';
 
 const productModel = require('../../models/product.model');
-const categoryModel = require('../../models/product.model');
+const categoryModel = require('../../models/category.model');
 const saleModel = require('../../models/sale.model');
 const purchaseModel = require('../../models/purchase.model');
 

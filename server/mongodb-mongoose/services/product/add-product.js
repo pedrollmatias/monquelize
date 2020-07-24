@@ -1,10 +1,10 @@
 'use strict';
 
 const productModel = require('../../models/product.model');
-const categoryModel = require('../../models/product.model');
+const categoryModel = require('../../models/category.model');
 
 module.exports = async function addProduct(data, session) {
-  const product = await productModel.create(data);
+  const product = await productModel.add(data);
 
   const queryPopulate = [
     { path: 'category', select: 'name' },

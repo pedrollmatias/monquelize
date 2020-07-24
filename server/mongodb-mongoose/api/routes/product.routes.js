@@ -3,7 +3,7 @@
 const express = require('express');
 const router = express.Router();
 const productService = require('../../services/products');
-const timer = require('../../../timer');
+const { timer } = require('../../../modules');
 const { withTransaction } = require('../middlewares');
 
 module.exports = (app) => {
@@ -12,7 +12,7 @@ module.exports = (app) => {
   router.get('/', async (req, res) => {
     timer.startTimer();
 
-    const products = await productService.getProducts(req.query);
+    const products = await productService.get(req.query);
 
     const diffTime = timer.diffTimer();
 
@@ -23,7 +23,7 @@ module.exports = (app) => {
     timer.startTimer();
 
     const product = await withTransaction(async (session) => {
-      return productService.addProduct(req.body, session);
+      return productService.add(req.body, session);
     });
 
     const diffTime = timer.diffTimer();
@@ -34,7 +34,7 @@ module.exports = (app) => {
   router.get('/:productId', async (req, res) => {
     timer.startTimer();
 
-    const products = await productService.getProduct(req.params.productId);
+    const products = await productService.query(req.params.productId);
 
     const diffTime = timer.diffTimer();
 
@@ -45,7 +45,7 @@ module.exports = (app) => {
     timer.startTimer();
 
     const product = await withTransaction(async (session) => {
-      return productService.editProduct(req.params.productId, req.body, session);
+      return productService.edit(req.params.productId, req.body, session);
     });
 
     const diffTime = timer.diffTimer();
@@ -57,7 +57,7 @@ module.exports = (app) => {
     timer.startTimer();
 
     await withTransaction(async (session) => {
-      return productService.removeProduct(req.params.productId, session);
+      return productService.remove(req.params.productId, session);
     });
 
     const diffTime = timer.diffTimer();
