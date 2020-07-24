@@ -2,7 +2,7 @@
 
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const { routeRegister } = require('../modules');
+const { routeRegister } = require('../src/modules');
 const config = require('../config');
 const Logger = require('./logger');
 const timer = require('../timer');
