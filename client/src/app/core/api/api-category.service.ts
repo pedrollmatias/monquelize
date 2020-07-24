@@ -23,7 +23,7 @@ export class ApiCategoryService {
   }
 
   createCategory(category: ICategory): Observable<IHttpRes> {
-    const uri = `${this.baseUrl}/categories/create`;
+    const uri = `${this.baseUrl}/categories/add`;
     return this.http.post<IHttpRes>(uri, category);
   }
 

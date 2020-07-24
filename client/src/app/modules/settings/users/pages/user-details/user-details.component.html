@@ -23,7 +23,7 @@
     <ng-container *ngIf="showPageData; else loading">
       <form [formGroup]="userForm" (ngSubmit)="saveUser()">
         <mat-card class="px-5 py-4">
-          <ng-container *ngIf="user.blocked">
+          <ng-container *ngIf="user?.blocked">
             <div class="pb-4">
               <span class="color-warn"><strong>Blocked user</strong></span>
             </div>

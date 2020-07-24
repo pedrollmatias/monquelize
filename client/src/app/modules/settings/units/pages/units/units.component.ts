@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { IBreadcrumb } from 'src/app/shared/models/breadcrumb.model';
 import { MatDialog } from '@angular/material/dialog';
@@ -8,6 +8,7 @@ import { of } from 'rxjs';
 import { IUnit } from 'src/app/shared/models/unit.model';
 import { ApiUnitService } from 'src/app/core/api/api-unit.service';
 import { DialogUnitDetailsComponent } from '../../components/dialog-unit-details/dialog-unit-details.component';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-units',
@@ -17,8 +18,12 @@ import { DialogUnitDetailsComponent } from '../../components/dialog-unit-details
 export class UnitsComponent implements OnInit {
   breadcrumb: IBreadcrumb = [{ label: 'Settings', isLink: true, path: '/settings' }];
 
+  @ViewChild(MatPaginator) set paginator(paginator: MatPaginator) {
+    this.unitsDataSource.paginator = paginator;
+  }
+
   unitsColumns: string[] = ['unit', 'shortUnit', 'decimalPlaces'];
-  unitsDataSource: MatTableDataSource<IUnit>;
+  unitsDataSource = new MatTableDataSource<IUnit>();
 
   constructor(private unitApi: ApiUnitService, private dialog: MatDialog) {}
 
@@ -37,6 +42,7 @@ export class UnitsComponent implements OnInit {
 
   setDataSource(units: IUnit[]): void {
     this.unitsDataSource = new MatTableDataSource(units);
+    this.unitsDataSource.paginator = this.paginator;
   }
 
   resetData(): void {

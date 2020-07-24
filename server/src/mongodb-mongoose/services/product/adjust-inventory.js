@@ -1,6 +1,6 @@
 'use strict';
 
-const productModel = require('../../models/product.model');
+const { productModel } = require('../../models');
 
 module.exports = async function adjustInventory(productId, data, session) {
   const product = await productModel.retrieve(productId, session);

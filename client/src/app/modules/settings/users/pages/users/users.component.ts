@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { IBreadcrumb } from 'src/app/shared/models/breadcrumb.model';
 import { MatTableDataSource } from '@angular/material/table';
 import { ApiUserService } from 'src/app/core/api/api-user.service';
 import { IUser } from 'src/app/shared/models/user.model';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-users',
@@ -12,8 +13,12 @@ import { IUser } from 'src/app/shared/models/user.model';
 export class UsersComponent implements OnInit {
   breadcrumb: IBreadcrumb = [{ label: 'Settings', isLink: true, path: '/settings' }];
 
+  @ViewChild(MatPaginator) set paginator(paginator: MatPaginator) {
+    this.usersDataSource.paginator = paginator;
+  }
+
   usersColumns: string[] = ['fullName', 'username', 'email', 'blocked'];
-  usersDataSource: MatTableDataSource<IUser>;
+  usersDataSource = new MatTableDataSource<IUser>();
 
   constructor(private userApi: ApiUserService) {}
 
@@ -32,6 +37,7 @@ export class UsersComponent implements OnInit {
 
   setDataSource(users: IUser[]): void {
     this.usersDataSource = new MatTableDataSource(users);
+    this.usersDataSource.paginator = this.paginator;
   }
 
   resetData(): void {

@@ -13,24 +13,24 @@ declare interface INavItem {
 export class HeaderComponent implements OnInit {
   navList: INavItem[] = [
     {
-      label: 'Reports',
-      path: '/reports',
-    },
-    {
-      label: 'Inventory',
-      path: '/inventory',
+      label: 'Sales',
+      path: '/sales',
     },
     {
       label: 'Purchases',
       path: '/purchases',
     },
     {
-      label: 'Sales',
-      path: '/sales',
+      label: 'Inventory',
+      path: '/inventory',
     },
     {
       label: 'Products',
       path: '/products',
+    },
+    {
+      label: 'Reports',
+      path: '/reports',
     },
     {
       label: 'Settings',

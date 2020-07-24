@@ -1,9 +1,6 @@
 'use strict';
 
-const categoryModel = require('../../models/category.model');
-const productModel = require('../../models/product.model');
-const saleModel = require('../../models/sale.model');
-const purchaseModel = require('../../models/purchase.model');
+const { categoryModel, productModel, saleModel, purchaseModel } = require('../../models');
 
 module.exports = async function removeCategory(categoryId, session) {
   const category = await categoryModel.retrieve(categoryId, session);
@@ -42,5 +39,5 @@ module.exports = async function removeCategory(categoryId, session) {
     await product.edit({ category: undefined });
   }
 
-  return category.remove();
+  return category.delete();
 };

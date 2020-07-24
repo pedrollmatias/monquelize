@@ -66,6 +66,7 @@
             <tr mat-row *matRowDef="let row; columns: unitsColumns"></tr>
           </table>
         </mat-card>
+        <mat-paginator [pageSize]="20" [pageSizeOptions]="[20, 50, 100]"> </mat-paginator>
       </ng-container>
       <ng-template #noUnitsFound>
         <app-element-card-no-data-found text="No units found"></app-element-card-no-data-found>

@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { ApiPurchaseService } from 'src/app/core/api/api-purchase.service';
 import { IBreadcrumb } from 'src/app/shared/models/breadcrumb.model';
+import { MatPaginator } from '@angular/material/paginator';
 @Component({
   selector: 'app-purchases',
   templateUrl: './purchases.component.html',
@@ -10,8 +11,12 @@ import { IBreadcrumb } from 'src/app/shared/models/breadcrumb.model';
 export class PurchasesComponent implements OnInit {
   breadcrumb: IBreadcrumb = [{ label: 'Settings', isLink: true, path: '/settings' }];
 
+  @ViewChild(MatPaginator) set paginator(paginator: MatPaginator) {
+    this.purchasesDataSource.paginator = paginator;
+  }
+
   purchasesColumns: string[] = ['code', 'date', 'vendor', 'totalValue', 'buyer', 'status'];
-  purchasesDataSource: MatTableDataSource<any>;
+  purchasesDataSource = new MatTableDataSource<any>();
 
   constructor(private purchaseApi: ApiPurchaseService) {}
 
@@ -30,6 +35,7 @@ export class PurchasesComponent implements OnInit {
 
   setDataSource(purchases: any[]): void {
     this.purchasesDataSource = new MatTableDataSource(purchases);
+    this.purchasesDataSource.paginator = this.paginator;
   }
 
   resetData(): void {

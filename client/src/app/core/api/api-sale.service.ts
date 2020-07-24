@@ -22,7 +22,7 @@ export class ApiSaleService {
   }
 
   createSale(sale: any): Observable<IHttpRes> {
-    const uri = `${this.baseUrl}/sales/create`;
+    const uri = `${this.baseUrl}/sales/add`;
     return this.http.post<IHttpRes>(uri, sale);
   }
 

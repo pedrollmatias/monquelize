@@ -23,7 +23,7 @@ export class ApiUnitService {
   }
 
   createUnit(unit: IUnit): Observable<IHttpRes> {
-    const uri = `${this.baseUrl}/units/create`;
+    const uri = `${this.baseUrl}/units/add`;
     return this.http.post<IHttpRes>(uri, unit);
   }
 

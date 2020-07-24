@@ -28,7 +28,7 @@
       <button mat-flat-button color="primary" (click)="closeDialog(true)">Done!</button>
     </div>
   </ng-container>
-  <ng-container *ngIf="(isNewUnit || (!isNewUnit && unit)) && !showDoneButton">
+  <ng-container *ngIf="(isNewUnit || (!isNewUnit && unit)) && !showLoadingArea">
     <div class="pb-5">
       <form [formGroup]="unitForm">
         <div class="d-flex">

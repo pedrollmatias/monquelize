@@ -3,9 +3,26 @@
 const { createDocument, retriveDocument, updateDocument, deleteDocument, getDocuments } = require('./methods');
 
 module.exports = function registerMethods(schema) {
-  schema.static.add = (data) => createDocument(this, data);
-  schema.static.retrive = (docId, session) => retriveDocument(this, docId, session);
-  schema.method.edit = (data) => updateDocument(this, data);
-  schema.method.delete = () => deleteDocument(this);
-  schema.static.get = (query, session) => getDocuments(this, query, session);
+  schema.static({
+    ...schema.static,
+    get(query, session) {
+      return getDocuments(this, query, session);
+    },
+    retrieve(docId, session) {
+      return retriveDocument(this, docId, session);
+    },
+    add(data) {
+      return createDocument(this, data);
+    },
+  });
+
+  schema.method({
+    ...schema.method,
+    edit(data) {
+      return updateDocument(this, data);
+    },
+    delete() {
+      return deleteDocument(this);
+    },
+  });
 };

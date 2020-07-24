@@ -1,0 +1,22 @@
+<div class="container py-5">
+  <div class="pb-5">
+    <span class="mat-headline"><strong>Reports</strong></span>
+  </div>
+  <div class="d-flex flex-wrap">
+    <ng-container *ngFor="let reportItem of reportsList">
+      <div class="d-flex justify-content-center flex-grow-1 p-4">
+        <mat-card class="report-card cursor-pointer grow h-100 p-3" [routerLink]="[reportItem.path]" matRipple>
+          <div class="d-flex justify-content-center pb-4">
+            <i class="material-icons-outlined color-primary">{{ reportItem.icon }}</i>
+          </div>
+          <div class="d-flex justify-content-center pb-3">
+            <span class="mat-title m-0">{{ reportItem.title }}</span>
+          </div>
+          <div class="d-flex justify-content-center pb-3">
+            <span class="mat-subheading-1 color-grey m-0">{{ reportItem.description }}</span>
+          </div>
+        </mat-card>
+      </div>
+    </ng-container>
+  </div>
+</div>

@@ -142,7 +142,7 @@ saleSchema.method({
       return saleProduct;
     });
 
-    return sale.editFields({ products: saleProducts });
+    return sale.edit({ products: saleProducts });
   },
   async removeProductRef(productId) {
     const sale = this;
@@ -154,7 +154,7 @@ saleSchema.method({
       return saleProduct;
     });
 
-    return sale.editFields({ products: saleProducts });
+    return sale.edit({ products: saleProducts });
   },
 });
 

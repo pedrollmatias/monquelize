@@ -23,7 +23,7 @@ export class ApiUserService {
   }
 
   createUser(user: IUser): Observable<IHttpRes> {
-    const uri = `${this.baseUrl}/users/create`;
+    const uri = `${this.baseUrl}/users/add`;
     return this.http.post<IHttpRes>(uri, user);
   }
 

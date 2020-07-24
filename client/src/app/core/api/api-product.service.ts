@@ -23,7 +23,7 @@ export class ApiProductService {
   }
 
   createProduct(product: IProduct): Observable<IHttpRes> {
-    const uri = `${this.baseUrl}/products/create`;
+    const uri = `${this.baseUrl}/products/add`;
     return this.http.post<IHttpRes>(uri, product);
   }
 

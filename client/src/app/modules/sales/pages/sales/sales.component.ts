@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { IBreadcrumb } from 'src/app/shared/models/breadcrumb.model';
 import { ApiSaleService } from 'src/app/core/api/api-sale.service';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-sales',
@@ -11,8 +12,12 @@ import { ApiSaleService } from 'src/app/core/api/api-sale.service';
 export class SalesComponent implements OnInit {
   breadcrumb: IBreadcrumb = [{ label: 'Settings', isLink: true, path: '/settings' }];
 
+  @ViewChild(MatPaginator) set paginator(paginator: MatPaginator) {
+    this.salesDataSource.paginator = paginator;
+  }
+
   salesColumns: string[] = ['code', 'date', 'customer', 'totalValue', 'seller', 'status'];
-  salesDataSource: MatTableDataSource<any>;
+  salesDataSource = new MatTableDataSource<any>();
 
   constructor(private saleApi: ApiSaleService) {}
 
@@ -31,6 +36,7 @@ export class SalesComponent implements OnInit {
 
   setDataSource(sales: any[]): void {
     this.salesDataSource = new MatTableDataSource(sales);
+    this.salesDataSource.paginator = this.paginator;
   }
 
   resetData(): void {

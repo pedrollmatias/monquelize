@@ -1,6 +1,6 @@
 'use strict';
 
-const categoryModel = require('../../models/category.model');
+const { categoryModel } = require('../../models');
 
 module.exports = async function editCategory(categoryId, data) {
   const category = await categoryModel.retrieve(categoryId);

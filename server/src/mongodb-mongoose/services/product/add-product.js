@@ -1,7 +1,6 @@
 'use strict';
 
-const productModel = require('../../models/product.model');
-const categoryModel = require('../../models/category.model');
+const { productModel, categoryModel } = require('../../models');
 
 module.exports = async function addProduct(data, session) {
   const product = await productModel.add(data);

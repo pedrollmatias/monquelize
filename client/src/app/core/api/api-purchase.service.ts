@@ -22,7 +22,7 @@ export class ApiPurchaseService {
   }
 
   createPurchase(purchase: any): Observable<IHttpRes> {
-    const uri = `${this.baseUrl}/purchases/create`;
+    const uri = `${this.baseUrl}/purchases/add`;
     return this.http.post<IHttpRes>(uri, purchase);
   }
 

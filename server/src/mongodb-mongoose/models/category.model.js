@@ -137,9 +137,9 @@ categorySchema.method({
 
     categoryProducts.push(product);
 
-    return category.editFields({ products: categoryProducts });
+    return category.edit({ products: categoryProducts });
   },
-  async editProcut(product) {
+  async editProduct(product) {
     const category = this;
     const categoryProducts = category.products.map((categoryProduct) => {
       if (categoryProduct.productRef.equals(product._id)) {
@@ -155,7 +155,7 @@ categorySchema.method({
       return categoryProduct;
     });
 
-    return category.editFields({ products: categoryProducts });
+    return category.edit({ products: categoryProducts });
   },
   async removeProduct(productId) {
     const category = this;
@@ -163,7 +163,7 @@ categorySchema.method({
       (categoryProduct) => !categoryProduct.productRef.equals(productId)
     );
 
-    await category.editFields({ products: categoryProducts });
+    await category.edit({ products: categoryProducts });
   },
 });
 

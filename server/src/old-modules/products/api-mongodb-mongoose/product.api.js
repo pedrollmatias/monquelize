@@ -143,7 +143,7 @@ module.exports = {
           // Same category
           const category = await Category.load(updatedProduct.category._id, session);
 
-          await category.editProcut(updatedProduct);
+          await category.editProduct(updatedProduct);
         } else if (product.category && !product.category.equals(updatedProduct.category._id)) {
           // Change category
           const oldCategory = await Category.load(product.category, session);

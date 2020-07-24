@@ -1,0 +1,78 @@
+<div class="d-flex">
+  <div class="pr-4" *ngIf="optionsList.length > 1">
+    <mat-form-field>
+      <mat-label>Filter by</mat-label>
+      <mat-select [(ngModel)]="optionSelected" name="item" (selectionChange)="getCurrentDate()">
+        <mat-option *ngFor="let option of optionsList" [value]="option">
+          {{ optionDisplay(option) }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <ng-container *ngIf="optionSelected === 'month'">
+    <div class="d-flex pr-5">
+      <div class="d-flex align-items-center">
+        <button mat-icon-button color="primary" (click)="getPreviousMonth()">
+          <mat-icon>keyboard_arrow_left</mat-icon>
+        </button>
+      </div>
+      <div class="d-flex justify-content-center align-items-center month-name-container px-2">
+        <span>
+          <strong> {{ utils.getMonthName(date) }} - {{ utils.getFullYear(date) }} </strong>
+        </span>
+      </div>
+      <div class="d-flex align-items-center">
+        <button mat-icon-button color="primary" (click)="getNextMonth()">
+          <mat-icon>keyboard_arrow_right</mat-icon>
+        </button>
+      </div>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="optionSelected === 'year'">
+    <div class="d-flex pr-5">
+      <div class="d-flex align-items-center">
+        <button mat-icon-button color="primary" (click)="getPreviousYear()">
+          <mat-icon>keyboard_arrow_left</mat-icon>
+        </button>
+      </div>
+      <div class="d-flex justify-content-center align-items-center month-name-container px-2">
+        <span>
+          <strong> {{ utils.getFullYear(date) }} </strong>
+        </span>
+      </div>
+      <div class="d-flex align-items-center">
+        <button mat-icon-button color="primary" (click)="getNextYear()">
+          <mat-icon>keyboard_arrow_right</mat-icon>
+        </button>
+      </div>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="optionSelected === 'dateRange'">
+    <div class="d-flex px-3">
+      <div>
+        <mat-form-field>
+          <mat-label>Start date</mat-label>
+          <input matInput [(ngModel)]="startDate" [matDatepicker]="startPicker" />
+          <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
+          <mat-datepicker #startPicker></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <div class="d-flex align-items-center px-3">
+        <span>to</span>
+      </div>
+      <div>
+        <mat-form-field>
+          <mat-label>End date</mat-label>
+          <input matInput [(ngModel)]="endDate" [matDatepicker]="endPicker" />
+          <mat-datepicker-toggle matSuffix [for]="endPicker"></mat-datepicker-toggle>
+          <mat-datepicker #endPicker></mat-datepicker>
+        </mat-form-field>
+      </div>
+    </div>
+    <div>
+      <button mat-icon-button color="primary" (click)="setDateRange()">
+        <mat-icon>search</mat-icon>
+      </button>
+    </div>
+  </ng-container>
+</div>

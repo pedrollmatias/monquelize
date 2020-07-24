@@ -19,13 +19,13 @@
       <button mat-flat-button color="primary" (click)="closeDialog(true)">Done!</button>
     </div>
   </ng-container>
-  <div class="pb-5">
-    <div class="pb-4">
-      <mat-slide-toggle color="primary" [(ngModel)]="setCurrentAmount" (toggleChange)="clearForms()">
-        Set current amount
-      </mat-slide-toggle>
-    </div>
-    <ng-container *ngIf="!showDoneButton">
+  <ng-container *ngIf="!showLoadingArea">
+    <div class="pb-5">
+      <div class="pb-4">
+        <mat-slide-toggle color="primary" [(ngModel)]="setCurrentAmount" (toggleChange)="clearForms()">
+          Set current amount
+        </mat-slide-toggle>
+      </div>
       <ng-container *ngIf="!setCurrentAmount; else currentAmountAdjustment">
         <form [formGroup]="inventoryAdjustmentForm">
           <div class="d-flex">
@@ -58,8 +58,8 @@
           </div>
         </form>
       </ng-template>
-    </ng-container>
-  </div>
+    </div>
+  </ng-container>
   <div class="d-flex justify-content-center align-items-center pb-5">
     <div class="pr-5">
       <button mat-button (click)="closeDialog()">Cancel</button>

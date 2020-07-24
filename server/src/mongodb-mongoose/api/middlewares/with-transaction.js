@@ -3,7 +3,7 @@
 const mongoose = require('mongoose');
 
 module.exports = async function withTransaction(fn) {
-  const session = mongoose.startSession();
+  const session = await mongoose.startSession();
 
   session.startTransaction();
 

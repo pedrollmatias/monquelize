@@ -73,6 +73,7 @@
             <tr mat-header-row *matHeaderRowDef="paymentMethodsColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: paymentMethodsColumns"></tr>
           </table>
+          <mat-paginator [pageSize]="20" [pageSizeOptions]="[20, 50, 100]"> </mat-paginator>
         </mat-card>
       </ng-container>
       <ng-template #noPaymentMethodsFound>

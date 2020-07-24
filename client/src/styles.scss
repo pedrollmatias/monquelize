@@ -61,6 +61,16 @@ body {
   overflow: auto !important;
 }
 
+.grow {
+  transition: all 0.3s ease-in-out !important;
+
+  &:hover {
+    transform: scale(1.12) !important;
+    z-index: 1;
+    cursor: pointer;
+  }
+}
+
 .color-primary {
   color: $color-primary !important;
 }

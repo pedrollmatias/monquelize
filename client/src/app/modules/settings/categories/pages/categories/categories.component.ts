@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { ICategory } from 'src/app/shared/models/category.model';
 import { ApiCategoryService } from 'src/app/core/api/api-category.service';
@@ -8,6 +8,7 @@ import { switchMap } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { IHttpRes } from 'src/app/shared/models/http-res.model';
 import { IBreadcrumb } from 'src/app/shared/models/breadcrumb.model';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-categories',
@@ -17,8 +18,12 @@ import { IBreadcrumb } from 'src/app/shared/models/breadcrumb.model';
 export class CategoriesComponent implements OnInit {
   breadcrumb: IBreadcrumb = [{ label: 'Settings', isLink: true, path: '/settings' }];
 
+  @ViewChild(MatPaginator) set paginator(paginator: MatPaginator) {
+    this.categoriesDataSource.paginator = paginator;
+  }
+
   categoriesColumns: string[] = ['path', 'name'];
-  categoriesDataSource: MatTableDataSource<ICategory>;
+  categoriesDataSource = new MatTableDataSource<ICategory>();
 
   constructor(private categoryApi: ApiCategoryService, private dialog: MatDialog) {}
 
@@ -37,6 +42,7 @@ export class CategoriesComponent implements OnInit {
 
   setDataSource(categories: ICategory[]): void {
     this.categoriesDataSource = new MatTableDataSource(categories);
+    this.categoriesDataSource.paginator = this.paginator;
   }
 
   resetData(): void {

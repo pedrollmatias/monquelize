@@ -125,18 +125,18 @@ module.exports = {
           }
 
           // Credit inventory of added products in purchase edition
-          const addedProcuts = updatedPurchase.products.filter((_updatedProduct) =>
+          const addedProducts = updatedPurchase.products.filter((_updatedProduct) =>
             purchase.products.some((_product) => !_product.productRef.equals(_updatedProduct.productRef))
           );
 
-          if (addedProcuts.length) {
-            for (const addedProcut of addedProcuts) {
-              const productDoc = await Product.load(addedProcut.productRef, session);
+          if (addedProducts.length) {
+            for (const addedProduct of addedProducts) {
+              const productDoc = await Product.load(addedProduct.productRef, session);
               const productInventory = productDoc.inventory;
               const productHistory = productDoc.history || [];
 
-              productInventory.currentAmount += addedProcut.amount;
-              productHistory.push({ date: Date.now(), movementType: '100', amount: addedProcut.amount });
+              productInventory.currentAmount += addedProduct.amount;
+              productHistory.push({ date: Date.now(), movementType: '100', amount: addedProduct.amount });
               const data = { inventory: productInventory, history: productHistory };
 
               await productDoc.editFields(data);

@@ -125,18 +125,18 @@ module.exports = {
           }
 
           // Debit inventory of added products in sale edition
-          const addedProcuts = updatedSale.products.filter((_updatedProduct) =>
+          const addedProducts = updatedSale.products.filter((_updatedProduct) =>
             sale.products.some((_product) => !_product.productRef.equals(_updatedProduct.productRef))
           );
 
-          if (addedProcuts.length) {
-            for (const addedProcut of addedProcuts) {
-              const productDoc = await Product.load(addedProcut.productRef, session);
+          if (addedProducts.length) {
+            for (const addedProduct of addedProducts) {
+              const productDoc = await Product.load(addedProduct.productRef, session);
               const productInventory = productDoc.inventory;
               const productHistory = productDoc.history || [];
 
-              productInventory.currentAmount -= addedProcut.amount;
-              productHistory.push({ date: Date.now(), movementType: '200', amount: addedProcut.amount });
+              productInventory.currentAmount -= addedProduct.amount;
+              productHistory.push({ date: Date.now(), movementType: '200', amount: addedProduct.amount });
               const data = { inventory: productInventory, history: productHistory };
 
               await productDoc.editFields(data);

@@ -142,7 +142,7 @@ purchaseSchema.method({
       return purchaseProduct;
     });
 
-    return purchase.editFields({ products: purchaseProducts });
+    return purchase.edit({ products: purchaseProducts });
   },
   async removeProductRef(productId) {
     const purchase = this;
@@ -154,7 +154,7 @@ purchaseSchema.method({
       return purchaseProduct;
     });
 
-    return purchase.editFields({ products: purchaseProducts });
+    return purchase.edit({ products: purchaseProducts });
   },
 });
 

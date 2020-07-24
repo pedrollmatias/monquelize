@@ -1,6 +1,6 @@
 'use strict';
 
-const categoryModel = require('../../models/category.model');
+const { categoryModel } = require('../../models');
 
 module.exports = function getCategories(query) {
   return query.getProducts

@@ -1,8 +1,6 @@
 'use strict';
 
-const paymentMethodModel = require('../../models/payment-method.model');
-const saleModel = require('../../models/sale.model');
-const purchaseModel = require('../../models/purchase.model');
+const { paymentMethodModel, saleModel, purchaseModel } = require('../../models');
 
 module.exports = async function editPaymentMethod(paymentMethodId, data, session) {
   const paymentMethod = await paymentMethodModel.retrieve(paymentMethodId, session);

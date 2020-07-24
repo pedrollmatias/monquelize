@@ -1,8 +1,6 @@
 'use strict';
 
-const paymentMethodModel = require('../../models/payment-method.model');
-const saleModel = require('../../models/sale.model');
-const purchaseModel = require('../../models/purchase.model');
+const { paymentMethodModel, saleModel, purchaseModel } = require('../../models');
 
 module.exports = async function removePaymentMethod(paymentMethodId, session) {
   const paymentMethod = await paymentMethodModel.retrieve(paymentMethodId, session);
@@ -28,5 +26,5 @@ module.exports = async function removePaymentMethod(paymentMethodId, session) {
     await purchase.edit({ payment: purchasePayment });
   }
 
-  return paymentMethod.remove();
+  return paymentMethod.delete();
 };

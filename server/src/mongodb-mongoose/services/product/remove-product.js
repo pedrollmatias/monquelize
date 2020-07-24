@@ -29,5 +29,5 @@ module.exports = async function removeProduct(productId, session) {
     await purchase.removeProduct(product._id);
   }
 
-  return product.remove();
+  return product.delete();
 };

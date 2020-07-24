@@ -1,14 +1,11 @@
 'use strict';
 
-const productModel = require('../../models/product.model');
-const categoryModel = require('../../models/category.model');
-const saleModel = require('../../models/sale.model');
-const purchaseModel = require('../../models/purchase.model');
+const { productModel, categoryModel, saleModel, purchaseModel } = require('../../models');
 
 module.exports = async function editProduct(productId, data, session) {
   let product = await productModel.retrieve(productId, session);
   const productObj = product.toObject();
-  const updatedProduct = await product.update(data);
+  const updatedProduct = await product.edit(data);
 
   product = productObj;
 
@@ -57,13 +54,13 @@ module.exports = async function editProduct(productId, data, session) {
   } else {
     if (product.category) {
       // Remove category
-      const category = await categoryModel.load(product.category, session);
+      const category = await categoryModel.retrieve(product.category, session);
 
       await category.removeProduct(updatedProduct._id);
     }
   }
 
-  return product;
+  return updatedProduct;
 };
 
 function hasToUpdateInSalesOrPurchases(oldProduct, newProduct) {

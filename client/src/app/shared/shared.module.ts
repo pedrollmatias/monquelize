@@ -18,6 +18,7 @@ import { SnackbarSuccessComponent } from './components/snackbar-success/snackbar
 import { SnackbarWarningComponent } from './components/snackbar-warning/snackbar-warning.component';
 import { NoSanitizePipe } from './pipes/no-sanitize.pipe';
 import { DialogLoadingComponent } from './components/dialog-loading/dialog-loading.component';
+import { ElementDateSelectorComponent } from './components/element-date-selector/element-date-selector.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { DialogLoadingComponent } from './components/dialog-loading/dialog-loadi
     SnackbarWarningComponent,
     NoSanitizePipe,
     DialogLoadingComponent,
+    ElementDateSelectorComponent,
   ],
   imports: [CommonModule, FormsModule, ReactiveFormsModule, RouterModule, MaterialModule],
   exports: [
@@ -48,6 +50,7 @@ import { DialogLoadingComponent } from './components/dialog-loading/dialog-loadi
     ElementFormFieldComponent,
     ElementCardNoDataFoundComponent,
     ElementButtonIconTextComponent,
+    ElementDateSelectorComponent,
   ],
 })
 export class SharedModule {}

@@ -23,7 +23,7 @@ export class ApiPaymentMethodService {
   }
 
   createPaymentMethod(paymentMethod: IPaymentMethod): Observable<IHttpRes> {
-    const uri = `${this.baseUrl}/payment-methods/create`;
+    const uri = `${this.baseUrl}/payment-methods/add`;
     return this.http.post<IHttpRes>(uri, paymentMethod);
   }
 

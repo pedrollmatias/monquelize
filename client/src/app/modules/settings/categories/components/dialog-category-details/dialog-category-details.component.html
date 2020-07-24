@@ -28,7 +28,7 @@
       <button mat-flat-button color="primary" (click)="closeDialog(true)">Done!</button>
     </div>
   </ng-container>
-  <ng-container *ngIf="(isNewCategory || (!isNewCategory && category)) && !showDoneButton">
+  <ng-container *ngIf="(isNewCategory || (!isNewCategory && category)) && !showLoadingArea">
     <div class="pb-5">
       <form [formGroup]="categoryForm">
         <div class="d-flex">

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { IBreadcrumb } from 'src/app/shared/models/breadcrumb.model';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
@@ -8,6 +8,7 @@ import { of } from 'rxjs';
 import { IPaymentMethod } from 'src/app/shared/models/payment-method.model';
 import { DialogPaymentMethodDetailsComponent } from '../../components/dialog-payment-method-details/dialog-payment-method-details.component';
 import { ApiPaymentMethodService } from 'src/app/core/api/api-payment-method.service';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-payment-methods',
@@ -17,8 +18,12 @@ import { ApiPaymentMethodService } from 'src/app/core/api/api-payment-method.ser
 export class PaymentMethodsComponent implements OnInit {
   breadcrumb: IBreadcrumb = [{ label: 'Settings', isLink: true, path: '/settings' }];
 
+  @ViewChild(MatPaginator) set paginator(paginator: MatPaginator) {
+    this.paymentMethodsDataSource.paginator = paginator;
+  }
+
   paymentMethodsColumns: string[] = ['name', 'acceptChange'];
-  paymentMethodsDataSource: MatTableDataSource<IPaymentMethod>;
+  paymentMethodsDataSource = new MatTableDataSource<IPaymentMethod>();
 
   constructor(private paymentMethodApi: ApiPaymentMethodService, private dialog: MatDialog) {}
 
@@ -37,6 +42,7 @@ export class PaymentMethodsComponent implements OnInit {
 
   setDataSource(paymentMethods: IPaymentMethod[]): void {
     this.paymentMethodsDataSource = new MatTableDataSource(paymentMethods);
+    this.paymentMethodsDataSource.paginator = this.paginator;
   }
 
   resetData(): void {
