@@ -8,7 +8,7 @@ function getPathRegex(name) {
   return new RegExp(`(^|( > ))${name} > `);
 }
 
-const CategorySchema = new Schema(
+const categorySchema = new Schema(
   {
     name: {
       type: String,
@@ -55,9 +55,9 @@ const CategorySchema = new Schema(
   { collection: 'categories' }
 );
 
-mongooseModelMethodsFactory.registerMethods();
+mongooseModelMethodsFactory.registerMethods(categorySchema);
 
-CategorySchema.pre('validate', async function () {
+categorySchema.pre('validate', async function () {
   const category = this;
 
   if (/>/.test(category.name)) {
@@ -87,7 +87,7 @@ CategorySchema.pre('validate', async function () {
   return category.setPath();
 });
 
-CategorySchema.pre('remove', async function preventRemoveCategoryWithChildren() {
+categorySchema.pre('remove', async function preventRemoveCategoryWithChildren() {
   const category = this;
   const childrenCategories = await category.findChildren(category.name);
 
@@ -96,11 +96,12 @@ CategorySchema.pre('remove', async function preventRemoveCategoryWithChildren() 
   }
 });
 
-CategorySchema.pre('findOne', function populateCategory() {
+categorySchema.pre('findOne', function populateCategory() {
   this.populate('parent');
 });
 
-CategorySchema.method(...CategorySchema.method, {
+categorySchema.method({
+  ...categorySchema.method,
   isParent(category) {
     return getPathRegex(this.name).test(category.path);
   },
@@ -166,4 +167,4 @@ CategorySchema.method(...CategorySchema.method, {
   },
 });
 
-module.exports = mongoose.model('Category', CategorySchema);
+module.exports = mongoose.model('Category', categorySchema);

@@ -3,7 +3,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const SequenceSchema = new Schema(
+const sequenceSchema = new Schema(
   {
     _id: {
       type: String,
@@ -19,4 +19,4 @@ const SequenceSchema = new Schema(
   }
 );
 
-module.exports = mongoose.model('Sequence', SequenceSchema);
+module.exports = mongoose.model('Sequence', sequenceSchema);

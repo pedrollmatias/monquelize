@@ -2,7 +2,7 @@
 
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const Sequence = require('../../utils/sequence/sequence.model');
+const sequenceModel = require('./sequence.model');
 const { mongooseModelMethodsFactory } = require('../../modules');
 
 const saleStatusEnum = {
@@ -18,7 +18,7 @@ const opts = {
   toJSON: { virtuals: true },
 };
 
-const SaleSchema = new Schema(
+const saleSchema = new Schema(
   {
     code: {
       type: Number,
@@ -92,31 +92,31 @@ const SaleSchema = new Schema(
   opts
 );
 
-mongooseModelMethodsFactory.registerMethods(SaleSchema);
+mongooseModelMethodsFactory.registerMethods(saleSchema);
 
-SaleSchema.virtual('totalValue').get(function () {
+saleSchema.virtual('totalValue').get(function () {
   const sale = this;
 
   return sale.products.reduce((totalValue, product) => (totalValue += product.amount * product.price), 0);
 });
 
-SaleSchema.pre('validate', async function () {
+saleSchema.pre('validate', async function () {
   const sale = this;
-  const sequenceDoc = await Sequence.findById('sales');
+  const sequenceDoc = await sequenceModel.findById('sales');
 
   if (sequenceDoc) {
-    const sequence = await Sequence.findByIdAndUpdate({ _id: 'sales' }, { $inc: { seq: 1 } }, { new: true });
+    const sequence = await sequenceModel.findByIdAndUpdate({ _id: 'sales' }, { $inc: { seq: 1 } }, { new: true });
 
     sale.code = sequence.seq;
   } else {
-    const sequenceDoc = new Sequence({ _id: 'sales' });
+    const sequenceDoc = new sequenceModel({ _id: 'sales' });
 
     await sequenceDoc.save();
     sale.code = 1;
   }
 });
 
-SaleSchema.pre('remove', function () {
+saleSchema.pre('remove', function () {
   const sale = this;
 
   if (['100', '200'].includes(sale.status)) {
@@ -124,7 +124,8 @@ SaleSchema.pre('remove', function () {
   }
 });
 
-SaleSchema.method({
+saleSchema.method({
+  ...saleSchema.method,
   async editProduct(product) {
     const sale = this;
     const saleProducts = sale.products.map((saleProduct) => {
@@ -157,4 +158,4 @@ SaleSchema.method({
   },
 });
 
-module.exports = mongoose.model('Sale', SaleSchema);
+module.exports = mongoose.model('Sale', saleSchema);

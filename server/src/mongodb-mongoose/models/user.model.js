@@ -10,7 +10,7 @@ const opts = {
   toJSON: { virtuals: true },
 };
 
-const UserSchema = new Schema(
+const userSchema = new Schema(
   {
     username: {
       type: String,
@@ -50,10 +50,10 @@ const UserSchema = new Schema(
   opts
 );
 
-mongooseModelMethodsFactory.registerMethods(UserSchema);
+mongooseModelMethodsFactory.registerMethods(userSchema);
 
-UserSchema.virtual('fullName').get(function () {
+userSchema.virtual('fullName').get(function () {
   return `${this.firstName} ${this.lastName}`;
 });
 
-module.exports = mongoose.model('User', UserSchema);
+module.exports = mongoose.model('User', userSchema);

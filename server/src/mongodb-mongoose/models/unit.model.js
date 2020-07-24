@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const { mongooseModelMethodsFactory } = require('../../modules');
 
-const UnitSchema = new Schema(
+const unitSchema = new Schema(
   {
     unit: {
       type: String,
@@ -23,9 +23,9 @@ const UnitSchema = new Schema(
   { collection: 'units' }
 );
 
-mongooseModelMethodsFactory.registerMethods(UnitSchema);
+mongooseModelMethodsFactory.registerMethods(unitSchema);
 
-UnitSchema.pre('remove', async function preventRemoveFromRelatedProduct() {
+unitSchema.pre('remove', async function preventRemoveFromRelatedProduct() {
   const unit = this;
   const Product = mongoose.model('Product');
   const relatedProducts = await Product.find({ unit: unit._id });
@@ -35,4 +35,4 @@ UnitSchema.pre('remove', async function preventRemoveFromRelatedProduct() {
   }
 });
 
-module.exports = mongoose.model('Unit', UnitSchema);
+module.exports = mongoose.model('Unit', unitSchema);

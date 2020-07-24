@@ -2,10 +2,9 @@
 
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const { routeRegister } = require('../src/modules');
+const { routeRegister, timer } = require('../modules');
 const config = require('../config');
 const Logger = require('./logger');
-const timer = require('../timer');
 
 module.exports = (app, serverId) => {
   // Health Check endpoints

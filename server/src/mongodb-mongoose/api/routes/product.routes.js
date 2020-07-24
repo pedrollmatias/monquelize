@@ -2,7 +2,7 @@
 
 const express = require('express');
 const router = express.Router();
-const productService = require('../../services/products');
+const productService = require('../../services/product');
 const { timer } = require('../../../modules');
 const { withTransaction } = require('../middlewares');
 
@@ -53,7 +53,7 @@ module.exports = (app) => {
     res.send({ res: product, time: diffTime });
   });
 
-  router.remove('/:productId', async (req, res) => {
+  router.delete('/:productId', async (req, res) => {
     timer.startTimer();
 
     await withTransaction(async (session) => {
