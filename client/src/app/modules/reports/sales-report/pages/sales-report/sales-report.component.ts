@@ -15,6 +15,5 @@ export class SalesReportComponent implements OnInit {
 
   onDateRangeSaleByDateChange(dateRange: IDateRange): void {
     this.dateRangeSaleByDate = dateRange;
-    console.log(this.dateRangeSaleByDate);
   }
 }

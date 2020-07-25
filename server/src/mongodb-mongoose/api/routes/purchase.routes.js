@@ -13,7 +13,11 @@ module.exports = (app) => {
     try {
       timer.startTimer();
 
-      const purchases = await purchaseService.get(req.query);
+      const startDate = new Date(req.query.startDate).toISOString();
+      const endDate = new Date(req.query.endDate).toISOString();
+      const query = { date: { $gte: startDate, $lte: endDate } };
+
+      const purchases = await purchaseService.get(query);
 
       const diffTime = timer.diffTimer();
 

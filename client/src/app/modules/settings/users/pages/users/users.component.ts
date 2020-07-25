@@ -27,7 +27,10 @@ export class UsersComponent implements OnInit {
   mongodbMongooseTime: number;
 
   ngOnInit(): void {
-    this.resetData();
+    this.fetchData();
+  }
+
+  fetchData(): void {
     this.userApi.getUsers().subscribe((userRes) => {
       this.users = <IUser[]>userRes.res;
       this.mongodbMongooseTime = userRes.time;
@@ -46,6 +49,7 @@ export class UsersComponent implements OnInit {
   }
 
   refreshComponent(): void {
-    this.ngOnInit();
+    this.resetData();
+    this.fetchData();
   }
 }

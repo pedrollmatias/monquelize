@@ -3,6 +3,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { IBreadcrumb } from 'src/app/shared/models/breadcrumb.model';
 import { ApiSaleService } from 'src/app/core/api/api-sale.service';
 import { MatPaginator } from '@angular/material/paginator';
+import { IDateRange } from 'src/app/shared/models/date-range.model';
+import { UtilsService } from 'src/app/core/services/utils.service';
 
 @Component({
   selector: 'app-sales',
@@ -16,18 +18,25 @@ export class SalesComponent implements OnInit {
     this.salesDataSource.paginator = paginator;
   }
 
-  salesColumns: string[] = ['code', 'date', 'customer', 'totalValue', 'seller', 'status'];
-  salesDataSource = new MatTableDataSource<any>();
-
-  constructor(private saleApi: ApiSaleService) {}
-
   sales: any[];
 
   mongodbMongooseTime: number;
 
+  salesColumns: string[] = ['code', 'date', 'customer', 'totalValue', 'seller', 'status'];
+  salesDataSource = new MatTableDataSource<any>();
+
+  dateRange: IDateRange;
+
+  constructor(private saleApi: ApiSaleService, public utils: UtilsService) {}
+
   ngOnInit(): void {
-    this.resetData();
-    this.saleApi.getSales().subscribe((saleRes) => {
+    this.dateRange = this.utils.getMonthRange(this.utils.getCurrentDate());
+    this.fetchData();
+  }
+
+  fetchData(): void {
+    const query = { startDate: this.dateRange.start.toString(), endDate: this.dateRange.end.toString() };
+    this.saleApi.getSales(query).subscribe((saleRes) => {
       this.sales = <any[]>saleRes.res;
       this.mongodbMongooseTime = saleRes.time;
       this.setDataSource(this.sales);
@@ -45,6 +54,13 @@ export class SalesComponent implements OnInit {
   }
 
   refreshComponent(): void {
-    this.ngOnInit();
+    this.resetData();
+    this.fetchData();
+  }
+
+  onDateRangeChange(dateRange: IDateRange): void {
+    this.dateRange = dateRange;
+    this.resetData();
+    this.fetchData();
   }
 }

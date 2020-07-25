@@ -3,6 +3,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { ApiPurchaseService } from 'src/app/core/api/api-purchase.service';
 import { IBreadcrumb } from 'src/app/shared/models/breadcrumb.model';
 import { MatPaginator } from '@angular/material/paginator';
+import { IDateRange } from 'src/app/shared/models/date-range.model';
+import { UtilsService } from 'src/app/core/services/utils.service';
 @Component({
   selector: 'app-purchases',
   templateUrl: './purchases.component.html',
@@ -15,18 +17,25 @@ export class PurchasesComponent implements OnInit {
     this.purchasesDataSource.paginator = paginator;
   }
 
-  purchasesColumns: string[] = ['code', 'date', 'vendor', 'totalValue', 'buyer', 'status'];
-  purchasesDataSource = new MatTableDataSource<any>();
-
-  constructor(private purchaseApi: ApiPurchaseService) {}
-
   purchases: any[];
 
   mongodbMongooseTime: number;
 
+  purchasesColumns: string[] = ['code', 'date', 'vendor', 'totalValue', 'buyer', 'status'];
+  purchasesDataSource = new MatTableDataSource<any>();
+
+  dateRange: IDateRange;
+
+  constructor(private purchaseApi: ApiPurchaseService, public utils: UtilsService) {}
+
   ngOnInit(): void {
-    this.resetData();
-    this.purchaseApi.getPurchases().subscribe((purchaseRes) => {
+    this.dateRange = this.utils.getMonthRange(this.utils.getCurrentDate());
+    this.fetchData();
+  }
+
+  fetchData(): void {
+    const query = { startDate: this.dateRange.start.toString(), endDate: this.dateRange.end.toString() };
+    this.purchaseApi.getPurchases(query).subscribe((purchaseRes) => {
       this.purchases = <any[]>purchaseRes.res;
       this.mongodbMongooseTime = purchaseRes.time;
       this.setDataSource(this.purchases);
@@ -44,6 +53,13 @@ export class PurchasesComponent implements OnInit {
   }
 
   refreshComponent(): void {
-    this.ngOnInit();
+    this.resetData();
+    this.fetchData();
+  }
+
+  onDateRangeChange(dateRange: IDateRange): void {
+    this.dateRange = dateRange;
+    this.resetData();
+    this.fetchData();
   }
 }

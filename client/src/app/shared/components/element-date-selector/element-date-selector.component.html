@@ -1,6 +1,6 @@
 <div class="d-flex">
   <div class="pr-4" *ngIf="optionsList.length > 1">
-    <mat-form-field>
+    <mat-form-field class="inline-input">
       <mat-label>Filter by</mat-label>
       <mat-select [(ngModel)]="optionSelected" name="item" (selectionChange)="getCurrentDate()">
         <mat-option *ngFor="let option of optionsList" [value]="option">
@@ -10,7 +10,7 @@
     </mat-form-field>
   </div>
   <ng-container *ngIf="optionSelected === 'month'">
-    <div class="d-flex pr-5">
+    <div class="d-flex">
       <div class="d-flex align-items-center">
         <button mat-icon-button color="primary" (click)="getPreviousMonth()">
           <mat-icon>keyboard_arrow_left</mat-icon>
@@ -29,7 +29,7 @@
     </div>
   </ng-container>
   <ng-container *ngIf="optionSelected === 'year'">
-    <div class="d-flex pr-5">
+    <div class="d-flex">
       <div class="d-flex align-items-center">
         <button mat-icon-button color="primary" (click)="getPreviousYear()">
           <mat-icon>keyboard_arrow_left</mat-icon>
@@ -50,7 +50,7 @@
   <ng-container *ngIf="optionSelected === 'dateRange'">
     <div class="d-flex px-3">
       <div>
-        <mat-form-field>
+        <mat-form-field class="inline-input">
           <mat-label>Start date</mat-label>
           <input matInput [(ngModel)]="startDate" [matDatepicker]="startPicker" />
           <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
@@ -61,7 +61,7 @@
         <span>to</span>
       </div>
       <div>
-        <mat-form-field>
+        <mat-form-field class="inline-input">
           <mat-label>End date</mat-label>
           <input matInput [(ngModel)]="endDate" [matDatepicker]="endPicker" />
           <mat-datepicker-toggle matSuffix [for]="endPicker"></mat-datepicker-toggle>

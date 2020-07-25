@@ -32,7 +32,10 @@ export class PaymentMethodsComponent implements OnInit {
   mongodbMongooseTime: number;
 
   ngOnInit(): void {
-    this.resetData();
+    this.fetchData();
+  }
+
+  fetchData(): void {
     this.paymentMethodApi.getPaymentMethods().subscribe((paymentMethodRes) => {
       this.paymentMethods = <IPaymentMethod[]>paymentMethodRes.res;
       this.mongodbMongooseTime = paymentMethodRes.time;
@@ -51,7 +54,8 @@ export class PaymentMethodsComponent implements OnInit {
   }
 
   refreshComponent(): void {
-    this.ngOnInit();
+    this.resetData();
+    this.fetchData();
   }
 
   openPaymentMethodDetailsDialog(paymentMethodId: string = null): void {

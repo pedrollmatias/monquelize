@@ -25,7 +25,10 @@ export class ProductsComponent implements OnInit {
   constructor(private apiProducts: ApiProductService) {}
 
   ngOnInit(): void {
-    this.resetData();
+    this.fetchData();
+  }
+
+  fetchData(): void {
     this.apiProducts.getProducts().subscribe((productRes: IHttpRes) => {
       this.mongodbMongooseTime = productRes.time;
       this.products = <IProduct[]>productRes.res;
@@ -44,6 +47,7 @@ export class ProductsComponent implements OnInit {
   }
 
   refreshComponent(): void {
-    this.ngOnInit();
+    this.resetData();
+    this.fetchData();
   }
 }

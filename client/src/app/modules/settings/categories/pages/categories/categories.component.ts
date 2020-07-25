@@ -32,7 +32,10 @@ export class CategoriesComponent implements OnInit {
   mongodbMongooseTime: number;
 
   ngOnInit(): void {
-    this.resetData();
+    this.fetchData();
+  }
+
+  fetchData(): void {
     this.categoryApi.getCategories().subscribe((categoryRes) => {
       this.categories = <ICategory[]>categoryRes.res;
       this.mongodbMongooseTime = categoryRes.time;
@@ -51,7 +54,8 @@ export class CategoriesComponent implements OnInit {
   }
 
   refreshComponent(): void {
-    this.ngOnInit();
+    this.resetData();
+    this.fetchData();
   }
 
   openCategoryDetailsDialog(categoryId: string = null): void {
