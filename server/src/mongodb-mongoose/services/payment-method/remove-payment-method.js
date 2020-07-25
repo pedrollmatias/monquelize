@@ -10,7 +10,7 @@ module.exports = async function removePaymentMethod(paymentMethodId, session) {
   const sales = await saleModel.find(query);
   const purchases = await purchaseModel.find(query);
 
-  for (const sale in sales) {
+  for (const sale of sales) {
     const salePayment = sale.payment;
 
     salePayment.paymentMethodRef = undefined;
@@ -18,7 +18,7 @@ module.exports = async function removePaymentMethod(paymentMethodId, session) {
     await sale.edit({ payment: salePayment });
   }
 
-  for (const purchase in purchases) {
+  for (const purchase of purchases) {
     const purchasePayment = purchase.payment;
 
     purchasePayment.paymentMethodRef = undefined;

@@ -16,7 +16,7 @@ module.exports = async function editUnit(unitId, data, session) {
     const sales = await saleModel.find(query);
     const purchases = await purchaseModel.find(query);
 
-    for (const sale in sales) {
+    for (const sale of sales) {
       const saleProducts = sale.products.map((saleProduct) => {
         if (saleProduct.unit && saleProduct.unit.unitRef.equals(updatedUnit._id)) {
           saleProduct.unit.shortUnit = updatedUnit.shortUnit;
@@ -28,7 +28,7 @@ module.exports = async function editUnit(unitId, data, session) {
       await sale.edit({ products: saleProducts });
     }
 
-    for (const purchase in purchases) {
+    for (const purchase of purchases) {
       const purchaseProducts = purchase.products.map((purchaseProduct) => {
         if (purchaseProduct.unit && purchaseProduct.unit.unitRef.equals(updatedUnit._id)) {
           purchaseProduct.unit.shortUnit = updatedUnit.shortUnit;

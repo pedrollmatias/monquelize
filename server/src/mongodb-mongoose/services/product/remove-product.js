@@ -21,11 +21,11 @@ module.exports = async function removeProduct(productId, session) {
   const sales = await saleModel.find(query);
   const purchases = await purchaseModel.find(query);
 
-  for (const sale in sales) {
+  for (const sale of sales) {
     await sale.removeProduct(product._id);
   }
 
-  for (const purchase in purchases) {
+  for (const purchase of purchases) {
     await purchase.removeProduct(product._id);
   }
 

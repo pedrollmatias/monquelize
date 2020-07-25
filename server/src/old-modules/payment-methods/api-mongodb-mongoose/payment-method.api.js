@@ -60,7 +60,7 @@ module.exports = {
         const sales = await Sale.find(query);
         const purchases = await Purchase.find(query);
 
-        for (const sale in sales) {
+        for (const sale of sales) {
           const salePayment = sale.payment;
 
           salePayment.name = updatedPaymentMethod;
@@ -68,7 +68,7 @@ module.exports = {
           await sale.editFields({ payment: salePayment });
         }
 
-        for (const purchase in purchases) {
+        for (const purchase of purchases) {
           const purchasePayment = purchase.payment;
 
           purchasePayment.name = updatedPaymentMethod;
@@ -102,7 +102,7 @@ module.exports = {
       const sales = await Sale.find(query);
       const purchases = await Purchase.find(query);
 
-      for (const sale in sales) {
+      for (const sale of sales) {
         const salePayment = sale.payment;
 
         salePayment.paymentMethodRef = undefined;
@@ -110,7 +110,7 @@ module.exports = {
         await sale.editFields({ payment: salePayment });
       }
 
-      for (const purchase in purchases) {
+      for (const purchase of purchases) {
         const purchasePayment = purchase.payment;
 
         purchasePayment.paymentMethodRef = undefined;

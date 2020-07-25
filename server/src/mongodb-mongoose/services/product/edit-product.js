@@ -22,11 +22,11 @@ module.exports = async function editProduct(productId, data, session) {
     const sales = await saleModel.find(query);
     const purchases = await purchaseModel.find(query);
 
-    for (const sale in sales) {
+    for (const sale of sales) {
       await sale.editProduct(updatedProduct);
     }
 
-    for (const purchase in purchases) {
+    for (const purchase of purchases) {
       await purchase.editProduct(updatedProduct);
     }
   }

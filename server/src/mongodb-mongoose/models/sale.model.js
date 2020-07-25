@@ -124,6 +124,8 @@ saleSchema.pre('remove', function () {
   }
 });
 
+console.log(saleSchema.method);
+
 saleSchema.method({
   ...saleSchema.method,
   async editProduct(product) {

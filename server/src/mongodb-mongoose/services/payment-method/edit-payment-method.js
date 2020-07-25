@@ -12,7 +12,7 @@ module.exports = async function editPaymentMethod(paymentMethodId, data, session
     const sales = await saleModel.find(query);
     const purchases = await purchaseModel.find(query);
 
-    for (const sale in sales) {
+    for (const sale of sales) {
       const salePayment = sale.payment;
 
       salePayment.name = updatedPaymentMethod;
@@ -20,7 +20,7 @@ module.exports = async function editPaymentMethod(paymentMethodId, data, session
       await sale.edit({ payment: salePayment });
     }
 
-    for (const purchase in purchases) {
+    for (const purchase of purchases) {
       const purchasePayment = purchase.payment;
 
       purchasePayment.name = updatedPaymentMethod;

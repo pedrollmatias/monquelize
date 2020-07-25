@@ -123,11 +123,11 @@ module.exports = {
         const sales = await Sale.find(query);
         const purchases = await Purchase.find(query);
 
-        for (const sale in sales) {
+        for (const sale of sales) {
           await sale.editProduct(updatedProduct);
         }
 
-        for (const purchase in purchases) {
+        for (const purchase of purchases) {
           await purchase.editProduct(updatedProduct);
         }
       }
@@ -193,11 +193,11 @@ module.exports = {
       const sales = await Sale.find(query);
       const purchases = await Purchase.find(query);
 
-      for (const sale in sales) {
+      for (const sale of sales) {
         await sale.removeProduct(product._id);
       }
 
-      for (const purchase in purchases) {
+      for (const purchase of purchases) {
         await purchase.removeProduct(product._id);
       }
 

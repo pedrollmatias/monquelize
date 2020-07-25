@@ -10,7 +10,7 @@ module.exports = async function removeUnit(unitId, session) {
   const sales = await saleModel.find(query);
   const purchases = await purchaseModel.find(query);
 
-  for (const sale in sales) {
+  for (const sale of sales) {
     const saleProducts = sale.products.map((saleProduct) => {
       if (saleProduct.unit && saleProduct.unit.unitRef.equals(unit._id)) {
         saleProduct.unit.unitRef = undefined;
@@ -22,7 +22,7 @@ module.exports = async function removeUnit(unitId, session) {
     await sale.edit({ products: saleProducts });
   }
 
-  for (const purchase in purchases) {
+  for (const purchase of purchases) {
     const purchaseProducts = purchase.products.map((purchaseProduct) => {
       if (purchaseProduct.unit && purchaseProduct.unit.unitRef.equals(unit._id)) {
         purchaseProduct.unit.unitRef = undefined;
