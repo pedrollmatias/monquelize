@@ -19,6 +19,7 @@ import { SnackbarWarningComponent } from './components/snackbar-warning/snackbar
 import { NoSanitizePipe } from './pipes/no-sanitize.pipe';
 import { DialogLoadingComponent } from './components/dialog-loading/dialog-loading.component';
 import { ElementDateSelectorComponent } from './components/element-date-selector/element-date-selector.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 @NgModule({
   declarations: [
@@ -37,13 +38,14 @@ import { ElementDateSelectorComponent } from './components/element-date-selector
     DialogLoadingComponent,
     ElementDateSelectorComponent,
   ],
-  imports: [CommonModule, FormsModule, ReactiveFormsModule, RouterModule, MaterialModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, RouterModule, MaterialModule, NgxChartsModule],
   exports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
     MaterialModule,
+    NgxChartsModule,
     ElementLoadingAreaComponent,
     ElementRequestBtnComponent,
     ElementBreadcrumbComponent,

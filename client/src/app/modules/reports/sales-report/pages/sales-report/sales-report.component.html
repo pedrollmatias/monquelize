@@ -1,6 +1,13 @@
 <div class="container py-5">
-  <div class="pb-5">
-    <span class="mat-headline"><strong>Sales reports</strong></span>
+  <div class="d-flex align-items-center justify-content-between pb-5">
+    <div>
+      <div>
+        <app-element-breadcrumb [breadcrumb]="breadcrumb"></app-element-breadcrumb>
+      </div>
+      <span class="mat-headline m-0">
+        <strong>Sales reports</strong>
+      </span>
+    </div>
   </div>
   <div class="pb-5">
     <div class="d-flex justify-content-between align-items-center pb-4">
@@ -9,9 +16,41 @@
       </div>
       <div>
         <app-element-date-selector
-          [optionsList]="['month', 'year', 'dateRange']"
-          (dateRange)="onDateRangeSaleByDateChange($event)"
+          [optionsList]="['month', 'year']"
+          (dateSelector)="onDateRangeSaleByDateChange($event)"
         ></app-element-date-selector>
+      </div>
+    </div>
+    <div>
+      <div class="pb-4">
+        <mat-card class="d-flex flex-column justify-content-center align-items-center">
+          <ngx-charts-line-chart
+            [showXAxisLabel]="true"
+            [showYAxisLabel]="true"
+            [xAxis]="true"
+            [yAxis]="true"
+            xAxisLabel="Day"
+            yAxisLabel="Amount"
+            [timeline]="true"
+            [results]="salesAmountByDayMonthChartData"
+          >
+          </ngx-charts-line-chart>
+        </mat-card>
+      </div>
+      <div>
+        <mat-card class="d-flex flex-column justify-content-center align-items-center">
+          <ngx-charts-line-chart
+            [showXAxisLabel]="true"
+            [showYAxisLabel]="true"
+            [xAxis]="true"
+            [yAxis]="true"
+            xAxisLabel="Day"
+            yAxisLabel="Amount"
+            [timeline]="true"
+            [results]="salesAmountByDayMonthChartData"
+          >
+          </ngx-charts-line-chart>
+        </mat-card>
       </div>
     </div>
   </div>

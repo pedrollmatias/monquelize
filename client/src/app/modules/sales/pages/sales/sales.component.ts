@@ -5,6 +5,7 @@ import { ApiSaleService } from 'src/app/core/api/api-sale.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { IDateRange } from 'src/app/shared/models/date-range.model';
 import { UtilsService } from 'src/app/core/services/utils.service';
+import { IDateSelector } from 'src/app/shared/models/date-selector.model';
 
 @Component({
   selector: 'app-sales',
@@ -58,8 +59,8 @@ export class SalesComponent implements OnInit {
     this.fetchData();
   }
 
-  onDateRangeChange(dateRange: IDateRange): void {
-    this.dateRange = dateRange;
+  onDateRangeChange(dateSelector: IDateSelector): void {
+    this.dateRange = dateSelector.dateRange;
     this.resetData();
     this.fetchData();
   }

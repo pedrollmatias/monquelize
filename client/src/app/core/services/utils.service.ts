@@ -62,4 +62,12 @@ export class UtilsService {
       end: dayjs(date).endOf('year').toDate(),
     };
   }
+
+  getMonthDaysAmount(date: Date): number {
+    return Number(dayjs(date).endOf('month').format('D'));
+  }
+
+  getDayNumber(date: Date): number {
+    return Number(dayjs(date).format('D'));
+  }
 }

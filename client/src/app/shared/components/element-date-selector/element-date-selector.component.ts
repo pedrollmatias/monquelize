@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { UtilsService } from 'src/app/core/services/utils.service';
 import { IDateRange } from '../../models/date-range.model';
+import { IDateSelector } from '../../models/date-selector.model';
 
 @Component({
   selector: 'app-element-date-selector',
@@ -10,14 +11,14 @@ import { IDateRange } from '../../models/date-range.model';
 export class ElementDateSelectorComponent implements OnInit {
   @Input() optionsList: string[];
   @Input() defaultOption: string;
-  @Output() dateRange = new EventEmitter<IDateRange>();
+  @Output() dateSelector = new EventEmitter<IDateSelector>();
 
   optionSelected: string;
 
   constructor(public utils: UtilsService) {}
 
   date: Date;
-  _dateRange: IDateRange;
+  dateRange: IDateRange;
 
   startDate: Date;
   endDate: Date;
@@ -34,30 +35,26 @@ export class ElementDateSelectorComponent implements OnInit {
 
   getNextMonth(): void {
     this.date = this.utils.getNextMonth(this.date);
-    this._dateRange = this.utils.getMonthRange(this.date);
-    this.emitDateRange();
+    this.dateRange = this.utils.getMonthRange(this.date);
+    this.emitDateSelector();
   }
 
   getPreviousMonth(): void {
     this.date = this.utils.getPreviousMonth(this.date);
-    this._dateRange = this.utils.getMonthRange(this.date);
-    this.emitDateRange();
+    this.dateRange = this.utils.getMonthRange(this.date);
+    this.emitDateSelector();
   }
 
   getNextYear(): void {
     this.date = this.utils.getNextYear(this.date);
-    this._dateRange = this.utils.getYearRange(this.date);
-    this.emitDateRange();
+    this.dateRange = this.utils.getYearRange(this.date);
+    this.emitDateSelector();
   }
 
   getPreviousYear(): void {
     this.date = this.utils.getPreviousYear(this.date);
-    this._dateRange = this.utils.getYearRange(this.date);
-    this.emitDateRange();
-  }
-
-  emitDateRange(): void {
-    this.dateRange.emit(this._dateRange);
+    this.dateRange = this.utils.getYearRange(this.date);
+    this.emitDateSelector();
   }
 
   optionDisplay(option: string) {
@@ -71,10 +68,14 @@ export class ElementDateSelectorComponent implements OnInit {
   }
 
   setDateRange(): void {
-    this._dateRange = {
+    this.dateRange = {
       start: this.startDate,
       end: this.endDate,
     };
-    this.emitDateRange();
+    this.emitDateSelector();
+  }
+
+  emitDateSelector(): void {
+    this.dateSelector.emit({ type: this.optionSelected, dateRange: this.dateRange });
   }
 }

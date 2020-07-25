@@ -140,7 +140,6 @@ export class ProductDetailsComponent implements OnInit {
           .openLoadingDialog(this.productApi.editProduct(this.productId, product))
           .beforeClosed()
           .subscribe((productRes: IHttpRes) => {
-            console.log(productRes);
             this.initFormData(productRes.res);
           });
       }

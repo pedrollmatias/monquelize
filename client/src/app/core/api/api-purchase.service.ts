@@ -11,7 +11,7 @@ export class ApiPurchaseService {
 
   constructor(private http: HttpClient) {}
 
-  getPurchases(query: any): Observable<IHttpRes> {
+  getPurchases(query: any = {}): Observable<IHttpRes> {
     const uri = `${this.baseUrl}/purchases`;
     return this.http.get<IHttpRes>(uri, { params: query });
   }

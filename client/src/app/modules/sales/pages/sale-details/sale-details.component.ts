@@ -359,7 +359,6 @@ export class SaleDetailsComponent implements OnInit {
           .beforeClosed()
           .subscribe((saleRes: IHttpRes) => {
             if (saleRes) {
-              console.log(saleRes);
               this.router.navigate(['/sales', 'edit', saleRes.res._id]);
             }
           });

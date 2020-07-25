@@ -13,8 +13,8 @@ module.exports = (app) => {
     try {
       timer.startTimer();
 
-      const startDate = new Date(req.query.startDate).toISOString();
-      const endDate = new Date(req.query.endDate).toISOString();
+      const startDate = new Date(req.query.startDate);
+      const endDate = new Date(req.query.endDate);
       const query = { date: { $gte: startDate, $lte: endDate } };
 
       const sales = await saleService.get(query);
@@ -35,7 +35,6 @@ module.exports = (app) => {
         return saleService.add(req.body, session);
       });
 
-      console.log(sale);
       const diffTime = timer.diffTimer();
 
       res.send({ res: sale, time: diffTime });

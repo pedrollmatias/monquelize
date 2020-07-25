@@ -5,6 +5,7 @@ import { IBreadcrumb } from 'src/app/shared/models/breadcrumb.model';
 import { MatPaginator } from '@angular/material/paginator';
 import { IDateRange } from 'src/app/shared/models/date-range.model';
 import { UtilsService } from 'src/app/core/services/utils.service';
+import { IDateSelector } from 'src/app/shared/models/date-selector.model';
 @Component({
   selector: 'app-purchases',
   templateUrl: './purchases.component.html',
@@ -57,8 +58,8 @@ export class PurchasesComponent implements OnInit {
     this.fetchData();
   }
 
-  onDateRangeChange(dateRange: IDateRange): void {
-    this.dateRange = dateRange;
+  onDateRangeChange(dateSelector: IDateSelector): void {
+    this.dateRange = dateSelector.dateRange;
     this.resetData();
     this.fetchData();
   }
