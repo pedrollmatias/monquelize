@@ -1,4 +1,12 @@
-.pie-chart-card {
-  min-height: 600px;
-  max-height: 900px;
+.sales-by-date-card {
+  height: 490px;
+}
+
+.sales-by-category-card {
+  height: 200px;
+  min-width: 300px;
+}
+
+::ng-deep .gridline-path-vertical {
+  display: none;
 }

@@ -55,6 +55,15 @@ body {
   }
 }
 
+.mat-tab-label {
+  height: 38px !important;
+  min-width: 110px !important;
+
+  .mat-tab-label-content {
+    font-size: 14px !important;
+  }
+}
+
 // Utils
 
 .overflow-auto {

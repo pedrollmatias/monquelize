@@ -17,7 +17,9 @@ async function testWriteConflict() {
     }
 
     await Promise.all(reqs);
-  } catch (e) {}
+  } catch (e) {
+    console.error(e);
+  }
 }
 
 testWriteConflict();

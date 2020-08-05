@@ -1,5 +1,6 @@
 'use strict';
 
 module.exports = {
-  getSalesAmountTotalByDayMonth: require('./get-sales-amount-total-by-day-month'),
+  getSalesAmountTotalByDateRange: require('./get-sales-amount-total-by-date-range'),
+  getSalesByCategoryByDateRange: require('./get-sales-by-category-by-date-range'),
 };
