@@ -1,14 +1,14 @@
 <div class="container py-5">
   <div class="pb-5">
-    <app-element-loading-area [mongodbMongooseTime]="mongodbMongooseTime"></app-element-loading-area>
-  </div>
-  <div class="pb-5">
     <div>
       <app-element-breadcrumb [breadcrumb]="breadcrumb"></app-element-breadcrumb>
     </div>
     <span class="mat-headline m-0">
       <strong>{{ pageTitle }}</strong>
     </span>
+  </div>
+  <div class="pb-5">
+    <app-element-loading-area [mongodbMongooseTime]="mongodbMongooseTime"></app-element-loading-area>
   </div>
   <div>
     <ng-container *ngIf="showPageData; else loading">
