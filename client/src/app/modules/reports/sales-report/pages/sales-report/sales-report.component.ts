@@ -57,6 +57,7 @@ export class SalesReportComponent implements OnInit {
   paymentMethods: IPaymentMethod[];
 
   dateSelectorSaleByDate: IDateSelector;
+  dateSelectorSaleByCategory: IDateSelector;
 
   chartsResults: IChartsResults;
   chartColorScheme: IChartColorScheme;
@@ -87,6 +88,7 @@ export class SalesReportComponent implements OnInit {
     this.initSalesReportsResControl();
     this.initChartsData();
     this.dateSelectorSaleByDate = { type: 'month', dateRange: this.utils.getMonthRange(this.utils.getCurrentDate()) };
+    this.dateSelectorSaleByCategory = { ...this.dateSelectorSaleByDate };
     const query = {
       startDate: this.dateSelectorSaleByDate.dateRange.start.toString(),
       endDate: this.dateSelectorSaleByDate.dateRange.end.toString(),
@@ -214,6 +216,26 @@ export class SalesReportComponent implements OnInit {
         series: salesTotalSeries,
       },
     ];
+  }
+
+  onDateRangeSaleByCategoryChange(dateSelector: IDateSelector): void {
+    this.salesReportsResControl.salesByCategory.showChartData = false;
+    this.salesReportsResControl.salesByCategory.times.mognodbMongoose = null;
+    this.dateSelectorSaleByCategory = dateSelector;
+    const query = {
+      startDate: this.dateSelectorSaleByCategory.dateRange.start.toString(),
+      endDate: this.dateSelectorSaleByCategory.dateRange.end.toString(),
+    };
+    this.reportApi.getSalesByCatgoryByDateRange(query).subscribe((salesReportRes: IHttpRes) => {
+      this.salesReportsResControl.salesByCategory.times.mognodbMongoose = salesReportRes.time;
+      this.salesReportsResControl.salesByCategory.showChartData = true;
+      this.setSalesByCategoryChartsData(salesReportRes.res);
+    });
+  }
+
+  setSalesByCategoryChartsData(data: any): void {
+    this.setSaleAmountByCategoryChartData(data);
+    this.setSaleTotalByCategoryChartData(data);
   }
 
   setSaleAmountByCategoryChartData(data: any): void {

@@ -91,12 +91,12 @@
           <div>
             <app-element-date-selector
               [optionsList]="['month', 'year']"
-              (dateSelector)="onDateRangeSaleByDateChange($event)"
+              (dateSelector)="onDateRangeSaleByCategoryChange($event)"
             ></app-element-date-selector>
           </div>
         </div>
         <div>
-          <ng-container *ngIf="salesReportsResControl?.salesByDate?.showChartData; else loadingSalesByCategoryReport">
+          <ng-container *ngIf="salesReportsResControl?.salesByCategory?.showChartData; else loadingSalesByCategoryReport">
             <div class="d-flex flex-wrap">
               <div class="flex-grow-1 px-2">
                 <div class="pb-3">
