@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { IBreadcrumb } from 'src/app/shared/models/breadcrumb.model';
 import { IDateSelector } from 'src/app/shared/models/date-selector.model';
 import { UtilsService } from 'src/app/core/services/utils.service';
@@ -17,6 +17,8 @@ import { ApiUnitService } from 'src/app/core/api/api-unit.service';
 import { ApiUserService } from 'src/app/core/api/api-user.service';
 import { ApiPaymentMethodService } from 'src/app/core/api/api-payment-method.service';
 import { IChartColorScheme } from 'src/app/shared/models/chart-color-scheme';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
 
 declare interface ISalesReportResControl {
   showChartData: boolean;
@@ -30,6 +32,7 @@ declare interface IChartsResults {
   salesTotalByDate: any;
   salesAmountByCategory: any;
   salesTotalByCategory: any;
+  advancedSalesReport: any;
 }
 
 declare interface ISalesReportsResControl {
@@ -61,6 +64,13 @@ export class SalesReportComponent implements OnInit {
   advancedSearchForm: FormGroup;
 
   salesReportsResControl: ISalesReportsResControl;
+
+  advancesSalesReportColumns: string[] = ['code', 'date', 'customer', 'status', 'totalValue'];
+  advancesSalesReportDataSouce = new MatTableDataSource<IProduct>();
+
+  @ViewChild(MatPaginator) set paginator(paginator: MatPaginator) {
+    this.advancesSalesReportDataSouce.paginator = paginator;
+  }
 
   constructor(
     private reportApi: ApiReportService,
@@ -131,6 +141,7 @@ export class SalesReportComponent implements OnInit {
       salesTotalByDate: [],
       salesAmountByCategory: [],
       salesTotalByCategory: [],
+      advancedSalesReport: [],
     };
   }
 
@@ -235,6 +246,18 @@ export class SalesReportComponent implements OnInit {
     });
   }
 
+  clearAdvancedSearchForm(): void {
+    this.advancedSearchForm.setValue({
+      startDate: null,
+      endDate: null,
+      categories: [],
+      units: [],
+      products: [],
+      paymentMethods: [],
+      sellers: [],
+    });
+  }
+
   onCategoriesChanges(categoriesId: string[]): void {
     categoriesId;
     this.filteredProducts = this.products.filter((product) => {
@@ -264,7 +287,23 @@ export class SalesReportComponent implements OnInit {
     this.reportApi.getAdvancesSalesReport(queryParams).subscribe((salesReportRes: IHttpRes) => {
       this.salesReportsResControl.advancedReport.times.mognodbMongoose = salesReportRes.time;
       this.salesReportsResControl.advancedReport.showChartData = true;
-      this.setSalesByDateChartsData(salesReportRes.res);
+      this.chartsResults.advancedSalesReport = salesReportRes.res;
+      this.setAdvancedSalesReportDataSource(this.chartsResults.advancedSalesReport);
     });
+  }
+
+  get amountAdvancedSalesReport(): number {
+    return this.chartsResults.advancedSalesReport?.length;
+  }
+
+  get totalAdvancedSalesReport(): number {
+    return (
+      this.chartsResults.advancedSalesReport?.reduce((totalValue, sale) => (totalValue += sale.totalValue), 0) || 0
+    );
+  }
+
+  setAdvancedSalesReportDataSource(sales: any[]): void {
+    this.advancesSalesReportDataSouce = new MatTableDataSource(sales);
+    this.advancesSalesReportDataSouce.paginator = this.paginator;
   }
 }

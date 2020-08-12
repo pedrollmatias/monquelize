@@ -84,6 +84,11 @@ body {
   }
 }
 
+.info-card {
+  min-width: 220px;
+  max-width: 260px;
+}
+
 .color-primary {
   color: $color-primary !important;
 }
