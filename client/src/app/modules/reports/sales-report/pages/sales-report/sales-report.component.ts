@@ -16,10 +16,13 @@ import { ApiCategoryService } from 'src/app/core/api/api-category.service';
 import { ApiUnitService } from 'src/app/core/api/api-unit.service';
 import { ApiUserService } from 'src/app/core/api/api-user.service';
 import { ApiPaymentMethodService } from 'src/app/core/api/api-payment-method.service';
+import { IChartColorScheme } from 'src/app/shared/models/chart-color-scheme';
 
 declare interface ISalesReportResControl {
   showChartData: boolean;
   times: any;
+  showForm?: boolean;
+  requestAttempt?: boolean;
 }
 
 declare interface IChartsResults {
@@ -47,11 +50,13 @@ export class SalesReportComponent implements OnInit {
   units: IUnit[];
   sellers: IUser[];
   products: IProduct[];
+  filteredProducts: IProduct[];
   paymentMethods: IPaymentMethod[];
 
   dateSelectorSaleByDate: IDateSelector;
 
   chartsResults: IChartsResults;
+  chartColorScheme: IChartColorScheme;
 
   advancedSearchForm: FormGroup;
 
@@ -88,6 +93,7 @@ export class SalesReportComponent implements OnInit {
       const [salesByDateRes, salesByCategoryRes] = res;
       const apiRes = res.slice(2).map((_apiRes) => _apiRes.res);
       [this.categories, this.units, this.sellers, this.products, this.paymentMethods] = apiRes;
+      this.filteredProducts = [...this.products];
       this.salesReportsResControl.salesByDate.times.mognodbMongoose = salesByDateRes.time;
       this.salesReportsResControl.salesByCategory.times.mognodbMongoose = salesByCategoryRes.time;
       this.setSalesByDateChartsData(salesByDateRes.res);
@@ -96,7 +102,7 @@ export class SalesReportComponent implements OnInit {
       this.createAdvancedSearchForm();
       this.salesReportsResControl.salesByDate.showChartData = true;
       this.salesReportsResControl.salesByCategory.showChartData = true;
-      this.salesReportsResControl.advancedReport.showChartData = true;
+      this.salesReportsResControl.advancedReport.showForm = true;
     });
   }
 
@@ -113,6 +119,8 @@ export class SalesReportComponent implements OnInit {
       advancedReport: {
         showChartData: false,
         times: {},
+        showForm: false,
+        requestAttempt: false,
       },
     };
   }
@@ -123,6 +131,14 @@ export class SalesReportComponent implements OnInit {
       salesTotalByDate: [],
       salesAmountByCategory: [],
       salesTotalByCategory: [],
+    };
+  }
+
+  generateChartColorScheme(colorsAmount: number): any {
+    return {
+      domain: Array(colorsAmount)
+        .fill(null)
+        .map((_, i) => 'rgba(0, 96, 100, ' + (i + 1) * (1 / colorsAmount) + ')'),
     };
   }
 
@@ -209,11 +225,46 @@ export class SalesReportComponent implements OnInit {
 
   createAdvancedSearchForm(): void {
     this.advancedSearchForm = this.fb.group({
-      categories: null,
-      units: null,
-      products: null,
-      paymenthMethods: null,
-      sellers: null,
+      startDate: null,
+      endDate: null,
+      categories: [],
+      units: [],
+      products: [],
+      paymentMethods: [],
+      sellers: [],
+    });
+  }
+
+  onCategoriesChanges(categoriesId: string[]): void {
+    categoriesId;
+    this.filteredProducts = this.products.filter((product) => {
+      const productCategory = <ICategory>product.category;
+      return categoriesId.includes(productCategory?._id);
+    });
+    this.advancedSearchForm.patchValue({
+      products: [],
+      units: [],
+    });
+  }
+
+  formatQueryParams(formValue: any): any {
+    const formattedQuertParams = {};
+    for (const key of Object.keys(formValue)) {
+      if (formValue[key]) {
+        formattedQuertParams[key] = formValue[key];
+      }
+    }
+    return formattedQuertParams;
+  }
+
+  submitAdvancedSearch(): void {
+    this.salesReportsResControl.advancedReport.requestAttempt = true;
+    this.salesReportsResControl.advancedReport.showChartData = false;
+    const queryParams = this.formatQueryParams(this.advancedSearchForm.value);
+    this.reportApi.getAdvancesSalesReport(queryParams).subscribe((salesReportRes: IHttpRes) => {
+      this.salesReportsResControl.advancedReport.times.mognodbMongoose = salesReportRes.time;
+      this.salesReportsResControl.advancedReport.showChartData = true;
+      this.setSalesByDateChartsData(salesReportRes.res);
     });
   }
 }

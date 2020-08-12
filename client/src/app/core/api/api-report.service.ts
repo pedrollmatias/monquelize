@@ -20,4 +20,9 @@ export class ApiReportService {
     const uri = `${this.baseUrl}/reports/get-sales-by-category-by-date-range`;
     return this.http.get<IHttpRes>(uri, { params: query });
   }
+
+  getAdvancesSalesReport(query: any): Observable<IHttpRes> {
+    const uri = `${this.baseUrl}/reports/get-advanced-sales-report`;
+    return this.http.get<IHttpRes>(uri, { params: query });
+  }
 }

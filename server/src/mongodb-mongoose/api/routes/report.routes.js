@@ -1,9 +1,16 @@
 'use strict';
 
+const mongoose = require('mongoose');
 const express = require('express');
 const router = express.Router();
 const { reportService } = require('../../services');
 const { timer } = require('../../../modules');
+
+function castToObjectIdArray(obj) {
+  const array = Array.isArray(obj) ? obj : [obj];
+
+  return array.map((element) => mongoose.Types.ObjectId(element));
+}
 
 module.exports = (app) => {
   app.use('/reports', router);
@@ -45,27 +52,48 @@ module.exports = (app) => {
   });
 
   router.get('/get-advanced-sales-report', async (req, res, next) => {
-    // try {
-    //   timer.startTimer();
-    //   const query = {};
-    //   if (req.body.categories) {
-    //     query = { ...query, 'products.category': { $in: req.body.categories } };
-    //   }
-    //   if (req.body.units) {
-    //     query = { ...query, 'products.unit.unitRef': { $in: req.body.units } };
-    //   }
-    //   if (req.body.paymentMethods) {
-    //     query = { ...query, 'products.paymentMethod.paymentMethodRef': { $in: req.body.paymentMethods } };
-    //   }
-    //   if (req.body.sellers) {
-    //     query = { ...query, seller: { $in: req.body.sellers } };
-    //   }
-    //   // const query = { date: { $gte: startDate, $lte: endDate } };
-    //   // const salesReport = await reportService.getSalesByCategoryByDateRange(query);
-    //   // const diffTime = timer.diffTimer();
-    //   res.send({ res: salesReport, time: diffTime });
-    // } catch (err) {
-    //   next(err);
-    // }
+    try {
+      timer.startTimer();
+      let query = {};
+
+      const startDate = req.query.startDate ? new Date(req.query.startDate) : undefined;
+      const endDate = req.query.endDate ? new Date(req.query.endDate) : undefined;
+
+      if (startDate && endDate) {
+        query = { ...query, date: { $gte: startDate, $lte: endDate } };
+      } else if (startDate) {
+        query = { ...query, date: { $gte: startDate } };
+      } else if (endDate) {
+        query = { ...query, date: { $lte: endDate } };
+      }
+
+      if (req.query.categories) {
+        query = { ...query, 'products.category': { $in: castToObjectIdArray(req.query.categories) } };
+      }
+      if (req.query.products) {
+        query = { ...query, 'products._id': { $in: castToObjectIdArray(req.query.products) } };
+      }
+      if (req.query.units) {
+        query = { ...query, 'products.unit.unitRef': { $in: castToObjectIdArray(req.query.units) } };
+      }
+      if (req.query.paymentMethods) {
+        query = {
+          ...query,
+          'products.paymentMethod.paymentMethodRef': { $in: castToObjectIdArray(req.query.paymentMethods) },
+        };
+      }
+      if (req.query.sellers) {
+        query = { ...query, seller: { $in: castToObjectIdArray(req.query.sellers) } };
+      }
+
+      console.log(query);
+
+      const salesReport = await reportService.getAdvancesSalesReport(query);
+      const diffTime = timer.diffTimer();
+
+      res.send({ res: salesReport, time: diffTime });
+    } catch (err) {
+      next(err);
+    }
   });
 };

@@ -9,18 +9,21 @@ module.exports = function getSalesAmountTotalByDayMonth(query) {
     {
       $project: {
         _id: 1,
-        date: { $dateToString: { format: '%Y-%m-%d', date: '$date' } },
+        code: 1,
+        customer: 1,
+        status: 1,
+        date: 1,
         subtotal: { $multiply: ['$products.amount', '$products.price'] },
       },
     },
-    { $group: { _id: '$_id', date: { $first: '$date' }, totalValue: { $sum: '$subtotal' } } },
-    { $group: { _id: '$date', total: { $sum: '$totalValue' }, amount: { $sum: 1 } } },
     {
-      $project: {
-        _id: 0,
-        total: 1,
-        amount: 1,
-        date: { $dateFromString: { dateString: '$_id' } },
+      $group: {
+        _id: '$_id',
+        code: { $first: '$code' },
+        customer: { $first: '$customer' },
+        status: { $first: '$status' },
+        date: { $first: '$date' },
+        totalValue: { $sum: '$subtotal' },
       },
     },
   ]);

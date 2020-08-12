@@ -2,6 +2,7 @@ import { ICategory } from './category.model';
 import { IUnit } from './unit.model';
 
 export declare interface IProduct {
+  _id?: string;
   sku: string;
   name: string;
   description?: string;
