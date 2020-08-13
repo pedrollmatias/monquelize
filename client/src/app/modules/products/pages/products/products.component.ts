@@ -4,6 +4,9 @@ import { ApiProductService } from 'src/app/core/api/api-product.service';
 import { IProduct } from 'src/app/shared/models/product.model';
 import { IHttpRes } from 'src/app/shared/models/http-res.model';
 import { MatPaginator } from '@angular/material/paginator';
+import { IDatabaseTimes } from 'src/app/shared/models/database-times';
+import { UtilsService } from 'src/app/core/services/utils.service';
+import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-products',
@@ -11,27 +14,28 @@ import { MatPaginator } from '@angular/material/paginator';
   styleUrls: ['./products.component.scss'],
 })
 export class ProductsComponent implements OnInit {
+  @ViewChild(MatPaginator) set paginator(paginator: MatPaginator) {
+    this.productsDataSouce.paginator = paginator;
+  }
+
   productsColumns: string[] = ['sku', 'name', 'category', 'unit', 'salePrice'];
   productsDataSouce = new MatTableDataSource<IProduct>();
 
   products: IProduct[];
 
-  mongodbMongooseTime: number;
+  times: IDatabaseTimes;
 
-  @ViewChild(MatPaginator) set paginator(paginator: MatPaginator) {
-    this.productsDataSouce.paginator = paginator;
-  }
-
-  constructor(private apiProducts: ApiProductService) {}
+  constructor(public utils: UtilsService, private apiProducts: ApiProductService) {}
 
   ngOnInit(): void {
     this.fetchData();
   }
 
   fetchData(): void {
-    this.apiProducts.getProducts().subscribe((productRes: IHttpRes) => {
-      this.mongodbMongooseTime = productRes.time;
-      this.products = <IProduct[]>productRes.res;
+    forkJoin(this.apiProducts.getProducts(this.utils.mongodbMongooseBaseUrl)).subscribe((databasesRes: IHttpRes[]) => {
+      const [mongodbMongooseProductRes] = databasesRes;
+      this.times = this.utils.setTimes(mongodbMongooseProductRes.time);
+      this.products = <IProduct[]>mongodbMongooseProductRes.res;
       this.setDataSource(this.products);
     });
   }
@@ -42,7 +46,7 @@ export class ProductsComponent implements OnInit {
   }
 
   resetData(): void {
-    this.mongodbMongooseTime = null;
+    this.times = this.utils.resetTimes();
     this.products = undefined;
   }
 

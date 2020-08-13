@@ -8,37 +8,35 @@ import { IHttpRes } from 'src/app/shared/models/http-res.model';
   providedIn: 'root',
 })
 export class ApiProductService {
-  baseUrl = 'http://localhost:9001/api';
-
   constructor(private http: HttpClient) {}
 
-  getProducts(): Observable<IHttpRes> {
-    const uri = `${this.baseUrl}/products`;
+  getProducts(baseUrl: string): Observable<IHttpRes> {
+    const uri = `${baseUrl}/products`;
     return this.http.get<IHttpRes>(uri);
   }
 
-  getProduct(productId: string): Observable<IHttpRes> {
-    const uri = `${this.baseUrl}/products/${productId}`;
+  getProduct(baseUrl: string, productId: string): Observable<IHttpRes> {
+    const uri = `${baseUrl}/products/${productId}`;
     return this.http.get<IHttpRes>(uri);
   }
 
-  createProduct(product: IProduct): Observable<IHttpRes> {
-    const uri = `${this.baseUrl}/products/add`;
+  createProduct(baseUrl: string, product: IProduct): Observable<IHttpRes> {
+    const uri = `${baseUrl}/products/add`;
     return this.http.post<IHttpRes>(uri, product);
   }
 
-  editProduct(productId: string, data: any): Observable<IHttpRes> {
-    const uri = `${this.baseUrl}/products/${productId}`;
+  editProduct(baseUrl: string, productId: string, data: any): Observable<IHttpRes> {
+    const uri = `${baseUrl}/products/${productId}`;
     return this.http.post<IHttpRes>(uri, data);
   }
 
-  removeProduct(productId: string): Observable<IHttpRes> {
-    const uri = `${this.baseUrl}/products/${productId}`;
+  removeProduct(baseUrl: string, productId: string): Observable<IHttpRes> {
+    const uri = `${baseUrl}/products/${productId}`;
     return this.http.delete<IHttpRes>(uri);
   }
 
-  inventoryAdjustment(productId: string, data: any): Observable<IHttpRes> {
-    const uri = `${this.baseUrl}/products/${productId}/inventory`;
+  inventoryAdjustment(baseUrl: string, productId: string, data: any): Observable<IHttpRes> {
+    const uri = `${baseUrl}/products/${productId}/inventory`;
     return this.http.post<IHttpRes>(uri, data);
   }
 }

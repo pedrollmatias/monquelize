@@ -2,12 +2,35 @@ import { Injectable } from '@angular/core';
 import { AbstractControl, FormArray } from '@angular/forms';
 import * as dayjs from 'dayjs';
 import { IDateRange } from 'src/app/shared/models/date-range.model';
+import { IDatabaseTimes } from 'src/app/shared/models/database-times';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UtilsService {
   constructor() {}
+
+  public get mongodbMongooseBaseUrl(): string {
+    return 'http://localhost:9001/api';
+  }
+
+  setTimes(mongodbMongoose: number, mongodb?: number, postgres?: number, postgresSequelize?: number): IDatabaseTimes {
+    return {
+      mongodbMongoose,
+      mongodb,
+      postgres,
+      postgresSequelize,
+    };
+  }
+
+  resetTimes(): IDatabaseTimes {
+    return {
+      mongodbMongoose: null,
+      mongodb: null,
+      postgres: null,
+      postgresSequelize: null,
+    };
+  }
 
   getFormArrayControl(form: AbstractControl, path: string[]): FormArray {
     return <FormArray>form.get(path);
@@ -17,7 +40,7 @@ export class UtilsService {
     return Number(value.toFixed(decimals));
   }
 
-  getGreatestTime(times: number[]) {
+  getGreatestTime(times: number[]): number {
     return times.reduce((acc, value) => (acc > value ? acc : value));
   }
 
