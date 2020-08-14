@@ -11,20 +11,18 @@ if (envFound.error) {
 }
 
 module.exports = {
-  servers: [
-    // {
-    //   id: "mongodb",
-    //   name: "MongoDB",
-    //   port: parseInt(process.env.PORT_MONGODB, 10),
-    //   databaseURL: process.env.MONGODB_URI,
-    // },
-    {
-      id: 'mongodb-mongoose',
+  servers: {
+    'mongodb-mongoose': {
       name: 'MongoDB with Mongoose',
       port: parseInt(process.env.PORT_MONGODB_MONGOOSE, 10),
       databaseURL: process.env.MONGODB_MONGOOSE_URI,
     },
-  ],
+    'postgres-sequelize': {
+      name: 'Postgres with Sequelize',
+      port: parseInt(process.env.PORT_POSTGRES_SEQUELIZE, 10),
+      databaseURL: process.env.POSTGRES_SEQUELIZE_URI,
+    },
+  },
   logs: { level: process.env.LOG_LEVEL || 'silly' },
   api: { prefix: '/api' },
 };

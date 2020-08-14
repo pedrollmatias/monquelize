@@ -20,7 +20,9 @@ module.exports = (app, serverId) => {
   app.use(bodyParser.json());
 
   app.use((req, res, next) => {
-    Logger.info(`Request URL: ${req.originalUrl}`);
+    const fullUrl = `${req.protocol}://${req.get('host')}${req.originalUrl}`;
+
+    Logger.info(`Request URL: ${fullUrl}`);
     next();
   });
 

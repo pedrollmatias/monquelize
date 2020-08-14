@@ -86,8 +86,6 @@ module.exports = (app) => {
         query = { ...query, seller: { $in: castToObjectIdArray(req.query.sellers) } };
       }
 
-      console.log(query);
-
       const salesReport = await reportService.getAdvancesSalesReport(query);
       const diffTime = timer.diffTimer();
 

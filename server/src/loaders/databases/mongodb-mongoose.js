@@ -1,9 +1,10 @@
 'use strict';
 
 const mongoose = require('mongoose');
+const { servers } = require('../../config');
 
-module.exports = async (databaseURL) => {
-  const connection = await mongoose.connect(databaseURL, {
+module.exports = (async function () {
+  const connection = await mongoose.connect(servers['mongodb-mongoose'].databaseURL, {
     useNewUrlParser: true,
     useFindAndModify: false,
     useCreateIndex: true,
@@ -11,4 +12,4 @@ module.exports = async (databaseURL) => {
   });
 
   return connection.connection.db;
-};
+})();
