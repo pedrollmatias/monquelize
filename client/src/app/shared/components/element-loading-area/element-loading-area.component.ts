@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { UtilsService } from 'src/app/core/services/utils.service';
+import { IDatabaseTimes } from '../../models/database-times';
 
 @Component({
   selector: 'app-element-loading-area',
@@ -7,7 +8,7 @@ import { UtilsService } from 'src/app/core/services/utils.service';
   styleUrls: ['./element-loading-area.component.scss'],
 })
 export class ElementLoadingAreaComponent implements OnInit {
-  @Input() mongodbMongooseTime: number;
+  @Input() databaseTimes: IDatabaseTimes;
 
   constructor(public utils: UtilsService) {}
 

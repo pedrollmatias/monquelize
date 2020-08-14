@@ -10,11 +10,25 @@ import { IDatabaseTimes } from 'src/app/shared/models/database-times';
 export class UtilsService {
   constructor() {}
 
+  public get postgresSequelizeBaseUrl(): string {
+    return 'http://localhost:8001/api';
+  }
+
   public get mongodbMongooseBaseUrl(): string {
     return 'http://localhost:9001/api';
   }
 
-  setTimes(mongodbMongoose: number, mongodb?: number, postgres?: number, postgresSequelize?: number): IDatabaseTimes {
+  setTimes({
+    postgres,
+    postgresSequelize,
+    mongodb,
+    mongodbMongoose,
+  }: {
+    postgres?: number;
+    postgresSequelize?: number;
+    mongodb?: number;
+    mongodbMongoose?: number;
+  }): IDatabaseTimes {
     return {
       mongodbMongoose,
       mongodb,

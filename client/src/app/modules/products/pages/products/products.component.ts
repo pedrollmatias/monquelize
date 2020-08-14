@@ -23,7 +23,7 @@ export class ProductsComponent implements OnInit {
 
   products: IProduct[];
 
-  times: IDatabaseTimes;
+  databaseTimes: IDatabaseTimes;
 
   constructor(public utils: UtilsService, private apiProducts: ApiProductService) {}
 
@@ -32,10 +32,16 @@ export class ProductsComponent implements OnInit {
   }
 
   fetchData(): void {
-    forkJoin(this.apiProducts.getProducts(this.utils.mongodbMongooseBaseUrl)).subscribe((databasesRes: IHttpRes[]) => {
-      const [mongodbMongooseProductRes] = databasesRes;
-      this.times = this.utils.setTimes(mongodbMongooseProductRes.time);
-      this.products = <IProduct[]>mongodbMongooseProductRes.res;
+    forkJoin(
+      this.apiProducts.getProducts(this.utils.postgresSequelizeBaseUrl),
+      this.apiProducts.getProducts(this.utils.mongodbMongooseBaseUrl)
+    ).subscribe((databasesRes: IHttpRes[]) => {
+      const [postgresSequelize, mongodbMongooseProduct] = databasesRes;
+      this.databaseTimes = this.utils.setTimes({
+        postgresSequelize: postgresSequelize.time,
+        mongodbMongoose: mongodbMongooseProduct.time,
+      });
+      this.products = <IProduct[]>mongodbMongooseProduct.res;
       this.setDataSource(this.products);
     });
   }
@@ -46,7 +52,7 @@ export class ProductsComponent implements OnInit {
   }
 
   resetData(): void {
-    this.times = this.utils.resetTimes();
+    this.databaseTimes = this.utils.resetTimes();
     this.products = undefined;
   }
 
