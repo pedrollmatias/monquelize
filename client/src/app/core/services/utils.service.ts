@@ -33,22 +33,12 @@ export class UtilsService {
     return forkJoin(requests);
   }
 
-  setTimes({
-    postgres,
-    postgresSequelize,
-    mongodb,
-    mongodbMongoose,
-  }: {
-    postgres?: number;
-    postgresSequelize?: number;
-    mongodb?: number;
-    mongodbMongoose?: number;
-  }): IDatabaseTimes {
+  setTimes(res: IHttpResponse): IDatabaseTimes {
     return {
-      mongodbMongoose,
-      mongodb,
-      postgres,
-      postgresSequelize,
+      mongodbMongoose: res.mongodbMongoose.time,
+      // mongodb,
+      // postgres,
+      postgresSequelize: res.postgresSequelize.time,
     };
   }
 

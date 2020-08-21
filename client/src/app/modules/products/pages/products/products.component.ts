@@ -6,7 +6,7 @@ import { IDatabaseTimes } from 'src/app/shared/models/database-times';
 import { UtilsService } from 'src/app/core/services/utils.service';
 import { IHttpResponse } from 'src/app/shared/models/http.model';
 import { IProduct } from 'src/app/shared/models/views.model';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { IAssociatedIds } from 'src/app/shared/models/associated-ids.model';
 
 @Component({
@@ -26,7 +26,12 @@ export class ProductsComponent implements OnInit {
 
   databaseTimes: IDatabaseTimes;
 
-  constructor(public utils: UtilsService, private apiProducts: ApiProductService, private router: Router) {}
+  constructor(
+    private apiProducts: ApiProductService,
+    private route: ActivatedRoute,
+    private router: Router,
+    public utils: UtilsService
+  ) {}
 
   ngOnInit(): void {
     this.fetchData();
@@ -34,11 +39,7 @@ export class ProductsComponent implements OnInit {
 
   fetchData(): void {
     this.apiProducts.getProducts().subscribe((res: IHttpResponse) => {
-      const { mongodbMongoose, postgresSequelize } = res;
-      this.databaseTimes = this.utils.setTimes({
-        postgresSequelize: postgresSequelize.time,
-        mongodbMongoose: mongodbMongoose.time,
-      });
+      this.databaseTimes = this.utils.setTimes(res);
       this.products = this.getProducts(res);
       this.setDataSource(this.products);
     });
@@ -56,7 +57,7 @@ export class ProductsComponent implements OnInit {
     return products.mongodbMongoose.map((product, _, _products) => {
       const associatedIds = {
         mongodbMongooseId: product._id,
-        postgresSequelizeId: products.postgresSequelize.find((_product) => _product.sku === product.sku),
+        postgresSequelizeId: product._id,
       };
 
       return { ...product, associatedIds };
@@ -69,7 +70,13 @@ export class ProductsComponent implements OnInit {
   }
 
   navigateToEditProduct(product: IProduct): void {
-    this.router.navigate(['edit', { mongodbMongooseId: product._id }]);
+    const params = {
+      ...(product.associatedIds.postgresSequelizeId && {
+        postgresSequelize: product.associatedIds.postgresSequelizeId,
+      }),
+    };
+    const options = { relativeTo: this.route };
+    this.router.navigate(['edit', product._id, params], options);
   }
 
   resetData(): void {
