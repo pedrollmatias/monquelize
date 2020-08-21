@@ -1,10 +1,9 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { IProduct } from 'src/app/shared/models/product.model';
+import { IProduct } from 'src/app/shared/models/views.model';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { SharedComponentsService } from 'src/app/core/services/shared-components.service';
 import { ApiProductService } from 'src/app/core/api/api-product.service';
-import { IHttpRes } from 'src/app/shared/models/http-res.model';
 
 declare interface IInventoryAdjustmentDialog {
   product: IProduct;
@@ -46,71 +45,71 @@ export class DialogInventoryAdjustmentComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.product = this.data.product;
-    this.productId = this.data.productId;
-    this.createInventoryAdjustmentForm();
-    this.createCurrentAmountAdjustmentForm();
-    this.dialogTitle = 'Inventory adjustment';
+    // this.product = this.data.product;
+    // this.productId = this.data.productId;
+    // this.createInventoryAdjustmentForm();
+    // this.createCurrentAmountAdjustmentForm();
+    // this.dialogTitle = 'Inventory adjustment';
   }
 
-  resetTimes(): void {
-    this.mongodbMongooseTime = null;
-  }
+  // resetTimes(): void {
+  //   this.mongodbMongooseTime = null;
+  // }
 
-  closeDialog(confirmed: boolean = null): void {
-    this.dialogRef.close({ confirmed: confirmed });
-  }
+  // closeDialog(confirmed: boolean = null): void {
+  //   this.dialogRef.close({ confirmed: confirmed });
+  // }
 
-  createInventoryAdjustmentForm(): void {
-    this.inventoryAdjustmentForm = this.fb.group({
-      movementType: [null, Validators.required],
-      amount: [null, Validators.required],
-    });
-  }
+  // createInventoryAdjustmentForm(): void {
+  //   this.inventoryAdjustmentForm = this.fb.group({
+  //     movementType: [null, Validators.required],
+  //     amount: [null, Validators.required],
+  //   });
+  // }
 
-  createCurrentAmountAdjustmentForm(): void {
-    this.currentAmountAdjustmentForm = this.fb.group({
-      currentAmount: [null, Validators.required],
-    });
-  }
+  // createCurrentAmountAdjustmentForm(): void {
+  //   this.currentAmountAdjustmentForm = this.fb.group({
+  //     currentAmount: [null, Validators.required],
+  //   });
+  // }
 
-  clearForms(): void {
-    this.inventoryAdjustmentForm.reset();
-    this.inventoryAdjustmentForm.clearValidators();
-    this.currentAmountAdjustmentForm.reset();
-    this.currentAmountAdjustmentForm.clearValidators();
-  }
+  // clearForms(): void {
+  //   this.inventoryAdjustmentForm.reset();
+  //   this.inventoryAdjustmentForm.clearValidators();
+  //   this.currentAmountAdjustmentForm.reset();
+  //   this.currentAmountAdjustmentForm.clearValidators();
+  // }
 
-  saveInventoryAdjustment(): void {
-    if (this.setCurrentAmount) {
-      if (this.currentAmountAdjustmentForm.invalid) {
-        this.sharedComponents.openSnackbarWarning('There are fields with invalid values');
-      } else {
-        this.dialogRef.disableClose = true;
-        this.showLoadingArea = true;
-        const inventory = {
-          ...this.product.inventory,
-          currentAmount: this.currentAmountAdjustmentForm.get('currentAmount').value,
-        };
-        const productData = { ...this.product, inventory: inventory };
-        this.productApi.editProduct(this.productId, productData).subscribe((productRes: IHttpRes) => {
-          this.showDoneButton = true;
-          this.mongodbMongooseTime = productRes.time;
-        });
-      }
-    } else {
-      if (this.inventoryAdjustmentForm.invalid) {
-        this.sharedComponents.openSnackbarWarning('There are fields with invalid values');
-      } else {
-        this.dialogRef.disableClose = true;
-        this.showLoadingArea = true;
-        this.productApi
-          .inventoryAdjustment(this.productId, this.inventoryAdjustmentForm.value)
-          .subscribe((productRes: IHttpRes) => {
-            this.showDoneButton = true;
-            this.mongodbMongooseTime = productRes.time;
-          });
-      }
-    }
-  }
+  // saveInventoryAdjustment(): void {
+  //   if (this.setCurrentAmount) {
+  //     if (this.currentAmountAdjustmentForm.invalid) {
+  //       this.sharedComponents.openSnackbarWarning('There are fields with invalid values');
+  //     } else {
+  //       this.dialogRef.disableClose = true;
+  //       this.showLoadingArea = true;
+  //       const inventory = {
+  //         ...this.product.inventory,
+  //         currentAmount: this.currentAmountAdjustmentForm.get('currentAmount').value,
+  //       };
+  //       const productData = { ...this.product, inventory: inventory };
+  //       this.productApi.editProduct(this.productId, productData).subscribe((productRes: IHttpRes) => {
+  //         this.showDoneButton = true;
+  //         this.mongodbMongooseTime = productRes.time;
+  //       });
+  //     }
+  //   } else {
+  //     if (this.inventoryAdjustmentForm.invalid) {
+  //       this.sharedComponents.openSnackbarWarning('There are fields with invalid values');
+  //     } else {
+  //       this.dialogRef.disableClose = true;
+  //       this.showLoadingArea = true;
+  //       this.productApi
+  //         .inventoryAdjustment(this.productId, this.inventoryAdjustmentForm.value)
+  //         .subscribe((productRes: IHttpRes) => {
+  //           this.showDoneButton = true;
+  //           this.mongodbMongooseTime = productRes.time;
+  //         });
+  //     }
+  //   }
+  // }
 }

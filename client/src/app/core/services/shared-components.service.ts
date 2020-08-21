@@ -8,7 +8,6 @@ import { SnackbarSuccessComponent } from 'src/app/shared/components/snackbar-suc
 import { DialogConfirmationComponent } from 'src/app/shared/components/dialog-confirmation/dialog-confirmation.component';
 import { DialogMessageComponent } from 'src/app/shared/components/dialog-message/dialog-message.component';
 import { DialogLoadingComponent } from 'src/app/shared/components/dialog-loading/dialog-loading.component';
-import { IHttpRes } from 'src/app/shared/models/http-res.model';
 
 @Injectable({
   providedIn: 'root',
@@ -91,14 +90,14 @@ export class SharedComponentsService {
     });
   }
 
-  openLoadingDialog(httpRequest: Observable<IHttpRes>): MatDialogRef<DialogLoadingComponent> {
-    return this.dialog.open(DialogLoadingComponent, {
-      autoFocus: false,
-      restoreFocus: false,
-      width: '70vw',
-      data: {
-        httpRequest: httpRequest,
-      },
-    });
-  }
+  // openLoadingDialog(httpRequest: Observable<IHttpRes>): MatDialogRef<DialogLoadingComponent> {
+  //   return this.dialog.open(DialogLoadingComponent, {
+  //     autoFocus: false,
+  //     restoreFocus: false,
+  //     width: '70vw',
+  //     data: {
+  //       httpRequest: httpRequest,
+  //     },
+  //   });
+  // }
 }

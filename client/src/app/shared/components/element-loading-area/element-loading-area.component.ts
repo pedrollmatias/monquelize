@@ -12,5 +12,7 @@ export class ElementLoadingAreaComponent implements OnInit {
 
   constructor(public utils: UtilsService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.databaseTimes;
+  }
 }

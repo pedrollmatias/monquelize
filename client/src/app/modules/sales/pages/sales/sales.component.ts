@@ -31,37 +31,37 @@ export class SalesComponent implements OnInit {
   constructor(private saleApi: ApiSaleService, public utils: UtilsService) {}
 
   ngOnInit(): void {
-    this.dateRange = this.utils.getMonthRange(this.utils.getCurrentDate());
-    this.fetchData();
+    // this.dateRange = this.utils.getMonthRange(this.utils.getCurrentDate());
+    // this.fetchData();
   }
 
-  fetchData(): void {
-    const query = { startDate: this.dateRange.start.toString(), endDate: this.dateRange.end.toString() };
-    this.saleApi.getSales(query).subscribe((saleRes) => {
-      this.sales = <any[]>saleRes.res;
-      this.mongodbMongooseTime = saleRes.time;
-      this.setDataSource(this.sales);
-    });
-  }
+  // fetchData(): void {
+  //   const query = { startDate: this.dateRange.start.toString(), endDate: this.dateRange.end.toString() };
+  //   this.saleApi.getSales(query).subscribe((saleRes) => {
+  //     this.sales = <any[]>saleRes.res;
+  //     this.mongodbMongooseTime = saleRes.time;
+  //     this.setDataSource(this.sales);
+  //   });
+  // }
 
-  setDataSource(sales: any[]): void {
-    this.salesDataSource = new MatTableDataSource(sales);
-    this.salesDataSource.paginator = this.paginator;
-  }
+  // setDataSource(sales: any[]): void {
+  //   this.salesDataSource = new MatTableDataSource(sales);
+  //   this.salesDataSource.paginator = this.paginator;
+  // }
 
-  resetData(): void {
-    this.mongodbMongooseTime = null;
-    this.sales = undefined;
-  }
+  // resetData(): void {
+  //   this.mongodbMongooseTime = null;
+  //   this.sales = undefined;
+  // }
 
-  refreshComponent(): void {
-    this.resetData();
-    this.fetchData();
-  }
+  // refreshComponent(): void {
+  //   this.resetData();
+  //   this.fetchData();
+  // }
 
-  onDateRangeChange(dateSelector: IDateSelector): void {
-    this.dateRange = dateSelector.dateRange;
-    this.resetData();
-    this.fetchData();
-  }
+  // onDateRangeChange(dateSelector: IDateSelector): void {
+  //   this.dateRange = dateSelector.dateRange;
+  //   this.resetData();
+  //   this.fetchData();
+  // }
 }

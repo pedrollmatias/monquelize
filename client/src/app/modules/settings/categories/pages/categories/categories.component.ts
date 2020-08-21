@@ -1,12 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-import { ICategory } from 'src/app/shared/models/category.model';
+import { ICategory } from 'src/app/shared/models/views.model';
 import { ApiCategoryService } from 'src/app/core/api/api-category.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogCategoryDetailsComponent } from '../../components/dialog-category-details/dialog-category-details.component';
 import { switchMap } from 'rxjs/operators';
 import { of } from 'rxjs';
-import { IHttpRes } from 'src/app/shared/models/http-res.model';
 import { IBreadcrumb } from 'src/app/shared/models/breadcrumb.model';
 import { MatPaginator } from '@angular/material/paginator';
 
@@ -32,60 +31,60 @@ export class CategoriesComponent implements OnInit {
   mongodbMongooseTime: number;
 
   ngOnInit(): void {
-    this.fetchData();
+    // this.fetchData();
   }
 
-  fetchData(): void {
-    this.categoryApi.getCategories().subscribe((categoryRes) => {
-      this.categories = <ICategory[]>categoryRes.res;
-      this.mongodbMongooseTime = categoryRes.time;
-      this.setDataSource(this.categories);
-    });
-  }
+  // fetchData(): void {
+  //   this.categoryApi.getCategories().subscribe((categoryRes) => {
+  //     this.categories = <ICategory[]>categoryRes.res;
+  //     this.mongodbMongooseTime = categoryRes.time;
+  //     this.setDataSource(this.categories);
+  //   });
+  // }
 
-  setDataSource(categories: ICategory[]): void {
-    this.categoriesDataSource = new MatTableDataSource(categories);
-    this.categoriesDataSource.paginator = this.paginator;
-  }
+  // setDataSource(categories: ICategory[]): void {
+  //   this.categoriesDataSource = new MatTableDataSource(categories);
+  //   this.categoriesDataSource.paginator = this.paginator;
+  // }
 
-  resetData(): void {
-    this.mongodbMongooseTime = null;
-    this.categories = undefined;
-  }
+  // resetData(): void {
+  //   this.mongodbMongooseTime = null;
+  //   this.categories = undefined;
+  // }
 
-  refreshComponent(): void {
-    this.resetData();
-    this.fetchData();
-  }
+  // refreshComponent(): void {
+  //   this.resetData();
+  //   this.fetchData();
+  // }
 
-  openCategoryDetailsDialog(categoryId: string = null): void {
-    const categoryDetailsDialogRef = this.dialog.open(DialogCategoryDetailsComponent, {
-      autoFocus: false,
-      restoreFocus: false,
-      width: '70vw',
-      data: {
-        categories: this.categories,
-        categoryId: categoryId,
-      },
-    });
+  // openCategoryDetailsDialog(categoryId: string = null): void {
+  //   const categoryDetailsDialogRef = this.dialog.open(DialogCategoryDetailsComponent, {
+  //     autoFocus: false,
+  //     restoreFocus: false,
+  //     width: '70vw',
+  //     data: {
+  //       categories: this.categories,
+  //       categoryId: categoryId,
+  //     },
+  //   });
 
-    categoryDetailsDialogRef
-      .beforeClosed()
-      .pipe(
-        switchMap((confirmed) => {
-          if (confirmed) {
-            this.resetData();
-            return this.categoryApi.getCategories();
-          } else {
-            const categoryRes: IHttpRes = { res: this.categories, time: this.mongodbMongooseTime };
-            return of(categoryRes);
-          }
-        })
-      )
-      .subscribe((categoryRes: IHttpRes) => {
-        this.categories = <ICategory[]>categoryRes.res;
-        this.mongodbMongooseTime = categoryRes.time;
-        this.setDataSource(this.categories);
-      });
-  }
+  //   categoryDetailsDialogRef
+  //     .beforeClosed()
+  //     .pipe(
+  //       switchMap((confirmed) => {
+  //         if (confirmed) {
+  //           this.resetData();
+  //           return this.categoryApi.getCategories();
+  //         } else {
+  //           const categoryRes: IHttpRes = { res: this.categories, time: this.mongodbMongooseTime };
+  //           return of(categoryRes);
+  //         }
+  //       })
+  //     )
+  //     .subscribe((categoryRes: IHttpRes) => {
+  //       this.categories = <ICategory[]>categoryRes.res;
+  //       this.mongodbMongooseTime = categoryRes.time;
+  //       this.setDataSource(this.categories);
+  //     });
+  // }
 }

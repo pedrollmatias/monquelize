@@ -1,42 +1,42 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpEvent } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { IProduct } from 'src/app/shared/models/product.model';
-import { IHttpRes } from 'src/app/shared/models/http-res.model';
+import { IProduct } from 'src/app/shared/models/views.model';
+import { UtilsService } from '../services/utils.service';
+import { IHttpResponse } from 'src/app/shared/models/http.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ApiProductService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private utils: UtilsService) {}
 
-  getProducts(baseUrl: string): Observable<IHttpRes> {
-    const uri = `${baseUrl}/products`;
-    return this.http.get<IHttpRes>(uri);
+  getProducts(): Observable<IHttpResponse> {
+    return this.utils.multiRequests('GET', '/products');
   }
 
-  getProduct(baseUrl: string, productId: string): Observable<IHttpRes> {
-    const uri = `${baseUrl}/products/${productId}`;
-    return this.http.get<IHttpRes>(uri);
-  }
+  // getProduct(productId: string): Observable<IHttpResponse> {
+  //   const uri = `products/${productId}`;
+  //   return this.http.get<IHttpResponse>(uri);
+  // }
 
-  createProduct(baseUrl: string, product: IProduct): Observable<IHttpRes> {
-    const uri = `${baseUrl}/products/add`;
-    return this.http.post<IHttpRes>(uri, product);
-  }
+  // createProduct(product: IProduct): Observable<IHttpResponse> {
+  //   const uri = `products/add`;
+  //   return this.http.post<IHttpResponse>(uri, product);
+  // }
 
-  editProduct(baseUrl: string, productId: string, data: any): Observable<IHttpRes> {
-    const uri = `${baseUrl}/products/${productId}`;
-    return this.http.post<IHttpRes>(uri, data);
-  }
+  // editProduct(productId: string, data: any): Observable<IHttpResponse> {
+  //   const uri = `products/${productId}`;
+  //   return this.http.post<IHttpResponse>(uri, data);
+  // }
 
-  removeProduct(baseUrl: string, productId: string): Observable<IHttpRes> {
-    const uri = `${baseUrl}/products/${productId}`;
-    return this.http.delete<IHttpRes>(uri);
-  }
+  // removeProduct(productId: string): Observable<IHttpResponse> {
+  //   const uri = `products/${productId}`;
+  //   return this.http.delete<IHttpResponse>(uri);
+  // }
 
-  inventoryAdjustment(baseUrl: string, productId: string, data: any): Observable<IHttpRes> {
-    const uri = `${baseUrl}/products/${productId}/inventory`;
-    return this.http.post<IHttpRes>(uri, data);
-  }
+  // inventoryAdjustment(productId: string, data: any): Observable<IHttpResponse> {
+  //   const uri = `products/${productId}/inventory`;
+  //   return this.http.post<IHttpResponse>(uri, data);
+  // }
 }

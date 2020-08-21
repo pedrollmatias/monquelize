@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { IBreadcrumb } from 'src/app/shared/models/breadcrumb.model';
 import { MatTableDataSource } from '@angular/material/table';
 import { ApiUserService } from 'src/app/core/api/api-user.service';
-import { IUser } from 'src/app/shared/models/user.model';
+import { IUser } from 'src/app/shared/models/views.model';
 import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
@@ -27,29 +27,29 @@ export class UsersComponent implements OnInit {
   mongodbMongooseTime: number;
 
   ngOnInit(): void {
-    this.fetchData();
+    // this.fetchData();
   }
 
-  fetchData(): void {
-    this.userApi.getUsers().subscribe((userRes) => {
-      this.users = <IUser[]>userRes.res;
-      this.mongodbMongooseTime = userRes.time;
-      this.setDataSource(this.users);
-    });
-  }
+  // fetchData(): void {
+  //   this.userApi.getUsers().subscribe((userRes) => {
+  //     this.users = <IUser[]>userRes.res;
+  //     this.mongodbMongooseTime = userRes.time;
+  //     this.setDataSource(this.users);
+  //   });
+  // }
 
-  setDataSource(users: IUser[]): void {
-    this.usersDataSource = new MatTableDataSource(users);
-    this.usersDataSource.paginator = this.paginator;
-  }
+  // setDataSource(users: IUser[]): void {
+  //   this.usersDataSource = new MatTableDataSource(users);
+  //   this.usersDataSource.paginator = this.paginator;
+  // }
 
-  resetData(): void {
-    this.mongodbMongooseTime = null;
-    this.users = undefined;
-  }
+  // resetData(): void {
+  //   this.mongodbMongooseTime = null;
+  //   this.users = undefined;
+  // }
 
-  refreshComponent(): void {
-    this.resetData();
-    this.fetchData();
-  }
+  // refreshComponent(): void {
+  //   this.resetData();
+  //   this.fetchData();
+  // }
 }

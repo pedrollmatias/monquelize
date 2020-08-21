@@ -30,37 +30,37 @@ export class PurchasesComponent implements OnInit {
   constructor(private purchaseApi: ApiPurchaseService, public utils: UtilsService) {}
 
   ngOnInit(): void {
-    this.dateRange = this.utils.getMonthRange(this.utils.getCurrentDate());
-    this.fetchData();
+    // this.dateRange = this.utils.getMonthRange(this.utils.getCurrentDate());
+    // this.fetchData();
   }
 
-  fetchData(): void {
-    const query = { startDate: this.dateRange.start.toString(), endDate: this.dateRange.end.toString() };
-    this.purchaseApi.getPurchases(query).subscribe((purchaseRes) => {
-      this.purchases = <any[]>purchaseRes.res;
-      this.mongodbMongooseTime = purchaseRes.time;
-      this.setDataSource(this.purchases);
-    });
-  }
+  // fetchData(): void {
+  //   const query = { startDate: this.dateRange.start.toString(), endDate: this.dateRange.end.toString() };
+  //   this.purchaseApi.getPurchases(query).subscribe((purchaseRes) => {
+  //     this.purchases = <any[]>purchaseRes.res;
+  //     this.mongodbMongooseTime = purchaseRes.time;
+  //     this.setDataSource(this.purchases);
+  //   });
+  // }
 
-  setDataSource(purchases: any[]): void {
-    this.purchasesDataSource = new MatTableDataSource(purchases);
-    this.purchasesDataSource.paginator = this.paginator;
-  }
+  // setDataSource(purchases: any[]): void {
+  //   this.purchasesDataSource = new MatTableDataSource(purchases);
+  //   this.purchasesDataSource.paginator = this.paginator;
+  // }
 
-  resetData(): void {
-    this.mongodbMongooseTime = null;
-    this.purchases = undefined;
-  }
+  // resetData(): void {
+  //   this.mongodbMongooseTime = null;
+  //   this.purchases = undefined;
+  // }
 
-  refreshComponent(): void {
-    this.resetData();
-    this.fetchData();
-  }
+  // refreshComponent(): void {
+  //   this.resetData();
+  //   this.fetchData();
+  // }
 
-  onDateRangeChange(dateSelector: IDateSelector): void {
-    this.dateRange = dateSelector.dateRange;
-    this.resetData();
-    this.fetchData();
-  }
+  // onDateRangeChange(dateSelector: IDateSelector): void {
+  //   this.dateRange = dateSelector.dateRange;
+  //   this.resetData();
+  //   this.fetchData();
+  // }
 }

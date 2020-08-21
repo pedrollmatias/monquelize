@@ -1,4 +1,4 @@
-<div class="container py-5">
+<!-- <div class="container py-5">
   <div class="d-flex align-items-center justify-content-between pb-5">
     <div>
       <div>
@@ -12,7 +12,6 @@
   <mat-tab-group mat-stretch-tabs dynamicHeight>
     <mat-tab label="Sales by date">
       <div class="p-4">
-        <!-- Sales by date -->
         <div class="pb-5">
           <app-element-loading-area
             [mongodbMongooseTime]="salesReportsResControl?.salesByDate?.times?.mognodbMongoose"
@@ -78,7 +77,6 @@
     </mat-tab>
     <mat-tab label="Sales by categories">
       <div class="p-4">
-        <!-- Sales by category -->
         <div class="pb-5">
           <app-element-loading-area
             [mongodbMongooseTime]="salesReportsResControl?.salesByCategory?.times?.mognodbMongoose"
@@ -96,7 +94,9 @@
           </div>
         </div>
         <div>
-          <ng-container *ngIf="salesReportsResControl?.salesByCategory?.showChartData; else loadingSalesByCategoryReport">
+          <ng-container
+            *ngIf="salesReportsResControl?.salesByCategory?.showChartData; else loadingSalesByCategoryReport"
+          >
             <div class="d-flex flex-wrap">
               <div class="flex-grow-1 px-2">
                 <div class="pb-3">
@@ -375,4 +375,4 @@
       </div>
     </mat-tab>
   </mat-tab-group>
-</div>
+</div> -->

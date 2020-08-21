@@ -3,19 +3,34 @@ import { AbstractControl, FormArray } from '@angular/forms';
 import * as dayjs from 'dayjs';
 import { IDateRange } from 'src/app/shared/models/date-range.model';
 import { IDatabaseTimes } from 'src/app/shared/models/database-times';
+import { Observable, forkJoin } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { IHttpResponse, IApiRes, IHttpRequest } from 'src/app/shared/models/http.model';
+
+enum HttpMethods {
+  GET = 'GET',
+  POST = 'POST',
+  PUT = 'PUT',
+  DELETE = 'DELETE',
+}
+
+enum BaseUrls {
+  MONGODB_MONGOOSE = 'http://localhost:9001/api',
+  POSTGRES_SEQUELIZE = 'http://localhost:8001/api',
+}
 
 @Injectable({
   providedIn: 'root',
 })
 export class UtilsService {
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
-  public get postgresSequelizeBaseUrl(): string {
-    return 'http://localhost:8001/api';
-  }
-
-  public get mongodbMongooseBaseUrl(): string {
-    return 'http://localhost:9001/api';
+  multiRequests(httpMethod: keyof typeof HttpMethods, path: string, options?: any): Observable<IHttpResponse> {
+    const requests: IHttpRequest = {
+      mongodbMongoose: this.http.request<IApiRes>(httpMethod, `${BaseUrls.MONGODB_MONGOOSE}${path}`, options),
+      postgresSequelize: this.http.request<IApiRes>(httpMethod, `${BaseUrls.POSTGRES_SEQUELIZE}${path}`, options),
+    };
+    return forkJoin(requests);
   }
 
   setTimes({
