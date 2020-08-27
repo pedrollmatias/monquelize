@@ -27,6 +27,7 @@ export declare interface IHistory {
 }
 
 export interface ICategory {
+  associatedIds?: IAssociatedIds;
   _id?: string;
   name: string;
   parent?: any;

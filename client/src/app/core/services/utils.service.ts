@@ -6,6 +6,7 @@ import { IDatabaseTimes } from 'src/app/shared/models/database-times';
 import { Observable, forkJoin } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { IHttpResponse, IApiRes, IHttpRequest } from 'src/app/shared/models/http.model';
+import { IAssociatedIds } from 'src/app/shared/models/associated-ids.model';
 
 enum HttpMethods {
   GET = 'GET',
@@ -19,16 +20,33 @@ enum BaseUrls {
   POSTGRES_SEQUELIZE = 'http://localhost:8001/api',
 }
 
+declare interface IPaths {
+  mongodbMongoose: string;
+  postgresSequelize: string;
+}
+
 @Injectable({
   providedIn: 'root',
 })
 export class UtilsService {
   constructor(private http: HttpClient) {}
 
-  multiRequests(httpMethod: keyof typeof HttpMethods, path: string, options?: any): Observable<IHttpResponse> {
+  multiRequests(
+    httpMethod: keyof typeof HttpMethods,
+    paths: IPaths | string,
+    options?: any
+  ): Observable<IHttpResponse> {
     const requests: IHttpRequest = {
-      mongodbMongoose: this.http.request<IApiRes>(httpMethod, `${BaseUrls.MONGODB_MONGOOSE}${path}`, options),
-      postgresSequelize: this.http.request<IApiRes>(httpMethod, `${BaseUrls.POSTGRES_SEQUELIZE}${path}`, options),
+      mongodbMongoose: this.http.request<IApiRes>(
+        httpMethod,
+        `${BaseUrls.MONGODB_MONGOOSE}${this.isObject(paths) ? (paths as IPaths).mongodbMongoose : paths}`,
+        options
+      ),
+      postgresSequelize: this.http.request<IApiRes>(
+        httpMethod,
+        `${BaseUrls.POSTGRES_SEQUELIZE}${this.isObject(paths) ? (paths as IPaths).postgresSequelize : paths}`,
+        options
+      ),
     };
     return forkJoin(requests);
   }
@@ -111,5 +129,9 @@ export class UtilsService {
 
   getDayNumber(date: Date): number {
     return Number(dayjs(date).format('D'));
+  }
+
+  isObject(obj: any) {
+    return typeof obj === 'object' && obj !== null;
   }
 }

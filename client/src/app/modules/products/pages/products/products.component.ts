@@ -27,7 +27,7 @@ export class ProductsComponent implements OnInit {
   databaseTimes: IDatabaseTimes;
 
   constructor(
-    private apiProducts: ApiProductService,
+    private productApi: ApiProductService,
     private route: ActivatedRoute,
     private router: Router,
     public utils: UtilsService
@@ -38,7 +38,7 @@ export class ProductsComponent implements OnInit {
   }
 
   fetchData(): void {
-    this.apiProducts.getProducts().subscribe((res: IHttpResponse) => {
+    this.productApi.getProducts().subscribe((res: IHttpResponse) => {
       this.databaseTimes = this.utils.setTimes(res);
       this.products = this.getProducts(res);
       this.setDataSource(this.products);
@@ -47,8 +47,8 @@ export class ProductsComponent implements OnInit {
 
   getProducts(res: IHttpResponse): IProduct[] {
     const products = Object.keys(res).reduce(
-      (products, key) => {
-        products[key] = res[key].res;
+      (products, serverId) => {
+        products[serverId] = res[serverId].res;
         return products;
       },
       { mongodbMongoose: [], postgresSequelize: [] }

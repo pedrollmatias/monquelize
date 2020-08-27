@@ -1,6 +1,6 @@
-<!-- <div class="container py-5">
+<div class="container py-5">
   <div class="pb-5">
-    <app-element-loading-area [mongodbMongooseTime]="mongodbMongooseTime"></app-element-loading-area>
+    <app-element-loading-area [databaseTimes]="databaseTimes"></app-element-loading-area>
   </div>
   <div class="pb-5">
     <div>
@@ -10,7 +10,7 @@
       <strong>Categories</strong>
     </span>
   </div>
-  <div class="d-flex pb-5">
+  <div class="d-flex justify-content-between pb-5">
     <div>
       <app-element-button-icon-text
         icon="add"
@@ -18,12 +18,6 @@
         color="primary"
         (click)="openCategoryDetailsDialog()"
       ></app-element-button-icon-text>
-    </div>
-    <div class="flex-grow-1 px-5">
-      <mat-form-field class="inline-input w-100" floatLabel="never">
-        <mat-label>Search</mat-label>
-        <input matInput />
-      </mat-form-field>
     </div>
     <div class="d-flex justify-content-end flex-wrap">
       <div>
@@ -81,4 +75,4 @@
       </div>
     </ng-template>
   </div>
-</div> -->
+</div>

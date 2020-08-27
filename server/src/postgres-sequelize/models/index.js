@@ -1,5 +1,6 @@
 'use strict';
 
 module.exports = {
-  productModel: require('./product.model'),
+  Product: require('./product.model'),
+  Category: require('./category.model'),
 };

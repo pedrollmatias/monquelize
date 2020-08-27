@@ -3,7 +3,7 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../../loaders/databases/postgres-sequelize');
 
-module.exports = sequelize.define('Product', {
+const Product = sequelize.define('Product', {
   name: {
     type: DataTypes.STRING,
   },
@@ -11,3 +11,5 @@ module.exports = sequelize.define('Product', {
     type: DataTypes.STRING,
   },
 });
+
+module.exports = Product;
