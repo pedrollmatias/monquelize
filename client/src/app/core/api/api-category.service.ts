@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 import { ICategory } from 'src/app/shared/models/views.model';
 import { UtilsService } from '../services/utils.service';
 import { IHttpResponse } from 'src/app/shared/models/http.model';
+import { IAssociatedIds } from 'src/app/shared/models/associated-ids.model';
+import { IPaths } from 'src/app/shared/models/paths.model';
 
 @Injectable({
   providedIn: 'root',
@@ -17,10 +19,11 @@ export class ApiCategoryService {
     return this.utils.multiRequests('GET', '/categories');
   }
 
-  // getCategory(categoryId: string): Observable<IHttpRes> {
-  //   const uri = `${this.baseUrl}/categories/${categoryId}`;
-  //   return this.http.get<IHttpRes>(uri);
-  // }
+  getCategory(paths: IPaths): Observable<IHttpResponse> {
+    return this.utils.multiRequests('POST', paths);
+    // const uri = `${this.baseUrl}/categories/${categoryId}`;
+    // return this.http.get<IHttpRes>(uri);
+  }
 
   createCategory(category: ICategory): Observable<IHttpResponse> {
     return this.utils.multiRequests('POST', '/categories/add', { body: category });

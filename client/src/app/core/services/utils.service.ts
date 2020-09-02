@@ -7,6 +7,7 @@ import { Observable, forkJoin } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { IHttpResponse, IApiRes, IHttpRequest } from 'src/app/shared/models/http.model';
 import { IAssociatedIds } from 'src/app/shared/models/associated-ids.model';
+import { IPaths } from 'src/app/shared/models/paths.model';
 
 enum HttpMethods {
   GET = 'GET',
@@ -18,11 +19,6 @@ enum HttpMethods {
 enum BaseUrls {
   MONGODB_MONGOOSE = 'http://localhost:9001/api',
   POSTGRES_SEQUELIZE = 'http://localhost:8001/api',
-}
-
-declare interface IPaths {
-  mongodbMongoose: string;
-  postgresSequelize: string;
 }
 
 @Injectable({

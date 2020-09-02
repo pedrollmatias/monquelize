@@ -50,14 +50,17 @@ export class DialogCategoryDetailsComponent implements OnInit {
     // this.categoryId = this.data.categoryId;
     this.isNewCategory = this.associatedIds ? false : true;
     if (!this.isNewCategory) {
-      //   this.showLoadingArea = true;
-      //   this.categoryApi.getCategory(this.categoryId).subscribe((categoryRes) => {
-      //     this.category = categoryRes.res;
-      //     this.mongodbMongooseTime = categoryRes.time;
-      //     this.createCategoryForm();
-      //     this.initFormData(this.category);
-      //     this.dialogTitle = 'Edit category';
-      //   });
+      // this.showLoadingArea = true;
+      // this.databaseTimes = this.utils.setTimes(res);
+      // this.products = this.getProducts(res);
+      // this.setDataSource(this.products);
+      // this.categoryApi.getCategory(this.categoryId).subscribe((categoryRes) => {
+      //   this.category = categoryRes.res;
+      //   this.mongodbMongooseTime = categoryRes.time;
+      //   this.createCategoryForm();
+      //   this.initFormData(this.category);
+      //   this.dialogTitle = 'Edit category';
+      // });
     } else {
       this.createCategoryForm();
       this.dialogTitle = 'Add category';
