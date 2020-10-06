@@ -1,4 +1,4 @@
-<!-- <div class="d-flex justify-content-between align-items-center pb-4">
+<div class="d-flex justify-content-between align-items-center pb-4">
   <div>
     <span class="mat-title">{{ dialogTitle }}</span>
   </div>
@@ -20,7 +20,7 @@
 <div class="px-4">
   <ng-container *ngIf="showLoadingArea">
     <div class="pb-5">
-      <app-element-loading-area [mongodbMongooseTime]="mongodbMongooseTime"></app-element-loading-area>
+      <app-element-loading-area [databaseTimes]="databaseTimes"></app-element-loading-area>
     </div>
   </ng-container>
   <ng-container *ngIf="showDoneButton">
@@ -28,7 +28,7 @@
       <button mat-flat-button color="primary" (click)="closeDialog(true)">Done!</button>
     </div>
   </ng-container>
-  <ng-container *ngIf="(isNewUnit || (!isNewUnit && unit)) && !showLoadingArea">
+  <ng-container *ngIf="showForm && !showDoneButton">
     <div class="pb-5">
       <form [formGroup]="unitForm">
         <div class="d-flex">
@@ -62,4 +62,4 @@
       </div>
     </div>
   </ng-container>
-</div> -->
+</div>

@@ -31,8 +31,6 @@ module.exports = async function validateCategory(category) {
     return;
   }
 
-  category.parent = null;
-
   setPath(category);
 
   return;

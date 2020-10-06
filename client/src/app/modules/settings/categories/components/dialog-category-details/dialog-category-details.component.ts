@@ -116,7 +116,7 @@ export class DialogCategoryDetailsComponent implements OnInit {
 
   formatCategory(category: ICategory): ICategory {
     if (!category.parent) {
-      category.parent = undefined;
+      category.parent = null;
     }
 
     return category;

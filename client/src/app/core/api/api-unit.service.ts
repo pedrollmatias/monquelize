@@ -1,39 +1,33 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-// import { IHttpRes } from 'src/app/shared/models/http-res.model';
-// import { IUnit } from 'src/app/shared/models/views.model';
+import { IUnit } from 'src/app/shared/models/views.model';
+import { UtilsService } from '../services/utils.service';
+import { IHttpResponse } from 'src/app/shared/models/http.model';
+import { IPaths } from 'src/app/shared/models/paths.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ApiUnitService {
-  baseUrl = 'http://localhost:9001/api';
+  constructor(private utils: UtilsService) {}
 
-  constructor(private http: HttpClient) {}
+  getUnits(): Observable<IHttpResponse> {
+    return this.utils.multiRequests('GET', '/units');
+  }
 
-  // getUnits(): Observable<IHttpRes> {
-  //   const uri = `${this.baseUrl}/units`;
-  //   return this.http.get<IHttpRes>(uri);
-  // }
+  getUnit(paths: IPaths): Observable<IHttpResponse> {
+    return this.utils.multiRequests('GET', paths);
+  }
 
-  // getUnit(unitId: string): Observable<IHttpRes> {
-  //   const uri = `${this.baseUrl}/units/${unitId}`;
-  //   return this.http.get<IHttpRes>(uri);
-  // }
+  createUnit(unit: IUnit): Observable<IHttpResponse> {
+    return this.utils.multiRequests('POST', '/units/add', { body: unit });
+  }
 
-  // createUnit(unit: IUnit): Observable<IHttpRes> {
-  //   const uri = `${this.baseUrl}/units/add`;
-  //   return this.http.post<IHttpRes>(uri, unit);
-  // }
+  editUnit(paths: IPaths, unit: IUnit): Observable<IHttpResponse> {
+    return this.utils.multiRequests('POST', paths, { body: unit });
+  }
 
-  // editUnit(unitId: string, data: any): Observable<IHttpRes> {
-  //   const uri = `${this.baseUrl}/units/${unitId}`;
-  //   return this.http.post<IHttpRes>(uri, data);
-  // }
-
-  // removeUnit(unitId: string): Observable<IHttpRes> {
-  //   const uri = `${this.baseUrl}/units/${unitId}`;
-  //   return this.http.delete<IHttpRes>(uri);
-  // }
+  removeUnit(paths: IPaths): Observable<IHttpResponse> {
+    return this.utils.multiRequests('DELETE', paths);
+  }
 }

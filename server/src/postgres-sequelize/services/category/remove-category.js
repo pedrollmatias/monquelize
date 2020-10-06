@@ -4,7 +4,7 @@ const { Category } = require('../../models');
 const findCategoryChildren = require('./find-category-children');
 const getCategory = require('./get-category');
 
-module.exports = async function addCategory(categoryId) {
+module.exports = async function removeCategory(categoryId) {
   const category = await getCategory(categoryId);
   const categoryChildren = await findCategoryChildren(category.name);
 

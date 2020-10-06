@@ -6,10 +6,15 @@ import { ApiUnitService } from 'src/app/core/api/api-unit.service';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 import { SharedComponentsService } from 'src/app/core/services/shared-components.service';
+import { IAssociatedIds } from 'src/app/shared/models/associated-ids.model';
+import { UtilsService } from 'src/app/core/services/utils.service';
+import { IDatabaseTimes } from 'src/app/shared/models/database-times';
+import { IHttpResponse } from 'src/app/shared/models/http.model';
+import { IPaths } from 'src/app/shared/models/paths.model';
 
 declare interface IUnitDialog {
   units: IUnit[];
-  unitId: string;
+  associatedIds?: IAssociatedIds;
 }
 
 @Component({
@@ -19,65 +24,201 @@ declare interface IUnitDialog {
 })
 export class DialogUnitDetailsComponent implements OnInit {
   units: IUnit[];
-  unitId: string;
+  unit: IUnit;
+
+  associatedIds: IAssociatedIds;
+
   unitForm: FormGroup;
 
-  unit: IUnit;
-  mongodbMongooseTime: number;
+  databaseTimes: IDatabaseTimes;
 
   dialogTitle: string;
 
   isNewUnit: boolean;
 
+  endpointPaths: IPaths;
+
   showLoadingArea = false;
   showDoneButton = false;
+  showForm = false;
 
   constructor(
-    public dialogRef: MatDialogRef<DialogUnitDetailsComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: IUnitDialog,
-    private fb: FormBuilder,
     private unitApi: ApiUnitService,
-    private sharedComponents: SharedComponentsService
+    @Inject(MAT_DIALOG_DATA) public data: IUnitDialog,
+    public dialogRef: MatDialogRef<DialogUnitDetailsComponent>,
+    private fb: FormBuilder,
+    private sharedComponents: SharedComponentsService,
+    public utils: UtilsService
   ) {}
 
   ngOnInit(): void {
-    // this.units = this.data.units;
-    // this.unitId = this.data.unitId;
-    // this.isNewUnit = this.unitId ? false : true;
-    // if (!this.isNewUnit) {
-    //   this.showLoadingArea = true;
-    //   this.unitApi.getUnit(this.unitId).subscribe((unitRes) => {
-    //     this.unit = unitRes.res;
-    //     this.mongodbMongooseTime = unitRes.time;
-    //     this.createUnitForm();
-    //     this.initFormData(this.unit);
-    //     this.dialogTitle = 'Edit unit';
-    //   });
-    // } else {
-    //   this.createUnitForm();
-    //   this.dialogTitle = 'Add unit';
-    // }
+    this.units = this.data.units;
+    this.associatedIds = this.data.associatedIds;
+    this.isNewUnit = this.associatedIds ? false : true;
+    if (!this.isNewUnit) {
+      this.dialogTitle = 'Edit unit';
+      this.showLoadingArea = true;
+      this.endpointPaths = this.getEndpointPaths(this.associatedIds);
+      this.unitApi.getUnit(this.endpointPaths).subscribe((res: IHttpResponse) => {
+        this.databaseTimes = this.utils.setTimes(res);
+        this.unit = { ...res?.mongodbMongoose?.res, associatedIds: this.associatedIds };
+        this.createUnitForm();
+        this.initFormData(this.unit);
+        this.showForm = true;
+      });
+    } else {
+      this.dialogTitle = 'Add unit';
+      this.createUnitForm();
+      this.showForm = true;
+    }
   }
 
-  // resetTimes(): void {
-  //   this.mongodbMongooseTime = null;
+  getEndpointPaths(associatedIds: IAssociatedIds): IPaths {
+    return {
+      mongodbMongoose: `/units/${associatedIds.mongodbMongooseId}`,
+      postgresSequelize: `/units/${associatedIds.postgresSequelizeId}`,
+    };
+  }
+
+  closeDialog(confirmed: boolean = null): void {
+    this.dialogRef.close({ confirmed: confirmed });
+  }
+
+  createUnitForm(): void {
+    this.unitForm = this.fb.group({
+      unit: [null, Validators.required],
+      shortUnit: [null, Validators.required],
+      decimalPlaces: undefined,
+    });
+  }
+
+  initFormData(unit: IUnit): void {
+    this.unitForm.patchValue(unit);
+  }
+
+  formatUnit(unit: IUnit): IUnit {
+    if (!unit.decimalPlaces) {
+      unit.decimalPlaces = null;
+    }
+    return unit;
+  }
+
+  saveUnit(): void {
+    if (this.unitForm.invalid) {
+      this.sharedComponents.openSnackbarWarning('There are fields with invalid values');
+    } else {
+      this.dialogRef.disableClose = true;
+      this.showLoadingArea = true;
+      this.databaseTimes = this.utils.resetTimes();
+      this.showForm = false;
+      const unit = this.formatUnit(this.unitForm.value);
+      console.log(unit);
+      if (this.isNewUnit) {
+        this.unitApi.createUnit(unit).subscribe((res: IHttpResponse) => {
+          this.showDoneButton = true;
+          this.databaseTimes = this.utils.setTimes(res);
+        });
+      } else {
+        this.unitApi.editUnit(this.endpointPaths, unit).subscribe((res: IHttpResponse) => {
+          this.showDoneButton = true;
+          this.databaseTimes = this.utils.setTimes(res);
+        });
+      }
+    }
+  }
+
+  removeUnit(): void {
+    const message = 'This unit will be removed. Are you sure you want to perform this action?';
+    const dialogRef = this.sharedComponents.openDialogConfirmation(
+      'warning',
+      'warn',
+      'Attention',
+      message,
+      'Remove unit'
+    );
+
+    dialogRef.beforeClosed().subscribe((confirmed) => {
+      if (confirmed) {
+        this.dialogRef.disableClose = true;
+        this.showLoadingArea = true;
+        this.databaseTimes = this.utils.resetTimes();
+        this.unitApi
+          .removeUnit(this.endpointPaths)
+          .pipe(
+            catchError((err) => {
+              this.showLoadingArea = true;
+              this.dialogRef.disableClose = false;
+              return throwError(err);
+            })
+          )
+          .subscribe((res: IHttpResponse) => {
+            this.showDoneButton = true;
+            this.databaseTimes = this.utils.setTimes(res);
+          });
+      }
+    });
+  }
+
+  // units: IUnit[];
+  // unitId: string;
+  // unitForm: FormGroup;
+
+  // unit: IUnit;
+  // mongodbMongooseTime: number;
+
+  // dialogTitle: string;
+
+  // isNewUnit: boolean;
+
+  // showLoadingArea = false;
+  // showDoneButton = false;
+
+  // constructor(
+  //   public dialogRef: MatDialogRef<DialogUnitDetailsComponent>,
+  //   @Inject(MAT_DIALOG_DATA) public data: IUnitDialog,
+  //   private fb: FormBuilder,
+  //   private unitApi: ApiUnitService,
+  //   private sharedComponents: SharedComponentsService
+  // ) {}
+
+  // ngOnInit(): void {
+  //   // this.units = this.data.units;
+  //   // this.unitId = this.data.unitId;
+  //   // this.isNewUnit = this.unitId ? false : true;
+  //   // if (!this.isNewUnit) {
+  //   //   this.showLoadingArea = true;
+  //   //   this.unitApi.getUnit(this.unitId).subscribe((unitRes) => {
+  //   //     this.unit = unitRes.res;
+  //   //     this.mongodbMongooseTime = unitRes.time;
+  //   //     this.createUnitForm();
+  //   //     this.initFormData(this.unit);
+  //   //     this.dialogTitle = 'Edit unit';
+  //   //   });
+  //   // } else {
+  //   //   this.createUnitForm();
+  //   //   this.dialogTitle = 'Add unit';
+  //   // }
   // }
 
-  // closeDialog(confirmed: boolean = null): void {
-  //   this.dialogRef.close({ confirmed: confirmed });
-  // }
+  // // resetTimes(): void {
+  // //   this.mongodbMongooseTime = null;
+  // // }
 
-  // createUnitForm(): void {
-  //   this.unitForm = this.fb.group({
-  //     unit: [null, Validators.required],
-  //     shortUnit: [null, Validators.required],
-  //     decimalPlaces: undefined,
-  //   });
-  // }
+  // // closeDialog(confirmed: boolean = null): void {
+  // //   this.dialogRef.close({ confirmed: confirmed });
+  // // }
 
-  // initFormData(unit: IUnit): void {
-  //   this.unitForm.patchValue(unit);
-  // }
+  // // createUnitForm(): void {
+  // //   this.unitForm = this.fb.group({
+  // //     unit: [null, Validators.required],
+  // //     shortUnit: [null, Validators.required],
+  // //     decimalPlaces: undefined,
+  // //   });
+  // // }
+
+  // // initFormData(unit: IUnit): void {
+  // //   this.unitForm.patchValue(unit);
+  // // }
 
   // formatUnit(unit: IUnit): IUnit {
   //   if (!unit.decimalPlaces) {
@@ -86,58 +227,58 @@ export class DialogUnitDetailsComponent implements OnInit {
   //   return unit;
   // }
 
-  // saveUnit(): void {
-  //   if (this.unitForm.invalid) {
-  //     this.sharedComponents.openSnackbarWarning('There are fields with invalid values');
-  //   } else {
-  //     this.dialogRef.disableClose = true;
-  //     this.showLoadingArea = true;
-  //     const unit = this.formatUnit(this.unitForm.value);
-  //     if (this.isNewUnit) {
-  //       this.unitApi.createUnit(unit).subscribe((unitRes: IHttpRes) => {
-  //         this.showDoneButton = true;
-  //         this.mongodbMongooseTime = unitRes.time;
-  //       });
-  //     } else {
-  //       this.unitApi.editUnit(this.unitId, unit).subscribe((unitRes: IHttpRes) => {
-  //         this.showDoneButton = true;
-  //         this.mongodbMongooseTime = unitRes.time;
-  //       });
-  //     }
-  //   }
-  // }
+  // // saveUnit(): void {
+  // //   if (this.unitForm.invalid) {
+  // //     this.sharedComponents.openSnackbarWarning('There are fields with invalid values');
+  // //   } else {
+  // //     this.dialogRef.disableClose = true;
+  // //     this.showLoadingArea = true;
+  // //     const unit = this.formatUnit(this.unitForm.value);
+  // //     if (this.isNewUnit) {
+  // //       this.unitApi.createUnit(unit).subscribe((unitRes: IHttpRes) => {
+  // //         this.showDoneButton = true;
+  // //         this.mongodbMongooseTime = unitRes.time;
+  // //       });
+  // //     } else {
+  // //       this.unitApi.editUnit(this.unitId, unit).subscribe((unitRes: IHttpRes) => {
+  // //         this.showDoneButton = true;
+  // //         this.mongodbMongooseTime = unitRes.time;
+  // //       });
+  // //     }
+  // //   }
+  // // }
 
-  // removeUnit(): void {
-  //   const message = 'This unit will be removed. Are you sure you want to perform this action?';
-  //   const dialogRef = this.sharedComponents.openDialogConfirmation(
-  //     'warning',
-  //     'warn',
-  //     'Attention',
-  //     message,
-  //     'Remove unit'
-  //   );
+  // // removeUnit(): void {
+  // //   const message = 'This unit will be removed. Are you sure you want to perform this action?';
+  // //   const dialogRef = this.sharedComponents.openDialogConfirmation(
+  // //     'warning',
+  // //     'warn',
+  // //     'Attention',
+  // //     message,
+  // //     'Remove unit'
+  // //   );
 
-  //   dialogRef.beforeClosed().subscribe((confirmed) => {
-  //     if (confirmed) {
-  //       this.dialogRef.disableClose = true;
-  //       this.showLoadingArea = true;
-  //       const mongodbMongooseTimeBkp = this.mongodbMongooseTime;
-  //       this.resetTimes();
-  //       this.unitApi
-  //         .removeUnit(this.unitId)
-  //         .pipe(
-  //           catchError((err) => {
-  //             this.showLoadingArea = true;
-  //             this.mongodbMongooseTime = mongodbMongooseTimeBkp;
-  //             this.dialogRef.disableClose = false;
-  //             return throwError(err);
-  //           })
-  //         )
-  //         .subscribe((unitRes: IHttpRes) => {
-  //           this.showDoneButton = true;
-  //           this.mongodbMongooseTime = unitRes.time;
-  //         });
-  //     }
-  //   });
-  // }
+  // //   dialogRef.beforeClosed().subscribe((confirmed) => {
+  // //     if (confirmed) {
+  // //       this.dialogRef.disableClose = true;
+  // //       this.showLoadingArea = true;
+  // //       const mongodbMongooseTimeBkp = this.mongodbMongooseTime;
+  // //       this.resetTimes();
+  // //       this.unitApi
+  // //         .removeUnit(this.unitId)
+  // //         .pipe(
+  // //           catchError((err) => {
+  // //             this.showLoadingArea = true;
+  // //             this.mongodbMongooseTime = mongodbMongooseTimeBkp;
+  // //             this.dialogRef.disableClose = false;
+  // //             return throwError(err);
+  // //           })
+  // //         )
+  // //         .subscribe((unitRes: IHttpRes) => {
+  // //           this.showDoneButton = true;
+  // //           this.mongodbMongooseTime = unitRes.time;
+  // //         });
+  // //     }
+  // //   });
+  // // }
 }

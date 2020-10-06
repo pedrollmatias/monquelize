@@ -1,8 +1,8 @@
 import { IAssociatedIds } from './associated-ids.model';
 
 export declare interface IProduct {
-  associatedIds?: IAssociatedIds;
   _id?: string;
+  associatedIds?: IAssociatedIds;
   sku: string;
   name: string;
   description?: string;
@@ -27,8 +27,8 @@ export declare interface IHistory {
 }
 
 export interface ICategory {
-  associatedIds?: IAssociatedIds;
   _id?: string;
+  associatedIds?: IAssociatedIds;
   name: string;
   parent?: any;
   path: string;
@@ -37,12 +37,14 @@ export interface ICategory {
 
 export interface IPaymentMethod {
   _id?: string;
+  associatedIds?: IAssociatedIds;
   name: string;
   acceptChange: boolean;
 }
 
 export interface IUser {
   _id?: string;
+  associatedIds?: IAssociatedIds;
   username: string;
   email?: string;
   firstName: string;
@@ -55,6 +57,7 @@ export interface IUser {
 
 export interface IUnit {
   _id?: string;
+  associatedIds?: IAssociatedIds;
   unit: string;
   shortUnit: string;
   decimalPlaces?: number;
@@ -62,6 +65,7 @@ export interface IUnit {
 
 export interface IOperationProduct {
   _id?: string;
+  associatedIds?: IAssociatedIds;
   productRef?: string;
   sku: string;
   name: string;
