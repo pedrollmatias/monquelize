@@ -1,6 +1,4 @@
 export interface IDatabaseTimes {
-  mongodb?: number;
-  mongodbMongoose?: number;
-  postgres?: number;
-  postgresSequelize?: number;
+  mongodbMongoose: number;
+  postgresSequelize: number;
 }

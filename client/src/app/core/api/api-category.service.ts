@@ -20,27 +20,18 @@ export class ApiCategoryService {
   }
 
   getCategory(paths: IPaths): Observable<IHttpResponse> {
-    return this.utils.multiRequests('POST', paths);
-    // const uri = `${this.baseUrl}/categories/${categoryId}`;
-    // return this.http.get<IHttpRes>(uri);
+    return this.utils.multiRequests('GET', paths);
   }
 
   createCategory(category: ICategory): Observable<IHttpResponse> {
     return this.utils.multiRequests('POST', '/categories/add', { body: category });
   }
 
-  // createCategory(category: ICategory): Observable<IHttpRes> {
-  //   const uri = `${this.baseUrl}/categories/add`;
-  //   return this.http.post<IHttpRes>(uri, category);
-  // }
+  editCategory(paths: IPaths, category: ICategory): Observable<IHttpResponse> {
+    return this.utils.multiRequests('POST', paths, { body: category });
+  }
 
-  // editCategory(categoryId: string, data: any): Observable<IHttpRes> {
-  //   const uri = `${this.baseUrl}/categories/${categoryId}`;
-  //   return this.http.post<IHttpRes>(uri, data);
-  // }
-
-  // removeCategory(categoryId: string): Observable<IHttpRes> {
-  //   const uri = `${this.baseUrl}/categories/${categoryId}`;
-  //   return this.http.delete<IHttpRes>(uri);
-  // }
+  removeCategory(paths: IPaths): Observable<IHttpResponse> {
+    return this.utils.multiRequests('DELETE', paths);
+  }
 }

@@ -37,7 +37,21 @@ module.exports = (app) => {
     }
   });
 
-  router.post('/:id', async (req, res, next) => {
+  router.get('/:categoryId', async (req, res, next) => {
+    try {
+      timer.startTimer();
+
+      const categories = await categoryService.query(req.params.categoryId);
+
+      const diffTime = timer.diffTimer();
+
+      res.send({ res: categories, time: diffTime });
+    } catch (err) {
+      next(err);
+    }
+  });
+
+  router.post('/:categoryId', async (req, res, next) => {
     timer.startTimer();
 
     const t = await sequelize.transaction();
@@ -50,6 +64,25 @@ module.exports = (app) => {
       const diffTime = timer.diffTimer();
 
       res.send({ res: category, time: diffTime });
+    } catch (error) {
+      await t.rollback();
+      next(error);
+    }
+  });
+
+  router.delete('/:categoryId', async (req, res, next) => {
+    timer.startTimer();
+
+    const t = await sequelize.transaction();
+
+    try {
+      await categoryService.remove(req.params.categoryId);
+
+      await t.commit();
+
+      const diffTime = timer.diffTimer();
+
+      res.send({ res: { status: 200 }, time: diffTime });
     } catch (error) {
       await t.rollback();
       next(error);

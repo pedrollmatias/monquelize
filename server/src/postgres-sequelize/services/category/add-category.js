@@ -1,23 +1,10 @@
 'use strict';
 
 const { Category } = require('../../models');
+const validateCategory = require('./validate-category');
 
 module.exports = async function addCategory(category) {
-  let path;
+  await validateCategory(category);
 
-  if (category.parent) {
-    const parentCategory = await Category.findOne({
-      where: { _id: category.parent.associatedIds.postgresSequelizeId },
-      attributes: ['_id', 'path'],
-    });
-
-    console.log(parentCategory);
-
-    path = `${parentCategory.path} > ${category.name}`;
-    category.parent = category.parent.associatedIds.postgresSequelizeId;
-  } else {
-    path = category.name;
-  }
-
-  return Category.create({ ...category, path });
+  return Category.create(category);
 };

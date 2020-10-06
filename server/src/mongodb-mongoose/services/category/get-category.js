@@ -3,5 +3,5 @@
 const { categoryModel } = require('../../models');
 
 module.exports = function getCategory(categoryId) {
-  return categoryModel.categoryModel(categoryId);
+  return categoryModel.retrieve(categoryId);
 };

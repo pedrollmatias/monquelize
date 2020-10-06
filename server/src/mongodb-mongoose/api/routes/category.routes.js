@@ -41,7 +41,7 @@ module.exports = (app) => {
     try {
       timer.startTimer();
 
-      const categories = await categoryService.query(req.params.categoryId);
+      const categories = await categoryService.retrieve(req.params.categoryId);
 
       const diffTime = timer.diffTimer();
 

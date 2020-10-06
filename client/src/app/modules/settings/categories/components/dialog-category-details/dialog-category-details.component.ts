@@ -10,10 +10,11 @@ import { IAssociatedIds } from 'src/app/shared/models/associated-ids.model';
 import { IDatabaseTimes } from 'src/app/shared/models/database-times';
 import { UtilsService } from 'src/app/core/services/utils.service';
 import { IHttpResponse } from 'src/app/shared/models/http.model';
+import { IPaths } from 'src/app/shared/models/paths.model';
 
 declare interface ICategoryDialog {
   categories: ICategory[];
-  categoryId: string;
+  associatedIds?: IAssociatedIds;
 }
 
 @Component({
@@ -23,18 +24,23 @@ declare interface ICategoryDialog {
 })
 export class DialogCategoryDetailsComponent implements OnInit {
   categories: ICategory[];
+  category: ICategory;
+
   associatedIds: IAssociatedIds;
+
   categoryForm: FormGroup;
 
-  category: ICategory;
   databaseTimes: IDatabaseTimes;
 
   dialogTitle: string;
 
   isNewCategory: boolean;
 
+  endpointPaths: IPaths;
+
   showLoadingArea = false;
   showDoneButton = false;
+  showForm = false;
 
   constructor(
     private categoryApi: ApiCategoryService,
@@ -47,24 +53,31 @@ export class DialogCategoryDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.categories = this.data.categories;
-    // this.categoryId = this.data.categoryId;
+    this.associatedIds = this.data.associatedIds;
     this.isNewCategory = this.associatedIds ? false : true;
     if (!this.isNewCategory) {
-      // this.showLoadingArea = true;
-      // this.databaseTimes = this.utils.setTimes(res);
-      // this.products = this.getProducts(res);
-      // this.setDataSource(this.products);
-      // this.categoryApi.getCategory(this.categoryId).subscribe((categoryRes) => {
-      //   this.category = categoryRes.res;
-      //   this.mongodbMongooseTime = categoryRes.time;
-      //   this.createCategoryForm();
-      //   this.initFormData(this.category);
-      //   this.dialogTitle = 'Edit category';
-      // });
+      this.dialogTitle = 'Edit category';
+      this.showLoadingArea = true;
+      this.endpointPaths = this.getEndpointPaths(this.associatedIds);
+      this.categoryApi.getCategory(this.endpointPaths).subscribe((res: IHttpResponse) => {
+        this.databaseTimes = this.utils.setTimes(res);
+        this.category = { ...res?.mongodbMongoose?.res, associatedIds: this.associatedIds };
+        this.createCategoryForm();
+        this.initFormData(this.category);
+        this.showForm = true;
+      });
     } else {
-      this.createCategoryForm();
       this.dialogTitle = 'Add category';
+      this.createCategoryForm();
+      this.showForm = true;
     }
+  }
+
+  getEndpointPaths(associatedIds: IAssociatedIds): IPaths {
+    return {
+      mongodbMongoose: `/categories/${associatedIds.mongodbMongooseId}`,
+      postgresSequelize: `/categories/${associatedIds.postgresSequelizeId}`,
+    };
   }
 
   closeDialog(confirmed: boolean = null): void {
@@ -79,10 +92,22 @@ export class DialogCategoryDetailsComponent implements OnInit {
   }
 
   initFormData(category: ICategory): void {
+    if (category.parent) {
+      category.parent = { ...category.parent, associatedIds: this.getParentAssociatedIds() };
+    }
+
     this.categoryForm.setValue({
       name: category.name,
       parent: category.parent || '',
     });
+  }
+
+  getParentAssociatedIds(): IAssociatedIds {
+    return {
+      mongodbMongooseId: this.category.parent,
+      postgresSequelizeId: this.categories.find((category) => category._id === this.category.parent?._id)?.associatedIds
+        ?.postgresSequelizeId,
+    };
   }
 
   compareCategories(option: any, selection: any) {
@@ -93,6 +118,7 @@ export class DialogCategoryDetailsComponent implements OnInit {
     if (!category.parent) {
       category.parent = undefined;
     }
+
     return category;
   }
 
@@ -102,23 +128,25 @@ export class DialogCategoryDetailsComponent implements OnInit {
     } else {
       this.dialogRef.disableClose = true;
       this.showLoadingArea = true;
+      this.databaseTimes = this.utils.resetTimes();
+      this.showForm = false;
       const category = this.formatCategory(this.categoryForm.value);
-      // if (this.isNewCategory) {
-      this.categoryApi.createCategory(category).subscribe((res: IHttpResponse) => {
-        this.showDoneButton = true;
-        this.databaseTimes = this.utils.setTimes(res);
-      });
-      // } else {
-      //   this.categoryApi.editCategory(this.categoryId, category).subscribe((categoryRes: IHttpRes) => {
-      //     this.showDoneButton = true;
-      //     this.mongodbMongooseTime = categoryRes.time;
-      //   });
-      // }
+      if (this.isNewCategory) {
+        this.categoryApi.createCategory(category).subscribe((res: IHttpResponse) => {
+          this.showDoneButton = true;
+          this.databaseTimes = this.utils.setTimes(res);
+        });
+      } else {
+        this.categoryApi.editCategory(this.endpointPaths, category).subscribe((res: IHttpResponse) => {
+          this.showDoneButton = true;
+          this.databaseTimes = this.utils.setTimes(res);
+        });
+      }
     }
   }
 
   removeCategory(): void {
-    const message = 'This unit category be removed. Are you sure you want to perform this action?';
+    const message = 'This category will be removed. Are you sure you want to perform this action?';
     const dialogRef = this.sharedComponents.openDialogConfirmation(
       'warning',
       'warn',
@@ -127,34 +155,25 @@ export class DialogCategoryDetailsComponent implements OnInit {
       'Remove category'
     );
 
-    dialogRef
-      .beforeClosed()
-      // .pipe(
-      //   switchMap(confirmed => {
-
-      //   })
-      // )
-      .subscribe((confirmed) => {
-        if (confirmed) {
-          this.dialogRef.disableClose = true;
-          this.showLoadingArea = true;
-          const databaseTimesBkp = Object.assign({}, this.databaseTimes);
-          this.databaseTimes = this.utils.resetTimes();
-          // this.categoryApi
-          //   .removeCategory(this.categoryId)
-          //   .pipe(
-          //     catchError((err) => {
-          //       this.showLoadingArea = true;
-          //       this.mongodbMongooseTime = mongodbMongooseTimeBkp;
-          //       this.dialogRef.disableClose = false;
-          //       return throwError(err);
-          //     })
-          //   )
-          //   .subscribe((categoryRes: IHttpRes) => {
-          //     this.showDoneButton = true;
-          //     this.mongodbMongooseTime = categoryRes.time;
-          //   });
-        }
-      });
+    dialogRef.beforeClosed().subscribe((confirmed) => {
+      if (confirmed) {
+        this.dialogRef.disableClose = true;
+        this.showLoadingArea = true;
+        this.databaseTimes = this.utils.resetTimes();
+        this.categoryApi
+          .removeCategory(this.endpointPaths)
+          .pipe(
+            catchError((err) => {
+              this.showLoadingArea = true;
+              this.dialogRef.disableClose = false;
+              return throwError(err);
+            })
+          )
+          .subscribe((res: IHttpResponse) => {
+            this.showDoneButton = true;
+            this.databaseTimes = this.utils.setTimes(res);
+          });
+      }
+    });
   }
 }

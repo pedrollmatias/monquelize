@@ -26,6 +26,12 @@ const Category = sequelize.define(
   },
   {
     modelName: 'Categories',
+    indexes: [
+      {
+        unique: true,
+        fields: ['name', 'parent'],
+      },
+    ],
   }
 );
 

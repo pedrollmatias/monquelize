@@ -8,6 +8,7 @@ import { HttpClient } from '@angular/common/http';
 import { IHttpResponse, IApiRes, IHttpRequest } from 'src/app/shared/models/http.model';
 import { IAssociatedIds } from 'src/app/shared/models/associated-ids.model';
 import { IPaths } from 'src/app/shared/models/paths.model';
+import { IServersResponseData } from 'src/app/shared/models/servers-response-data';
 
 enum HttpMethods {
   GET = 'GET',
@@ -59,10 +60,26 @@ export class UtilsService {
   resetTimes(): IDatabaseTimes {
     return {
       mongodbMongoose: null,
-      mongodb: null,
-      postgres: null,
       postgresSequelize: null,
     };
+  }
+
+  splitResponsesByServerId(res: IHttpResponse): any {
+    return Object.keys(res).reduce((categories, serverId) => {
+      categories[serverId] = res[serverId].res;
+      return categories;
+    }, {});
+  }
+
+  appendAssociatedIdsByUniqueCommonData(serversResponseData: IServersResponseData, path: string) {
+    return serversResponseData.mongodbMongoose.map((data: any) => {
+      const associatedIds: IAssociatedIds = {
+        mongodbMongooseId: data._id,
+        postgresSequelizeId: serversResponseData.postgresSequelize.find((_data: any) => _data[path] === data[path])._id,
+      };
+
+      return { ...data, associatedIds };
+    });
   }
 
   getFormArrayControl(form: AbstractControl, path: string[]): FormArray {

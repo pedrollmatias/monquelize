@@ -14,6 +14,7 @@ const categorySchema = new Schema(
       type: String,
       required: true,
       trim: true,
+      index: true,
     },
     parent: {
       type: Schema.Types.ObjectId,
@@ -119,8 +120,11 @@ categorySchema.method({
 
     for (const child of children) {
       const childPathArray = child.path.split(' > ');
-      const parentPathIndex = childPathArray.indexOf((subPath) => subPath === oldName);
-      const newPath = category.path.split(' > ').concat(childPathArray.slice(parentPathIndex)).join(' > ');
+      const parentPathIndex = childPathArray.findIndex((subPath) => subPath === oldName);
+      const newPath = category.path
+        .split(' > ')
+        .concat(childPathArray.slice(parentPathIndex + 1))
+        .join(' > ');
 
       child.path = newPath;
 

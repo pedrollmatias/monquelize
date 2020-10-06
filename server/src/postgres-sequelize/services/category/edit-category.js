@@ -1,28 +1,34 @@
 'use strict';
 
 const { Category } = require('../../models');
-const { Op } = require('sequelize');
+const findCategoryChildren = require('./find-category-children');
+const validateCategory = require('./validate-category');
 
-module.exports = async function editCategory(categoryId, data) {
-  const oldCategory = await Category.findOne({ where: { _id: categoryId } });
-  const updatedCategory = await Category.update(data, { where: { _id: categoryId } });
+module.exports = async function editCategory(categoryId, category) {
+  await validateCategory(category);
 
-  // const parentCategory = await Category.findOne({ where: { _id: oldCategory.parent } });
-  const childrenCategories = findChildren(data.parent);
+  const oldCategory = await Category.findOne({ where: { _id: categoryId }, raw: true });
+
+  let [, updatedCategory] = await Category.update(category, {
+    where: { _id: categoryId },
+    returning: true,
+    plain: true,
+  });
+
+  updatedCategory = updatedCategory.dataValues;
+
+  const childrenCategories = await findCategoryChildren(oldCategory.name);
 
   for (const childCategory of childrenCategories) {
     const childPathArray = childCategory.path.split(' > ');
-    const parentPathIndex = childPathArray.indexOf((subPath) => subPath === oldCategory.name);
-    const newPath = updatedCategory.path.split(' > ').concat(childPathArray.slice(parentPathIndex)).join(' > ');
+    const parentPathIndex = childPathArray.findIndex((subPath) => subPath === oldCategory.name);
+    const newPath = updatedCategory.path
+      .split(' > ')
+      .concat(childPathArray.slice(parentPathIndex + 1))
+      .join(' > ');
 
-    await Category.update(newPath, { where: { _id: childCategory } });
+    await Category.update({ path: newPath }, { where: { _id: childCategory._id } });
   }
 
   return updatedCategory;
 };
-
-function findChildren(name) {
-  return Category.findAll({
-    where: { path: { [Op.or]: [{ [Op.like]: `% > ${name} > %` }, { [Op.like]: `${name} > %` }] } },
-  });
-}

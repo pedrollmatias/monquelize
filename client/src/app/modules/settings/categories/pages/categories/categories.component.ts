@@ -5,7 +5,7 @@ import { ApiCategoryService } from 'src/app/core/api/api-category.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogCategoryDetailsComponent } from '../../components/dialog-category-details/dialog-category-details.component';
 import { switchMap, map } from 'rxjs/operators';
-import { of, iif } from 'rxjs';
+import { of } from 'rxjs';
 import { IBreadcrumb } from 'src/app/shared/models/breadcrumb.model';
 import { MatPaginator } from '@angular/material/paginator';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -13,6 +13,7 @@ import { UtilsService } from 'src/app/core/services/utils.service';
 import { IDatabaseTimes } from 'src/app/shared/models/database-times';
 import { IHttpResponse, IApiRes } from 'src/app/shared/models/http.model';
 import { IAssociatedIds } from 'src/app/shared/models/associated-ids.model';
+import { IServersResponseData } from 'src/app/shared/models/servers-response-data';
 
 @Component({
   selector: 'app-categories',
@@ -55,24 +56,8 @@ export class CategoriesComponent implements OnInit {
   }
 
   getCategories(res: IHttpResponse): ICategory[] {
-    const categories = Object.keys(res).reduce(
-      (categories, serverId) => {
-        categories[serverId] = res[serverId].res;
-        return categories;
-      },
-      { mongodbMongoose: [], postgresSequelize: [] }
-    );
-
-    console.log(categories);
-
-    return categories.mongodbMongoose.map((category, _, _categories) => {
-      const associatedIds = {
-        mongodbMongooseId: category._id,
-        postgresSequelizeId: categories.postgresSequelize.find((_category) => _category.path === category.path)._id,
-      };
-
-      return { ...category, associatedIds };
-    });
+    const categoriesByServer: IServersResponseData = this.utils.splitResponsesByServerId(res);
+    return this.utils.appendAssociatedIdsByUniqueCommonData(categoriesByServer, 'path');
   }
 
   setDataSource(categories: ICategory[]): void {
@@ -100,29 +85,6 @@ export class CategoriesComponent implements OnInit {
     this.fetchData();
   }
 
-  // fetchData(): void {
-  //   this.categoryApi.getCategories().subscribe((categoryRes) => {
-  //     this.categories = <ICategory[]>categoryRes.res;
-  //     this.mongodbMongooseTime = categoryRes.time;
-  //     this.setDataSource(this.categories);
-  //   });
-  // }
-
-  // setDataSource(categories: ICategory[]): void {
-  //   this.categoriesDataSource = new MatTableDataSource(categories);
-  //   this.categoriesDataSource.paginator = this.paginator;
-  // }
-
-  // resetData(): void {
-  //   this.mongodbMongooseTime = null;
-  //   this.categories = undefined;
-  // }
-
-  // refreshComponent(): void {
-  //   this.resetData();
-  //   this.fetchData();
-  // }
-
   openCategoryDetailsDialog(associatedIds?: IAssociatedIds): void {
     const categoryDetailsDialogRef = this.dialog.open(DialogCategoryDetailsComponent, {
       autoFocus: false,
@@ -130,7 +92,7 @@ export class CategoriesComponent implements OnInit {
       width: '70vw',
       data: {
         categories: this.categories,
-        asssociatedIds: associatedIds,
+        associatedIds: associatedIds,
       },
     });
 
