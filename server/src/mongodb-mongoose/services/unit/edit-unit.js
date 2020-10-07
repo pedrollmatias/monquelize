@@ -6,8 +6,6 @@ module.exports = async function editUnit(unitId, data, session) {
   const unit = await unitModel.retrieve(unitId, session);
   const updatedUnit = await unit.edit(data);
 
-  console.log(data);
-
   // Update product in sales and purchases if unit and shortUnit was modified
   const hasToUpdateInSalesOrPurchases = ['sku', 'name', 'category', 'unit'].some((field) =>
     Object.prototype.hasOwnProperty.call(data, field)

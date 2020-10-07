@@ -8,7 +8,6 @@ import { switchMap, map } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { IBreadcrumb } from 'src/app/shared/models/breadcrumb.model';
 import { MatPaginator } from '@angular/material/paginator';
-import { ActivatedRoute, Router } from '@angular/router';
 import { UtilsService } from 'src/app/core/services/utils.service';
 import { IDatabaseTimes } from 'src/app/shared/models/database-times';
 import { IHttpResponse, IApiRes } from 'src/app/shared/models/http.model';
@@ -35,13 +34,7 @@ export class CategoriesComponent implements OnInit {
   databaseTimes: IDatabaseTimes;
   associatedIds: IAssociatedIds;
 
-  constructor(
-    private categoryApi: ApiCategoryService,
-    private dialog: MatDialog,
-    private route: ActivatedRoute,
-    private router: Router,
-    public utils: UtilsService
-  ) {}
+  constructor(private categoryApi: ApiCategoryService, private dialog: MatDialog, public utils: UtilsService) {}
 
   ngOnInit(): void {
     this.fetchData();
@@ -63,16 +56,6 @@ export class CategoriesComponent implements OnInit {
   setDataSource(categories: ICategory[]): void {
     this.categoriesDataSource = new MatTableDataSource(categories);
     this.categoriesDataSource.paginator = this.paginator;
-  }
-
-  navigateToEditCategory(category: ICategory): void {
-    const params = {
-      ...(category.associatedIds.postgresSequelizeId && {
-        postgresSequelize: category.associatedIds.postgresSequelizeId,
-      }),
-    };
-    const options = { relativeTo: this.route };
-    this.router.navigate(['edit', category._id, params], options);
   }
 
   resetData(): void {

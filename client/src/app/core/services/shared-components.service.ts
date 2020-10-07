@@ -8,6 +8,7 @@ import { SnackbarSuccessComponent } from 'src/app/shared/components/snackbar-suc
 import { DialogConfirmationComponent } from 'src/app/shared/components/dialog-confirmation/dialog-confirmation.component';
 import { DialogMessageComponent } from 'src/app/shared/components/dialog-message/dialog-message.component';
 import { DialogLoadingComponent } from 'src/app/shared/components/dialog-loading/dialog-loading.component';
+import { IHttpResponse } from 'src/app/shared/models/http.model';
 
 @Injectable({
   providedIn: 'root',
@@ -19,7 +20,7 @@ export class SharedComponentsService {
     this.zone.run(() => {
       setTimeout(() => {
         return this.snackbar.openFromComponent(SnackbarErrorComponent, {
-          data: { message: message },
+          data: { message },
           panelClass: ['bg-warn'],
           duration: duracao || 3000,
         });
@@ -29,7 +30,7 @@ export class SharedComponentsService {
 
   openSnackbarSuccess(message: string, duracao?: number): MatSnackBarRef<SnackbarSuccessComponent> {
     return this.snackbar.openFromComponent(SnackbarSuccessComponent, {
-      data: { message: message },
+      data: { message },
       panelClass: ['bg-primary'],
       duration: duracao || 3000,
     });
@@ -37,7 +38,7 @@ export class SharedComponentsService {
 
   openSnackbarWarning(message: string, duracao?: number): MatSnackBarRef<SnackbarWarningComponent> {
     return this.snackbar.openFromComponent(SnackbarWarningComponent, {
-      data: { message: message },
+      data: { message },
       duration: duracao || 3000,
     });
   }
@@ -59,11 +60,11 @@ export class SharedComponentsService {
       width: '35vw',
       maxHeight: '90vh',
       data: {
-        icon: icon,
-        iconColor: iconColor,
-        title: title,
-        message: message,
-        btnText: btnText,
+        icon,
+        iconColor,
+        title,
+        message,
+        btnText,
       },
     });
   }
@@ -81,23 +82,21 @@ export class SharedComponentsService {
       width: '35vw',
       maxHeight: '90vh',
       data: {
-        icon: icon,
-        iconColor: iconColor,
-        title: title,
-        message: message,
-        btnText: btnText,
+        icon,
+        iconColor,
+        title,
+        message,
+        btnText,
       },
     });
   }
 
-  // openLoadingDialog(httpRequest: Observable<IHttpRes>): MatDialogRef<DialogLoadingComponent> {
-  //   return this.dialog.open(DialogLoadingComponent, {
-  //     autoFocus: false,
-  //     restoreFocus: false,
-  //     width: '70vw',
-  //     data: {
-  //       httpRequest: httpRequest,
-  //     },
-  //   });
-  // }
+  openLoadingDialog(httpResponse$: Observable<IHttpResponse>): MatDialogRef<DialogLoadingComponent> {
+    return this.dialog.open(DialogLoadingComponent, {
+      autoFocus: false,
+      restoreFocus: false,
+      width: '70vw',
+      data: { httpResponse$ },
+    });
+  }
 }

@@ -58,7 +58,7 @@ export class DialogCategoryDetailsComponent implements OnInit {
     if (!this.isNewCategory) {
       this.dialogTitle = 'Edit category';
       this.showLoadingArea = true;
-      this.endpointPaths = this.getEndpointPaths(this.associatedIds);
+      this.endpointPaths = this.utils.getEndpointPaths('/categories', this.associatedIds);
       this.categoryApi.getCategory(this.endpointPaths).subscribe((res: IHttpResponse) => {
         this.databaseTimes = this.utils.setTimes(res);
         this.category = { ...res?.mongodbMongoose?.res, associatedIds: this.associatedIds };
@@ -71,13 +71,6 @@ export class DialogCategoryDetailsComponent implements OnInit {
       this.createCategoryForm();
       this.showForm = true;
     }
-  }
-
-  getEndpointPaths(associatedIds: IAssociatedIds): IPaths {
-    return {
-      mongodbMongoose: `/categories/${associatedIds.mongodbMongooseId}`,
-      postgresSequelize: `/categories/${associatedIds.postgresSequelizeId}`,
-    };
   }
 
   closeDialog(confirmed: boolean = null): void {

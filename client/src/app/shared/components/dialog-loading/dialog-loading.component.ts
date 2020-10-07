@@ -1,7 +1,14 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Observable, throwError } from 'rxjs';
+import { forkJoin, Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { UtilsService } from 'src/app/core/services/utils.service';
+import { IDatabaseTimes } from '../../models/database-times';
+import { IHttpResponse } from '../../models/http.model';
+
+declare interface IDialogLoading {
+  httpResponse$: Observable<IHttpResponse>;
+}
 
 @Component({
   selector: 'app-dialog-loading',
@@ -9,29 +16,33 @@ import { catchError } from 'rxjs/operators';
   styleUrls: ['./dialog-loading.component.scss'],
 })
 export class DialogLoadingComponent implements OnInit {
-  // httpRequest: Observable<IHttpRes>;
+  httpResponse$: Observable<IHttpResponse>;
 
-  // httpRes: any;
-  // mongodbMongooseTime: number;
+  databaseTimes: IDatabaseTimes;
+  httpResponse: IHttpResponse;
 
-  constructor(public dialogRef: MatDialogRef<DialogLoadingComponent>, @Inject(MAT_DIALOG_DATA) public data: any) {}
+  constructor(
+    @Inject(MAT_DIALOG_DATA) public data: IDialogLoading,
+    public dialogRef: MatDialogRef<DialogLoadingComponent>,
+    private utils: UtilsService
+  ) {}
 
   ngOnInit(): void {
-    // this.dialogRef.disableClose = true;
-    // this.data.httpRequest
-    //   .pipe(
-    //     catchError((err) => {
-    //       this.mongodbMongooseTime = err.error.time;
-    //       return throwError(err);
-    //     })
-    //   )
-    //   .subscribe((httpRes: IHttpRes) => {
-    //     this.httpRes = httpRes;
-    //     this.mongodbMongooseTime = httpRes.time;
-    //   });
+    this.httpResponse$ = this.data.httpResponse$;
+    this.httpResponse$
+      // .pipe
+      // // catchError((err) => {
+      // //   this.mongodbMongooseTime = err.error.time;
+      // //   return throwError(err);
+      // // })
+      // ()
+      .subscribe((res: IHttpResponse) => {
+        this.httpResponse = res;
+        this.databaseTimes = this.utils.setTimes(res);
+      });
   }
 
-  // closeDialog(): void {
-  //   this.dialogRef.close(this.httpRes);
-  // }
+  closeDialog(): void {
+    this.dialogRef.close(this.httpResponse);
+  }
 }

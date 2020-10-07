@@ -58,7 +58,7 @@ export class DialogPaymentMethodDetailsComponent implements OnInit {
     if (!this.isNewPaymentMethod) {
       this.dialogTitle = 'Edit payment method';
       this.showLoadingArea = true;
-      this.endpointPaths = this.getEndpointPaths(this.associatedIds);
+      this.endpointPaths = this.utils.getEndpointPaths('/payment-methods', this.associatedIds);
       this.paymentMethodApi.getPaymentMethod(this.endpointPaths).subscribe((res: IHttpResponse) => {
         this.databaseTimes = this.utils.setTimes(res);
         this.paymentMethod = { ...res?.mongodbMongoose?.res, associatedIds: this.associatedIds };
@@ -71,13 +71,6 @@ export class DialogPaymentMethodDetailsComponent implements OnInit {
       this.createPaymentMethodForm();
       this.showForm = true;
     }
-  }
-
-  getEndpointPaths(associatedIds: IAssociatedIds): IPaths {
-    return {
-      mongodbMongoose: `/payment-methods/${associatedIds.mongodbMongooseId}`,
-      postgresSequelize: `/payment-methods/${associatedIds.postgresSequelizeId}`,
-    };
   }
 
   closeDialog(confirmed: boolean = null): void {

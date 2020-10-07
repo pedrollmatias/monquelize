@@ -48,6 +48,13 @@ export class UtilsService {
     return forkJoin(requests);
   }
 
+  getEndpointPaths(path: string, associatedIds: IAssociatedIds): IPaths {
+    return {
+      mongodbMongoose: `${path}/${associatedIds.mongodbMongooseId}`,
+      postgresSequelize: `${path}/${associatedIds.postgresSequelizeId}`,
+    };
+  }
+
   setTimes(res: IHttpResponse): IDatabaseTimes {
     return {
       mongodbMongoose: res.mongodbMongoose.time,

@@ -58,7 +58,7 @@ export class DialogUnitDetailsComponent implements OnInit {
     if (!this.isNewUnit) {
       this.dialogTitle = 'Edit unit';
       this.showLoadingArea = true;
-      this.endpointPaths = this.getEndpointPaths(this.associatedIds);
+      this.endpointPaths = this.utils.getEndpointPaths('/units', this.associatedIds);
       this.unitApi.getUnit(this.endpointPaths).subscribe((res: IHttpResponse) => {
         this.databaseTimes = this.utils.setTimes(res);
         this.unit = { ...res?.mongodbMongoose?.res, associatedIds: this.associatedIds };
@@ -71,13 +71,6 @@ export class DialogUnitDetailsComponent implements OnInit {
       this.createUnitForm();
       this.showForm = true;
     }
-  }
-
-  getEndpointPaths(associatedIds: IAssociatedIds): IPaths {
-    return {
-      mongodbMongoose: `/units/${associatedIds.mongodbMongooseId}`,
-      postgresSequelize: `/units/${associatedIds.postgresSequelizeId}`,
-    };
   }
 
   closeDialog(confirmed: boolean = null): void {

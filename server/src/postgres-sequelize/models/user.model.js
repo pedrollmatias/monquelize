@@ -23,6 +23,12 @@ const User = sequelize.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    fullName: {
+      type: DataTypes.VIRTUAL,
+      set: function () {
+        this.setDataValue('fullName', `${this.firstName} ${this.lastName}`);
+      },
+    },
     lastName: {
       type: DataTypes.STRING,
       allowNull: false,

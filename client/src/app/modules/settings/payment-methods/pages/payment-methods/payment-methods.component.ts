@@ -9,7 +9,6 @@ import { DialogPaymentMethodDetailsComponent } from '../../components/dialog-pay
 import { ApiPaymentMethodService } from 'src/app/core/api/api-payment-method.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { IAssociatedIds } from 'src/app/shared/models/associated-ids.model';
-import { ActivatedRoute, Router } from '@angular/router';
 import { UtilsService } from 'src/app/core/services/utils.service';
 import { IDatabaseTimes } from 'src/app/shared/models/database-times';
 import { IHttpResponse } from 'src/app/shared/models/http.model';
@@ -38,8 +37,6 @@ export class PaymentMethodsComponent implements OnInit {
   constructor(
     private paymentMethodApi: ApiPaymentMethodService,
     private dialog: MatDialog,
-    private route: ActivatedRoute,
-    private router: Router,
     public utils: UtilsService
   ) {}
 
@@ -63,16 +60,6 @@ export class PaymentMethodsComponent implements OnInit {
   setDataSource(paymentMethods: IPaymentMethod[]): void {
     this.paymentMethodsDataSource = new MatTableDataSource(paymentMethods);
     this.paymentMethodsDataSource.paginator = this.paginator;
-  }
-
-  navigateToEditPaymentMethod(paymentMethod: IPaymentMethod): void {
-    const params = {
-      ...(paymentMethod.associatedIds.postgresSequelizeId && {
-        postgresSequelize: paymentMethod.associatedIds.postgresSequelizeId,
-      }),
-    };
-    const options = { relativeTo: this.route };
-    this.router.navigate(['edit', paymentMethod._id, params], options);
   }
 
   resetData(): void {

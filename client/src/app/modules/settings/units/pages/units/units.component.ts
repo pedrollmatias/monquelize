@@ -8,7 +8,6 @@ import { IUnit } from 'src/app/shared/models/views.model';
 import { ApiUnitService } from 'src/app/core/api/api-unit.service';
 import { DialogUnitDetailsComponent } from '../../components/dialog-unit-details/dialog-unit-details.component';
 import { MatPaginator } from '@angular/material/paginator';
-import { ActivatedRoute, Router } from '@angular/router';
 import { UtilsService } from 'src/app/core/services/utils.service';
 import { IAssociatedIds } from 'src/app/shared/models/associated-ids.model';
 import { IDatabaseTimes } from 'src/app/shared/models/database-times';
@@ -35,13 +34,7 @@ export class UnitsComponent implements OnInit {
   databaseTimes: IDatabaseTimes;
   associatedIds: IAssociatedIds;
 
-  constructor(
-    private unitApi: ApiUnitService,
-    private dialog: MatDialog,
-    private route: ActivatedRoute,
-    private router: Router,
-    public utils: UtilsService
-  ) {}
+  constructor(private unitApi: ApiUnitService, private dialog: MatDialog, public utils: UtilsService) {}
 
   ngOnInit(): void {
     this.fetchData();
@@ -63,16 +56,6 @@ export class UnitsComponent implements OnInit {
   setDataSource(units: IUnit[]): void {
     this.unitsDataSource = new MatTableDataSource(units);
     this.unitsDataSource.paginator = this.paginator;
-  }
-
-  navigateToEditUnit(unit: IUnit): void {
-    const params = {
-      ...(unit.associatedIds.postgresSequelizeId && {
-        postgresSequelize: unit.associatedIds.postgresSequelizeId,
-      }),
-    };
-    const options = { relativeTo: this.route };
-    this.router.navigate(['edit', unit._id, params], options);
   }
 
   resetData(): void {

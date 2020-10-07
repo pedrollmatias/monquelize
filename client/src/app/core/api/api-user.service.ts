@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { IHttpResponse } from 'src/app/shared/models/http.model';
+import { IPaths } from 'src/app/shared/models/paths.model';
+import { IUser } from 'src/app/shared/models/views.model';
+import { UtilsService } from '../services/utils.service';
 // import { IHttpRes } from 'src/app/shared/models/http-res.model';
 // import { IUser } from 'src/app/shared/models/views.model';
 
@@ -8,32 +12,25 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class ApiUserService {
-  baseUrl = 'http://localhost:9001/api';
+  constructor(private utils: UtilsService) {}
 
-  constructor(private http: HttpClient) {}
+  getUsers(): Observable<IHttpResponse> {
+    return this.utils.multiRequests('GET', '/users');
+  }
 
-  // getUsers(): Observable<IHttpRes> {
-  //   const uri = `${this.baseUrl}/users`;
-  //   return this.http.get<IHttpRes>(uri);
-  // }
+  getUser(paths: IPaths): Observable<IHttpResponse> {
+    return this.utils.multiRequests('GET', paths);
+  }
 
-  // getUser(userId: string): Observable<IHttpRes> {
-  //   const uri = `${this.baseUrl}/users/${userId}`;
-  //   return this.http.get<IHttpRes>(uri);
-  // }
+  createUser(user: IUser): Observable<IHttpResponse> {
+    return this.utils.multiRequests('POST', '/users/add', { body: user });
+  }
 
-  // createUser(user: IUser): Observable<IHttpRes> {
-  //   const uri = `${this.baseUrl}/users/add`;
-  //   return this.http.post<IHttpRes>(uri, user);
-  // }
+  editUser(paths: IPaths, user: IUser): Observable<IHttpResponse> {
+    return this.utils.multiRequests('POST', paths, { body: user });
+  }
 
-  // editUser(userId: string, data: any): Observable<IHttpRes> {
-  //   const uri = `${this.baseUrl}/users/${userId}`;
-  //   return this.http.post<IHttpRes>(uri, data);
-  // }
-
-  // toggleBlock(userId: string): Observable<IHttpRes> {
-  //   const uri = `${this.baseUrl}/users/${userId}`;
-  //   return this.http.put<IHttpRes>(uri, {});
-  // }
+  toggleBlock(paths: IPaths): Observable<IHttpResponse> {
+    return this.utils.multiRequests('PUT', paths);
+  }
 }
