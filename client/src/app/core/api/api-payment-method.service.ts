@@ -1,39 +1,33 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-// import { IHttpRes } from 'src/app/shared/models/http-res.model';
 import { IPaymentMethod } from 'src/app/shared/models/views.model';
+import { IHttpResponse } from 'src/app/shared/models/http.model';
+import { IPaths } from 'src/app/shared/models/paths.model';
+import { UtilsService } from '../services/utils.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ApiPaymentMethodService {
-  baseUrl = 'http://localhost:9001/api';
+  constructor(private utils: UtilsService) {}
 
-  constructor(private http: HttpClient) {}
+  getPaymentMethods(): Observable<IHttpResponse> {
+    return this.utils.multiRequests('GET', '/payment-methods');
+  }
 
-  // getPaymentMethods(): Observable<IHttpRes> {
-  //   const uri = `${this.baseUrl}/payment-methods`;
-  //   return this.http.get<IHttpRes>(uri);
-  // }
+  getPaymentMethod(paths: IPaths): Observable<IHttpResponse> {
+    return this.utils.multiRequests('GET', paths);
+  }
 
-  // getPaymentMethod(paymentMethodId: string): Observable<IHttpRes> {
-  //   const uri = `${this.baseUrl}/payment-methods/${paymentMethodId}`;
-  //   return this.http.get<IHttpRes>(uri);
-  // }
+  createPaymentMethod(paymentMethod: IPaymentMethod): Observable<IHttpResponse> {
+    return this.utils.multiRequests('POST', '/payment-methods/add', { body: paymentMethod });
+  }
 
-  // createPaymentMethod(paymentMethod: IPaymentMethod): Observable<IHttpRes> {
-  //   const uri = `${this.baseUrl}/payment-methods/add`;
-  //   return this.http.post<IHttpRes>(uri, paymentMethod);
-  // }
+  editPaymentMethod(paths: IPaths, paymentMethod: IPaymentMethod): Observable<IHttpResponse> {
+    return this.utils.multiRequests('POST', paths, { body: paymentMethod });
+  }
 
-  // editPaymentMethod(paymentMethodId: string, data: any): Observable<IHttpRes> {
-  //   const uri = `${this.baseUrl}/payment-methods/${paymentMethodId}`;
-  //   return this.http.post<IHttpRes>(uri, data);
-  // }
-
-  // removePaymentMethod(paymentMethodId: string): Observable<IHttpRes> {
-  //   const uri = `${this.baseUrl}/payment-methods/${paymentMethodId}`;
-  //   return this.http.delete<IHttpRes>(uri);
-  // }
+  removePaymentMethod(paths: IPaths): Observable<IHttpResponse> {
+    return this.utils.multiRequests('DELETE', paths);
+  }
 }

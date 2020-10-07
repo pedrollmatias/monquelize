@@ -1,4 +1,4 @@
-<!-- <div class="d-flex justify-content-between align-items-center pb-4">
+<div class="d-flex justify-content-between align-items-center pb-4">
   <div>
     <span class="mat-title">{{ dialogTitle }}</span>
   </div>
@@ -6,8 +6,8 @@
     <div class="pr-5" *ngIf="!isNewPaymentMethod && paymentMethod">
       <app-element-button-icon-text
         icon="delete"
-        text="Remove payment method"
-        (btnClick)="removeCategroy()"
+        text="Remove paymentMethod"
+        (btnClick)="removePaymentMethod()"
       ></app-element-button-icon-text>
     </div>
     <div>
@@ -20,7 +20,7 @@
 <div class="px-4">
   <ng-container *ngIf="showLoadingArea">
     <div class="pb-5">
-     <app-element-loading-area [mongodbMongooseTime]="mongodbMongooseTime"></app-element-loading-area>
+      <app-element-loading-area [databaseTimes]="databaseTimes"></app-element-loading-area>
     </div>
   </ng-container>
   <ng-container *ngIf="showDoneButton">
@@ -28,7 +28,7 @@
       <button mat-flat-button color="primary" (click)="closeDialog(true)">Done!</button>
     </div>
   </ng-container>
-  <ng-container *ngIf="(isNewPaymentMethod || (!isNewPaymentMethod && paymentMethod)) && !showDoneButton">
+  <ng-container *ngIf="showForm && !showDoneButton">
     <div class="pb-5">
       <form [formGroup]="paymentMethodForm">
         <div class="d-flex align-items-center">
@@ -55,4 +55,4 @@
       </div>
     </div>
   </ng-container>
-</div> -->
+</div>

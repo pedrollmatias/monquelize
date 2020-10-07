@@ -2,12 +2,18 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { IBreadcrumb } from 'src/app/shared/models/breadcrumb.model';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
-import { switchMap } from 'rxjs/operators';
+import { map, switchMap } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { IPaymentMethod } from 'src/app/shared/models/views.model';
 import { DialogPaymentMethodDetailsComponent } from '../../components/dialog-payment-method-details/dialog-payment-method-details.component';
 import { ApiPaymentMethodService } from 'src/app/core/api/api-payment-method.service';
 import { MatPaginator } from '@angular/material/paginator';
+import { IAssociatedIds } from 'src/app/shared/models/associated-ids.model';
+import { ActivatedRoute, Router } from '@angular/router';
+import { UtilsService } from 'src/app/core/services/utils.service';
+import { IDatabaseTimes } from 'src/app/shared/models/database-times';
+import { IHttpResponse } from 'src/app/shared/models/http.model';
+import { IServersResponseData } from 'src/app/shared/models/servers-response-data';
 
 @Component({
   selector: 'app-payment-methods',
@@ -24,67 +30,90 @@ export class PaymentMethodsComponent implements OnInit {
   paymentMethodsColumns: string[] = ['name', 'acceptChange'];
   paymentMethodsDataSource = new MatTableDataSource<IPaymentMethod>();
 
-  constructor(private paymentMethodApi: ApiPaymentMethodService, private dialog: MatDialog) {}
-
   paymentMethods: IPaymentMethod[];
 
-  mongodbMongooseTime: number;
+  databaseTimes: IDatabaseTimes;
+  associatedIds: IAssociatedIds;
+
+  constructor(
+    private paymentMethodApi: ApiPaymentMethodService,
+    private dialog: MatDialog,
+    private route: ActivatedRoute,
+    private router: Router,
+    public utils: UtilsService
+  ) {}
 
   ngOnInit(): void {
-    // this.fetchData();
+    this.fetchData();
   }
 
-  // fetchData(): void {
-  //   this.paymentMethodApi.getPaymentMethods().subscribe((paymentMethodRes) => {
-  //     this.paymentMethods = <IPaymentMethod[]>paymentMethodRes.res;
-  //     this.mongodbMongooseTime = paymentMethodRes.time;
-  //     this.setDataSource(this.paymentMethods);
-  //   });
-  // }
+  fetchData(): void {
+    this.paymentMethodApi.getPaymentMethods().subscribe((res: IHttpResponse) => {
+      this.databaseTimes = this.utils.setTimes(res);
+      this.paymentMethods = this.getPaymentMethods(res);
+      this.setDataSource(this.paymentMethods);
+    });
+  }
 
-  // setDataSource(paymentMethods: IPaymentMethod[]): void {
-  //   this.paymentMethodsDataSource = new MatTableDataSource(paymentMethods);
-  //   this.paymentMethodsDataSource.paginator = this.paginator;
-  // }
+  getPaymentMethods(res: IHttpResponse): IPaymentMethod[] {
+    const paymentMethodsByServer: IServersResponseData = this.utils.splitResponsesByServerId(res);
+    return this.utils.appendAssociatedIdsByUniqueCommonData(paymentMethodsByServer, 'name');
+  }
 
-  // resetData(): void {
-  //   this.mongodbMongooseTime = null;
-  //   this.paymentMethods = undefined;
-  // }
+  setDataSource(paymentMethods: IPaymentMethod[]): void {
+    this.paymentMethodsDataSource = new MatTableDataSource(paymentMethods);
+    this.paymentMethodsDataSource.paginator = this.paginator;
+  }
 
-  // refreshComponent(): void {
-  //   this.resetData();
-  //   this.fetchData();
-  // }
+  navigateToEditPaymentMethod(paymentMethod: IPaymentMethod): void {
+    const params = {
+      ...(paymentMethod.associatedIds.postgresSequelizeId && {
+        postgresSequelize: paymentMethod.associatedIds.postgresSequelizeId,
+      }),
+    };
+    const options = { relativeTo: this.route };
+    this.router.navigate(['edit', paymentMethod._id, params], options);
+  }
 
-  // openPaymentMethodDetailsDialog(paymentMethodId: string = null): void {
-  //   const paymentMethodDetailsDialogRef = this.dialog.open(DialogPaymentMethodDetailsComponent, {
-  //     autoFocus: false,
-  //     restoreFocus: false,
-  //     width: '70vw',
-  //     data: {
-  //       paymentMethods: this.paymentMethods,
-  //       paymentMethodId: paymentMethodId,
-  //     },
-  //   });
+  resetData(): void {
+    this.databaseTimes = this.utils.resetTimes();
+    this.paymentMethods = undefined;
+  }
 
-  //   paymentMethodDetailsDialogRef
-  //     .beforeClosed()
-  //     .pipe(
-  //       switchMap((confirmed) => {
-  //         if (confirmed) {
-  //           this.resetData();
-  //           return this.paymentMethodApi.getPaymentMethods();
-  //         } else {
-  //           const paymentMethodRes: IHttpRes = { res: this.paymentMethods, time: this.mongodbMongooseTime };
-  //           return of(paymentMethodRes);
-  //         }
-  //       })
-  //     )
-  //     .subscribe((paymentMethodRes: IHttpRes) => {
-  //       this.paymentMethods = <IPaymentMethod[]>paymentMethodRes.res;
-  //       this.mongodbMongooseTime = paymentMethodRes.time;
-  //       this.setDataSource(this.paymentMethods);
-  //     });
-  // }
+  refreshComponent(): void {
+    this.resetData();
+    this.fetchData();
+  }
+
+  openPaymentMethodDetailsDialog(associatedIds?: IAssociatedIds): void {
+    const paymentMethodDetailsDialogRef = this.dialog.open(DialogPaymentMethodDetailsComponent, {
+      autoFocus: false,
+      restoreFocus: false,
+      width: '70vw',
+      data: {
+        paymentMethods: this.paymentMethods,
+        associatedIds: associatedIds,
+      },
+    });
+
+    paymentMethodDetailsDialogRef
+      .beforeClosed()
+      .pipe(
+        switchMap((confirmed) => {
+          if (confirmed) {
+            this.resetData();
+            return this.paymentMethodApi.getPaymentMethods();
+          }
+          return of(null);
+        }),
+        map((res) => (res ? { confirmed: true, res } : { confirmed: false }))
+      )
+      .subscribe(({ confirmed, res }: { confirmed: Boolean; res?: IHttpResponse }) => {
+        if (confirmed) {
+          this.databaseTimes = this.utils.setTimes(res);
+          this.paymentMethods = this.getPaymentMethods(res);
+          this.setDataSource(this.paymentMethods);
+        }
+      });
+  }
 }

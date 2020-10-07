@@ -1,7 +1,8 @@
 'use strict';
 
 module.exports = {
-  product: require('./product.routes'),
   category: require('./category.routes'),
+  paymentMethods: require('./payment-method.routes'),
+  product: require('./product.routes'),
   unit: require('./unit.routes'),
 };
