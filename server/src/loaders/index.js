@@ -2,8 +2,10 @@
 
 const expressLoader = require('./express');
 const { mongodbMongooseDb, postgresSequelizeDb } = require('./databases');
-const sequelizeSync = require('../modules/postgres-sequelize-sync/sync');
 const Logger = require('./logger');
+
+// Compile sequelize models
+require('../modules/sequelize-model-register/register');
 
 module.exports = async (app, serverId, serverName) => {
   Logger.info(`Stablishing connection with database of server "${serverName}"...`);
@@ -14,8 +16,8 @@ module.exports = async (app, serverId, serverName) => {
       break;
     case 'postgres-sequelize':
       await postgresSequelizeDb;
-      await sequelizeSync({ force: true });
-      // await sequelizeSync({ alter: { drop: false } });
+      // await postgresSequelizeDb.sync({ force: true });
+      await postgresSequelizeDb.sync({ alter: { drop: false } });
       break;
     default:
       throw new Error(`Can't stablish connection with database of server ${serverId}`);

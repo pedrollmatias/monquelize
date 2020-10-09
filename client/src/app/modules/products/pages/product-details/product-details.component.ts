@@ -1,18 +1,35 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IBreadcrumb } from 'src/app/shared/models/breadcrumb.model';
-import { forkJoin, of } from 'rxjs';
+import { forkJoin, Observable, of } from 'rxjs';
 import { ApiCategoryService } from 'src/app/core/api/api-category.service';
 import { ApiUnitService } from 'src/app/core/api/api-unit.service';
 import { ApiProductService } from 'src/app/core/api/api-product.service';
 import { ICategory } from 'src/app/shared/models/views.model';
 import { IUnit } from 'src/app/shared/models/views.model';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 import { IProduct } from 'src/app/shared/models/views.model';
 import { SharedComponentsService } from 'src/app/core/services/shared-components.service';
 import { switchMap } from 'rxjs/operators';
 import { IConfirmation } from 'src/app/shared/models/confirmation.model';
 import { UtilsService } from 'src/app/core/services/utils.service';
+import { IAssociatedIds } from 'src/app/shared/models/associated-ids.model';
+import { IDatabaseTimes } from 'src/app/shared/models/database-times';
+import { IHttpResponse } from 'src/app/shared/models/http.model';
+import { IPaths } from 'src/app/shared/models/paths.model';
+import { IServersResponseData } from 'src/app/shared/models/servers-response-data';
+
+declare interface IInitialRequests {
+  product?: Observable<IHttpResponse>;
+  category: Observable<IHttpResponse>;
+  unit: Observable<IHttpResponse>;
+}
+
+declare interface IInitialResponse {
+  product?: IHttpResponse;
+  category: IHttpResponse;
+  unit: IHttpResponse;
+}
 
 @Component({
   selector: 'app-product-details',
@@ -22,13 +39,16 @@ import { UtilsService } from 'src/app/core/services/utils.service';
 export class ProductDetailsComponent implements OnInit {
   breadcrumb: IBreadcrumb = [{ label: 'Products', path: '/products', isLink: true }];
 
+  databaseTimes: IDatabaseTimes;
+
   categories: ICategory[];
   units: IUnit[];
 
-  mongodbMongooseTime: number;
-
   productId: string;
+  associatedIds: IAssociatedIds;
   product: IProduct;
+
+  endpointPaths: IPaths;
 
   productForm: FormGroup;
 
@@ -37,6 +57,7 @@ export class ProductDetailsComponent implements OnInit {
   isNewProduct: boolean;
 
   showPageData = false;
+  showLoadingArea = false;
 
   constructor(
     private fb: FormBuilder,
@@ -50,123 +71,158 @@ export class ProductDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // this.route.params.subscribe((params) => {
-    //   console.log(params);
-    // });
-    //   this.productId = this.route.snapshot.paramMap.get('id');
-    //   this.isNewProduct = this.productId ? false : true;
-    //   if (!this.isNewProduct) {
-    //     forkJoin(
-    //       this.productApi.getProduct(this.productId),
-    //       this.categoryApi.getCategories(),
-    //       this.unitApi.getUnits()
-    //     ).subscribe((res) => {
-    //       const [productRes, categoryRes, unitRes] = res;
-    //       this.product = productRes.res;
-    //       this.categories = categoryRes.res;
-    //       this.units = unitRes.res;
-    //       this.mongodbMongooseTime = this.utils.getGreatestTime([categoryRes.time, unitRes.time]);
-    //       this.pageTitle = 'Edit product';
-    //       this.createProductForm();
-    //       this.initFormData(this.product);
-    //       this.showPageData = true;
-    //     });
-    //   } else {
-    //     forkJoin(this.categoryApi.getCategories(), this.unitApi.getUnits()).subscribe((res) => {
-    //       const [categoryRes, unitRes] = res;
-    //       this.categories = categoryRes.res;
-    //       this.units = unitRes.res;
-    //       this.mongodbMongooseTime = this.utils.getGreatestTime([categoryRes.time, unitRes.time]);
-    //       this.pageTitle = 'New product';
-    //       this.createProductForm();
-    //       this.showPageData = true;
-    //     });
-    //   }
-    // }
-    // createProductForm(): void {
-    //   this.productForm = this.fb.group({
-    //     sku: [this.generateSKU(), Validators.required],
-    //     name: [null, Validators.required],
-    //     description: null,
-    //     category: null,
-    //     unit: [null, Validators.required],
-    //     salePrice: [null, Validators.required],
-    //     costPrice: [null],
-    //     inventory: this.fb.group({
-    //       currentAmount: [0, Validators.required],
-    //       minAmount: [0, [Validators.required, Validators.min(0)]],
-    //       maxAmount: [null, Validators.min(0)],
-    //     }),
-    //   });
+    this.productId = this.route.snapshot.paramMap.get('id');
+    this.isNewProduct = this.productId ? false : true;
+    if (!this.isNewProduct) {
+      this.showLoadingArea = true;
+      this.route.params
+        .pipe(
+          switchMap((params) => {
+            this.associatedIds = this.getAssociatedIds(params);
+            this.endpointPaths = this.utils.getEndpointPaths('/products', this.associatedIds);
+            const initialRequests: IInitialRequests = {
+              category: this.categoryApi.getCategories(),
+              unit: this.unitApi.getUnits(),
+              product: this.productApi.getProduct(this.endpointPaths),
+            };
+            return forkJoin(initialRequests);
+          })
+        )
+        .subscribe((res: IInitialResponse) => {
+          this.databaseTimes = this.utils.setGreatestTimes(res);
+          const { category: categoryRes, unit: unitRes, product: productRes } = res;
+          this.categories = this.getCategories(categoryRes);
+          this.units = this.getUnits(unitRes);
+          this.product = this.getProduct(productRes);
+          this.pageTitle = 'Edit product';
+          this.createProductForm();
+          this.initFormData(this.product);
+          this.showPageData = true;
+        });
+    } else {
+      const initialRequests: IInitialRequests = {
+        category: this.categoryApi.getCategories(),
+        unit: this.unitApi.getUnits(),
+      };
+      forkJoin(initialRequests).subscribe((res: IInitialResponse) => {
+        this.databaseTimes = this.utils.setGreatestTimes(res);
+        const { category: categoryRes, unit: unitRes } = res;
+        this.categories = this.getCategories(categoryRes);
+        this.units = this.getUnits(unitRes);
+        this.pageTitle = 'New product';
+        this.createProductForm();
+        this.showPageData = true;
+      });
+    }
   }
 
-  // initFormData(product: IProduct): void {
-  //   this.productForm.reset();
-  //   this.productForm.patchValue(product);
-  // }
+  getAssociatedIds(params: Params): IAssociatedIds {
+    return { mongodbMongooseId: params.id, postgresSequelizeId: params.postgresSequelize };
+  }
 
-  // compareSelect(option: any, selection: any) {
-  //   return option?._id === selection?._id;
-  // }
+  getCategories(res: IHttpResponse): ICategory[] {
+    const categoriesByServer: IServersResponseData = this.utils.splitResponsesByServerId(res);
+    return this.utils.appendAssociatedIdsByUniqueCommonData(categoriesByServer, 'path');
+  }
 
-  // generateSKU(): string {
-  //   return Date.now().toString(16).split('').reverse().join('').toUpperCase();
-  // }
+  getUnits(res: IHttpResponse): IUnit[] {
+    const unitsByServer: IServersResponseData = this.utils.splitResponsesByServerId(res);
+    return this.utils.appendAssociatedIdsByUniqueCommonData(unitsByServer, 'unit');
+  }
 
-  // formatProduct(product: any): IProduct {
-  //   product.category = product.category?._id || undefined;
-  //   product.unit = product.unit?._id;
-  //   return product;
-  // }
+  getProduct(res: IHttpResponse): IProduct {
+    const product = res.mongodbMongoose.res;
 
-  // refreshPage(): void {
-  //   this.ngOnInit();
-  // }
+    if (product.unit) {
+      product.unit.associatedIds = this.units.find((unit) => unit._id === product.unit._id)?.associatedIds;
+    }
 
-  // saveProduct(): void {
-  //   if (this.productForm.invalid) {
-  //     this.sharedComponents.openSnackbarWarning('There are fields with invalid values');
-  //   } else {
-  //     if (this.isNewProduct) {
-  //       const product = this.formatProduct(this.productForm.value);
-  //       this.sharedComponents
-  //         .openLoadingDialog(this.productApi.createProduct(product))
-  //         .beforeClosed()
-  //         .subscribe((productRes: IHttpRes) => {
-  //           this.router.navigate(['/products', 'edit', productRes.res._id]);
-  //         });
-  //     } else {
-  //       const product = this.formatProduct(this.productForm.value);
-  //       this.sharedComponents
-  //         .openLoadingDialog(this.productApi.editProduct(this.productId, product))
-  //         .beforeClosed()
-  //         .subscribe((productRes: IHttpRes) => {
-  //           this.initFormData(productRes.res);
-  //         });
-  //     }
-  //   }
-  // }
+    if (product.category) {
+      product.category.associatedIds = this.categories.find(
+        (category) => category._id === product.category._id
+      )?.associatedIds;
+    }
 
-  // removeProduct(): void {
-  //   const message =
-  //     '<p>This product will be removed. Your sales will not be affected, but all information about the product will be lost. Are you sure?</p>';
-  //   this.sharedComponents
-  //     .openDialogConfirmation('warning', 'warn', 'Remove product', message, 'Remove product')
-  //     .beforeClosed()
-  //     .pipe(
-  //       switchMap((confirmation: IConfirmation) => {
-  //         if (confirmation?.confirmed) {
-  //           return this.sharedComponents
-  //             .openLoadingDialog(this.productApi.removeProduct(this.productId))
-  //             .beforeClosed();
-  //         }
-  //         return of();
-  //       })
-  //     )
-  //     .subscribe((res: any) => {
-  //       if (res) {
-  //         this.router.navigate(['/products']);
-  //       }
-  //     });
-  // }
+    return { ...product, associatedIds: this.associatedIds };
+  }
+
+  createProductForm(): void {
+    this.productForm = this.fb.group({
+      sku: [this.generateSKU(), Validators.required],
+      name: [null, Validators.required],
+      description: null,
+      category: null,
+      unit: [null, Validators.required],
+      salePrice: [null, Validators.required],
+      costPrice: [null],
+      inventory: this.fb.group({
+        currentAmount: [0, Validators.required],
+        minAmount: [0, [Validators.required, Validators.min(0)]],
+        maxAmount: [null, Validators.min(0)],
+      }),
+    });
+  }
+
+  generateSKU(): string {
+    return Date.now().toString(16).split('').reverse().join('').toUpperCase();
+  }
+
+  initFormData(product: IProduct): void {
+    this.productForm.reset();
+    this.productForm.patchValue(product);
+  }
+
+  compareSelect(option: any, selection: any) {
+    return option?._id === selection?._id;
+  }
+
+  saveProduct(): void {
+    if (this.productForm.invalid) {
+      this.sharedComponents.openSnackbarWarning('There are fields with invalid values');
+    } else if (this.isNewProduct) {
+      const product = this.productForm.value;
+      this.sharedComponents
+        .openLoadingDialog(this.productApi.createProduct(product))
+        .beforeClosed()
+        .subscribe((res: IHttpResponse) => {
+          const params = {
+            postgresSequelize: res.postgresSequelize.res._id,
+          };
+          this.router.navigate(['products', 'edit', res.mongodbMongoose.res._id, params]);
+        });
+    } else {
+      const product = this.productForm.value;
+      console.log(product);
+      this.sharedComponents
+        .openLoadingDialog(this.productApi.editProduct(this.endpointPaths, product))
+        .beforeClosed()
+        .subscribe((res: IHttpResponse) => {
+          this.product = this.getProduct(res);
+          this.initFormData(this.product);
+        });
+    }
+  }
+
+  removeProduct(): void {
+    const message =
+      '<p>This product will be removed. Your sales will not be affected, but all information about the product will be lost. Are you sure?</p>';
+    this.sharedComponents
+      .openDialogConfirmation('warning', 'warn', 'Remove product', message, 'Remove product')
+      .beforeClosed()
+      .pipe(
+        switchMap((confirmation: IConfirmation) => {
+          if (confirmation?.confirmed) {
+            return this.sharedComponents
+              .openLoadingDialog(this.productApi.removeProduct(this.endpointPaths))
+              .beforeClosed();
+          }
+          return of();
+        })
+      )
+      .subscribe((res: any) => {
+        if (res) {
+          this.router.navigate(['/products']);
+        }
+      });
+  }
 }

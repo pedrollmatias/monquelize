@@ -2,6 +2,6 @@
 
 const { Product } = require('../../models');
 
-module.exports = async function getProducts() {
-  return Product.findAll();
+module.exports = function getProducts() {
+  return Product.findAll({ where: { removed: false } });
 };

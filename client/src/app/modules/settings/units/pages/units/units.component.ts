@@ -50,7 +50,7 @@ export class UnitsComponent implements OnInit {
 
   getUnits(res: IHttpResponse): IUnit[] {
     const unitsByServer: IServersResponseData = this.utils.splitResponsesByServerId(res);
-    return this.utils.appendAssociatedIdsByUniqueCommonData(unitsByServer, 'name');
+    return this.utils.appendAssociatedIdsByUniqueCommonData(unitsByServer, 'unit');
   }
 
   setDataSource(units: IUnit[]): void {

@@ -24,69 +24,69 @@ const purchaseSchema = new Schema(
       index: true,
       immutable: true,
       required: true,
+      date: {
+        type: Date,
+        default: Date.now,
+      },
+      status: {
+        type: String,
+        enum: Object.keys(purchaseStatusEnum),
+        required: true,
+        default: '100',
+      },
+      products: [
+        {
+          productRef: {
+            type: Schema.Types.ObjectId,
+          },
+          sku: {
+            type: String,
+            required: true,
+          },
+          name: {
+            type: String,
+          },
+          category: {
+            type: Schema.Types.ObjectId,
+          },
+          unit: {
+            unitRef: {
+              type: Schema.Types.ObjectId,
+              required: true,
+            },
+            shortUnit: {
+              type: String,
+              required: true,
+            },
+          },
+          price: {
+            type: Number,
+            required: true,
+          },
+          amount: {
+            type: Number,
+            required: true,
+          },
+        },
+      ],
+      paymentMethod: {
+        paymentMethodRef: {
+          type: Schema.Types.ObjectId,
+        },
+        name: {
+          type: String,
+          required: true,
+          trim: true,
+        },
+      },
+      buyer: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+      },
     },
     vendor: {
       type: String,
       trim: true,
-    },
-    date: {
-      type: Date,
-      default: Date.now,
-    },
-    status: {
-      type: String,
-      enum: Object.keys(purchaseStatusEnum),
-      required: true,
-      default: '100',
-    },
-    products: [
-      {
-        productRef: {
-          type: Schema.Types.ObjectId,
-        },
-        sku: {
-          type: String,
-          required: true,
-        },
-        name: {
-          type: String,
-        },
-        category: {
-          type: Schema.Types.ObjectId,
-        },
-        unit: {
-          unitRef: {
-            type: Schema.Types.ObjectId,
-            required: true,
-          },
-          shortUnit: {
-            type: String,
-            required: true,
-          },
-        },
-        price: {
-          type: Number,
-          required: true,
-        },
-        amount: {
-          type: Number,
-          required: true,
-        },
-      },
-    ],
-    paymentMethod: {
-      paymentMethodRef: {
-        type: Schema.Types.ObjectId,
-      },
-      name: {
-        type: String,
-        required: true,
-        trim: true,
-      },
-    },
-    buyer: {
-      type: Schema.Types.ObjectId,
-      ref: 'User',
     },
   },
   opts

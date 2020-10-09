@@ -6,7 +6,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { SharedComponentsService } from 'src/app/core/services/shared-components.service';
 import { UtilsService } from 'src/app/core/services/utils.service';
 import { of } from 'rxjs';
-import { map, switchMap } from 'rxjs/operators';
+import { switchMap } from 'rxjs/operators';
 import { IConfirmation } from 'src/app/shared/models/confirmation.model';
 import { ApiUserService } from 'src/app/core/api/api-user.service';
 import { IDatabaseTimes } from 'src/app/shared/models/database-times';
@@ -113,12 +113,11 @@ export class UserDetailsComponent implements OnInit {
       this.sharedComponents
         .openLoadingDialog(this.userApi.createUser(user))
         .beforeClosed()
-        .subscribe(() => {
+        .subscribe((res: IHttpResponse) => {
           const params = {
-            postgresSequelize: this.associatedIds.postgresSequelizeId,
+            postgresSequelize: res.postgresSequelize.res._id,
           };
-          const options = { relativeTo: this.route };
-          this.router.navigate(['edit', user._id, params], options);
+          this.router.navigate(['/users', 'edit', res.mongodbMongoose.res._id, params]);
         });
     } else {
       const user = this.userForm.value;

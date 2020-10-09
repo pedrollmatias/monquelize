@@ -4,7 +4,7 @@ const { DataTypes } = require('sequelize');
 const sequelize = require('../../loaders/databases/postgres-sequelize');
 
 const PaymentMethod = sequelize.define(
-  'PaymentMethod',
+  'paymentMethod',
   {
     _id: {
       type: DataTypes.INTEGER,
@@ -21,7 +21,7 @@ const PaymentMethod = sequelize.define(
     },
   },
   {
-    modelName: 'PaymentMethods',
+    tableName: 'payment_methods',
     indexes: [
       {
         unique: true,

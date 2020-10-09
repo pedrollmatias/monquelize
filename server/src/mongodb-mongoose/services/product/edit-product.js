@@ -35,7 +35,7 @@ module.exports = async function editProduct(productId, data, session) {
   if (updatedProduct.category) {
     if (!product.category) {
       // Add category
-      const category = await categoryModel.retrieve(product.category, session);
+      const category = await categoryModel.retrieve(updatedProduct.category, session);
 
       await category.addProduct(updatedProduct.toObject());
     } else if (product.category && product.category.equals(updatedProduct.category._id)) {

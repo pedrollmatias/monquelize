@@ -4,7 +4,7 @@ const { DataTypes } = require('sequelize');
 const sequelize = require('../../loaders/databases/postgres-sequelize');
 
 const Category = sequelize.define(
-  'Category',
+  'category',
   {
     _id: {
       type: DataTypes.INTEGER,
@@ -25,7 +25,6 @@ const Category = sequelize.define(
     },
   },
   {
-    modelName: 'Categories',
     indexes: [
       {
         unique: true,

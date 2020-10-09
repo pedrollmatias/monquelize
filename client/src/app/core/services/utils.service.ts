@@ -58,10 +58,22 @@ export class UtilsService {
   setTimes(res: IHttpResponse): IDatabaseTimes {
     return {
       mongodbMongoose: res.mongodbMongoose.time,
-      // mongodb,
-      // postgres,
       postgresSequelize: res.postgresSequelize.time,
     };
+  }
+
+  setGreatestTimes(res: any): IDatabaseTimes {
+    const databaseTimes: IDatabaseTimes = { mongodbMongoose: 0, postgresSequelize: 0 };
+    return Object.keys(res).reduce((databaseTimes, resKey) => {
+      const databaseIds = Object.getOwnPropertyNames(res[resKey]);
+      databaseIds.forEach((databaseId) => {
+        const resTime = res[resKey][databaseId].time;
+        if (resTime > databaseTimes[databaseId]) {
+          databaseTimes[databaseId] = resTime;
+        }
+      });
+      return databaseTimes;
+    }, databaseTimes);
   }
 
   resetTimes(): IDatabaseTimes {

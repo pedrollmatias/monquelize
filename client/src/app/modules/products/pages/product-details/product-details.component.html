@@ -1,4 +1,4 @@
-<!-- <div class="container py-5">
+<div class="container py-5">
   <div class="d-flex align-items-center justify-content-between pb-5">
     <div>
       <div>
@@ -17,7 +17,7 @@
     </div>
   </div>
   <div class="pb-5">
-    <app-element-loading-area [mongodbMongooseTime]="mongodbMongooseTime"></app-element-loading-area>
+    <app-element-loading-area [databaseTimes]="databaseTimes"></app-element-loading-area>
   </div>
   <div>
     <ng-container *ngIf="showPageData; else loading">
@@ -113,7 +113,7 @@
                   </div>
                 </div>
               </mat-tab>
-              <mat-tab label="Inventory">
+              <mat-tab label="Inventory" *ngIf="isNewProduct">
                 <div class="d-flex pt-4 pb-5" formGroupName="inventory">
                   <div class="flex-grow-1 pr-5">
                     <mat-form-field class="w-100">
@@ -154,4 +154,4 @@
       </div>
     </ng-template>
   </div>
-</div> -->
+</div>

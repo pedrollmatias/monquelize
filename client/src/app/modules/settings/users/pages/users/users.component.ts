@@ -4,7 +4,6 @@ import { MatTableDataSource } from '@angular/material/table';
 import { ApiUserService } from 'src/app/core/api/api-user.service';
 import { IUser } from 'src/app/shared/models/views.model';
 import { MatPaginator } from '@angular/material/paginator';
-import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UtilsService } from 'src/app/core/services/utils.service';
 import { IAssociatedIds } from 'src/app/shared/models/associated-ids.model';
@@ -34,7 +33,6 @@ export class UsersComponent implements OnInit {
 
   constructor(
     private userApi: ApiUserService,
-    private dialog: MatDialog,
     private route: ActivatedRoute,
     private router: Router,
     public utils: UtilsService
@@ -81,46 +79,4 @@ export class UsersComponent implements OnInit {
     this.resetData();
     this.fetchData();
   }
-
-  // breadcrumb: IBreadcrumb = [{ label: 'Settings', isLink: true, path: '/settings' }];
-
-  // @ViewChild(MatPaginator) set paginator(paginator: MatPaginator) {
-  //   this.usersDataSource.paginator = paginator;
-  // }
-
-  // usersColumns: string[] = ['fullName', 'username', 'email', 'blocked'];
-  // usersDataSource = new MatTableDataSource<IUser>();
-
-  // constructor(private userApi: ApiUserService) {}
-
-  // users: IUser[];
-
-  // mongodbMongooseTime: number;
-
-  // ngOnInit(): void {
-  //   // this.fetchData();
-  // }
-
-  // fetchData(): void {
-  //   this.userApi.getUsers().subscribe((userRes) => {
-  //     this.users = <IUser[]>userRes.res;
-  //     this.mongodbMongooseTime = userRes.time;
-  //     this.setDataSource(this.users);
-  //   });
-  // }
-
-  // setDataSource(users: IUser[]): void {
-  //   this.usersDataSource = new MatTableDataSource(users);
-  //   this.usersDataSource.paginator = this.paginator;
-  // }
-
-  // resetData(): void {
-  //   this.mongodbMongooseTime = null;
-  //   this.users = undefined;
-  // }
-
-  // refreshComponent(): void {
-  //   this.resetData();
-  //   this.fetchData();
-  // }
 }

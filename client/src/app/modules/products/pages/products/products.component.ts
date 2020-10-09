@@ -8,6 +8,8 @@ import { IHttpResponse } from 'src/app/shared/models/http.model';
 import { IProduct } from 'src/app/shared/models/views.model';
 import { Router, ActivatedRoute } from '@angular/router';
 import { IAssociatedIds } from 'src/app/shared/models/associated-ids.model';
+import { IBreadcrumb } from 'src/app/shared/models/breadcrumb.model';
+import { IServersResponseData } from 'src/app/shared/models/servers-response-data';
 
 @Component({
   selector: 'app-products',
@@ -15,16 +17,19 @@ import { IAssociatedIds } from 'src/app/shared/models/associated-ids.model';
   styleUrls: ['./products.component.scss'],
 })
 export class ProductsComponent implements OnInit {
+  breadcrumb: IBreadcrumb = [{ label: 'Settings', isLink: true, path: '/settings' }];
+
   @ViewChild(MatPaginator) set paginator(paginator: MatPaginator) {
-    this.productsDataSouce.paginator = paginator;
+    this.productsDataSource.paginator = paginator;
   }
 
   productsColumns: string[] = ['sku', 'name', 'category', 'unit', 'salePrice'];
-  productsDataSouce = new MatTableDataSource<IProduct>();
+  productsDataSource = new MatTableDataSource<IProduct>();
 
   products: IProduct[];
 
   databaseTimes: IDatabaseTimes;
+  associatedIds: IAssociatedIds;
 
   constructor(
     private productApi: ApiProductService,
@@ -46,27 +51,13 @@ export class ProductsComponent implements OnInit {
   }
 
   getProducts(res: IHttpResponse): IProduct[] {
-    const products = Object.keys(res).reduce(
-      (products, serverId) => {
-        products[serverId] = res[serverId].res;
-        return products;
-      },
-      { mongodbMongoose: [], postgresSequelize: [] }
-    );
-
-    return products.mongodbMongoose.map((product, _, _products) => {
-      const associatedIds = {
-        mongodbMongooseId: product._id,
-        postgresSequelizeId: product._id,
-      };
-
-      return { ...product, associatedIds };
-    });
+    const productByServer: IServersResponseData = this.utils.splitResponsesByServerId(res);
+    return this.utils.appendAssociatedIdsByUniqueCommonData(productByServer, 'sku');
   }
 
-  setDataSource(products: IProduct[]): void {
-    this.productsDataSouce = new MatTableDataSource(products);
-    this.productsDataSouce.paginator = this.paginator;
+  setDataSource(product: IProduct[]): void {
+    this.productsDataSource = new MatTableDataSource(product);
+    this.productsDataSource.paginator = this.paginator;
   }
 
   navigateToEditProduct(product: IProduct): void {
