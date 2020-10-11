@@ -2,11 +2,8 @@
 
 const { Category } = require('../../models');
 const findCategoryChildren = require('./find-category-children');
-const validateCategory = require('./validate-category');
 
 module.exports = async function editCategory(categoryId, category) {
-  await validateCategory(category);
-
   const oldCategory = await Category.findOne({ where: { _id: categoryId }, raw: true });
 
   let [, updatedCategory] = await Category.update(category, {

@@ -1,25 +1,25 @@
 'use strict';
 
-const { Sale, SaleProduct, History } = require('../../models');
+const { Purchase, PurchaseProduct, History } = require('../../models');
 const getProduct = require('../product/get-product');
 
-module.exports = async function editSale(saleId, sale) {
-  let [, updatedSale] = await Sale.update(sale, {
-    where: { _id: saleId },
+module.exports = async function editPurchase(purchaseId, purchase) {
+  let [, updatedPurchase] = await Purchase.update(purchase, {
+    where: { _id: purchaseId },
     returning: true,
     plain: true,
   });
 
-  updatedSale = updatedSale.dataValues;
+  updatedPurchase = updatedPurchase.dataValues;
 
-  for (const product of sale.products) {
+  for (const product of purchase.products) {
     const _product = await getProduct(product.productId);
-    const saleProductRelation = await SaleProduct.findOne({
-      where: { productId: _product._id, saleId: updatedSale._id },
+    const purchaseProductRelation = await PurchaseProduct.findOne({
+      where: { productId: _product._id, purchaseId: updatedPurchase._id },
     });
 
     // Add product history register and update current product amount
-    const amountDifference = product.amount - saleProductRelation.toJSON().amount;
+    const amountDifference = product.amount - purchaseProductRelation.toJSON().amount;
 
     if (amountDifference > 0) {
       const history = await History.create({ amount: product.amount, movementType: '200' });
@@ -39,12 +39,12 @@ module.exports = async function editSale(saleId, sale) {
       await _product.save();
     }
 
-    // Update sale_product relation
-    saleProductRelation.amount = product.amount;
-    saleProductRelation.price = product.price;
+    // Update purchase_product relation
+    purchaseProductRelation.amount = product.amount;
+    purchaseProductRelation.price = product.price;
 
-    await saleProductRelation.save();
+    await purchaseProductRelation.save();
   }
 
-  return updatedSale;
+  return updatedPurchase;
 };

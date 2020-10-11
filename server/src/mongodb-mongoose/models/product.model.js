@@ -9,6 +9,12 @@ const historyEnum = {
   '200': 'Output',
 };
 
+const opts = {
+  collection: 'products',
+  toObject: { virtuals: true },
+  toJSON: { virtuals: true },
+};
+
 const productSchema = new Schema(
   {
     sku: {
@@ -42,20 +48,17 @@ const productSchema = new Schema(
     costPrice: {
       type: Number,
     },
-    inventory: {
-      currentAmount: {
-        type: Number,
-        required: true,
-        default: 0,
-      },
-      minAmount: {
-        type: Number,
-        required: true,
-        default: 0,
-      },
-      maxAmount: {
-        type: Number,
-      },
+    currentAmount: {
+      type: Number,
+      required: true,
+    },
+    minAmount: {
+      type: Number,
+      required: true,
+      default: 0,
+    },
+    maxAmount: {
+      type: Number,
     },
     history: [
       {
@@ -73,28 +76,25 @@ const productSchema = new Schema(
       },
     ],
   },
-  { collection: 'products' }
+  opts
 );
 
 mongooseModelMethodsFactory.registerMethods(productSchema);
 
 productSchema.pre('save', async function validateInventoryAmount() {
   const product = this;
-  const currentAmount = product.inventory && product.inventory.currentAmount;
-  const minAmount = product.inventory && product.inventory.minAmount;
-  const maxAmount = product.inventory && product.inventory.maxAmount;
 
-  if (currentAmount < 0) {
+  if (product.currentAmount < 0) {
     throw new Error('Quantity in inventory unavaliable');
-  } else if (minAmount && currentAmount < minAmount) {
+  } else if (product.minAmount && product.currentAmount < product.minAmount) {
     throw new Error('A product can not have an amount less than the minimum allowed');
   }
 
-  if (maxAmount && currentAmount > maxAmount) {
+  if (product.maxAmount && product.currentAmount > product.maxAmount) {
     throw new Error('A product can not have an amount greater than the maximum allowed');
   }
 
-  if (minAmount && maxAmount && minAmount > maxAmount) {
+  if (product.minAmount && product.maxAmount && product.minAmount > product.maxAmount) {
     throw new Error('Minimum amount can not be greater than maximum amount');
   }
 });

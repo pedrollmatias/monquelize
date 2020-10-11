@@ -1,26 +1,38 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators, FormArray, AbstractControl, FormControl } from '@angular/forms';
 import { IBreadcrumb } from 'src/app/shared/models/breadcrumb.model';
-import { FormGroup, AbstractControl, FormBuilder, FormArray, Validators, FormControl } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
 import { UtilsService } from 'src/app/core/services/utils.service';
-import { IOperationProduct } from 'src/app/shared/models/views.model';
-import { IPaymentMethod } from 'src/app/shared/models/views.model';
-import { IUser } from 'src/app/shared/models/views.model';
-import { Observable, forkJoin, of } from 'rxjs';
-import { ApiPurchaseService } from 'src/app/core/api/api-purchase.service';
+import { SharedComponentsService } from 'src/app/core/services/shared-components.service';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { ApiProductService } from 'src/app/core/api/api-product.service';
 import { ApiPaymentMethodService } from 'src/app/core/api/api-payment-method.service';
-import { ApiUserService } from 'src/app/core/api/api-user.service';
-import { SharedComponentsService } from 'src/app/core/services/shared-components.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { forkJoin, Observable, of } from 'rxjs';
+import { IPaymentMethod, IProduct, IPurchase } from 'src/app/shared/models/views.model';
+import { IOperationProduct } from 'src/app/shared/models/views.model';
 import { startWith, map, switchMap } from 'rxjs/operators';
+import { ApiPurchaseService } from 'src/app/core/api/api-purchase.service';
 import { IConfirmation } from 'src/app/shared/models/confirmation.model';
+import { ApiUserService } from 'src/app/core/api/api-user.service';
+import { IUser } from 'src/app/shared/models/views.model';
+import { IAssociatedIds } from 'src/app/shared/models/associated-ids.model';
+import { IDatabaseTimes } from 'src/app/shared/models/database-times';
+import { IPaths } from 'src/app/shared/models/paths.model';
+import { IHttpResponse } from 'src/app/shared/models/http.model';
+import { IServersResponseData } from 'src/app/shared/models/servers-response-data';
 
-export const PURCHASE_STATUS_ENUM = {
-  '100': 'Draft',
-  '300': 'Done',
-  '400': 'Canceled',
-};
+declare interface IInitialRequests {
+  purchase?: Observable<IHttpResponse>;
+  products: Observable<IHttpResponse>;
+  paymentMethods: Observable<IHttpResponse>;
+  users: Observable<IHttpResponse>;
+}
+declare interface IInitialResponse {
+  purchase?: IHttpResponse;
+  products: IHttpResponse;
+  paymentMethods: IHttpResponse;
+  users: IHttpResponse;
+}
 
 @Component({
   selector: 'app-purchase-details',
@@ -28,30 +40,35 @@ export const PURCHASE_STATUS_ENUM = {
   styleUrls: ['./purchase-details.component.scss'],
 })
 export class PurchaseDetailsComponent implements OnInit {
-  breadcrumb: IBreadcrumb = [{ label: 'Purchase', path: '/purchases', isLink: true }];
+  breadcrumb: IBreadcrumb = [{ label: 'Purchases', path: '/purchases', isLink: true }];
 
-  purchaseId: string;
-  purchase: any;
+  databaseTimes: IDatabaseTimes;
+
   products: IOperationProduct[];
   paymentMethods: IPaymentMethod[];
   users: IUser[];
 
-  mongodbMongooseTime: number;
+  purchaseId: string;
+  associatedIds: IAssociatedIds;
+  purchase: IPurchase;
+
+  endpointPaths: IPaths;
 
   purchaseForm: FormGroup;
-  paymentMethodFormControl = new FormControl(null, Validators.required);
-  buyerFormControl = new FormControl();
-  totalValue = 0;
 
   pageTitle = 'Loading...';
 
   isNewPurchase: boolean;
 
   showPageData = false;
+  showLoadingArea = false;
+
+  paymentMethodFormControl = new FormControl(null, Validators.required);
+  sellerFormControl = new FormControl();
+  totalValue = 0;
 
   removedProducts: any[] = [];
 
-  purchaseStatus = PURCHASE_STATUS_ENUM;
   productsDataSource: MatTableDataSource<AbstractControl>;
   productTableColumns = ['product', 'amount', 'value', 'subtotal', 'remove'];
 
@@ -71,328 +88,381 @@ export class PurchaseDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // this.purchaseId = this.route.snapshot.paramMap.get('id');
-    // this.isNewPurchase = this.purchaseId ? false : true;
-    // if (!this.isNewPurchase) {
-    //   forkJoin(
-    //     this.purchaseApi.getPurchase(this.purchaseId),
-    //     this.productApi.getProducts(this.utils.mongodbMongooseBaseUrl),
-    //     this.paymentMethodApi.getPaymentMethods(),
-    //     this.usersApi.getUsers()
-    //   ).subscribe((res) => {
-    //     const [purchaseRes, productRes, paymentMethodRes, userRes] = res;
-    //     this.purchase = purchaseRes.res;
-    //     this.products = productRes.res;
-    //     this.paymentMethods = paymentMethodRes.res;
-    //     this.users = userRes.res;
-    //     this.mongodbMongooseTime = this.utils.getGreatestTime([
-    //       purchaseRes.time,
-    //       productRes.time,
-    //       paymentMethodRes.time,
-    //       userRes.time,
-    //     ]);
-    //     this.purchase.products = this.removeExcludedProducts();
-    //     this.createPurchaseForm();
-    //     this.listenSearchInputChages();
-    //     this.listenProductChanges();
-    //     this.initFormControlsData();
-    //     this.activateFilters();
-    //     this.setProductsDataSource(this.utils.getFormArrayControl(this.purchaseForm, ['products']));
-    //     this.pageTitle = 'Edit purchase';
-    //     this.showPageData = true;
-    //   });
-    // } else {
-    //   forkJoin(
-    //     this.productApi.getProducts(this.utils.mongodbMongooseBaseUrl),
-    //     this.paymentMethodApi.getPaymentMethods(),
-    //     this.usersApi.getUsers()
-    //   ).subscribe((res) => {
-    //     const [productRes, paymentMethodRes, userRes] = res;
-    //     this.products = productRes.res;
-    //     this.paymentMethods = paymentMethodRes.res;
-    //     this.users = userRes.res;
-    //     this.mongodbMongooseTime = this.utils.getGreatestTime([productRes.time, paymentMethodRes.time, userRes.time]);
-    //     this.createPurchaseForm();
-    //     this.listenSearchInputChages();
-    //     this.listenProductChanges();
-    //     this.addProduct();
-    //     this.setProductsDataSource(this.utils.getFormArrayControl(this.purchaseForm, ['products']));
-    //     this.pageTitle = 'New purchase';
-    //     this.showPageData = true;
-    //   });
-    // }
+    this.purchaseId = this.route.snapshot.paramMap.get('id');
+    this.isNewPurchase = this.purchaseId ? false : true;
+    if (!this.isNewPurchase) {
+      this.showLoadingArea = true;
+      this.route.params
+        .pipe(
+          switchMap((params) => {
+            this.associatedIds = this.getAssociatedIds(params);
+            this.endpointPaths = this.utils.getEndpointPaths('/purchases', this.associatedIds);
+            const initialRequests: IInitialRequests = {
+              purchase: this.purchaseApi.getPurchase(this.endpointPaths),
+              products: this.productApi.getProducts(),
+              paymentMethods: this.paymentMethodApi.getPaymentMethods(),
+              users: this.usersApi.getUsers(),
+            };
+            return forkJoin(initialRequests);
+          })
+        )
+        .subscribe((res: IInitialResponse) => {
+          this.databaseTimes = this.utils.setGreatestTimes(res);
+          const {
+            purchase: purchaseRes,
+            products: productsRes,
+            paymentMethods: paymentMethodsRes,
+            users: usersRes,
+          } = res;
+          this.products = this.getProducts(productsRes);
+          this.paymentMethods = this.getPaymentMethods(paymentMethodsRes);
+          this.users = this.getUsers(usersRes);
+          this.purchase = this.getPurchase(purchaseRes);
+          this.purchase.products = this.removeExcludedProducts();
+          this.createPurchaseForm();
+          this.listenSearchInputChages();
+          this.listenProductChanges();
+          this.initFormControlsData();
+          this.activateFilters();
+          this.setProductsDataSource(this.utils.getFormArrayControl(this.purchaseForm, ['products']));
+          this.pageTitle = 'Edit purchase';
+          this.showPageData = true;
+        });
+    } else {
+      const initialRequests: IInitialRequests = {
+        products: this.productApi.getProducts(),
+        paymentMethods: this.paymentMethodApi.getPaymentMethods(),
+        users: this.usersApi.getUsers(),
+      };
+      forkJoin(initialRequests).subscribe((res: IInitialResponse) => {
+        this.databaseTimes = this.utils.setGreatestTimes(res);
+        const { products: productsRes, paymentMethods: paymentMethodsRes, users: usersRes } = res;
+        this.products = this.getProducts(productsRes);
+        this.paymentMethods = this.getPaymentMethods(paymentMethodsRes);
+        this.users = this.getUsers(usersRes);
+        this.createPurchaseForm();
+        this.listenSearchInputChages();
+        this.listenProductChanges();
+        this.addProduct();
+        this.setProductsDataSource(this.utils.getFormArrayControl(this.purchaseForm, ['products']));
+        this.pageTitle = 'New purchase';
+        this.showPageData = true;
+      });
+    }
   }
 
-  // get purchaseStatusArr(): string[] {
-  //   return Object.keys(this.purchaseStatus);
-  // }
+  getAssociatedIds(params: Params): IAssociatedIds {
+    return { mongodbMongooseId: params.id, postgresSequelizeId: params.postgresSequelize };
+  }
 
-  // getPurchaseStatusText(code: string): string {
-  //   return this.purchaseStatus[code];
-  // }
+  getPurchase(res: IHttpResponse): IPurchase {
+    const purchase = res.mongodbMongoose.res;
 
-  // setProductsDataSource(formArray: FormArray): void {
-  //   const controls = formArray.controls;
-  //   this.productsDataSource = new MatTableDataSource(controls);
-  // }
+    const paymentMethodAssociatedIds = this.paymentMethods.find(
+      (paymentMethod) => paymentMethod.name === purchase.paymentMethod.name
+    )?.associatedIds;
+    purchase.paymentMethod = { ...purchase.paymentMethod, associatedIds: paymentMethodAssociatedIds };
 
-  // createPurchaseForm(): void {
-  //   this.purchaseForm = this.fb.group({
-  //     vendor: null,
-  //     status: ['300', Validators.required],
-  //     date: new Date(),
-  //     buyer: null,
-  //     products: this.fb.array([], Validators.required),
-  //     paymentMethod: this.fb.group(
-  //       {
-  //         paymentMethodRef: [null, Validators.required],
-  //         name: [null, Validators.required],
-  //       },
-  //       Validators.required
-  //     ),
-  //   });
-  // }
+    if (purchase.seller) {
+      const sellerAssociatedIds = this.users.find((user) => user.username === purchase.seller.username)?.associatedIds;
+      purchase.seller = { ...purchase.seller, associatedIds: sellerAssociatedIds };
+    }
 
-  // initFormControlsData(): void {
-  //   this.purchaseForm.reset();
-  //   this.purchaseForm.patchValue(this.purchase);
-  //   this.purchase.products.forEach((product: any) => {
-  //     this.addProduct(product);
-  //   });
-  //   this.paymentMethodFormControl.setValue(this.purchaseForm.get('paymentMethod').value);
-  //   this.buyerFormControl.setValue(this.purchaseForm.get('buyer').value);
-  // }
+    purchase.products = purchase.products.map((product: IProduct) => {
+      const productAssociatedId = this.products.find((_product) => _product.sku === product.sku)?.associatedIds;
 
-  // activateFilters(): void {
-  //   const control = <FormArray>this.purchaseForm.get('products');
-  //   control.value.forEach((product: any, index: number) => {
-  //     this.searchInputs[index].setValue(product);
-  //   });
-  // }
+      return { ...product, associatedIds: productAssociatedId };
+    });
 
-  // removeExcludedProducts(): any[] {
-  //   return this.purchase.products.filter((product) => {
-  //     if (product.productRef) {
-  //       return true;
-  //     } else {
-  //       this.removedProducts.push(`(${product.sku}) ${product.name}`);
-  //       return false;
-  //     }
-  //   });
-  // }
+    return { ...purchase, associatedIds: this.associatedIds };
+  }
 
-  // listenSearchInputChages(): void {
-  //   this.searchInputs.forEach((searchInput, index) => {
-  //     this.filteredProductsArray$[index] = searchInput.valueChanges.pipe(
-  //       startWith(''),
-  //       map((value: any) => (typeof value === 'object' ? value?.name : value)),
-  //       map((value: any) => (value ? this.filterProducts(value) : this.products.slice()))
-  //     );
-  //   });
-  // }
+  getProducts(res: IHttpResponse): IOperationProduct[] {
+    const productByServer: IServersResponseData = this.utils.splitResponsesByServerId(res);
+    return this.utils.appendAssociatedIdsByUniqueCommonData(productByServer, 'sku');
+  }
 
-  // filterProducts(name: string): IOperationProduct[] {
-  //   const value = name.toLowerCase();
-  //   return this.products.filter((product) => {
-  //     const nameStr = product.name.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-  //     const normalizedProductStr = `(${product.sku}) ${nameStr}`;
-  //     const optionStr = `(${product.sku}) ${product.name}`;
-  //     return normalizedProductStr.toLowerCase().includes(value) || optionStr.toLowerCase().includes(value);
-  //   });
-  // }
+  getPaymentMethods(res: IHttpResponse): IPaymentMethod[] {
+    const paymentMethodsByServer: IServersResponseData = this.utils.splitResponsesByServerId(res);
+    return this.utils.appendAssociatedIdsByUniqueCommonData(paymentMethodsByServer, 'name');
+  }
 
-  // listenProductChanges(): void {
-  //   const control = <FormArray>this.purchaseForm.get('products');
-  //   control.valueChanges.subscribe(() => this.calculateTotalValue());
-  // }
+  getUsers(res: IHttpResponse): IUser[] {
+    const usersByServer: IServersResponseData = this.utils.splitResponsesByServerId(res);
+    return this.utils.appendAssociatedIdsByUniqueCommonData(usersByServer, 'username');
+  }
 
-  // calculateTotalValue(): void {
-  //   const control = <FormArray>this.purchaseForm.get('products');
-  //   const value = control.value.reduce((value, product) => (value += product.amount * product.price), 0) || 0;
-  //   this.totalValue = this.utils.round(value, 2);
-  // }
+  setProductsDataSource(formArray: FormArray): void {
+    const controls = formArray.controls;
+    this.productsDataSource = new MatTableDataSource(controls);
+  }
 
-  // displayProduct(product: IOperationProduct): string {
-  //   return product ? `(${product.sku}) ${product.name}` : '';
-  // }
+  createPurchaseForm(): void {
+    this.purchaseForm = this.fb.group({
+      vendor: null,
+      date: new Date(),
+      products: this.fb.array([], Validators.required),
+      paymentMethod: this.fb.group(
+        {
+          associatedIds: [null, Validators.required],
+          paymentMethodRef: [null, Validators.required],
+          name: [null, Validators.required],
+        },
+        Validators.required
+      ),
+      seller: null,
+    });
+  }
 
-  // createProduct(product: any = null): FormGroup {
-  //   return this.fb.group({
-  //     productRef: [product?.productRef || product?._id || null, Validators.required],
-  //     sku: [product?.sku || null, Validators.required],
-  //     name: [product?.name || null, Validators.required],
-  //     category: product?.category || null,
-  //     unit: product?.unit || null,
-  //     amount: [{ value: product?.amount || null, disabled: product ? false : true }, Validators.required],
-  //     price: [{ value: product?.price || null, disabled: product ? false : true }, Validators.required],
-  //     subtotal: product?.amount && product.price ? product.amount * product.price : null,
-  //   });
-  // }
+  initFormControlsData(): void {
+    this.purchaseForm.reset();
+    this.purchaseForm.patchValue(this.purchase);
+    this.purchase.products.forEach((product: any) => {
+      this.addProduct(product);
+    });
 
-  // addProduct(product: any = null): void {
-  //   this.addSearchInput();
-  //   this.addFilteredProducts$();
-  //   const control = <FormArray>this.purchaseForm.get('products');
-  //   control.push(this.createProduct(product));
-  //   this.setProductsDataSource(this.utils.getFormArrayControl(this.purchaseForm, ['products']));
-  //   this.listenSearchInputChages();
-  // }
+    this.paymentMethodFormControl.setValue(this.purchaseForm.get('paymentMethod').value);
+    this.sellerFormControl.setValue(this.purchaseForm.get('seller').value);
+  }
 
-  // removeProduct(index: number): void {
-  //   const control = this.utils.getFormArrayControl(this.purchaseForm, ['products']);
-  //   control.removeAt(index);
-  //   this.setProductsDataSource(this.utils.getFormArrayControl(this.purchaseForm, ['products']));
-  //   this.removerSearchInput(index);
-  //   this.removerFilteredProducts$(index);
-  //   this.listenSearchInputChages();
-  // }
+  activateFilters(): void {
+    const control = <FormArray>this.purchaseForm.get('products');
+    control.value.forEach((product: any, index: number) => {
+      this.searchInputs[index].setValue(product);
+    });
+  }
 
-  // addSearchInput(): void {
-  //   this.searchInputs.push(new FormControl(null, Validators.required));
-  // }
+  removeExcludedProducts(): any[] {
+    return this.purchase.products.filter((product) => {
+      if (product.productRef) {
+        return true;
+      } else {
+        this.removedProducts.push(`(${product.sku}) ${product.name}`);
+        return false;
+      }
+    });
+  }
 
-  // addFilteredProducts$(): void {
-  //   this.filteredProductsArray$.push(of([]));
-  // }
+  listenSearchInputChages(): void {
+    this.searchInputs.forEach((searchInput, index) => {
+      this.filteredProductsArray$[index] = searchInput.valueChanges.pipe(
+        startWith(''),
+        map((value: any) => (typeof value === 'object' ? value?.name : value)),
+        map((value: any) => (value ? this.filterProducts(value) : this.products.slice()))
+      );
+    });
+  }
 
-  // removerSearchInput(index: number): void {
-  //   this.searchInputs = this.searchInputs.filter((_, i) => i !== index);
-  // }
+  filterProducts(name: string): IOperationProduct[] {
+    const value = name.toLowerCase();
 
-  // removerFilteredProducts$(index: number): void {
-  //   this.filteredProductsArray$ = this.filteredProductsArray$.filter((_, i) => i !== index);
-  // }
+    return this.products.filter((product) => {
+      const nameStr = product.name.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+      const normalizedProductStr = `(${product.sku}) ${nameStr}`;
+      const optionStr = `(${product.sku}) ${product.name}`;
+      return normalizedProductStr.toLowerCase().includes(value) || optionStr.toLowerCase().includes(value);
+    });
+  }
 
-  // handleProductSelection(product: any, index: number): void {
-  //   const control = <FormArray>this.purchaseForm.get('products');
-  //   const productAlreadyAdded = control.value.find((addedProduct) => addedProduct.productRef === product._id);
-  //   if (productAlreadyAdded) {
-  //     this.sharedComponents.openSnackbarWarning('Product already added');
-  //     control.at(index).reset();
-  //     this.searchInputs[index].reset();
-  //   } else {
-  //     this.initProductData(product, index);
-  //   }
-  // }
+  listenProductChanges(): void {
+    const control = <FormArray>this.purchaseForm.get('products');
+    control.valueChanges.subscribe(() => this.calculateTotalValue());
+  }
 
-  // initProductData(product: any, index: number): void {
-  //   const controle = <FormArray>this.purchaseForm.get('products');
-  //   const productFormValue = {
-  //     ...product,
-  //     productRef: product._id,
-  //     amount: 1,
-  //     price: product.costPrice || 0,
-  //     subtotal: product.purchasePrice,
-  //   };
-  //   if (product.unit) {
-  //     productFormValue.unit = {
-  //       unitRef: product.unit._id,
-  //       shortUnit: product.unit.shortUnit,
-  //     };
-  //   }
-  //   controle.at(index).patchValue(productFormValue);
-  //   controle.at(index).get('amount').enable();
-  //   controle.at(index).get('price').enable();
-  // }
+  calculateTotalValue(): void {
+    const control = <FormArray>this.purchaseForm.get('products');
+    const value = control.value.reduce((value, product) => (value += product.amount * product.price), 0) || 0;
+    this.totalValue = this.utils.round(value, 2);
+  }
 
-  // getProductTotalValue(index: number): number {
-  //   const control = <FormArray>this.purchaseForm.get('products');
-  //   const amount = control.at(index).get('amount').value;
-  //   const price = control.at(index).get('price').value;
-  //   return this.utils.round(amount * price, 2) || 0;
-  // }
+  displayProduct(product: IOperationProduct): string {
+    return product ? `(${product.sku}) ${product.name}` : '';
+  }
 
-  // validateAmount(index: number): void {
-  //   const control = <FormArray>this.purchaseForm.get('products');
-  //   const amount = control.at(index).get('amount').value;
-  //   if (amount <= 0) {
-  //     this.sharedComponents.openSnackbarWarning('Invalid amount');
-  //     control.at(index).patchValue({ amount: 1 });
-  //   }
-  // }
+  createProduct(product: any = null): FormGroup {
+    return this.fb.group({
+      associatedIds: product?.associatedIds,
+      productRef: [product?.productRef || product?._id || null, Validators.required],
+      sku: [product?.sku || null, Validators.required],
+      name: [product?.name || null, Validators.required],
+      category: product?.category || null,
+      unit: product?.unit || null,
+      amount: [{ value: product?.amount || null, disabled: product ? false : true }, Validators.required],
+      price: [{ value: product?.price || null, disabled: product ? false : true }, Validators.required],
+      subtotal: product?.amount && product.price ? product.amount * product.price : null,
+    });
+  }
 
-  // validatePrice(index: number): void {
-  //   const controle = <FormArray>this.purchaseForm.get('products');
-  //   const price = controle.at(index).get('price').value;
-  //   if (price <= 0) {
-  //     this.sharedComponents.openSnackbarWarning('Invalid price');
-  //     controle.at(index).patchValue({ price: controle.at(index).get('price').value });
-  //   }
-  // }
+  addProduct(product: any = null): void {
+    this.addSearchInput();
+    this.addFilteredProducts$();
+    const control = <FormArray>this.purchaseForm.get('products');
+    control.push(this.createProduct(product));
+    this.setProductsDataSource(this.utils.getFormArrayControl(this.purchaseForm, ['products']));
+    this.listenSearchInputChages();
+  }
 
-  // isLastFormArrayItemInvalid(): boolean {
-  //   const control = <FormArray>this.purchaseForm.get('products');
-  //   return control.at(control.length - 1).invalid;
-  // }
+  removeProduct(index: number): void {
+    const control = this.utils.getFormArrayControl(this.purchaseForm, ['products']);
+    control.removeAt(index);
+    this.setProductsDataSource(this.utils.getFormArrayControl(this.purchaseForm, ['products']));
+    this.removerSearchInput(index);
+    this.removerFilteredProducts$(index);
+    this.listenSearchInputChages();
+  }
 
-  // handlePaymentMethodSelection(payment: any): void {
-  //   const paymentMethodFormValue = { ...payment, paymentMethodRef: payment._id };
-  //   this.purchaseForm.get('paymentMethod').patchValue(paymentMethodFormValue);
-  // }
+  addSearchInput(): void {
+    this.searchInputs.push(new FormControl(null, Validators.required));
+  }
 
-  // handleBuyerSelection(buyer: IUser): void {
-  //   this.purchaseForm.get('buyer').setValue(buyer._id);
-  // }
+  addFilteredProducts$(): void {
+    this.filteredProductsArray$.push(of([]));
+  }
 
-  // comparePaymentMethod(option: any, selection: any) {
-  //   return (
-  //     option &&
-  //     selection &&
-  //     (option._id === selection.paymentMethodRef || option.paymentMethodRef === selection.paymentMethodRef)
-  //   );
-  // }
+  removerSearchInput(index: number): void {
+    this.searchInputs = this.searchInputs.filter((_, i) => i !== index);
+  }
 
-  // compareBuyer(option: any, selection: any) {
-  //   return option && selection && option._id === selection._id;
-  // }
+  removerFilteredProducts$(index: number): void {
+    this.filteredProductsArray$ = this.filteredProductsArray$.filter((_, i) => i !== index);
+  }
 
-  // savePurchase(): void {
-  //   if (this.purchaseForm.invalid) {
-  //     this.sharedComponents.openSnackbarWarning('There are fields with invalid values');
-  //   } else {
-  //     if (this.isNewPurchase) {
-  //       const purchase = this.purchaseForm.value;
-  //       this.sharedComponents
-  //         .openLoadingDialog(this.purchaseApi.createPurchase(purchase))
-  //         .beforeClosed()
-  //         .subscribe((purchaseRes: IHttpRes) => {
-  //           if (purchaseRes) {
-  //             this.router.navigate(['/purchases', 'edit', purchaseRes.res._id]);
-  //           }
-  //         });
-  //     } else {
-  //       const purchase = this.purchaseForm.value;
-  //       this.sharedComponents
-  //         .openLoadingDialog(this.purchaseApi.editPurchase(this.purchaseId, purchase))
-  //         .beforeClosed()
-  //         .subscribe((purchaseRes: IHttpRes) => {
-  //           if (purchaseRes) {
-  //             this.ngOnInit();
-  //           }
-  //         });
-  //     }
-  //   }
-  // }
+  handleProductSelection(product: any, index: number): void {
+    const control = <FormArray>this.purchaseForm.get('products');
+    const productAlreadyAdded = control.value.find((addedProduct) => addedProduct.productRef === product._id);
+    if (productAlreadyAdded) {
+      this.sharedComponents.openSnackbarWarning('Product already added');
+      control.at(index).reset();
+      this.searchInputs[index].reset();
+    } else {
+      this.initProductData(product, index);
+    }
+  }
 
-  // removePurchase(): void {
-  //   const message = '<p>This purchase will be removed. Product amount will be recovered. Are you sure?</p>';
-  //   this.sharedComponents
-  //     .openDialogConfirmation('warning', 'warn', 'Remove purchase', message, 'Remove purchase')
-  //     .beforeClosed()
-  //     .pipe(
-  //       switchMap((confirmation: IConfirmation) => {
-  //         if (confirmation?.confirmed) {
-  //           return this.sharedComponents
-  //             .openLoadingDialog(this.purchaseApi.removePurchase(this.purchaseId))
-  //             .beforeClosed();
-  //         }
-  //         return of();
-  //       })
-  //     )
-  //     .subscribe((res: any) => {
-  //       if (res) {
-  //         this.router.navigate(['/purchases']);
-  //       }
-  //     });
-  // }
+  initProductData(product: any, index: number): void {
+    const controle = <FormArray>this.purchaseForm.get('products');
+    const productFormValue = {
+      ...product,
+      productRef: product._id,
+      amount: 1,
+      price: product.costPrice || 0,
+      subtotal: product.costPrice,
+    };
+    if (product.unit) {
+      productFormValue.unit = {
+        unitRef: product.unit._id,
+        shortUnit: product.unit.shortUnit,
+      };
+    }
+    controle.at(index).patchValue(productFormValue);
+    controle.at(index).get('amount').enable();
+    controle.at(index).get('price').enable();
+  }
+
+  getProductTotalValue(index: number): number {
+    const control = <FormArray>this.purchaseForm.get('products');
+    const amount = control.at(index).get('amount').value;
+    const price = control.at(index).get('price').value;
+    return this.utils.round(amount * price, 2) || 0;
+  }
+
+  validateAmount(index: number): void {
+    const control = <FormArray>this.purchaseForm.get('products');
+    const amount = control.at(index).get('amount').value;
+    if (amount <= 0) {
+      this.sharedComponents.openSnackbarWarning('Invalid amount');
+      control.at(index).patchValue({ amount: 1 });
+    }
+  }
+
+  validatePrice(index: number): void {
+    const controle = <FormArray>this.purchaseForm.get('products');
+    const price = controle.at(index).get('price').value;
+    if (price <= 0) {
+      this.sharedComponents.openSnackbarWarning('Invalid price');
+      controle.at(index).patchValue({ price: controle.at(index).get('price').value });
+    }
+  }
+
+  isLastFormArrayItemInvalid(): boolean {
+    const control = <FormArray>this.purchaseForm.get('products');
+    return control.at(control.length - 1)?.invalid;
+  }
+
+  handlePaymentMethodSelection(payment: IPaymentMethod): void {
+    const paymentMethodFormValue = { ...payment, paymentMethodRef: payment._id };
+    this.purchaseForm.get('paymentMethod').patchValue(paymentMethodFormValue);
+  }
+
+  handleSellerSelection(seller: IUser): void {
+    this.purchaseForm.get('seller').setValue(seller);
+  }
+
+  comparePaymentMethod(option: any, selection: any) {
+    return (
+      option &&
+      selection &&
+      (option._id === selection.paymentMethodRef || option.paymentMethodRef === selection.paymentMethodRef)
+    );
+  }
+
+  compareSeller(option: any, selection: any) {
+    return option && selection && option._id === selection._id;
+  }
+
+  savePurchase(): void {
+    console.log(this.purchaseForm.value);
+    const controls = this.purchaseForm.controls;
+    for (const name in controls) {
+      if (controls[name].invalid) {
+        console.log(name);
+      }
+    }
+
+    if (this.purchaseForm.invalid) {
+      this.sharedComponents.openSnackbarWarning('There are fields with invalid values');
+    } else {
+      const purchase = { ...this.purchaseForm.value, timestamp: new Date().getTime() };
+      if (this.isNewPurchase) {
+        this.sharedComponents
+          .openLoadingDialog(this.purchaseApi.createPurchase(purchase))
+          .beforeClosed()
+          .subscribe((res: IHttpResponse) => {
+            const params = {
+              postgresSequelize: res.postgresSequelize.res._id,
+            };
+            this.router.navigate(['/purchases', 'edit', res.mongodbMongoose.res._id, params]);
+          });
+      } else {
+        this.sharedComponents
+          .openLoadingDialog(this.purchaseApi.editPurchase(this.endpointPaths, purchase))
+          .beforeClosed()
+          .subscribe((res: IHttpResponse) => {
+            this.ngOnInit();
+          });
+      }
+    }
+  }
+
+  removePurchase(): void {
+    const message = '<p>This purchase will be removed. Product amount will be recovered. Are you sure?</p>';
+    this.sharedComponents
+      .openDialogConfirmation('warning', 'warn', 'Remove purchase', message, 'Remove purchase')
+      .beforeClosed()
+      .pipe(
+        switchMap((confirmation: IConfirmation) => {
+          if (confirmation?.confirmed) {
+            return this.sharedComponents
+              .openLoadingDialog(this.purchaseApi.removePurchase(this.endpointPaths))
+              .beforeClosed();
+          }
+          return of();
+        })
+      )
+      .subscribe((res: any) => {
+        if (res) {
+          this.router.navigate(['/purchases']);
+        }
+      });
+  }
 }

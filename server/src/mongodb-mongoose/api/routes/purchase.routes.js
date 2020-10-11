@@ -6,6 +6,14 @@ const { purchaseService } = require('../../services');
 const { timer } = require('../../../modules');
 const { withTransaction } = require('../middlewares');
 
+function nomalizePurchase(purchase) {
+  if (purchase.buyer) {
+    purchase.buyer = purchase.buyer._id;
+  }
+
+  return purchase;
+}
+
 module.exports = (app) => {
   app.use('/purchases', router);
 
@@ -28,11 +36,13 @@ module.exports = (app) => {
   });
 
   router.post('/add', async (req, res, next) => {
+    const _purchase = nomalizePurchase(req.body);
+
     try {
       timer.startTimer();
 
       const purchase = await withTransaction(async (session) => {
-        return purchaseService.add(req.body, session);
+        return purchaseService.add(_purchase, session);
       });
 
       const diffTime = timer.diffTimer();
@@ -58,11 +68,13 @@ module.exports = (app) => {
   });
 
   router.post('/:purchaseId', async (req, res, next) => {
+    const _purchase = nomalizePurchase(req.body);
+
     try {
       timer.startTimer();
 
       const purchase = await withTransaction(async (session) => {
-        return purchaseService.edit(req.params.purchaseId, req.body, session);
+        return purchaseService.edit(req.params.purchaseId, _purchase, session);
       });
 
       const diffTime = timer.diffTimer();

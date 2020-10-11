@@ -12,5 +12,5 @@ module.exports = async function removeCategory(categoryId) {
     throw new Error('Can not remove category with children categories');
   }
 
-  return Category.destroy({ where: { _id: categoryId } });
+  return Category.update({ removed: true }, { where: { _id: categoryId } });
 };

@@ -117,7 +117,7 @@ export class UserDetailsComponent implements OnInit {
           const params = {
             postgresSequelize: res.postgresSequelize.res._id,
           };
-          this.router.navigate(['/users', 'edit', res.mongodbMongoose.res._id, params]);
+          this.router.navigate(['/settings', 'users', 'edit', res.mongodbMongoose.res._id, params]);
         });
     } else {
       const user = this.userForm.value;

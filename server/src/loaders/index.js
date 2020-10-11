@@ -16,8 +16,8 @@ module.exports = async (app, serverId, serverName) => {
       break;
     case 'postgres-sequelize':
       await postgresSequelizeDb;
-      // await postgresSequelizeDb.sync({ force: true });
-      await postgresSequelizeDb.sync({ alter: { drop: false } });
+      await postgresSequelizeDb.sync({ force: true });
+      // await postgresSequelizeDb.sync({ alter: { drop: false } });
       break;
     default:
       throw new Error(`Can't stablish connection with database of server ${serverId}`);

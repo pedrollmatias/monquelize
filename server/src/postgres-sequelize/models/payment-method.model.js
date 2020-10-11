@@ -19,6 +19,11 @@ const PaymentMethod = sequelize.define(
       type: DataTypes.BOOLEAN,
       allowNull: false,
     },
+    removed: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false,
+    },
   },
   {
     tableName: 'payment_methods',

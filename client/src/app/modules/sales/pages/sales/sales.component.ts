@@ -6,6 +6,11 @@ import { MatPaginator } from '@angular/material/paginator';
 import { IDateRange } from 'src/app/shared/models/date-range.model';
 import { UtilsService } from 'src/app/core/services/utils.service';
 import { IDateSelector } from 'src/app/shared/models/date-selector.model';
+import { ISale } from 'src/app/shared/models/views.model';
+import { IAssociatedIds } from 'src/app/shared/models/associated-ids.model';
+import { IDatabaseTimes } from 'src/app/shared/models/database-times';
+import { IHttpResponse } from 'src/app/shared/models/http.model';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-sales',
@@ -19,49 +24,70 @@ export class SalesComponent implements OnInit {
     this.salesDataSource.paginator = paginator;
   }
 
-  sales: any[];
+  salesColumns: string[] = ['code', 'date', 'customer', 'totalValue', 'seller'];
+  salesDataSource = new MatTableDataSource<ISale>();
 
-  mongodbMongooseTime: number;
+  sales: ISale[];
 
-  salesColumns: string[] = ['code', 'date', 'customer', 'totalValue', 'seller', 'status'];
-  salesDataSource = new MatTableDataSource<any>();
+  databaseTimes: IDatabaseTimes;
+  associatedIds: IAssociatedIds;
 
   dateRange: IDateRange;
 
-  constructor(private saleApi: ApiSaleService, public utils: UtilsService) {}
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private saleApi: ApiSaleService,
+    public utils: UtilsService
+  ) {}
 
   ngOnInit(): void {
-    // this.dateRange = this.utils.getMonthRange(this.utils.getCurrentDate());
-    // this.fetchData();
+    this.dateRange = this.utils.getMonthRange(this.utils.getCurrentDate());
+    this.fetchData();
   }
 
-  // fetchData(): void {
-  //   const query = { startDate: this.dateRange.start.toString(), endDate: this.dateRange.end.toString() };
-  //   this.saleApi.getSales(query).subscribe((saleRes) => {
-  //     this.sales = <any[]>saleRes.res;
-  //     this.mongodbMongooseTime = saleRes.time;
-  //     this.setDataSource(this.sales);
-  //   });
-  // }
+  fetchData(): void {
+    const query = { startDate: this.dateRange.start.toString(), endDate: this.dateRange.end.toString() };
+    this.saleApi.getSales(query).subscribe((res: IHttpResponse) => {
+      this.databaseTimes = this.utils.setTimes(res);
+      this.sales = this.getSales(res);
+      this.setDataSource(this.sales);
+    });
+  }
 
-  // setDataSource(sales: any[]): void {
-  //   this.salesDataSource = new MatTableDataSource(sales);
-  //   this.salesDataSource.paginator = this.paginator;
-  // }
+  getSales(res: IHttpResponse): ISale[] {
+    const salesByServer: IHttpResponse = this.utils.splitResponsesByServerId(res);
+    return this.utils.appendAssociatedIdsByUniqueCommonData(salesByServer, 'timestamp');
+  }
 
-  // resetData(): void {
-  //   this.mongodbMongooseTime = null;
-  //   this.sales = undefined;
-  // }
+  setDataSource(sale: ISale[]): void {
+    this.salesDataSource = new MatTableDataSource(sale);
+    this.salesDataSource.paginator = this.paginator;
+  }
 
-  // refreshComponent(): void {
-  //   this.resetData();
-  //   this.fetchData();
-  // }
+  navigateToEditSale(sale: ISale): void {
+    const params = {
+      ...(sale.associatedIds.postgresSequelizeId && {
+        postgresSequelize: sale.associatedIds.postgresSequelizeId,
+      }),
+    };
+    const options = { relativeTo: this.route };
+    this.router.navigate(['edit', sale._id, params], options);
+  }
 
-  // onDateRangeChange(dateSelector: IDateSelector): void {
-  //   this.dateRange = dateSelector.dateRange;
-  //   this.resetData();
-  //   this.fetchData();
-  // }
+  resetData(): void {
+    this.databaseTimes = this.utils.resetTimes();
+    this.sales = undefined;
+  }
+
+  refreshComponent(): void {
+    this.resetData();
+    this.fetchData();
+  }
+
+  onDateRangeChange(dateSelector: IDateSelector): void {
+    this.dateRange = dateSelector.dateRange;
+    this.resetData();
+    this.fetchData();
+  }
 }

@@ -1,17 +1,11 @@
 'use strict';
 
-const { DataTypes } = require('sequelize');
-// const Product = require('./product.model');
-// const SaleProduct = require('./sale-product.model');
 const User = require('./user.model');
-const sequelize = require('../../loaders/databases/postgres-sequelize');
+const History = require('./history.model');
 const PaymentMethod = require('./payment-method.model');
 
-const saleStatusEnum = {
-  '100': 'Draft',
-  '300': 'Done',
-  '400': 'Canceled',
-};
+const { DataTypes } = require('sequelize');
+const sequelize = require('../../loaders/databases/postgres-sequelize');
 
 const Sale = sequelize.define(
   'sale',
@@ -21,19 +15,15 @@ const Sale = sequelize.define(
       autoIncrement: true,
       primaryKey: true,
     },
+    timestamp: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     date: {
       type: DataTypes.DATEONLY,
       allowNull: false,
     },
-    status: {
-      type: DataTypes.INTEGER,
-      enum: Object.keys(saleStatusEnum),
-      defaultValue: '100',
-    },
     customer: {
-      type: DataTypes.STRING,
-    },
-    vendor: {
       type: DataTypes.STRING,
     },
   },
@@ -47,7 +37,8 @@ const Sale = sequelize.define(
   }
 );
 
-Sale.hasOne(User);
-Sale.hasOne(PaymentMethod);
+Sale.belongsTo(User, { foreignKey: 'sellerId' });
+Sale.belongsTo(PaymentMethod);
+Sale.hasMany(History);
 
 module.exports = Sale;

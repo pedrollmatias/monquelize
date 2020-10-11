@@ -8,18 +8,15 @@ module.exports = async function addSale(data, session) {
 
   await sale.populate(queryPopulate).execPopulate();
 
-  if (sale.status === '300') {
-    for (const product of sale.products) {
-      const productDoc = await productModel.retrieve(product.productRef, session);
-      const productInventory = productDoc.inventory;
-      const productHistory = productDoc.history || [];
+  for (const product of sale.products) {
+    const productDoc = await productModel.retrieve(product.productRef, session);
+    const productHistory = productDoc.history || [];
+    const currentAmount = productDoc.currentAmount - product.amount;
 
-      productInventory.currentAmount -= product.amount;
-      productHistory.push({ date: Date.now(), movementType: '200', amount: product.amount });
-      const data = { inventory: productInventory, history: productHistory };
+    productHistory.push({ date: Date.now(), movementType: '200', amount: product.amount });
+    const data = { currentAmount, history: productHistory };
 
-      await productDoc.edit(data);
-    }
+    await productDoc.edit(data);
   }
 
   return sale;

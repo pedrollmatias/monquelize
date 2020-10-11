@@ -5,13 +5,6 @@ const Schema = mongoose.Schema;
 const sequenceModel = require('./sequence.model');
 const { mongooseModelMethodsFactory } = require('../../modules');
 
-const saleStatusEnum = {
-  '100': 'Draft',
-  '200': 'Budget',
-  '300': 'Done',
-  '400': 'Canceled',
-};
-
 const opts = {
   collection: 'sales',
   toObject: { virtuals: true },
@@ -26,6 +19,10 @@ const saleSchema = new Schema(
       immutable: true,
       required: true,
     },
+    timestamp: {
+      type: String,
+      required: true,
+    },
     customer: {
       type: String,
       trim: true,
@@ -33,11 +30,6 @@ const saleSchema = new Schema(
     date: {
       type: Date,
       default: Date.now,
-    },
-    status: {
-      type: String,
-      enum: Object.keys(saleStatusEnum),
-      default: '100',
     },
     products: [
       {
@@ -113,14 +105,6 @@ saleSchema.pre('validate', async function () {
 
     await sequenceDoc.save();
     sale.code = 1;
-  }
-});
-
-saleSchema.pre('remove', function () {
-  const sale = this;
-
-  if (['100', '200'].includes(sale.status)) {
-    throw new Error('Only done or canceled sales can be removed');
   }
 });
 

@@ -3,10 +3,6 @@
 const { Category } = require('../../models');
 
 module.exports = async function validateCategory(category) {
-  if (/>/.test(category.name)) {
-    throw new Error('The category name can not have the character ">"');
-  }
-
   if (category.parent) {
     const parent = await Category.findOne({
       where: { _id: category.parent.associatedIds.postgresSequelizeId },

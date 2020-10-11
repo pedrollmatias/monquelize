@@ -1,9 +1,16 @@
 'use strict';
 
-const { Product } = require('../../models');
+const { Product, History } = require('../../models');
 
-module.exports = function addProduct(product) {
-  const _product = { ...product, ...product.inventory };
+module.exports = async function addProduct(productData) {
+  const product = await Product.create(productData);
 
-  return Product.create(_product);
+  // Add product history register
+  if (productData.currentAmount) {
+    const history = await History.create({ amount: productData.currentAmount, movementType: '100' });
+
+    await product.addHistory(history);
+  }
+
+  return product;
 };

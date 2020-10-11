@@ -3,16 +3,16 @@
 const { purchaseModel, productModel } = require('../../models');
 
 module.exports = async function removePurchase(purchaseId, session) {
-  const purchase = await purchaseModel.retrieve(purchaseId, session);
+  const purchase = await purchaseModel.retrieve(purchaseId);
 
+  // Restore inventory of all products
   for (const product of purchase.products) {
     const productDoc = await productModel.retrieve(product.productRef, session);
-    const productInventory = productDoc.inventory;
     const productHistory = productDoc.history || [];
+    const currentAmount = productDoc.currentAmount - product.amount;
 
-    productInventory.currentAmount += productDoc.amount;
-    productHistory.push({ date: Date.now(), movementType: '100', amount: product.amount });
-    const data = { inventory: productInventory, history: productHistory };
+    productHistory.push({ date: Date.now(), movementType: '200', amount: product.amount });
+    const data = { currentAmount, history: productHistory };
 
     await productDoc.edit(data);
   }

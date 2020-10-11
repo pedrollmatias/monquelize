@@ -1,11 +1,11 @@
-<!-- <div class="container py-5">
+<div class="container py-5">
   <div class="pb-5">
     <span class="mat-headline m-0">
       <strong>Purchases</strong>
     </span>
   </div>
   <div class="pb-5">
-    <app-element-loading-area [mongodbMongooseTime]="mongodbMongooseTime"></app-element-loading-area>
+    <app-element-loading-area [databaseTimes]="databaseTimes"></app-element-loading-area>
   </div>
   <div class="d-flex justify-content-between pb-4">
     <div>
@@ -13,7 +13,7 @@
         icon="add"
         text="Add purchase"
         color="primary"
-        [routerLink]="['add']"
+        routerLink="add"
       ></app-element-button-icon-text>
     </div>
     <div class="d-flex align-items-center">
@@ -40,43 +40,36 @@
           <table mat-table [dataSource]="purchasesDataSource" class="w-100">
             <ng-container matColumnDef="code">
               <th mat-header-cell *matHeaderCellDef>#</th>
-              <td mat-cell class="cursor-pointer" *matCellDef="let purchase" [routerLink]="['edit', purchase._id]">
+              <td mat-cell class="cursor-pointer" *matCellDef="let purchase" (click)="navigateToEditPurchase(purchase)">
                 {{ purchase.code }}
               </td>
             </ng-container>
 
             <ng-container matColumnDef="date">
               <th mat-header-cell *matHeaderCellDef>Date</th>
-              <td mat-cell class="cursor-pointer" *matCellDef="let purchase" [routerLink]="['edit', purchase._id]">
+              <td mat-cell class="cursor-pointer" *matCellDef="let purchase" (click)="navigateToEditPurchase(purchase)">
                 {{ purchase.date }}
               </td>
             </ng-container>
 
             <ng-container matColumnDef="vendor">
               <th mat-header-cell *matHeaderCellDef>Vendor</th>
-              <td mat-cell class="cursor-pointer" *matCellDef="let purchase" [routerLink]="['edit', purchase._id]">
+              <td mat-cell class="cursor-pointer" *matCellDef="let purchase" (click)="navigateToEditPurchase(purchase)">
                 {{ purchase.vendor || '-' }}
               </td>
             </ng-container>
 
             <ng-container matColumnDef="totalValue">
               <th mat-header-cell *matHeaderCellDef>Total value</th>
-              <td mat-cell class="cursor-pointer" *matCellDef="let purchase" [routerLink]="['edit', purchase._id]">
+              <td mat-cell class="cursor-pointer" *matCellDef="let purchase" (click)="navigateToEditPurchase(purchase)">
                 $ {{ purchase.totalValue }}
               </td>
             </ng-container>
 
-            <ng-container matColumnDef="buyer">
-              <th mat-header-cell *matHeaderCellDef>Buyer</th>
-              <td mat-cell class="cursor-pointer" *matCellDef="let purchase" [routerLink]="['edit', purchase._id]">
-                {{ purchase.buyer?.fullName }}
-              </td>
-            </ng-container>
-
-            <ng-container matColumnDef="status">
-              <th mat-header-cell *matHeaderCellDef>Status</th>
-              <td mat-cell class="cursor-pointer" *matCellDef="let purchase" [routerLink]="['edit', purchase._id]">
-                {{ purchase.status }}
+            <ng-container matColumnDef="seller">
+              <th mat-header-cell *matHeaderCellDef>Seller</th>
+              <td mat-cell class="cursor-pointer" *matCellDef="let purchase" (click)="navigateToEditPurchase(purchase)">
+                {{ purchase.seller?.fullName }}
               </td>
             </ng-container>
 
@@ -96,4 +89,4 @@
       </div>
     </ng-template>
   </div>
-</div> -->
+</div>

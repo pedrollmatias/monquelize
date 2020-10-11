@@ -4,6 +4,7 @@ const express = require('express');
 const router = express.Router();
 const { productService } = require('../../services');
 const { timer } = require('../../../modules');
+const sequelize = require('../../../loaders/databases/postgres-sequelize');
 
 function normalizeProductBody(product) {
   const _product = { ...product, ...product.inventory };
@@ -47,15 +48,20 @@ module.exports = (app) => {
   router.post('/add', async (req, res, next) => {
     const _product = normalizeProductBody(req.body);
 
-    try {
-      timer.startTimer();
+    timer.startTimer();
+    const t = await sequelize.transaction();
 
+    try {
       const product = await productService.add(_product);
+
+      await t.commit();
 
       const diffTime = timer.diffTimer();
 
       res.send({ res: product, time: diffTime });
     } catch (err) {
+      await t.rollback();
+
       next(err);
     }
   });

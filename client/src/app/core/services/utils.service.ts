@@ -90,11 +90,18 @@ export class UtilsService {
     }, {});
   }
 
-  appendAssociatedIdsByUniqueCommonData(serversResponseData: IServersResponseData, path: string) {
+  appendAssociatedIdsByUniqueCommonData(
+    serversResponseData: IServersResponseData,
+    pathSource: string,
+    pathTarget?: string
+  ) {
+    pathTarget = pathTarget || pathSource;
     return serversResponseData.mongodbMongoose.map((data: any) => {
       const associatedIds: IAssociatedIds = {
         mongodbMongooseId: data._id,
-        postgresSequelizeId: serversResponseData.postgresSequelize.find((_data: any) => _data[path] === data[path])._id,
+        postgresSequelizeId: serversResponseData.postgresSequelize.find(
+          (_data: any) => _data[pathSource] === data[pathTarget]
+        )._id,
       };
 
       return { ...data, associatedIds };

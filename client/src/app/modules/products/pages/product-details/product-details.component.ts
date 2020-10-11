@@ -155,11 +155,9 @@ export class ProductDetailsComponent implements OnInit {
       unit: [null, Validators.required],
       salePrice: [null, Validators.required],
       costPrice: [null],
-      inventory: this.fb.group({
-        currentAmount: [0, Validators.required],
-        minAmount: [0, [Validators.required, Validators.min(0)]],
-        maxAmount: [null, Validators.min(0)],
-      }),
+      currentAmount: [null, this.isNewProduct ? [Validators.required, Validators.min(0)] : []],
+      minAmount: [0, this.isNewProduct ? [Validators.required, Validators.min(0)] : []],
+      maxAmount: [null, this.isNewProduct ? Validators.min(0) : []],
     });
   }
 
@@ -192,7 +190,6 @@ export class ProductDetailsComponent implements OnInit {
         });
     } else {
       const product = this.productForm.value;
-      console.log(product);
       this.sharedComponents
         .openLoadingDialog(this.productApi.editProduct(this.endpointPaths, product))
         .beforeClosed()

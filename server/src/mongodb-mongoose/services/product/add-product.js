@@ -2,8 +2,12 @@
 
 const { productModel, categoryModel } = require('../../models');
 
-module.exports = async function addProduct(data, session) {
-  const product = await productModel.add(data);
+module.exports = async function addProduct(productData, session) {
+  if (productData.currentAmount > 0) {
+    productData = { ...productData, history: [{ movementType: '100', amount: productData.currentAmount }] };
+  }
+
+  const product = await productModel.add(productData);
 
   const queryPopulate = [
     { path: 'category', select: 'name' },

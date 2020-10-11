@@ -3,5 +3,5 @@
 const { PaymentMethod } = require('../../models');
 
 module.exports = async function getPaymentMethod() {
-  return PaymentMethod.findAll();
+  return PaymentMethod.findAll({ where: { removed: false } });
 };

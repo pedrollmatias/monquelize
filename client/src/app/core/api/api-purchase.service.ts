@@ -1,38 +1,33 @@
 import { Injectable } from '@angular/core';
-// import { IHttpRes } from 'src/app/shared/models/http-res.model';
-// import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { IHttpResponse } from 'src/app/shared/models/http.model';
+import { IPaths } from 'src/app/shared/models/paths.model';
+import { IPurchase } from 'src/app/shared/models/views.model';
+import { UtilsService } from '../services/utils.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ApiPurchaseService {
-  baseUrl = 'http://localhost:9001/api';
+  constructor(private utils: UtilsService) {}
 
-  constructor(private http: HttpClient) {}
+  getPurchases(query: any = {}): Observable<IHttpResponse> {
+    return this.utils.multiRequests('GET', '/purchases', { params: query });
+  }
 
-  // getPurchases(query: any = {}): Observable<IHttpRes> {
-  //   const uri = `${this.baseUrl}/purchases`;
-  //   return this.http.get<IHttpRes>(uri, { params: query });
-  // }
+  getPurchase(paths: IPaths): Observable<IHttpResponse> {
+    return this.utils.multiRequests('GET', paths);
+  }
 
-  // getPurchase(purchaseId: string): Observable<IHttpRes> {
-  //   const uri = `${this.baseUrl}/purchases/${purchaseId}`;
-  //   return this.http.get<IHttpRes>(uri);
-  // }
+  createPurchase(purchase: IPurchase): Observable<IHttpResponse> {
+    return this.utils.multiRequests('POST', '/purchases/add', { body: purchase });
+  }
 
-  // createPurchase(purchase: any): Observable<IHttpRes> {
-  //   const uri = `${this.baseUrl}/purchases/add`;
-  //   return this.http.post<IHttpRes>(uri, purchase);
-  // }
+  editPurchase(paths: IPaths, purchase: IPurchase): Observable<IHttpResponse> {
+    return this.utils.multiRequests('POST', paths, { body: purchase });
+  }
 
-  // editPurchase(purchaseId: string, data: any): Observable<IHttpRes> {
-  //   const uri = `${this.baseUrl}/purchases/${purchaseId}`;
-  //   return this.http.post<IHttpRes>(uri, data);
-  // }
-
-  // removePurchase(purchaseId: string): Observable<IHttpRes> {
-  //   const uri = `${this.baseUrl}/purchases/${purchaseId}`;
-  //   return this.http.delete<IHttpRes>(uri);
-  // }
+  removePurchase(paths: IPaths): Observable<IHttpResponse> {
+    return this.utils.multiRequests('DELETE', paths);
+  }
 }

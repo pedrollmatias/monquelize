@@ -6,6 +6,14 @@ const { saleService } = require('../../services');
 const { timer } = require('../../../modules');
 const { withTransaction } = require('../middlewares');
 
+function nomalizeSale(sale) {
+  if (sale.seller) {
+    sale.seller = sale.seller._id;
+  }
+
+  return sale;
+}
+
 module.exports = (app) => {
   app.use('/sales', router);
 
@@ -28,11 +36,13 @@ module.exports = (app) => {
   });
 
   router.post('/add', async (req, res, next) => {
+    const _sale = nomalizeSale(req.body);
+
     try {
       timer.startTimer();
 
       const sale = await withTransaction(async (session) => {
-        return saleService.add(req.body, session);
+        return saleService.add(_sale, session);
       });
 
       const diffTime = timer.diffTimer();
@@ -58,11 +68,13 @@ module.exports = (app) => {
   });
 
   router.post('/:saleId', async (req, res, next) => {
+    const _sale = nomalizeSale(req.body);
+
     try {
       timer.startTimer();
 
       const sale = await withTransaction(async (session) => {
-        return saleService.edit(req.params.saleId, req.body, session);
+        return saleService.edit(req.params.saleId, _sale, session);
       });
 
       const diffTime = timer.diffTimer();
@@ -78,7 +90,7 @@ module.exports = (app) => {
       timer.startTimer();
 
       await withTransaction(async (session) => {
-        return saleService.remove(req.params.saleId, session);
+        return await saleService.remove(req.params.saleId, session);
       });
 
       const diffTime = timer.diffTimer();

@@ -1,15 +1,11 @@
 'use strict';
 
-const { DataTypes } = require('sequelize');
 const User = require('./user.model');
-const sequelize = require('../../loaders/databases/postgres-sequelize');
+const History = require('./history.model');
 const PaymentMethod = require('./payment-method.model');
 
-const purchaseStatusEnum = {
-  '100': 'Draft',
-  '300': 'Done',
-  '400': 'Canceled',
-};
+const { DataTypes } = require('sequelize');
+const sequelize = require('../../loaders/databases/postgres-sequelize');
 
 const Purchase = sequelize.define(
   'purchase',
@@ -19,17 +15,13 @@ const Purchase = sequelize.define(
       autoIncrement: true,
       primaryKey: true,
     },
+    timestamp: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     date: {
       type: DataTypes.DATEONLY,
       allowNull: false,
-    },
-    status: {
-      type: DataTypes.INTEGER,
-      enum: Object.keys(purchaseStatusEnum),
-      defaultValue: '100',
-    },
-    customer: {
-      type: DataTypes.STRING,
     },
     vendor: {
       type: DataTypes.STRING,
@@ -45,7 +37,8 @@ const Purchase = sequelize.define(
   }
 );
 
-Purchase.hasOne(User);
-Purchase.hasOne(PaymentMethod);
+Purchase.belongsTo(User, { foreignKey: 'buyerId' });
+Purchase.belongsTo(PaymentMethod);
+Purchase.hasMany(History);
 
 module.exports = Purchase;

@@ -31,23 +31,23 @@ const Product = sequelize.define(
       type: DataTypes.STRING,
     },
     salePrice: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.FLOAT,
       allowNull: false,
     },
     costPrice: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.FLOAT,
     },
     currentAmount: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.FLOAT,
+      allowNull: false,
+    },
+    minAmount: {
+      type: DataTypes.FLOAT,
       allowNull: false,
       defaultValue: 0,
     },
-    minAmount: {
-      type: DataTypes.INTEGER,
-      defaultValue: 0,
-    },
     maxAmount: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.FLOAT,
     },
     removed: {
       type: DataTypes.BOOLEAN,
@@ -69,6 +69,24 @@ Product.belongsTo(Category);
 Product.belongsTo(Unit);
 Product.hasMany(History);
 Product.belongsToMany(Purchase, { through: PurchaseProduct });
+Purchase.belongsToMany(Product, { through: PurchaseProduct });
 Product.belongsToMany(Sale, { through: SaleProduct });
+Sale.belongsToMany(Product, { through: SaleProduct });
+
+Product.beforeValidate(async (product) => {
+  if (product.currentAmount < 0) {
+    throw new Error('Quantity in inventory unavaliable');
+  } else if (product.minAmount && product.currentAmount < product.minAmount) {
+    throw new Error('A product can not have an amount less than the minimum allowed');
+  }
+
+  if (product.maxAmount && product.currentAmount > product.maxAmount) {
+    throw new Error('A product can not have an amount greater than the maximum allowed');
+  }
+
+  if (product.minAmount && product.maxAmount && product.minAmount > product.maxAmount) {
+    throw new Error('Minimum amount can not be greater than maximum amount');
+  }
+});
 
 module.exports = Product;

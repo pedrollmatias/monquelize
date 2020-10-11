@@ -15,6 +15,12 @@ const categorySchema = new Schema(
       required: true,
       trim: true,
       index: true,
+      validate: {
+        validator: function (name) {
+          return !/>/.test(name);
+        },
+        message: 'The category name can not have the character ">"',
+      },
     },
     parent: {
       type: Schema.Types.ObjectId,
@@ -60,10 +66,6 @@ mongooseModelMethodsFactory.registerMethods(categorySchema);
 
 categorySchema.pre('validate', async function () {
   const category = this;
-
-  if (/>/.test(category.name)) {
-    await category.invalidate('name', 'The category name can not have the character ">"');
-  }
 
   if (category.parent) {
     const Category = mongoose.model('Category');

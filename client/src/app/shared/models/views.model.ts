@@ -76,3 +76,27 @@ export interface IOperationProduct {
   amount: number;
   subtotal?: number;
 }
+
+export interface ISale {
+  _id?: string;
+  associatedIds?: IAssociatedIds;
+  code?: string;
+  date: Date;
+  status: string;
+  customer?: string;
+  products?: any;
+  paymentMethod?: any;
+  seller?: any;
+}
+
+export interface IPurchase {
+  _id?: string;
+  associatedIds?: IAssociatedIds;
+  code?: string;
+  date: Date;
+  status: string;
+  vendor?: string;
+  products?: any;
+  paymentMethod?: any;
+  buyer?: any;
+}

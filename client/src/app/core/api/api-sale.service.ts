@@ -1,38 +1,33 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-// import { IHttpRes } from 'src/app/shared/models/http-res.model';
+import { IHttpResponse } from 'src/app/shared/models/http.model';
+import { IPaths } from 'src/app/shared/models/paths.model';
+import { ISale } from 'src/app/shared/models/views.model';
+import { UtilsService } from '../services/utils.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ApiSaleService {
-  baseUrl = 'http://localhost:9001/api';
+  constructor(private utils: UtilsService) {}
 
-  constructor(private http: HttpClient) {}
+  getSales(query: any = {}): Observable<IHttpResponse> {
+    return this.utils.multiRequests('GET', '/sales', { params: query });
+  }
 
-  // getSales(query: any = {}): Observable<IHttpRes> {
-  //   const uri = `${this.baseUrl}/sales`;
-  //   return this.http.get<IHttpRes>(uri, { params: query });
-  // }
+  getSale(paths: IPaths): Observable<IHttpResponse> {
+    return this.utils.multiRequests('GET', paths);
+  }
 
-  // getSale(saleId: string): Observable<IHttpRes> {
-  //   const uri = `${this.baseUrl}/sales/${saleId}`;
-  //   return this.http.get<IHttpRes>(uri);
-  // }
+  createSale(sale: ISale): Observable<IHttpResponse> {
+    return this.utils.multiRequests('POST', '/sales/add', { body: sale });
+  }
 
-  // createSale(sale: any): Observable<IHttpRes> {
-  //   const uri = `${this.baseUrl}/sales/add`;
-  //   return this.http.post<IHttpRes>(uri, sale);
-  // }
+  editSale(paths: IPaths, sale: ISale): Observable<IHttpResponse> {
+    return this.utils.multiRequests('POST', paths, { body: sale });
+  }
 
-  // editSale(saleId: string, data: any): Observable<IHttpRes> {
-  //   const uri = `${this.baseUrl}/sales/${saleId}`;
-  //   return this.http.post<IHttpRes>(uri, data);
-  // }
-
-  // removeSale(saleId: string): Observable<IHttpRes> {
-  //   const uri = `${this.baseUrl}/sales/${saleId}`;
-  //   return this.http.delete<IHttpRes>(uri);
-  // }
+  removeSale(paths: IPaths): Observable<IHttpResponse> {
+    return this.utils.multiRequests('DELETE', paths);
+  }
 }

@@ -19,7 +19,7 @@ const History = sequelize.define('history', {
     allowNull: false,
   },
   amount: {
-    type: DataTypes.INTEGER,
+    type: DataTypes.FLOAT,
     allowNull: false,
   },
 });

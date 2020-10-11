@@ -72,71 +72,76 @@
               </div>
             </div>
           </div>
-          <div>
-            <mat-tab-group>
-              <mat-tab label="Product info">
-                <div class="d-flex pt-4 pb-5">
-                  <div class="flex-grow-1 pr-5">
-                    <mat-form-field class="w-100">
-                      <mat-label>Category</mat-label>
-                      <mat-select matInput formControlName="category" [compareWith]="compareSelect">
-                        <mat-option [value]="null">None</mat-option>
-                        <ng-container *ngFor="let category of categories">
-                          <mat-option [value]="category">
-                            {{ category.path }}
-                          </mat-option>
-                        </ng-container>
-                      </mat-select>
-                    </mat-form-field>
-                  </div>
-                  <div class="flex-grow-1 pr-5">
-                    <mat-form-field class="w-100">
-                      <mat-label>Unit</mat-label>
-                      <mat-select matInput formControlName="unit" [compareWith]="compareSelect" required>
-                        <ng-container *ngFor="let unit of units">
-                          <mat-option [value]="unit"> {{ unit.unit }} ({{ unit.shortUnit }}) </mat-option>
-                        </ng-container>
-                      </mat-select>
-                    </mat-form-field>
-                  </div>
-                  <div class="flex-grow-1 pr-5">
-                    <mat-form-field class="w-100">
-                      <mat-label>Sale price</mat-label>
-                      <input matInput formControlName="salePrice" required />
-                    </mat-form-field>
-                  </div>
-                  <div class="flex-grow-1">
-                    <mat-form-field class="w-100">
-                      <mat-label>Cost price</mat-label>
-                      <input matInput formControlName="costPrice" />
-                    </mat-form-field>
-                  </div>
-                </div>
-              </mat-tab>
-              <mat-tab label="Inventory" *ngIf="isNewProduct">
-                <div class="d-flex pt-4 pb-5" formGroupName="inventory">
-                  <div class="flex-grow-1 pr-5">
-                    <mat-form-field class="w-100">
-                      <mat-label>Current amount</mat-label>
-                      <input matInput formControlName="currentAmount" required />
-                    </mat-form-field>
-                  </div>
-                  <div class="flex-grow-1 pr-5">
-                    <mat-form-field class="w-100">
-                      <mat-label>Minimum amount</mat-label>
-                      <input matInput formControlName="minAmount" required />
-                    </mat-form-field>
-                  </div>
-                  <div class="flex-grow-1">
-                    <mat-form-field class="w-100">
-                      <mat-label>Maximum amount</mat-label>
-                      <input matInput formControlName="maxAmount" />
-                    </mat-form-field>
-                  </div>
-                </div>
-              </mat-tab>
-            </mat-tab-group>
+          <div class="pb-4">
+            <span class="mat-title">Product info</span>
           </div>
+          <div>
+            <div>
+              <mat-form-field class="w-100">
+                <mat-label>Category</mat-label>
+                <mat-select matInput formControlName="category" [compareWith]="compareSelect">
+                  <mat-option [value]="null">None</mat-option>
+                  <ng-container *ngFor="let category of categories">
+                    <mat-option [value]="category">
+                      {{ category.path }}
+                    </mat-option>
+                  </ng-container>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field class="w-100">
+                <mat-label>Unit</mat-label>
+                <mat-select matInput formControlName="unit" [compareWith]="compareSelect" required>
+                  <ng-container *ngFor="let unit of units">
+                    <mat-option [value]="unit"> {{ unit.unit }} ({{ unit.shortUnit }}) </mat-option>
+                  </ng-container>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field class="w-100">
+                <mat-label>Sale price</mat-label>
+                <input matInput formControlName="salePrice" required />
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field class="w-100">
+                <mat-label>Cost price</mat-label>
+                <input matInput formControlName="costPrice" />
+              </mat-form-field>
+            </div>
+          </div>
+          <ng-container *ngIf="isNewProduct">
+            <div class="py-4">
+              <mat-divider [inset]="true"></mat-divider>
+            </div>
+            <div class="pb-4">
+              <span class="mat-title">Inventory</span>
+            </div>
+            <div>
+              <div class="d-flex pt-4 pb-5">
+                <div class="flex-grow-1 pr-5">
+                  <mat-form-field class="w-100">
+                    <mat-label>Current amount</mat-label>
+                    <input matInput formControlName="currentAmount" required />
+                  </mat-form-field>
+                </div>
+                <div class="flex-grow-1 pr-5">
+                  <mat-form-field class="w-100">
+                    <mat-label>Minimum amount</mat-label>
+                    <input matInput formControlName="minAmount" required />
+                  </mat-form-field>
+                </div>
+                <div class="flex-grow-1">
+                  <mat-form-field class="w-100">
+                    <mat-label>Maximum amount</mat-label>
+                    <input matInput formControlName="maxAmount" />
+                  </mat-form-field>
+                </div>
+              </div>
+            </div>
+          </ng-container>
         </mat-card>
         <div class="d-flex justify-content-end py-5">
           <div class="pr-4">

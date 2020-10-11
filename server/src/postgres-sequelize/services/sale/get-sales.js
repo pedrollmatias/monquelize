@@ -1,7 +1,7 @@
 'use strict';
 
-const { User } = require('../../models');
+const { Sale } = require('../../models');
 
-module.exports = async function getUser() {
-  return User.findAll();
+module.exports = function getSale(query) {
+  return Sale.findAll(query);
 };
