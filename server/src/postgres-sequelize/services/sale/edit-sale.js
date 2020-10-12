@@ -22,7 +22,7 @@ module.exports = async function editSale(saleId, sale) {
     const amountDifference = product.amount - saleProductRelation.toJSON().amount;
 
     if (amountDifference > 0) {
-      const history = await History.create({ amount: product.amount, movementType: '200' });
+      const history = await History.create({ amount: product.amount, movementType: '100', saleId: updatedSale._id });
 
       await _product.addHistory(history);
 
@@ -30,7 +30,7 @@ module.exports = async function editSale(saleId, sale) {
 
       await _product.save();
     } else if (amountDifference < 0) {
-      const history = await History.create({ amount: product.amount, movementType: '200' });
+      const history = await History.create({ amount: product.amount, movementType: '200', saleId: updatedSale._id });
 
       await _product.addHistory(history);
 

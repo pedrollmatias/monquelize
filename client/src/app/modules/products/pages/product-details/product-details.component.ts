@@ -155,7 +155,10 @@ export class ProductDetailsComponent implements OnInit {
       unit: [null, Validators.required],
       salePrice: [null, Validators.required],
       costPrice: [null],
-      currentAmount: [null, this.isNewProduct ? [Validators.required, Validators.min(0)] : []],
+      currentAmount: [
+        { value: null, disabled: !this.isNewProduct },
+        this.isNewProduct ? [Validators.required, Validators.min(0)] : [],
+      ],
       minAmount: [0, this.isNewProduct ? [Validators.required, Validators.min(0)] : []],
       maxAmount: [null, this.isNewProduct ? Validators.min(0) : []],
     });

@@ -8,7 +8,7 @@ module.exports = async function removePurchase(purchaseId) {
 
   for (const product of purchaseProduct) {
     const _product = await getProduct(product.productId);
-    const history = await History.create({ amount: product.amount, movementType: '100' });
+    const history = await History.create({ amount: product.amount, movementType: '200' });
 
     // Add product history register
     await _product.addHistory(history);
