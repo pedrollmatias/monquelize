@@ -7,6 +7,7 @@ const { mongooseModelMethodsFactory } = require('../../modules');
 const historyEnum = {
   '100': 'Input',
   '200': 'Output',
+  '300': 'History',
 };
 
 const opts = {
@@ -64,6 +65,7 @@ const productSchema = new Schema(
       {
         date: {
           type: Date,
+          default: Date.now,
         },
         movementType: {
           type: String,

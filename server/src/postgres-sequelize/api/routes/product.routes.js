@@ -109,4 +109,18 @@ module.exports = (app) => {
       next(err);
     }
   });
+
+  router.get('/:productId/inventory', async (req, res, next) => {
+    try {
+      timer.startTimer();
+
+      const product = await await productService.getInventory(req.params.productId);
+
+      const diffTime = timer.diffTimer();
+
+      res.send({ res: product, time: diffTime });
+    } catch (err) {
+      next(err);
+    }
+  });
 };

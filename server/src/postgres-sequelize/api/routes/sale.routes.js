@@ -81,15 +81,19 @@ module.exports = (app) => {
   router.post('/:saleId', async (req, res, next) => {
     const _sale = normalizeSale(req.body);
 
-    try {
-      timer.startTimer();
+    timer.startTimer();
+    const t = await sequelize.transaction();
 
+    try {
       const sales = await saleService.edit(req.params.saleId, _sale);
+
+      await t.commit();
 
       const diffTime = timer.diffTimer();
 
       res.send({ res: sales, time: diffTime });
     } catch (err) {
+      await t.rollback();
       next(err);
     }
   });

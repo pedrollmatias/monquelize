@@ -66,10 +66,15 @@ const Product = sequelize.define(
 );
 
 Product.belongsTo(Category);
+
 Product.belongsTo(Unit);
-Product.hasMany(History);
+
+Product.hasMany(History, { as: 'history', foreignKey: 'productId' });
+History.belongsTo(Product, { foreignKey: 'productId' });
+
 Product.belongsToMany(Purchase, { through: PurchaseProduct });
 Purchase.belongsToMany(Product, { through: PurchaseProduct });
+
 Product.belongsToMany(Sale, { through: SaleProduct });
 Sale.belongsToMany(Product, { through: SaleProduct });
 

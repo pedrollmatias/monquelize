@@ -10,14 +10,16 @@ export declare interface IProduct {
   unit: IUnit | string;
   salePrice: number;
   costPrice: number;
-  inventory: IInvenoty;
   history: IHistory[];
-}
-
-declare interface IInvenoty {
   currentAmount: number;
   minAmount: number;
   maxAmount: number;
+}
+
+export interface IInventoryMovement {
+  date?: Date;
+  movementType: string;
+  amount: number;
 }
 
 export declare interface IHistory {

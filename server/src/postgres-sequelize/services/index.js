@@ -2,6 +2,7 @@
 
 module.exports = {
   categoryService: require('./category'),
+  inventoryService: require('./inventory'),
   paymentMethodService: require('./payment-method'),
   productService: require('./product'),
   purchaseService: require('./purchase'),

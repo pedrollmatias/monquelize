@@ -1,4 +1,4 @@
-<!-- <div class="container py-5">
+<div class="container py-5">
   <div class="pb-5">
     <div>
       <app-element-breadcrumb [breadcrumb]="breadcrumb"></app-element-breadcrumb>
@@ -8,7 +8,17 @@
     </span>
   </div>
   <div class="pb-5">
-    <app-element-loading-area [mongodbMongooseTime]="mongodbMongooseTime"></app-element-loading-area>
+    <app-element-loading-area [databaseTimes]="databaseTimes"></app-element-loading-area>
+  </div>
+  <div class="d-flex justify-content-end pb-5">
+    <div>
+      <app-element-button-icon-text
+        icon="refresh"
+        text="Refresh"
+        color="primary"
+        (btnClick)="refreshComponent()"
+      ></app-element-button-icon-text>
+    </div>
   </div>
   <div>
     <ng-container *ngIf="showPageData; else loading">
@@ -35,12 +45,20 @@
         <div class="pr-5">
           <span class="mat-title">History</span>
         </div>
+        <div class="pr-5">
+          <app-element-button-icon-text
+            icon="add"
+            text="Add inventory movement"
+            color="primary"
+            (btnClick)="openDialogAddInventoryMovement()"
+          ></app-element-button-icon-text>
+        </div>
         <div>
           <app-element-button-icon-text
             icon="swap_vert"
             text="Inventory adjustment"
             color="primary"
-            (btnClick)="openCategoryDetailsDialog()"
+            (btnClick)="openDialogAddInventoryMovement()"
           ></app-element-button-icon-text>
         </div>
       </div>
@@ -78,4 +96,4 @@
       </div>
     </ng-template>
   </div>
-</div> -->
+</div>

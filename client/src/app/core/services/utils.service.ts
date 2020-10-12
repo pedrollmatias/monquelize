@@ -48,10 +48,14 @@ export class UtilsService {
     return forkJoin(requests);
   }
 
-  getEndpointPaths(path: string, associatedIds: IAssociatedIds): IPaths {
+  getEndpointPaths(path: string | IPaths, associatedIds: IAssociatedIds): IPaths {
     return {
-      mongodbMongoose: `${path}/${associatedIds.mongodbMongooseId}`,
-      postgresSequelize: `${path}/${associatedIds.postgresSequelizeId}`,
+      mongodbMongoose: `${!this.isObject(path) ? (path as string) : (path as IPaths).mongodbMongoose}/${
+        associatedIds.mongodbMongooseId
+      }`,
+      postgresSequelize: `${!this.isObject(path) ? (path as string) : (path as IPaths).postgresSequelize}/${
+        associatedIds.postgresSequelizeId
+      }`,
     };
   }
 

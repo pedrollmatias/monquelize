@@ -6,6 +6,7 @@ const sequelize = require('../../loaders/databases/postgres-sequelize');
 const historyEnum = {
   '100': 'Input',
   '200': 'Output',
+  '300': 'Adjust',
 };
 
 const History = sequelize.define('history', {
