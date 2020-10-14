@@ -1,0 +1,40 @@
+<div class="d-flex justify-content-between align-items-center pb-4">
+  <div>
+    <span class="mat-title">Adjust product inventory</span>
+  </div>
+  <div class="d-flex align-items-center" *ngIf="!dialogRef.disableClose">
+    <button mat-icon-button (click)="closeDialog(false)">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+</div>
+<div class="px-4">
+  <ng-container *ngIf="showLoadingArea">
+    <div class="pb-5">
+      <app-element-loading-area [databaseTimes]="databaseTimes"></app-element-loading-area>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="showDoneButton">
+    <div class="d-flex justify-content-center pb-5">
+      <button mat-flat-button color="primary" (click)="closeDialog(true)">Done!</button>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="!showLoadingArea">
+    <div class="pb-5">
+      <form [formGroup]="adjustProductInventoryForm">
+        <mat-form-field class="w-100">
+          <mat-label>Amount</mat-label>
+          <input matInput formControlName="amount" required />
+        </mat-form-field>
+      </form>
+    </div>
+  </ng-container>
+  <div class="d-flex justify-content-center align-items-center pb-5" *ngIf="!showDoneButton">
+    <div class="pr-5">
+      <button mat-button (click)="closeDialog()">Cancel</button>
+    </div>
+    <div>
+      <button mat-flat-button color="primary" (click)="saveAdjustProductInventory()">Save adjustment</button>
+    </div>
+  </div>
+</div>

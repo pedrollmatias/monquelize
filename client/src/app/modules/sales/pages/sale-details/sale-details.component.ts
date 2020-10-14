@@ -406,14 +406,6 @@ export class SaleDetailsComponent implements OnInit {
   }
 
   saveSale(): void {
-    console.log(this.saleForm.value);
-    const controls = this.saleForm.controls;
-    for (const name in controls) {
-      if (controls[name].invalid) {
-        console.log(name);
-      }
-    }
-
     if (this.saleForm.invalid) {
       this.sharedComponents.openSnackbarWarning('There are fields with invalid values');
     } else {
@@ -426,7 +418,7 @@ export class SaleDetailsComponent implements OnInit {
             const params = {
               postgresSequelize: res.postgresSequelize.res._id,
             };
-            this.router.navigate(['/sales', 'edit', res.mongodbMongoose.res._id, params]);
+            this.router.navigateByUrl('/sales');
           });
       } else {
         this.sharedComponents

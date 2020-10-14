@@ -7,6 +7,10 @@ import { startWith, map } from 'rxjs/operators';
 import { SharedComponentsService } from 'src/app/core/services/shared-components.service';
 import { MatDialog } from '@angular/material/dialog';
 import { IOperationProduct } from 'src/app/shared/models/views.model';
+import { ApiProductService } from 'src/app/core/api/api-product.service';
+import { IHttpResponse } from 'src/app/shared/models/http.model';
+import { IPaths } from 'src/app/shared/models/paths.model';
+import { UtilsService } from 'src/app/core/services/utils.service';
 
 const DEFAULT_AMOUNT = 1;
 
@@ -34,20 +38,32 @@ export class NewSaleComponent implements OnInit {
 
   constructor(
     private categoryApi: ApiCategoryService,
+    private productApi: ApiProductService,
     private sharedComponents: SharedComponentsService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    public utils: UtilsService
   ) {}
 
   ngOnInit(): void {
-    // this.categoryApi.getCategories({ getProducts: true }).subscribe((categoryRes: IHttpRes) => {
-    //   this.categories = categoryRes.res;
-    //   this.mongodbMongooseTime = categoryRes.time;
-    //   [this.currentCategory] = this.categories;
-    //   this.currentChildrenCategories = this.getCurrentChildrenCategories(this.currentCategory, this.categories);
-    //   // this.products = this.getProducts(this.categories);
-    //   this.filterProducts();
-    //   this.showPageData = true;
-    // });
+    this.utils
+      .multiRequests('GET', this.endpointPaths, { params: { getProducts: true } })
+      .subscribe((res: IHttpResponse) => {
+        console.log(res);
+        //   this.categories = categoryRes.res;
+        //   this.mongodbMongooseTime = categoryRes.time;
+        //   [this.currentCategory] = this.categories;
+        //   this.currentChildrenCategories = this.getCurrentChildrenCategories(this.currentCategory, this.categories);
+        //   // this.products = this.getProducts(this.categories);
+        //   this.filterProducts();
+        //   this.showPageData = true;
+      });
+  }
+
+  get endpointPaths(): IPaths {
+    return {
+      mongodbMongoose: '/categories',
+      postgresSequelize: '/products/get-by-category',
+    };
   }
 
   // getCurrentChildrenCategories(category: ICategory, categories: ICategory[]): ICategory[] {

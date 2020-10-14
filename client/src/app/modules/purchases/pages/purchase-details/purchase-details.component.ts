@@ -411,14 +411,6 @@ export class PurchaseDetailsComponent implements OnInit {
   }
 
   savePurchase(): void {
-    console.log(this.purchaseForm.value);
-    const controls = this.purchaseForm.controls;
-    for (const name in controls) {
-      if (controls[name].invalid) {
-        console.log(name);
-      }
-    }
-
     if (this.purchaseForm.invalid) {
       this.sharedComponents.openSnackbarWarning('There are fields with invalid values');
     } else {
@@ -428,16 +420,13 @@ export class PurchaseDetailsComponent implements OnInit {
           .openLoadingDialog(this.purchaseApi.createPurchase(purchase))
           .beforeClosed()
           .subscribe((res: IHttpResponse) => {
-            const params = {
-              postgresSequelize: res.postgresSequelize.res._id,
-            };
-            this.router.navigate(['/purchases', 'edit', res.mongodbMongoose.res._id, params]);
+            this.router.navigateByUrl('/purchases');
           });
       } else {
         this.sharedComponents
           .openLoadingDialog(this.purchaseApi.editPurchase(this.endpointPaths, purchase))
           .beforeClosed()
-          .subscribe((res: IHttpResponse) => {
+          .subscribe(() => {
             this.ngOnInit();
           });
       }

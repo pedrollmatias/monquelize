@@ -11,8 +11,8 @@ import { IPaths } from 'src/app/shared/models/paths.model';
 export class ApiCategoryService {
   constructor(private utils: UtilsService) {}
 
-  getCategories(): Observable<IHttpResponse> {
-    return this.utils.multiRequests('GET', '/categories');
+  getCategories(query: any = {}): Observable<IHttpResponse> {
+    return this.utils.multiRequests('GET', '/categories', { params: query });
   }
 
   getCategory(paths: IPaths): Observable<IHttpResponse> {

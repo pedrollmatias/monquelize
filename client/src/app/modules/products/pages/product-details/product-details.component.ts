@@ -189,7 +189,7 @@ export class ProductDetailsComponent implements OnInit {
           const params = {
             postgresSequelize: res.postgresSequelize.res._id,
           };
-          this.router.navigate(['products', 'edit', res.mongodbMongoose.res._id, params]);
+          this.router.navigateByUrl('/products');
         });
     } else {
       const product = this.productForm.value;

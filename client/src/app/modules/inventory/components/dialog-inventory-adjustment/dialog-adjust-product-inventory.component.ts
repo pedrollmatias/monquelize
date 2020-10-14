@@ -1,40 +1,36 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { IProduct } from 'src/app/shared/models/views.model';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { ApiInventoryService } from 'src/app/core/api/api-inventory.service';
 import { SharedComponentsService } from 'src/app/core/services/shared-components.service';
+import { ApiProductService } from 'src/app/core/api/api-product.service';
+import { ApiInventoryService } from 'src/app/core/api/api-inventory.service';
 import { UtilsService } from 'src/app/core/services/utils.service';
 import { IDatabaseTimes } from 'src/app/shared/models/database-times';
 import { IHttpResponse } from 'src/app/shared/models/http.model';
-import { IProduct } from 'src/app/shared/models/views.model';
 
-declare interface IAddInventoryMovementDialog {
+declare interface IAdjustProductInventoryDialog {
   product: IProduct;
 }
 
 @Component({
-  selector: 'app-dialog-add-inventory-movement',
-  templateUrl: './dialog-add-inventory-movement.component.html',
-  styleUrls: ['./dialog-add-inventory-movement.component.scss'],
+  selector: 'app-dialog-adjust-product-inventory',
+  templateUrl: './dialog-adjust-product-inventory.component.html',
+  styleUrls: ['./dialog-adjust-product-inventory.component.scss'],
 })
-export class DialogAddInventoryMovementComponent implements OnInit {
+export class DialogAdjustProductInventoryComponent implements OnInit {
   product: IProduct;
 
-  addInventoryMovementForm: FormGroup;
+  adjustProductInventoryForm: FormGroup;
 
   databaseTimes: IDatabaseTimes;
 
   showLoadingArea = false;
   showDoneButton = false;
 
-  movementTypes = [
-    { name: 'Input', value: '100' },
-    { name: 'Output', value: '200' },
-  ];
-
   constructor(
-    @Inject(MAT_DIALOG_DATA) public data: IAddInventoryMovementDialog,
-    public dialogRef: MatDialogRef<DialogAddInventoryMovementComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: IAdjustProductInventoryDialog,
+    public dialogRef: MatDialogRef<DialogAdjustProductInventoryComponent>,
     private fb: FormBuilder,
     private inventoryApi: ApiInventoryService,
     private sharedComponents: SharedComponentsService,
@@ -51,29 +47,28 @@ export class DialogAddInventoryMovementComponent implements OnInit {
   }
 
   createAddInventoryMovementForm(): void {
-    this.addInventoryMovementForm = this.fb.group({
-      movementType: [null, Validators.required],
+    this.adjustProductInventoryForm = this.fb.group({
       amount: [null, Validators.required],
     });
   }
 
   clearForm(): void {
-    this.addInventoryMovementForm.reset();
-    this.addInventoryMovementForm.clearValidators();
+    this.adjustProductInventoryForm.reset();
+    this.adjustProductInventoryForm.clearValidators();
   }
 
-  saveInventoryMovement(): void {
-    if (this.addInventoryMovementForm.invalid) {
+  saveAdjustProductInventory(): void {
+    if (this.adjustProductInventoryForm.invalid) {
       this.sharedComponents.openSnackbarWarning('There are fields with invalid values');
     } else {
       this.dialogRef.disableClose = true;
       this.showLoadingArea = true;
       const endpointPaths = this.utils.getEndpointPaths(
-        '/inventory/add-inventory-movement',
+        '/inventory/adjust-product-inventory',
         this.product.associatedIds
       );
       this.inventoryApi
-        .addInventoryMovement(endpointPaths, this.addInventoryMovementForm.value)
+        .adjustProductInventory(endpointPaths, this.adjustProductInventoryForm.value)
         .subscribe((res: IHttpResponse) => {
           this.showDoneButton = true;
           this.databaseTimes = this.utils.setTimes(res);

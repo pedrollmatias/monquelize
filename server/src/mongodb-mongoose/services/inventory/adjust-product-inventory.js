@@ -8,7 +8,7 @@ module.exports = async function addInventoryMovement(productId, movement) {
 
   const currentAmount = Number(movement.amount);
 
-  productHistory.push(movement);
+  productHistory.push({ ...movement, movementType: '300' });
   const data = { currentAmount, history: productHistory };
 
   await product.edit(data);

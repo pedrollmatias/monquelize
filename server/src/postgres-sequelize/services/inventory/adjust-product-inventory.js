@@ -5,7 +5,7 @@ const getProduct = require('../product/get-product');
 
 module.exports = async function addInventoryMovement(productId, movement) {
   const product = await getProduct(productId);
-  const history = await History.create(movement);
+  const history = await History.create({ ...movement, movementType: '300' });
 
   // Add product history register
   await product.addHistory(history);

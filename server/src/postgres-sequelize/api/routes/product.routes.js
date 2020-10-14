@@ -45,6 +45,20 @@ module.exports = (app) => {
     }
   });
 
+  router.get('/get-by-category', async (req, res, next) => {
+    try {
+      timer.startTimer();
+
+      const products = await productService.getByCategory();
+
+      const diffTime = timer.diffTimer();
+
+      res.send({ res: products, time: diffTime });
+    } catch (err) {
+      next(err);
+    }
+  });
+
   router.post('/add', async (req, res, next) => {
     const _product = normalizeProductBody(req.body);
 

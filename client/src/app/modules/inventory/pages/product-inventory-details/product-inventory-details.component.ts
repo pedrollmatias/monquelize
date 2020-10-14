@@ -6,7 +6,6 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatDialog } from '@angular/material/dialog';
-import { DialogInventoryAdjustmentComponent } from '../../components/dialog-inventory-adjustment/dialog-inventory-adjustment.component';
 import { of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { IDatabaseTimes } from 'src/app/shared/models/database-times';
@@ -16,6 +15,7 @@ import { IPaths } from 'src/app/shared/models/paths.model';
 import { UtilsService } from 'src/app/core/services/utils.service';
 import { IHttpResponse } from 'src/app/shared/models/http.model';
 import { DialogAddInventoryMovementComponent } from '../../components/dialog-add-inventory-movement/dialog-add-inventory-movement.component';
+import { DialogAdjustProductInventoryComponent } from '../../components/dialog-inventory-adjustment/dialog-adjust-product-inventory.component';
 
 declare interface IInfoCard {
   icon: string;
@@ -72,7 +72,6 @@ export class ProductInventoryDetailsComponent implements OnInit {
         })
       )
       .subscribe((res: IHttpResponse) => {
-        console.log(res);
         this.databaseTimes = this.utils.setTimes(res);
         this.product = this.getProduct(res);
         this.pageTitle = `Product inventory - ${this.product.name} (${this.product.sku})`;
@@ -130,7 +129,7 @@ export class ProductInventoryDetailsComponent implements OnInit {
     this.fetchData();
   }
 
-  openDialogAddInventoryMovement(product: IProduct): void {
+  openDialogAddInventoryMovement(): void {
     const dialogRef = this.dialog.open(DialogAddInventoryMovementComponent, {
       autoFocus: false,
       restoreFocus: false,
@@ -161,33 +160,34 @@ export class ProductInventoryDetailsComponent implements OnInit {
       });
   }
 
-  openCategoryDetailsDialog(categoryId: string = null): void {
-    // const dialogRef = this.dialog.open(DialogInventoryAdjustmentComponent, {
-    //   autoFocus: false,
-    //   restoreFocus: false,
-    //   width: '70vw',
-    //   data: {
-    //     productId: this.productId,
-    //     product: this.product,
-    //   },
-    // });
-    // dialogRef
-    //   .beforeClosed()
-    //   .pipe(
-    //     switchMap((confirmed) => {
-    //       if (confirmed) {
-    //         return this.productApi.getProduct(this.productId);
-    //       } else {
-    //         const productRes: IHttpRes = { res: this.product, time: this.mongodbMongooseTime };
-    //         return of(productRes);
-    //       }
-    //     })
-    //   )
-    //   .subscribe((productRes: IHttpRes) => {
-    //     this.product = <IProduct>productRes.res;
-    //     this.mongodbMongooseTime = productRes.time;
-    //     this.setHistoryDataSource(this.product.history);
-    //     this.initInfoCards(this.product);
-    //   });
+  openDialogAdjustProductInventory(): void {
+    const dialogRef = this.dialog.open(DialogAdjustProductInventoryComponent, {
+      autoFocus: false,
+      restoreFocus: false,
+      width: '70vw',
+      data: {
+        product: this.product,
+      },
+    });
+    dialogRef
+      .beforeClosed()
+      .pipe(
+        switchMap((confirmed) => {
+          if (confirmed) {
+            this.showPageData = false;
+            return this.inventoryApi.getProductInventory(this.endpointPaths);
+          } else {
+            return of();
+          }
+        })
+      )
+      .subscribe((res: IHttpResponse) => {
+        if (res) {
+          this.product = this.getProduct(res);
+          this.initInfoCards(this.product);
+          this.setHistoryDataSource(this.product.history || []);
+          this.showPageData = true;
+        }
+      });
   }
 }
