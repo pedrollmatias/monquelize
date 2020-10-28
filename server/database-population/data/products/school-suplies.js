@@ -3,7 +3,7 @@
 const schoolSupliesData = [
   {
     name: 'Caneta Bic Azul',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 0.2,
     salePrice: 1,
@@ -13,7 +13,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caneta Bic Vermelha',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 0.2,
     salePrice: 1,
@@ -23,7 +23,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caneta Bic Preta',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 0.2,
     salePrice: 1,
@@ -33,7 +33,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caneta Bic Verde',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 0.2,
     salePrice: 1,
@@ -43,7 +43,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caneta Bic Transparente Azul',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 0.4,
     salePrice: 1.5,
@@ -53,7 +53,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caneta Bic Transparente Vermelha',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 0.4,
     salePrice: 1.5,
@@ -63,7 +63,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caneta Bic Transparente Preta',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 0.4,
     salePrice: 1.5,
@@ -73,7 +73,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caneta Bic Transparente Verde',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 0.4,
     salePrice: 1.5,
@@ -83,7 +83,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caneta Faber Castel Azul',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 0.5,
     salePrice: 2,
@@ -93,7 +93,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caneta Faber Castel Vermelha',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 0.5,
     salePrice: 2,
@@ -103,7 +103,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caneta Faber Castel Preta',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 0.5,
     salePrice: 2,
@@ -113,7 +113,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caneta Faber Castel Verde',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 0.5,
     salePrice: 2,
@@ -123,7 +123,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caneta Faber Castel Transparente Azul',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 0.5,
     salePrice: 2,
@@ -133,7 +133,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caneta Faber Castel Transparente Vermelha',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 0.5,
     salePrice: 2,
@@ -143,7 +143,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caneta Faber Castel Transparente Preta',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 0.5,
     salePrice: 2,
@@ -153,7 +153,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caneta Faber Castel Transparente Verde',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 0.5,
     salePrice: 2,
@@ -163,7 +163,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Lapieira Bic Desenho 0.1',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 0.7,
     salePrice: 1.5,
@@ -173,7 +173,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Lapieira Bic Desenho 0.3',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 0.7,
     salePrice: 1.5,
@@ -183,7 +183,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Lapieira Bic Desenho 0.5',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 0.7,
     salePrice: 1.5,
@@ -193,7 +193,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Lapieira Bic Desenho 0.7',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 0.7,
     salePrice: 1.5,
@@ -203,7 +203,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Lapieira Bic Desenho 0.9',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 0.7,
     salePrice: 1.5,
@@ -213,7 +213,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Lapieira Bic Confort 0.1',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 1,
     salePrice: 3,
@@ -223,7 +223,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Lapieira Bic Confort 0.3',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 1,
     salePrice: 3,
@@ -233,7 +233,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Lapieira Bic Confort 0.5',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 1,
     salePrice: 3,
@@ -243,7 +243,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Lapieira Bic Confort 0.7',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 1,
     salePrice: 3,
@@ -253,7 +253,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Lapieira Bic Confort 0.9',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 1,
     salePrice: 3,
@@ -263,7 +263,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Lapieira Faber Castel Desenho 0.1',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 2,
     salePrice: 5,
@@ -273,7 +273,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Lapieira Faber Castel Desenho 0.3',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 2,
     salePrice: 5,
@@ -283,7 +283,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Lapieira Faber Castel Desenho 0.5',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 2,
     salePrice: 5,
@@ -293,7 +293,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Lapieira Faber Castel Desenho 0.7',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 2,
     salePrice: 5,
@@ -303,7 +303,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Lapieira Faber Castel Desenho 0.9',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 2,
     salePrice: 5,
@@ -313,7 +313,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Lapieira Faber Castel Confort 0.1',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 3,
     salePrice: 7,
@@ -323,7 +323,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Lapieira Faber Castel Confort 0.3',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 3,
     salePrice: 7,
@@ -333,7 +333,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Lapieira Faber Castel Confort 0.5',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 3,
     salePrice: 7,
@@ -343,7 +343,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Lapieira Faber Castel Confort 0.7',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 3,
     salePrice: 7,
@@ -353,7 +353,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Lapieira Faber Castel Confort 0.9',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 3,
     salePrice: 7,
@@ -363,7 +363,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Grafite Bic 0.1 Macio',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 1,
     salePrice: 3,
@@ -373,7 +373,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Grafite Bic 0.3 Macio',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 1,
     salePrice: 3,
@@ -383,7 +383,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Grafite Bic 0.5 Macio',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 1,
     salePrice: 3,
@@ -393,7 +393,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Grafite Bic 0.7 Macio',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 1,
     salePrice: 3,
@@ -403,7 +403,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Grafite Bic 0.9 Macio',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 1,
     salePrice: 3,
@@ -413,7 +413,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Grafite Bic 0.1 Rígido',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 1,
     salePrice: 3,
@@ -423,7 +423,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Grafite Bic 0.3 Rígido',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 1,
     salePrice: 3,
@@ -433,7 +433,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Grafite Bic 0.5 Rígido',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 1,
     salePrice: 3,
@@ -443,7 +443,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Grafite Bic 0.7 Rígido',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 1,
     salePrice: 3,
@@ -453,7 +453,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Grafite Bic 0.9 Rígido',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 1,
     salePrice: 3,
@@ -463,7 +463,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Grafite Faber Castel 0.1 Macio',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 2,
     salePrice: 4,
@@ -473,7 +473,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Grafite Faber Castel 0.3 Macio',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 2,
     salePrice: 4,
@@ -483,7 +483,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Grafite Faber Castel 0.5 Macio',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 2,
     salePrice: 4,
@@ -493,7 +493,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Grafite Faber Castel 0.7 Macio',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 2,
     salePrice: 4,
@@ -503,7 +503,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Grafite Faber Castel 0.9 Macio',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 2,
     salePrice: 4,
@@ -513,7 +513,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Grafite Faber Castel 0.1 Rígido',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 2,
     salePrice: 4,
@@ -523,7 +523,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Grafite Faber Castel 0.3 Rígido',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 2,
     salePrice: 4,
@@ -533,7 +533,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Grafite Faber Castel 0.5 Rígido',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 2,
     salePrice: 4,
@@ -543,7 +543,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Grafite Faber Castel 0.7 Rígido',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 2,
     salePrice: 4,
@@ -553,7 +553,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Grafite Faber Castel 0.9 Rígido',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 2,
     salePrice: 4,
@@ -563,7 +563,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Lapis Grafite Escrever Bic 1A',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 0.8,
     salePrice: 1.5,
@@ -573,7 +573,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Lapis Grafite Escrever Bic 1B',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 0.8,
     salePrice: 1.5,
@@ -583,7 +583,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Lapis Grafite Escrever Bic HA',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 0.8,
     salePrice: 1.5,
@@ -593,7 +593,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Lapis Grafite Escrever Bic H',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 0.8,
     salePrice: 1.5,
@@ -603,7 +603,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Lapis Grafite Escrever Faber Castel 1A',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 0.8,
     salePrice: 1.5,
@@ -613,7 +613,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Lapis Grafite Escrever Faber Castel 1B',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 0.8,
     salePrice: 1.5,
@@ -623,7 +623,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Lapis Grafite Escrever Faber Castel HA',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 0.8,
     salePrice: 1.5,
@@ -633,7 +633,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Lapis Grafite Escrever Faber Castel HB',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 0.8,
     salePrice: 1.5,
@@ -643,7 +643,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caixa Lapis Cor Bic 16 Cores',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 7,
     salePrice: 14,
@@ -653,7 +653,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caixa Lapis Cor Bic 24 Cores',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 10,
     salePrice: 18,
@@ -663,7 +663,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caixa Lapis Cor Bic 36 Cores',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 12,
     salePrice: 22,
@@ -673,7 +673,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caixa Lapis Cor Faber Castel 16 Cores',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 10,
     salePrice: 18,
@@ -683,7 +683,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caixa Lapis Cor Faber Castel 24 Cores',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 12,
     salePrice: 20,
@@ -693,7 +693,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caixa Lapis Cor Faber Castel 36 Cores',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 15,
     salePrice: 25,
@@ -703,7 +703,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caixa Giz Cera Bic 16 Cores',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     salePrice: 7,
     currentAmount: 10000,
@@ -712,7 +712,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caixa Giz Cera Bic 24 Cores',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     salePrice: 10,
     currentAmount: 10000,
@@ -721,7 +721,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caixa Giz Cera Bic 36 Cores',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     salePrice: 12,
     currentAmount: 10000,
@@ -730,7 +730,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caixa Giz Cera Faber Castel 16 Cores',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     salePrice: 10,
     currentAmount: 10000,
@@ -739,7 +739,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caixa Giz Cera Faber Castel 24 Cores',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     salePrice: 14,
     currentAmount: 10000,
@@ -748,7 +748,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caixa Giz Cera Faber Castel 36 Cores',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     salePrice: 18,
     currentAmount: 10000,
@@ -757,7 +757,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caixa Canetinha Tintas Bic 16 Cores',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     salePrice: 17,
     currentAmount: 10000,
@@ -766,7 +766,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caixa Canetinha Tintas Bic 24 Cores',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     salePrice: 22,
     currentAmount: 10000,
@@ -775,7 +775,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caixa Canetinha Tintas Bic 36 Cores',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     salePrice: 25,
     currentAmount: 10000,
@@ -784,7 +784,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caixa Canetinha Tintas Faber Castel 16 Cores',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     salePrice: 19,
     currentAmount: 10000,
@@ -793,7 +793,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caixa Canetinha Tintas Faber Castel 24 Cores',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     salePrice: 25,
     currentAmount: 10000,
@@ -802,7 +802,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caixa Canetinha Tintas Faber Castel 36 Cores',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     salePrice: 29,
     currentAmount: 10000,
@@ -811,7 +811,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Borracha Pequena Branca Bic',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     salePrice: 1,
     currentAmount: 10000,
@@ -820,7 +820,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Borracha Média Branca Bic',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     salePrice: 1.5,
     currentAmount: 10000,
@@ -829,7 +829,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Borracha Grande Branca Bic',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     salePrice: 2,
     currentAmount: 10000,
@@ -838,7 +838,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Borracha Pequena Verde Bic',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     salePrice: 1,
     currentAmount: 10000,
@@ -847,7 +847,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Borracha Média Verde Bic',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     salePrice: 1.5,
     currentAmount: 10000,
@@ -856,7 +856,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Borracha Grande Verde Bic',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     salePrice: 2,
     currentAmount: 10000,
@@ -865,7 +865,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Borracha Pequena Branca Faber Castel',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     salePrice: 1.5,
     currentAmount: 10000,
@@ -874,7 +874,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Borracha Média Branca Faber Castel',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     salePrice: 2,
     currentAmount: 10000,
@@ -883,7 +883,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Borracha Grande Branca Faber Castel',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     salePrice: 2.5,
     currentAmount: 10000,
@@ -892,7 +892,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Borracha Pequena Verde Faber Castel',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     salePrice: 1.5,
     currentAmount: 10000,
@@ -901,7 +901,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Borracha Média Verde Faber Castel',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     salePrice: 2,
     currentAmount: 10000,
@@ -910,7 +910,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Borracha Grande Verde Faber Castel',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     salePrice: 2.5,
     currentAmount: 10000,
@@ -919,7 +919,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Tilibra 1 Matéria 96f Praia',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     salePrice: 7,
     currentAmount: 10000,
@@ -928,7 +928,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Tilibra 1 Matéria 96f Mar',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 7,
     salePrice: 12,
@@ -938,7 +938,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Tilibra 1 Matéria 96f Floresta',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 7,
     salePrice: 12,
@@ -948,7 +948,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Tilibra 1 Matéria 96f Surf',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 7,
     salePrice: 12,
@@ -958,7 +958,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Tilibra 1 Matéria 96f Futebol',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 7,
     salePrice: 12,
@@ -968,7 +968,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Tilibra 1 Matéria 96f Motocross',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 7,
     salePrice: 12,
@@ -978,7 +978,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Tilibra 1 Matéria 96f Liso Azul',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 7,
     salePrice: 12,
@@ -988,7 +988,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Tilibra 1 Matéria 96f Liso Vermleho',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 7,
     salePrice: 12,
@@ -998,7 +998,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Tilibra 1 Matéria 96f Liso Verde',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 7,
     salePrice: 12,
@@ -1008,7 +1008,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Tilibra 1 Matéria 96f Liso Rosa',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 7,
     salePrice: 12,
@@ -1018,7 +1018,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Tilibra 1 Matéria 96f Liso Amarelo',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 7,
     salePrice: 12,
@@ -1028,7 +1028,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Tilibra 1 Matéria 96f Liso Roxo',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 7,
     salePrice: 12,
@@ -1038,7 +1038,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Tilibra 1 Matéria 96f Batman',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 7,
     salePrice: 12,
@@ -1048,7 +1048,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Tilibra 1 Matéria 96f Spiderman',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 7,
     salePrice: 12,
@@ -1058,7 +1058,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Tilibra 1 Matéria 96f Ben 10',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 7,
     salePrice: 12,
@@ -1068,7 +1068,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Tilibra 1 Matéria 96f Ironman',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 7,
     salePrice: 12,
@@ -1078,7 +1078,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Tilibra 1 Matéria 96f Hulk',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 7,
     salePrice: 12,
@@ -1088,7 +1088,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Tilibra 1 Matéria 96f Hotwheels',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 7,
     salePrice: 12,
@@ -1098,7 +1098,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Tilibra 1 Matéria 96f Hello Kity',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 7,
     salePrice: 12,
@@ -1108,7 +1108,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Tilibra 1 Matéria 96f Barbie',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 7,
     salePrice: 12,
@@ -1118,7 +1118,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Tilibra 1 Matéria 96f Polly',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 7,
     salePrice: 12,
@@ -1128,7 +1128,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Tilibra 1 Matéria 96f Frozen',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 7,
     salePrice: 12,
@@ -1138,7 +1138,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Tilibra 1 Matéria 96f Minions',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 7,
     salePrice: 12,
@@ -1148,7 +1148,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Tilibra 1 Matéria 96f Patati',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 7,
     salePrice: 12,
@@ -1158,7 +1158,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Tilibra 4 Matérias 200f Praia',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 10,
     salePrice: 18,
@@ -1168,7 +1168,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Tilibra 4 Matérias 200f Mar',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 10,
     salePrice: 18,
@@ -1178,7 +1178,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Tilibra 4 Matérias 200f Floresta',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 10,
     salePrice: 18,
@@ -1188,7 +1188,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Tilibra 4 Matérias 200f Surf',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 10,
     salePrice: 18,
@@ -1198,7 +1198,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Tilibra 4 Matérias 200f Futebol',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 10,
     salePrice: 18,
@@ -1208,7 +1208,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Tilibra 4 Matérias 200f Motocross',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 10,
     salePrice: 18,
@@ -1218,7 +1218,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Tilibra 4 Matérias 200f Liso Azul',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 10,
     salePrice: 18,
@@ -1228,7 +1228,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Tilibra 4 Matérias 200f Liso Vermleho',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 10,
     salePrice: 18,
@@ -1238,7 +1238,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Tilibra 4 Matérias 200f Liso Verde',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 10,
     salePrice: 18,
@@ -1248,7 +1248,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Tilibra 4 Matérias 200f Liso Rosa',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 10,
     salePrice: 18,
@@ -1258,7 +1258,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Tilibra 4 Matérias 200f Liso Amarelo',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 10,
     salePrice: 18,
@@ -1268,7 +1268,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Tilibra 4 Matérias 200f Liso Roxo',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 10,
     salePrice: 18,
@@ -1278,7 +1278,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Tilibra 4 Matérias 200f Batman',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 10,
     salePrice: 18,
@@ -1288,7 +1288,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Tilibra 4 Matérias 200f Spiderman',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 10,
     salePrice: 18,
@@ -1298,7 +1298,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Tilibra 4 Matérias 200f Ben 10',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 10,
     salePrice: 18,
@@ -1308,7 +1308,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Tilibra 4 Matérias 200f Ironman',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 10,
     salePrice: 18,
@@ -1318,7 +1318,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Tilibra 4 Matérias 200f Hulk',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 10,
     salePrice: 18,
@@ -1328,7 +1328,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Tilibra 4 Matérias 200f Hotwheels',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 10,
     salePrice: 18,
@@ -1338,7 +1338,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Tilibra 4 Matérias 200f Hello Kity',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 10,
     salePrice: 18,
@@ -1348,7 +1348,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Tilibra 4 Matérias 200f Barbie',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 10,
     salePrice: 18,
@@ -1358,7 +1358,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Tilibra 4 Matérias 200f Polly',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 10,
     salePrice: 18,
@@ -1368,7 +1368,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Tilibra 4 Matérias 200f Frozen',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 10,
     salePrice: 18,
@@ -1378,7 +1378,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Tilibra 4 Matérias 200f Minions',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 10,
     salePrice: 18,
@@ -1388,7 +1388,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Tilibra 4 Matérias 200f Patati',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 10,
     salePrice: 18,
@@ -1398,7 +1398,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Tilibra 10 Matérias 400f Praia',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 12,
     salePrice: 19,
@@ -1408,7 +1408,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Tilibra 10 Matérias 400f Mar',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 12,
     salePrice: 19,
@@ -1418,7 +1418,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Tilibra 10 Matérias 400f Floresta',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 12,
     salePrice: 19,
@@ -1428,7 +1428,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Tilibra 10 Matérias 400f Surf',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 12,
     salePrice: 19,
@@ -1438,7 +1438,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Tilibra 10 Matérias 400f Futebol',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 12,
     salePrice: 19,
@@ -1448,7 +1448,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Tilibra 10 Matérias 400f Motocross',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 12,
     salePrice: 19,
@@ -1458,7 +1458,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Tilibra 10 Matérias 400f Liso Azul',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 12,
     salePrice: 19,
@@ -1468,7 +1468,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Tilibra 10 Matérias 400f Liso Vermleho',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 12,
     salePrice: 19,
@@ -1478,7 +1478,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Tilibra 10 Matérias 400f Liso Verde',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 12,
     salePrice: 19,
@@ -1488,7 +1488,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Tilibra 10 Matérias 400f Liso Rosa',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 12,
     salePrice: 19,
@@ -1498,7 +1498,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Tilibra 10 Matérias 400f Liso Amarelo',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 12,
     salePrice: 19,
@@ -1508,7 +1508,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Tilibra 10 Matérias 400f Liso Roxo',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 12,
     salePrice: 19,
@@ -1518,7 +1518,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Tilibra 10 Matérias 400f Batman',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 12,
     salePrice: 19,
@@ -1528,7 +1528,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Tilibra 10 Matérias 400f Spiderman',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 12,
     salePrice: 19,
@@ -1538,7 +1538,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Tilibra 10 Matérias 400f Ben 10',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 12,
     salePrice: 19,
@@ -1548,7 +1548,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Tilibra 10 Matérias 400f Ironman',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 12,
     salePrice: 19,
@@ -1558,7 +1558,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Tilibra 10 Matérias 400f Hulk',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 12,
     salePrice: 19,
@@ -1568,7 +1568,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Tilibra 10 Matérias 400f Hotwheels',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 12,
     salePrice: 19,
@@ -1578,7 +1578,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Tilibra 10 Matérias 400f Hello Kity',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 12,
     salePrice: 19,
@@ -1588,7 +1588,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Tilibra 10 Matérias 400f Barbie',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 12,
     salePrice: 19,
@@ -1598,7 +1598,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Tilibra 10 Matérias 400f Polly',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 12,
     salePrice: 19,
@@ -1608,7 +1608,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Tilibra 10 Matérias 400f Frozen',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 12,
     salePrice: 19,
@@ -1618,7 +1618,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Tilibra 10 Matérias 400f Minions',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 12,
     salePrice: 19,
@@ -1628,7 +1628,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Tilibra 10 Matérias 400f Patati',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 12,
     salePrice: 19,
@@ -1638,7 +1638,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Foroni 1 Matéria 96f Praia',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 5,
     salePrice: 9,
@@ -1648,7 +1648,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Foroni 1 Matéria 96f Mar',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 5,
     salePrice: 9,
@@ -1658,7 +1658,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Foroni 1 Matéria 96f Floresta',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 5,
     salePrice: 9,
@@ -1668,7 +1668,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Foroni 1 Matéria 96f Surf',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 5,
     salePrice: 9,
@@ -1678,7 +1678,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Foroni 1 Matéria 96f Futebol',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 5,
     salePrice: 9,
@@ -1688,7 +1688,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Foroni 1 Matéria 96f Motocross',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 5,
     salePrice: 9,
@@ -1698,7 +1698,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Foroni 1 Matéria 96f Liso Azul',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 5,
     salePrice: 9,
@@ -1708,7 +1708,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Foroni 1 Matéria 96f Liso Vermleho',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 5,
     salePrice: 9,
@@ -1718,7 +1718,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Foroni 1 Matéria 96f Liso Verde',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 5,
     salePrice: 9,
@@ -1728,7 +1728,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Foroni 1 Matéria 96f Liso Rosa',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 5,
     salePrice: 9,
@@ -1738,7 +1738,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Foroni 1 Matéria 96f Liso Amarelo',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 5,
     salePrice: 9,
@@ -1748,7 +1748,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Foroni 1 Matéria 96f Liso Roxo',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 5,
     salePrice: 9,
@@ -1758,7 +1758,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Foroni 1 Matéria 96f Batman',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 5,
     salePrice: 9,
@@ -1768,7 +1768,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Foroni 1 Matéria 96f Spiderman',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 5,
     salePrice: 9,
@@ -1778,7 +1778,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Foroni 1 Matéria 96f Ben 10',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 5,
     salePrice: 9,
@@ -1788,7 +1788,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Foroni 1 Matéria 96f Ironman',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 5,
     salePrice: 9,
@@ -1798,7 +1798,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Foroni 1 Matéria 96f Hulk',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 5,
     salePrice: 9,
@@ -1808,7 +1808,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Foroni 1 Matéria 96f Hotwheels',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 5,
     salePrice: 9,
@@ -1818,7 +1818,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Foroni 1 Matéria 96f Hello Kity',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 5,
     salePrice: 9,
@@ -1828,7 +1828,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Foroni 1 Matéria 96f Barbie',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 5,
     salePrice: 9,
@@ -1838,7 +1838,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Foroni 1 Matéria 96f Polly',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 5,
     salePrice: 9,
@@ -1848,7 +1848,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Foroni 1 Matéria 96f Frozen',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 5,
     salePrice: 9,
@@ -1858,7 +1858,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Foroni 1 Matéria 96f Minions',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 5,
     salePrice: 9,
@@ -1868,7 +1868,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Foroni 1 Matéria 96f Patati',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 5,
     salePrice: 9,
@@ -1878,7 +1878,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Foroni 4 Matérias 200f Praia',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 8.5,
     salePrice: 13.7,
@@ -1888,7 +1888,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Foroni 4 Matérias 200f Mar',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 8.5,
     salePrice: 13.7,
@@ -1898,7 +1898,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Foroni 4 Matérias 200f Floresta',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 8.5,
     salePrice: 13.7,
@@ -1908,7 +1908,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Foroni 4 Matérias 200f Surf',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 8.5,
     salePrice: 13.7,
@@ -1918,7 +1918,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Foroni 4 Matérias 200f Futebol',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 8.5,
     salePrice: 13.7,
@@ -1928,7 +1928,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Foroni 4 Matérias 200f Motocross',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 8.5,
     salePrice: 13.7,
@@ -1938,7 +1938,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Foroni 4 Matérias 200f Liso Azul',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 8.5,
     salePrice: 13.7,
@@ -1948,7 +1948,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Foroni 4 Matérias 200f Liso Vermleho',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 8.5,
     salePrice: 13.7,
@@ -1958,7 +1958,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Foroni 4 Matérias 200f Liso Verde',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 8.5,
     salePrice: 13.7,
@@ -1968,7 +1968,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Foroni 4 Matérias 200f Liso Rosa',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 8.5,
     salePrice: 13.7,
@@ -1978,7 +1978,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Foroni 4 Matérias 200f Liso Amarelo',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 8.5,
     salePrice: 13.7,
@@ -1988,7 +1988,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Foroni 4 Matérias 200f Liso Roxo',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 8.5,
     salePrice: 13.7,
@@ -1998,7 +1998,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Foroni 4 Matérias 200f Batman',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 8.5,
     salePrice: 13.7,
@@ -2008,7 +2008,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Foroni 4 Matérias 200f Spiderman',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 8.5,
     salePrice: 13.7,
@@ -2018,7 +2018,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Foroni 4 Matérias 200f Ben 10',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 8.5,
     salePrice: 13.7,
@@ -2028,7 +2028,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Foroni 4 Matérias 200f Ironman',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 8.5,
     salePrice: 13.7,
@@ -2038,7 +2038,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Foroni 4 Matérias 200f Hulk',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 8.5,
     salePrice: 13.7,
@@ -2048,7 +2048,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Foroni 4 Matérias 200f Hotwheels',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 8.5,
     salePrice: 13.7,
@@ -2058,7 +2058,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Foroni 4 Matérias 200f Hello Kity',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 8.5,
     salePrice: 13.7,
@@ -2068,7 +2068,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Foroni 4 Matérias 200f Barbie',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 8.5,
     salePrice: 13.7,
@@ -2078,7 +2078,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Foroni 4 Matérias 200f Polly',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 8.5,
     salePrice: 13.7,
@@ -2088,7 +2088,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Foroni 4 Matérias 200f Frozen',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 8.5,
     salePrice: 13.7,
@@ -2098,7 +2098,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Foroni 4 Matérias 200f Minions',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 8.5,
     salePrice: 13.7,
@@ -2108,7 +2108,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Foroni 4 Matérias 200f Patati',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 8.5,
     salePrice: 13.7,
@@ -2118,7 +2118,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Foroni 10 Matérias 400f Praia',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 12,
     salePrice: 16.8,
@@ -2128,7 +2128,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Foroni 10 Matérias 400f Mar',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 12,
     salePrice: 16.8,
@@ -2138,7 +2138,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Foroni 10 Matérias 400f Floresta',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 12,
     salePrice: 16.8,
@@ -2148,7 +2148,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Foroni 10 Matérias 400f Surf',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 12,
     salePrice: 16.8,
@@ -2158,7 +2158,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Foroni 10 Matérias 400f Futebol',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 12,
     salePrice: 16.8,
@@ -2168,7 +2168,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Foroni 10 Matérias 400f Motocross',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 12,
     salePrice: 16.8,
@@ -2178,7 +2178,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Foroni 10 Matérias 400f Liso Azul',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 12,
     salePrice: 16.8,
@@ -2188,7 +2188,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Foroni 10 Matérias 400f Liso Vermleho',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 12,
     salePrice: 16.8,
@@ -2198,7 +2198,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Foroni 10 Matérias 400f Liso Verde',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 12,
     salePrice: 16.8,
@@ -2208,7 +2208,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Foroni 10 Matérias 400f Liso Rosa',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 12,
     salePrice: 16.8,
@@ -2218,7 +2218,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Foroni 10 Matérias 400f Liso Amarelo',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 12,
     salePrice: 16.8,
@@ -2228,7 +2228,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Foroni 10 Matérias 400f Liso Roxo',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 12,
     salePrice: 16.8,
@@ -2238,7 +2238,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Foroni 10 Matérias 400f Batman',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 12,
     salePrice: 16.8,
@@ -2248,7 +2248,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Foroni 10 Matérias 400f Spiderman',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 12,
     salePrice: 16.8,
@@ -2258,7 +2258,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Foroni 10 Matérias 400f Ben 10',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 12,
     salePrice: 16.8,
@@ -2268,7 +2268,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Foroni 10 Matérias 400f Ironman',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 12,
     salePrice: 16.8,
@@ -2278,7 +2278,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Foroni 10 Matérias 400f Hulk',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 12,
     salePrice: 16.8,
@@ -2288,7 +2288,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Foroni 10 Matérias 400f Hotwheels',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 12,
     salePrice: 16.8,
@@ -2298,7 +2298,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Foroni 10 Matérias 400f Hello Kity',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 12,
     salePrice: 16.8,
@@ -2308,7 +2308,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Foroni 10 Matérias 400f Barbie',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 12,
     salePrice: 16.8,
@@ -2318,7 +2318,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Foroni 10 Matérias 400f Polly',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 12,
     salePrice: 16.8,
@@ -2328,7 +2328,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Foroni 10 Matérias 400f Frozen',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 12,
     salePrice: 16.8,
@@ -2338,7 +2338,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Foroni 10 Matérias 400f Minions',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 12,
     salePrice: 16.8,
@@ -2348,7 +2348,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Foroni 10 Matérias 400f Patati',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 12,
     salePrice: 16.8,
@@ -2358,7 +2358,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Faber Castel 1 Matéria 96f Praia',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 9,
     salePrice: 15,
@@ -2368,7 +2368,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Faber Castel 1 Matéria 96f Mar',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 9,
     salePrice: 15,
@@ -2378,7 +2378,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Faber Castel 1 Matéria 96f Floresta',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 9,
     salePrice: 15,
@@ -2388,7 +2388,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Faber Castel 1 Matéria 96f Surf',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 9,
     salePrice: 15,
@@ -2398,7 +2398,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Faber Castel 1 Matéria 96f Futebol',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 9,
     salePrice: 15,
@@ -2408,7 +2408,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Faber Castel 1 Matéria 96f Motocross',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 9,
     salePrice: 15,
@@ -2418,7 +2418,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Faber Castel 1 Matéria 96f Liso Azul',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 9,
     salePrice: 15,
@@ -2428,7 +2428,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Faber Castel 1 Matéria 96f Liso Vermleho',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 9,
     salePrice: 15,
@@ -2438,7 +2438,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Faber Castel 1 Matéria 96f Liso Verde',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 9,
     salePrice: 15,
@@ -2448,7 +2448,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Faber Castel 1 Matéria 96f Liso Rosa',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 9,
     salePrice: 15,
@@ -2458,7 +2458,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Faber Castel 1 Matéria 96f Liso Amarelo',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 9,
     salePrice: 15,
@@ -2468,7 +2468,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Faber Castel 1 Matéria 96f Liso Roxo',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 9,
     salePrice: 15,
@@ -2478,7 +2478,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Faber Castel 1 Matéria 96f Batman',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 9,
     salePrice: 15,
@@ -2488,7 +2488,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Faber Castel 1 Matéria 96f Spiderman',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 9,
     salePrice: 15,
@@ -2498,7 +2498,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Faber Castel 1 Matéria 96f Ben 10',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 9,
     salePrice: 15,
@@ -2508,7 +2508,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Faber Castel 1 Matéria 96f Ironman',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 9,
     salePrice: 15,
@@ -2518,7 +2518,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Faber Castel 1 Matéria 96f Hulk',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 9,
     salePrice: 15,
@@ -2528,7 +2528,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Faber Castel 1 Matéria 96f Hotwheels',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 9,
     salePrice: 15,
@@ -2538,7 +2538,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Faber Castel 1 Matéria 96f Hello Kity',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 9,
     salePrice: 15,
@@ -2548,7 +2548,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Faber Castel 1 Matéria 96f Barbie',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 9,
     salePrice: 15,
@@ -2558,7 +2558,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Faber Castel 1 Matéria 96f Polly',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 9,
     salePrice: 15,
@@ -2568,7 +2568,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Faber Castel 1 Matéria 96f Frozen',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 9,
     salePrice: 15,
@@ -2578,7 +2578,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Faber Castel 1 Matéria 96f Minions',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 9,
     salePrice: 15,
@@ -2588,7 +2588,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Faber Castel 1 Matéria 96f Patati',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 9,
     salePrice: 15,
@@ -2598,7 +2598,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Faber Castel 4 Matérias 200f Praia',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 12.5,
     salePrice: 19.7,
@@ -2608,7 +2608,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Faber Castel 4 Matérias 200f Mar',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 12.5,
     salePrice: 19.7,
@@ -2618,7 +2618,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Faber Castel 4 Matérias 200f Floresta',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 12.5,
     salePrice: 19.7,
@@ -2628,7 +2628,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Faber Castel 4 Matérias 200f Surf',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 12.5,
     salePrice: 19.7,
@@ -2638,7 +2638,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Faber Castel 4 Matérias 200f Futebol',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 12.5,
     salePrice: 19.7,
@@ -2648,7 +2648,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Faber Castel 4 Matérias 200f Motocross',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 12.5,
     salePrice: 19.7,
@@ -2658,7 +2658,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Faber Castel 4 Matérias 200f Liso Azul',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 12.5,
     salePrice: 19.7,
@@ -2668,7 +2668,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Faber Castel 4 Matérias 200f Liso Vermleho',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 12.5,
     salePrice: 19.7,
@@ -2678,7 +2678,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Faber Castel 4 Matérias 200f Liso Verde',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 12.5,
     salePrice: 19.7,
@@ -2688,7 +2688,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Faber Castel 4 Matérias 200f Liso Rosa',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 12.5,
     salePrice: 19.7,
@@ -2698,7 +2698,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Faber Castel 4 Matérias 200f Liso Amarelo',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 12.5,
     salePrice: 19.7,
@@ -2708,7 +2708,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Faber Castel 4 Matérias 200f Liso Roxo',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 12.5,
     salePrice: 19.7,
@@ -2718,7 +2718,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Faber Castel 4 Matérias 200f Batman',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 12.5,
     salePrice: 19.7,
@@ -2728,7 +2728,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Faber Castel 4 Matérias 200f Spiderman',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 12.5,
     salePrice: 19.7,
@@ -2738,7 +2738,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Faber Castel 4 Matérias 200f Ben 10',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 12.5,
     salePrice: 19.7,
@@ -2748,7 +2748,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Faber Castel 4 Matérias 200f Ironman',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 12.5,
     salePrice: 19.7,
@@ -2758,7 +2758,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Faber Castel 4 Matérias 200f Hulk',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 12.5,
     salePrice: 19.7,
@@ -2768,7 +2768,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Faber Castel 4 Matérias 200f Hotwheels',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 12.5,
     salePrice: 19.7,
@@ -2778,7 +2778,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Faber Castel 4 Matérias 200f Hello Kity',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 12.5,
     salePrice: 19.7,
@@ -2788,7 +2788,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Faber Castel 4 Matérias 200f Barbie',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 12.5,
     salePrice: 19.7,
@@ -2798,7 +2798,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Faber Castel 4 Matérias 200f Polly',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 12.5,
     salePrice: 19.7,
@@ -2808,7 +2808,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Faber Castel 4 Matérias 200f Frozen',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 12.5,
     salePrice: 19.7,
@@ -2818,7 +2818,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Faber Castel 4 Matérias 200f Minions',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 12.5,
     salePrice: 19.7,
@@ -2828,7 +2828,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Faber Castel 4 Matérias 200f Patati',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 12.5,
     salePrice: 19.7,
@@ -2838,7 +2838,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Faber Castel 10 Matérias 400f Praia',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 16.9,
     salePrice: 25.4,
@@ -2848,7 +2848,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Faber Castel 10 Matérias 400f Mar',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 16.9,
     salePrice: 25.4,
@@ -2858,7 +2858,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Faber Castel 10 Matérias 400f Floresta',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 16.9,
     salePrice: 25.4,
@@ -2868,7 +2868,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Faber Castel 10 Matérias 400f Surf',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 16.9,
     salePrice: 25.4,
@@ -2878,7 +2878,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Faber Castel 10 Matérias 400f Futebol',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 16.9,
     salePrice: 25.4,
@@ -2888,7 +2888,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Faber Castel 10 Matérias 400f Motocross',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 16.9,
     salePrice: 25.4,
@@ -2898,7 +2898,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Faber Castel 10 Matérias 400f Liso Azul',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 16.9,
     salePrice: 25.4,
@@ -2908,7 +2908,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Faber Castel 10 Matérias 400f Liso Vermleho',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 16.9,
     salePrice: 25.4,
@@ -2918,7 +2918,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Faber Castel 10 Matérias 400f Liso Verde',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 16.9,
     salePrice: 25.4,
@@ -2928,7 +2928,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Faber Castel 10 Matérias 400f Liso Rosa',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 16.9,
     salePrice: 25.4,
@@ -2938,7 +2938,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Faber Castel 10 Matérias 400f Liso Amarelo',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 16.9,
     salePrice: 25.4,
@@ -2948,7 +2948,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Faber Castel 10 Matérias 400f Liso Roxo',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 16.9,
     salePrice: 25.4,
@@ -2958,7 +2958,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Faber Castel 10 Matérias 400f Batman',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 16.9,
     salePrice: 25.4,
@@ -2968,7 +2968,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Faber Castel 10 Matérias 400f Spiderman',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 16.9,
     salePrice: 25.4,
@@ -2978,7 +2978,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Faber Castel 10 Matérias 400f Ben 10',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 16.9,
     salePrice: 25.4,
@@ -2988,7 +2988,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Faber Castel 10 Matérias 400f Ironman',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 16.9,
     salePrice: 25.4,
@@ -2998,7 +2998,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Faber Castel 10 Matérias 400f Hulk',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 16.9,
     salePrice: 25.4,
@@ -3008,7 +3008,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Faber Castel 10 Matérias 400f Hotwheels',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 16.9,
     salePrice: 25.4,
@@ -3018,7 +3018,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Faber Castel 10 Matérias 400f Hello Kity',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 16.9,
     salePrice: 25.4,
@@ -3028,7 +3028,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Faber Castel 10 Matérias 400f Barbie',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 16.9,
     salePrice: 25.4,
@@ -3038,7 +3038,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Faber Castel 10 Matérias 400f Polly',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 16.9,
     salePrice: 25.4,
@@ -3048,7 +3048,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Faber Castel 10 Matérias 400f Frozen',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 16.9,
     salePrice: 25.4,
@@ -3058,7 +3058,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Faber Castel 10 Matérias 400f Minions',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 16.9,
     salePrice: 25.4,
@@ -3068,7 +3068,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Caderno Faber Castel 10 Matérias 400f Patati',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 16.9,
     salePrice: 25.4,
@@ -3078,7 +3078,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Pacote 100 folhas A4 Chamex',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     salePrice: 9.9,
     currentAmount: 10000,
@@ -3087,7 +3087,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Pacote 500 folhas A4 Chamex',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     salePrice: 22.9,
     currentAmount: 10000,
@@ -3096,7 +3096,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Pacote 1000 folhas A4 Chamex',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     salePrice: 37.8,
     currentAmount: 10000,
@@ -3105,7 +3105,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Pacote 100 folhas fichario A4 Tilibra',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     salePrice: 13.7,
     currentAmount: 10000,
@@ -3114,7 +3114,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Pacote 500 folhas fichario A4 Tilibra',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     salePrice: 27.5,
     currentAmount: 10000,
@@ -3123,7 +3123,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Pacote 1000 folhas fichario A4 Tilibra',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     salePrice: 44,
     currentAmount: 10000,
@@ -3132,7 +3132,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Pacote 100 folhas fichario A4 Foroni',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     salePrice: 12,
     currentAmount: 10000,
@@ -3141,7 +3141,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Pacote 500 folhas fichario A4 Foroni',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     salePrice: 25,
     currentAmount: 10000,
@@ -3150,7 +3150,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Pacote 1000 folhas fichario A4 Foroni',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     salePrice: 40,
     currentAmount: 10000,
@@ -3159,7 +3159,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Pacote 100 folhas fichario A4 Faber Castel',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     salePrice: 17.9,
     currentAmount: 10000,
@@ -3168,7 +3168,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Pacote 500 folhas fichario A4 Faber Castel',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     salePrice: 27.9,
     currentAmount: 10000,
@@ -3177,7 +3177,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Pacote 1000 folhas fichario A4 Faber Castel',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     salePrice: 50.3,
     currentAmount: 10000,
@@ -3186,7 +3186,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Tesoura pequena s/ ponta Bic',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 1,
     salePrice: 3,
@@ -3196,7 +3196,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Tesoura grande s/ ponta Bic',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 2,
     salePrice: 5,
@@ -3206,7 +3206,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Tesoura pequena Bic',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 2,
     salePrice: 5,
@@ -3216,7 +3216,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Tesoura grande Bic',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 3,
     salePrice: 7,
@@ -3226,7 +3226,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Tesoura pequena s/ ponta Faber Castel',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 4,
     salePrice: 6.5,
@@ -3236,7 +3236,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Tesoura grande s/ ponta Faber Castel',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 6,
     salePrice: 9.9,
@@ -3246,7 +3246,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Tesoura pequena Faber Castel',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 4.5,
     salePrice: 7,
@@ -3256,7 +3256,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Tesoura grande Faber Castel',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 6.5,
     salePrice: 10.5,
@@ -3266,7 +3266,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Cola Bastão Bic',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 1,
     salePrice: 4.25,
@@ -3276,7 +3276,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Cola Bastão Faber Castel',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 3,
     salePrice: 7.6,
@@ -3286,7 +3286,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Cola Bastão Tenaz',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 4,
     salePrice: 8.9,
@@ -3296,7 +3296,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Cola branca Bic 100g',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 4,
     salePrice: 7,
@@ -3306,7 +3306,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Cola branca Faber Castel 100g',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 6,
     salePrice: 11,
@@ -3316,7 +3316,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Cola branca Tenaz 100g',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     costPrice: 6.5,
     salePrice: 12,
@@ -3326,7 +3326,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Cola branca Bic 1Kg',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     salePrice: 19.6,
     currentAmount: 10000,
@@ -3335,7 +3335,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Cola branca Faber Castel 1Kg',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     salePrice: 24.7,
     currentAmount: 10000,
@@ -3344,7 +3344,7 @@ const schoolSupliesData = [
   },
   {
     name: 'Cola branca Tenaz 1Kg',
-    categoryPath: 'Materiais Escolares',
+    categoryPath: 'Materiais escolares',
     unitName: 'Unidade',
     salePrice: 23.5,
     currentAmount: 10000,

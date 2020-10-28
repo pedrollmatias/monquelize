@@ -6,5 +6,5 @@ module.exports = async function getPurchases(query) {
   query = query || {};
   const queryPopulate = [{ path: 'buyer' }];
 
-  return purchaseModel.find(query).populate(queryPopulate);
+  return purchaseModel.find(query).populate(queryPopulate).lean();
 };

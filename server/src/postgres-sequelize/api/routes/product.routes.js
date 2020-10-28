@@ -25,6 +25,8 @@ function normalizeProductBody(product) {
     _product.unitId = null;
   }
 
+  console.log(_product);
+
   return _product;
 }
 

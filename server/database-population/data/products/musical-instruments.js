@@ -5,7 +5,7 @@ const { generateRandomFloat } = require('../../utils');
 const musicalInstruments = [
   {
     name: 'Adufe Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -15,7 +15,7 @@ const musicalInstruments = [
   },
   {
     name: 'Afoxé Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -25,7 +25,7 @@ const musicalInstruments = [
   },
   {
     name: 'Agogô Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -35,7 +35,7 @@ const musicalInstruments = [
   },
   {
     name: 'Atabaque Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -45,7 +45,7 @@ const musicalInstruments = [
   },
   {
     name: 'Batá Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -55,7 +55,7 @@ const musicalInstruments = [
   },
   {
     name: 'Bateria Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -65,7 +65,7 @@ const musicalInstruments = [
   },
   {
     name: 'Bloco sonoro Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -75,7 +75,7 @@ const musicalInstruments = [
   },
   {
     name: 'Bombo Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -85,7 +85,7 @@ const musicalInstruments = [
   },
   {
     name: 'Bongô Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -95,7 +95,7 @@ const musicalInstruments = [
   },
   {
     name: 'Caixa Surdo Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -105,7 +105,7 @@ const musicalInstruments = [
   },
   {
     name: 'Carrilhão Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -115,7 +115,7 @@ const musicalInstruments = [
   },
   {
     name: 'Castanhola Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -125,7 +125,7 @@ const musicalInstruments = [
   },
   {
     name: 'Caxixi Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -135,7 +135,7 @@ const musicalInstruments = [
   },
   {
     name: 'Ceramofone Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -145,7 +145,7 @@ const musicalInstruments = [
   },
   {
     name: 'Chocalho Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -155,7 +155,7 @@ const musicalInstruments = [
   },
   {
     name: 'Conga Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -165,7 +165,7 @@ const musicalInstruments = [
   },
   {
     name: 'Cordofone Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -175,7 +175,7 @@ const musicalInstruments = [
   },
   {
     name: 'Cuíca Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -185,7 +185,7 @@ const musicalInstruments = [
   },
   {
     name: 'Ganzá Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -195,7 +195,7 @@ const musicalInstruments = [
   },
   {
     name: 'Gongo Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -205,7 +205,7 @@ const musicalInstruments = [
   },
   {
     name: 'Marimba Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -215,7 +215,7 @@ const musicalInstruments = [
   },
   {
     name: 'Metalofone Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -225,7 +225,7 @@ const musicalInstruments = [
   },
   {
     name: 'Pandeireta Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -235,7 +235,7 @@ const musicalInstruments = [
   },
   {
     name: 'Pandeiro Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -245,7 +245,7 @@ const musicalInstruments = [
   },
   {
     name: 'Pratos Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -255,7 +255,7 @@ const musicalInstruments = [
   },
   {
     name: 'Reco-reco Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -265,7 +265,7 @@ const musicalInstruments = [
   },
   {
     name: 'Repinique Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -275,7 +275,7 @@ const musicalInstruments = [
   },
   {
     name: 'Sino Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -285,7 +285,7 @@ const musicalInstruments = [
   },
   {
     name: 'Tambor Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -295,7 +295,7 @@ const musicalInstruments = [
   },
   {
     name: 'Tamborim Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -305,7 +305,7 @@ const musicalInstruments = [
   },
   {
     name: 'Tantã Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -315,7 +315,7 @@ const musicalInstruments = [
   },
   {
     name: 'Tímpano Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -325,7 +325,7 @@ const musicalInstruments = [
   },
   {
     name: 'Triângulo Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -335,7 +335,7 @@ const musicalInstruments = [
   },
   {
     name: 'Vibrafone Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -345,7 +345,7 @@ const musicalInstruments = [
   },
   {
     name: 'Xequerê Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -355,7 +355,7 @@ const musicalInstruments = [
   },
   {
     name: 'Xilofone Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -365,7 +365,7 @@ const musicalInstruments = [
   },
   {
     name: 'Clarinete Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -375,7 +375,7 @@ const musicalInstruments = [
   },
   {
     name: 'Clarone Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -385,7 +385,7 @@ const musicalInstruments = [
   },
   {
     name: 'Contrafagote Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -395,7 +395,7 @@ const musicalInstruments = [
   },
   {
     name: 'Corne Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -405,7 +405,7 @@ const musicalInstruments = [
   },
   {
     name: 'Didjeridu Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -415,7 +415,7 @@ const musicalInstruments = [
   },
   {
     name: 'Fagote Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -425,7 +425,7 @@ const musicalInstruments = [
   },
   {
     name: 'Flauta Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -435,7 +435,7 @@ const musicalInstruments = [
   },
   {
     name: 'Flautim Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -445,7 +445,7 @@ const musicalInstruments = [
   },
   {
     name: 'Gaita Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -455,7 +455,7 @@ const musicalInstruments = [
   },
   {
     name: 'Gaita de foles Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -465,7 +465,7 @@ const musicalInstruments = [
   },
   {
     name: 'Harmônica Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -475,7 +475,7 @@ const musicalInstruments = [
   },
   {
     name: 'Oboé Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -485,7 +485,7 @@ const musicalInstruments = [
   },
   {
     name: 'Requinta Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -495,7 +495,7 @@ const musicalInstruments = [
   },
   {
     name: 'Saxofone Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -505,7 +505,7 @@ const musicalInstruments = [
   },
   {
     name: 'Bombardino Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -515,7 +515,7 @@ const musicalInstruments = [
   },
   {
     name: 'Clarim Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -525,7 +525,7 @@ const musicalInstruments = [
   },
   {
     name: 'Corneta Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -535,7 +535,7 @@ const musicalInstruments = [
   },
   {
     name: 'Fliscorne Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -545,7 +545,7 @@ const musicalInstruments = [
   },
   {
     name: 'Trombone Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -555,7 +555,7 @@ const musicalInstruments = [
   },
   {
     name: 'Trompa Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -565,7 +565,7 @@ const musicalInstruments = [
   },
   {
     name: 'Trompete Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -575,7 +575,7 @@ const musicalInstruments = [
   },
   {
     name: 'Tuba Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -585,7 +585,7 @@ const musicalInstruments = [
   },
   {
     name: 'Alaúde Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -595,7 +595,7 @@ const musicalInstruments = [
   },
   {
     name: 'Baixo Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -605,7 +605,7 @@ const musicalInstruments = [
   },
   {
     name: 'Balalaica Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -615,7 +615,7 @@ const musicalInstruments = [
   },
   {
     name: 'Bandola Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -625,7 +625,7 @@ const musicalInstruments = [
   },
   {
     name: 'Bandolim Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -635,7 +635,7 @@ const musicalInstruments = [
   },
   {
     name: 'Banjo Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -645,7 +645,7 @@ const musicalInstruments = [
   },
   {
     name: 'Berimbau Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -655,7 +655,7 @@ const musicalInstruments = [
   },
   {
     name: 'Cavaquinho Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -665,7 +665,7 @@ const musicalInstruments = [
   },
   {
     name: 'Charango Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -675,7 +675,7 @@ const musicalInstruments = [
   },
   {
     name: 'Cítara Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -685,7 +685,7 @@ const musicalInstruments = [
   },
   {
     name: 'Contrabaixo Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -695,7 +695,7 @@ const musicalInstruments = [
   },
   {
     name: 'Cordofone Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -705,7 +705,7 @@ const musicalInstruments = [
   },
   {
     name: 'Guitarra Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -715,7 +715,7 @@ const musicalInstruments = [
   },
   {
     name: 'Harpa Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -725,7 +725,7 @@ const musicalInstruments = [
   },
   {
     name: 'Rabeca Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -735,7 +735,7 @@ const musicalInstruments = [
   },
   {
     name: 'Ukulele Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -745,7 +745,7 @@ const musicalInstruments = [
   },
   {
     name: 'Viola Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -755,7 +755,7 @@ const musicalInstruments = [
   },
   {
     name: 'Violão Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -765,7 +765,7 @@ const musicalInstruments = [
   },
   {
     name: 'Violino Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -775,7 +775,7 @@ const musicalInstruments = [
   },
   {
     name: 'Violoncelo Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -785,7 +785,7 @@ const musicalInstruments = [
   },
   {
     name: 'Acordeão Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -795,7 +795,7 @@ const musicalInstruments = [
   },
   {
     name: 'Clavicórdio Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -805,7 +805,7 @@ const musicalInstruments = [
   },
   {
     name: 'Concertina Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -815,7 +815,7 @@ const musicalInstruments = [
   },
   {
     name: 'Cravo Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -825,7 +825,7 @@ const musicalInstruments = [
   },
   {
     name: 'Espineta Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -835,7 +835,7 @@ const musicalInstruments = [
   },
   {
     name: 'Órgão Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -845,7 +845,7 @@ const musicalInstruments = [
   },
   {
     name: 'Piano Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -855,7 +855,7 @@ const musicalInstruments = [
   },
   {
     name: 'Sintetizador Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -865,7 +865,7 @@ const musicalInstruments = [
   },
   {
     name: 'Teclado Gianini',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -875,7 +875,7 @@ const musicalInstruments = [
   },
   {
     name: 'Adufe Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -885,7 +885,7 @@ const musicalInstruments = [
   },
   {
     name: 'Afoxé Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -895,7 +895,7 @@ const musicalInstruments = [
   },
   {
     name: 'Agogô Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -905,7 +905,7 @@ const musicalInstruments = [
   },
   {
     name: 'Atabaque Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -915,7 +915,7 @@ const musicalInstruments = [
   },
   {
     name: 'Batá Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -925,7 +925,7 @@ const musicalInstruments = [
   },
   {
     name: 'Bateria Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -935,7 +935,7 @@ const musicalInstruments = [
   },
   {
     name: 'Bloco sonoro Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -945,7 +945,7 @@ const musicalInstruments = [
   },
   {
     name: 'Bombo Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -955,7 +955,7 @@ const musicalInstruments = [
   },
   {
     name: 'Bongô Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -965,7 +965,7 @@ const musicalInstruments = [
   },
   {
     name: 'Caixa Surdo Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -975,7 +975,7 @@ const musicalInstruments = [
   },
   {
     name: 'Carrilhão Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -985,7 +985,7 @@ const musicalInstruments = [
   },
   {
     name: 'Castanhola Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -995,7 +995,7 @@ const musicalInstruments = [
   },
   {
     name: 'Caxixi Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1005,7 +1005,7 @@ const musicalInstruments = [
   },
   {
     name: 'Ceramofone Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1015,7 +1015,7 @@ const musicalInstruments = [
   },
   {
     name: 'Chocalho Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1025,7 +1025,7 @@ const musicalInstruments = [
   },
   {
     name: 'Conga Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1035,7 +1035,7 @@ const musicalInstruments = [
   },
   {
     name: 'Cordofone Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1045,7 +1045,7 @@ const musicalInstruments = [
   },
   {
     name: 'Cuíca Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1055,7 +1055,7 @@ const musicalInstruments = [
   },
   {
     name: 'Ganzá Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1065,7 +1065,7 @@ const musicalInstruments = [
   },
   {
     name: 'Gongo Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1075,7 +1075,7 @@ const musicalInstruments = [
   },
   {
     name: 'Marimba Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1085,7 +1085,7 @@ const musicalInstruments = [
   },
   {
     name: 'Metalofone Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1095,7 +1095,7 @@ const musicalInstruments = [
   },
   {
     name: 'Pandeireta Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1105,7 +1105,7 @@ const musicalInstruments = [
   },
   {
     name: 'Pandeiro Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1115,7 +1115,7 @@ const musicalInstruments = [
   },
   {
     name: 'Pratos Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1125,7 +1125,7 @@ const musicalInstruments = [
   },
   {
     name: 'Reco-reco Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1135,7 +1135,7 @@ const musicalInstruments = [
   },
   {
     name: 'Repinique Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1145,7 +1145,7 @@ const musicalInstruments = [
   },
   {
     name: 'Sino Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1155,7 +1155,7 @@ const musicalInstruments = [
   },
   {
     name: 'Tambor Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1165,7 +1165,7 @@ const musicalInstruments = [
   },
   {
     name: 'Tamborim Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1175,7 +1175,7 @@ const musicalInstruments = [
   },
   {
     name: 'Tantã Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1185,7 +1185,7 @@ const musicalInstruments = [
   },
   {
     name: 'Tímpano Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1195,7 +1195,7 @@ const musicalInstruments = [
   },
   {
     name: 'Triângulo Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1205,7 +1205,7 @@ const musicalInstruments = [
   },
   {
     name: 'Vibrafone Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1215,7 +1215,7 @@ const musicalInstruments = [
   },
   {
     name: 'Xequerê Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1225,7 +1225,7 @@ const musicalInstruments = [
   },
   {
     name: 'Xilofone Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1235,7 +1235,7 @@ const musicalInstruments = [
   },
   {
     name: 'Clarinete Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1245,7 +1245,7 @@ const musicalInstruments = [
   },
   {
     name: 'Clarone Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1255,7 +1255,7 @@ const musicalInstruments = [
   },
   {
     name: 'Contrafagote Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1265,7 +1265,7 @@ const musicalInstruments = [
   },
   {
     name: 'Corne Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1275,7 +1275,7 @@ const musicalInstruments = [
   },
   {
     name: 'Didjeridu Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1285,7 +1285,7 @@ const musicalInstruments = [
   },
   {
     name: 'Fagote Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1295,7 +1295,7 @@ const musicalInstruments = [
   },
   {
     name: 'Flauta Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1305,7 +1305,7 @@ const musicalInstruments = [
   },
   {
     name: 'Flautim Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1315,7 +1315,7 @@ const musicalInstruments = [
   },
   {
     name: 'Gaita Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1325,7 +1325,7 @@ const musicalInstruments = [
   },
   {
     name: 'Gaita de foles Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1335,7 +1335,7 @@ const musicalInstruments = [
   },
   {
     name: 'Harmônica Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1345,7 +1345,7 @@ const musicalInstruments = [
   },
   {
     name: 'Oboé Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1355,7 +1355,7 @@ const musicalInstruments = [
   },
   {
     name: 'Requinta Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1365,7 +1365,7 @@ const musicalInstruments = [
   },
   {
     name: 'Saxofone Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1375,7 +1375,7 @@ const musicalInstruments = [
   },
   {
     name: 'Bombardino Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1385,7 +1385,7 @@ const musicalInstruments = [
   },
   {
     name: 'Clarim Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1395,7 +1395,7 @@ const musicalInstruments = [
   },
   {
     name: 'Corneta Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1405,7 +1405,7 @@ const musicalInstruments = [
   },
   {
     name: 'Fliscorne Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1415,7 +1415,7 @@ const musicalInstruments = [
   },
   {
     name: 'Trombone Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1425,7 +1425,7 @@ const musicalInstruments = [
   },
   {
     name: 'Trompa Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1435,7 +1435,7 @@ const musicalInstruments = [
   },
   {
     name: 'Trompete Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1445,7 +1445,7 @@ const musicalInstruments = [
   },
   {
     name: 'Tuba Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1455,7 +1455,7 @@ const musicalInstruments = [
   },
   {
     name: 'Alaúde Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1465,7 +1465,7 @@ const musicalInstruments = [
   },
   {
     name: 'Baixo Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1475,7 +1475,7 @@ const musicalInstruments = [
   },
   {
     name: 'Balalaica Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1485,7 +1485,7 @@ const musicalInstruments = [
   },
   {
     name: 'Bandola Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1495,7 +1495,7 @@ const musicalInstruments = [
   },
   {
     name: 'Bandolim Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1505,7 +1505,7 @@ const musicalInstruments = [
   },
   {
     name: 'Banjo Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1515,7 +1515,7 @@ const musicalInstruments = [
   },
   {
     name: 'Berimbau Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1525,7 +1525,7 @@ const musicalInstruments = [
   },
   {
     name: 'Cavaquinho Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1535,7 +1535,7 @@ const musicalInstruments = [
   },
   {
     name: 'Charango Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1545,7 +1545,7 @@ const musicalInstruments = [
   },
   {
     name: 'Cítara Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1555,7 +1555,7 @@ const musicalInstruments = [
   },
   {
     name: 'Contrabaixo Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1565,7 +1565,7 @@ const musicalInstruments = [
   },
   {
     name: 'Cordofone Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1575,7 +1575,7 @@ const musicalInstruments = [
   },
   {
     name: 'Guitarra Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1585,7 +1585,7 @@ const musicalInstruments = [
   },
   {
     name: 'Harpa Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1595,7 +1595,7 @@ const musicalInstruments = [
   },
   {
     name: 'Rabeca Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1605,7 +1605,7 @@ const musicalInstruments = [
   },
   {
     name: 'Ukulele Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1615,7 +1615,7 @@ const musicalInstruments = [
   },
   {
     name: 'Viola Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1625,7 +1625,7 @@ const musicalInstruments = [
   },
   {
     name: 'Violão Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1635,7 +1635,7 @@ const musicalInstruments = [
   },
   {
     name: 'Violino Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1645,7 +1645,7 @@ const musicalInstruments = [
   },
   {
     name: 'Violoncelo Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1655,7 +1655,7 @@ const musicalInstruments = [
   },
   {
     name: 'Acordeão Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1665,7 +1665,7 @@ const musicalInstruments = [
   },
   {
     name: 'Clavicórdio Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1675,7 +1675,7 @@ const musicalInstruments = [
   },
   {
     name: 'Concertina Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1685,7 +1685,7 @@ const musicalInstruments = [
   },
   {
     name: 'Cravo Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1695,7 +1695,7 @@ const musicalInstruments = [
   },
   {
     name: 'Espineta Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1705,7 +1705,7 @@ const musicalInstruments = [
   },
   {
     name: 'Órgão Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1715,7 +1715,7 @@ const musicalInstruments = [
   },
   {
     name: 'Piano Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1725,7 +1725,7 @@ const musicalInstruments = [
   },
   {
     name: 'Sintetizador Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1735,7 +1735,7 @@ const musicalInstruments = [
   },
   {
     name: 'Teclado Yamaha',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1745,7 +1745,7 @@ const musicalInstruments = [
   },
   {
     name: 'Adufe Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1755,7 +1755,7 @@ const musicalInstruments = [
   },
   {
     name: 'Afoxé Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1765,7 +1765,7 @@ const musicalInstruments = [
   },
   {
     name: 'Agogô Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1775,7 +1775,7 @@ const musicalInstruments = [
   },
   {
     name: 'Atabaque Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1785,7 +1785,7 @@ const musicalInstruments = [
   },
   {
     name: 'Batá Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1795,7 +1795,7 @@ const musicalInstruments = [
   },
   {
     name: 'Bateria Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1805,7 +1805,7 @@ const musicalInstruments = [
   },
   {
     name: 'Bloco sonoro Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1815,7 +1815,7 @@ const musicalInstruments = [
   },
   {
     name: 'Bombo Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1825,7 +1825,7 @@ const musicalInstruments = [
   },
   {
     name: 'Bongô Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1835,7 +1835,7 @@ const musicalInstruments = [
   },
   {
     name: 'Caixa Surdo Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1845,7 +1845,7 @@ const musicalInstruments = [
   },
   {
     name: 'Carrilhão Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1855,7 +1855,7 @@ const musicalInstruments = [
   },
   {
     name: 'Castanhola Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1865,7 +1865,7 @@ const musicalInstruments = [
   },
   {
     name: 'Caxixi Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1875,7 +1875,7 @@ const musicalInstruments = [
   },
   {
     name: 'Ceramofone Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1885,7 +1885,7 @@ const musicalInstruments = [
   },
   {
     name: 'Chocalho Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1895,7 +1895,7 @@ const musicalInstruments = [
   },
   {
     name: 'Conga Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1905,7 +1905,7 @@ const musicalInstruments = [
   },
   {
     name: 'Cordofone Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1915,7 +1915,7 @@ const musicalInstruments = [
   },
   {
     name: 'Cuíca Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1925,7 +1925,7 @@ const musicalInstruments = [
   },
   {
     name: 'Ganzá Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1935,7 +1935,7 @@ const musicalInstruments = [
   },
   {
     name: 'Gongo Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1945,7 +1945,7 @@ const musicalInstruments = [
   },
   {
     name: 'Marimba Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1955,7 +1955,7 @@ const musicalInstruments = [
   },
   {
     name: 'Metalofone Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1965,7 +1965,7 @@ const musicalInstruments = [
   },
   {
     name: 'Pandeireta Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1975,7 +1975,7 @@ const musicalInstruments = [
   },
   {
     name: 'Pandeiro Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1985,7 +1985,7 @@ const musicalInstruments = [
   },
   {
     name: 'Pratos Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -1995,7 +1995,7 @@ const musicalInstruments = [
   },
   {
     name: 'Reco-reco Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -2005,7 +2005,7 @@ const musicalInstruments = [
   },
   {
     name: 'Repinique Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -2015,7 +2015,7 @@ const musicalInstruments = [
   },
   {
     name: 'Sino Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -2025,7 +2025,7 @@ const musicalInstruments = [
   },
   {
     name: 'Tambor Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -2035,7 +2035,7 @@ const musicalInstruments = [
   },
   {
     name: 'Tamborim Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -2045,7 +2045,7 @@ const musicalInstruments = [
   },
   {
     name: 'Tantã Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -2055,7 +2055,7 @@ const musicalInstruments = [
   },
   {
     name: 'Tímpano Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -2065,7 +2065,7 @@ const musicalInstruments = [
   },
   {
     name: 'Triângulo Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -2075,7 +2075,7 @@ const musicalInstruments = [
   },
   {
     name: 'Vibrafone Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -2085,7 +2085,7 @@ const musicalInstruments = [
   },
   {
     name: 'Xequerê Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -2095,7 +2095,7 @@ const musicalInstruments = [
   },
   {
     name: 'Xilofone Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -2105,7 +2105,7 @@ const musicalInstruments = [
   },
   {
     name: 'Clarinete Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -2115,7 +2115,7 @@ const musicalInstruments = [
   },
   {
     name: 'Clarone Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -2125,7 +2125,7 @@ const musicalInstruments = [
   },
   {
     name: 'Contrafagote Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -2135,7 +2135,7 @@ const musicalInstruments = [
   },
   {
     name: 'Corne Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -2145,7 +2145,7 @@ const musicalInstruments = [
   },
   {
     name: 'Didjeridu Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -2155,7 +2155,7 @@ const musicalInstruments = [
   },
   {
     name: 'Fagote Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -2165,7 +2165,7 @@ const musicalInstruments = [
   },
   {
     name: 'Flauta Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -2175,7 +2175,7 @@ const musicalInstruments = [
   },
   {
     name: 'Flautim Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -2185,7 +2185,7 @@ const musicalInstruments = [
   },
   {
     name: 'Gaita Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -2195,7 +2195,7 @@ const musicalInstruments = [
   },
   {
     name: 'Gaita de foles Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -2205,7 +2205,7 @@ const musicalInstruments = [
   },
   {
     name: 'Harmônica Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -2215,7 +2215,7 @@ const musicalInstruments = [
   },
   {
     name: 'Oboé Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -2225,7 +2225,7 @@ const musicalInstruments = [
   },
   {
     name: 'Requinta Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -2235,7 +2235,7 @@ const musicalInstruments = [
   },
   {
     name: 'Saxofone Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -2245,7 +2245,7 @@ const musicalInstruments = [
   },
   {
     name: 'Bombardino Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -2255,7 +2255,7 @@ const musicalInstruments = [
   },
   {
     name: 'Clarim Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -2265,7 +2265,7 @@ const musicalInstruments = [
   },
   {
     name: 'Corneta Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -2275,7 +2275,7 @@ const musicalInstruments = [
   },
   {
     name: 'Fliscorne Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -2285,7 +2285,7 @@ const musicalInstruments = [
   },
   {
     name: 'Trombone Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -2295,7 +2295,7 @@ const musicalInstruments = [
   },
   {
     name: 'Trompa Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -2305,7 +2305,7 @@ const musicalInstruments = [
   },
   {
     name: 'Trompete Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -2315,7 +2315,7 @@ const musicalInstruments = [
   },
   {
     name: 'Tuba Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -2325,7 +2325,7 @@ const musicalInstruments = [
   },
   {
     name: 'Alaúde Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -2335,7 +2335,7 @@ const musicalInstruments = [
   },
   {
     name: 'Baixo Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -2345,7 +2345,7 @@ const musicalInstruments = [
   },
   {
     name: 'Balalaica Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -2355,7 +2355,7 @@ const musicalInstruments = [
   },
   {
     name: 'Bandola Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -2365,7 +2365,7 @@ const musicalInstruments = [
   },
   {
     name: 'Bandolim Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -2375,7 +2375,7 @@ const musicalInstruments = [
   },
   {
     name: 'Banjo Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -2385,7 +2385,7 @@ const musicalInstruments = [
   },
   {
     name: 'Berimbau Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -2395,7 +2395,7 @@ const musicalInstruments = [
   },
   {
     name: 'Cavaquinho Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -2405,7 +2405,7 @@ const musicalInstruments = [
   },
   {
     name: 'Charango Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -2415,7 +2415,7 @@ const musicalInstruments = [
   },
   {
     name: 'Cítara Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -2425,7 +2425,7 @@ const musicalInstruments = [
   },
   {
     name: 'Contrabaixo Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -2435,7 +2435,7 @@ const musicalInstruments = [
   },
   {
     name: 'Cordofone Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -2445,7 +2445,7 @@ const musicalInstruments = [
   },
   {
     name: 'Guitarra Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -2455,7 +2455,7 @@ const musicalInstruments = [
   },
   {
     name: 'Harpa Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -2465,7 +2465,7 @@ const musicalInstruments = [
   },
   {
     name: 'Rabeca Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -2475,7 +2475,7 @@ const musicalInstruments = [
   },
   {
     name: 'Ukulele Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -2485,7 +2485,7 @@ const musicalInstruments = [
   },
   {
     name: 'Viola Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -2495,7 +2495,7 @@ const musicalInstruments = [
   },
   {
     name: 'Violão Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -2505,7 +2505,7 @@ const musicalInstruments = [
   },
   {
     name: 'Violino Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -2515,7 +2515,7 @@ const musicalInstruments = [
   },
   {
     name: 'Violoncelo Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -2525,7 +2525,7 @@ const musicalInstruments = [
   },
   {
     name: 'Acordeão Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -2535,7 +2535,7 @@ const musicalInstruments = [
   },
   {
     name: 'Clavicórdio Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -2545,7 +2545,7 @@ const musicalInstruments = [
   },
   {
     name: 'Concertina Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -2555,7 +2555,7 @@ const musicalInstruments = [
   },
   {
     name: 'Cravo Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -2565,7 +2565,7 @@ const musicalInstruments = [
   },
   {
     name: 'Espineta Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -2575,7 +2575,7 @@ const musicalInstruments = [
   },
   {
     name: 'Órgão Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -2585,7 +2585,7 @@ const musicalInstruments = [
   },
   {
     name: 'Piano Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(600, 1200),
     salePrice: generateRandomFloat(300, 600),
@@ -2595,7 +2595,7 @@ const musicalInstruments = [
   },
   {
     name: 'Sintetizador Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),
@@ -2605,7 +2605,7 @@ const musicalInstruments = [
   },
   {
     name: 'Teclado Gibson',
-    categoryPath: 'Mochilas',
+    categoryPath: 'Instrumentos musicais',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(300, 1500),
     salePrice: generateRandomFloat(300, 600),

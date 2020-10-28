@@ -4,6 +4,7 @@ const Logger = require('../src/loaders/logger');
 const mongodbMongooseServices = require('../src/mongodb-mongoose/services');
 const postgresSequelizeServices = require('../src/postgres-sequelize/services');
 const mongooseModels = require('../src/mongodb-mongoose/models');
+const postgresSequelizeModels = require('../src/postgres-sequelize/models');
 const { dbConnect, dbDisconnect, clearMongodbMongooseCollections, clearPostrgresSequelizeTables } = require('./utils');
 const data = require('./data');
 
@@ -52,13 +53,32 @@ async function populateUsers(users) {
 
 async function populateProducts(products) {
   for (const product of products) {
-    const category = await mongooseModels.categoryModel.findOne({ path: product.categoryPath });
-    const unit = await mongooseModels.unitModel.findOne({ unit: product.unitName });
-    const _product = { ...product, category, unit };
+    const [
+      categoryMongodbMongoose,
+      unitMongodbMongoose,
+      categoryPostgresSequelize,
+      unitPostgresSequelize,
+    ] = await Promise.all([
+      mongooseModels.categoryModel.findOne({ path: product.categoryPath }),
+      mongooseModels.unitModel.findOne({ unit: product.unitName }),
+      postgresSequelizeModels.Category.findOne({
+        where: { path: product.categoryPath },
+      }),
+      postgresSequelizeModels.Unit.findOne({
+        where: { unit: product.unitName },
+      }),
+    ]);
+
+    const mongodbMongooseProduct = { ...product, category: categoryMongodbMongoose, unit: unitMongodbMongoose };
+    const postgresSequelizeProduct = {
+      ...product,
+      categoryId: categoryPostgresSequelize && categoryPostgresSequelize._id,
+      unitId: unitPostgresSequelize && unitPostgresSequelize._id,
+    };
 
     await Promise.all([
-      mongodbMongooseServices.productService.add(_product),
-      postgresSequelizeServices.productService.add(_product),
+      mongodbMongooseServices.productService.add(mongodbMongooseProduct),
+      postgresSequelizeServices.productService.add(postgresSequelizeProduct),
     ]);
   }
 }

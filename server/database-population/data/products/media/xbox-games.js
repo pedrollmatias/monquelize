@@ -6,7 +6,7 @@ const { generateRandomFloat } = require('../../../utils');
 const xboxGamesData = [
   {
     name: '007: Agent Under Fire',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -16,7 +16,7 @@ const xboxGamesData = [
   },
   {
     name: '007: Everything or Nothing',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -26,7 +26,7 @@ const xboxGamesData = [
   },
   {
     name: '007: From Russia with Love',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -36,7 +36,7 @@ const xboxGamesData = [
   },
   {
     name: '007: Nightfire',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -46,7 +46,7 @@ const xboxGamesData = [
   },
   {
     name: '2002 FIFA World Cup',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -56,7 +56,7 @@ const xboxGamesData = [
   },
   {
     name: '50 Cent: Bulletproof',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -66,7 +66,7 @@ const xboxGamesData = [
   },
   {
     name: 'Advent Rising',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -76,7 +76,7 @@ const xboxGamesData = [
   },
   {
     name: 'Æon Flux',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -86,7 +86,7 @@ const xboxGamesData = [
   },
   {
     name: 'AFL Live 2003',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -96,7 +96,7 @@ const xboxGamesData = [
   },
   {
     name: 'AFL Live 2004',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -106,7 +106,7 @@ const xboxGamesData = [
   },
   {
     name: 'AFL Live Premiership Edition',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -116,7 +116,7 @@ const xboxGamesData = [
   },
   {
     name: 'AFL Premiership 2005Aggressive Inline',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -126,7 +126,7 @@ const xboxGamesData = [
   },
   {
     name: 'Airforce Delta II (JP)',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -136,7 +136,7 @@ const xboxGamesData = [
   },
   {
     name: 'Alias',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -146,7 +146,7 @@ const xboxGamesData = [
   },
   {
     name: 'Alien Hominid',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -156,7 +156,7 @@ const xboxGamesData = [
   },
   {
     name: 'All-Star Baseball 2003',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -166,7 +166,7 @@ const xboxGamesData = [
   },
   {
     name: 'AND 1 Streetball',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -176,7 +176,7 @@ const xboxGamesData = [
   },
   {
     name: 'Angelic Concert (JP',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -186,7 +186,7 @@ const xboxGamesData = [
   },
   {
     name: 'Animaniacs: The Great Edgar Hunt',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -196,7 +196,7 @@ const xboxGamesData = [
   },
   {
     name: 'Antz Extreme Racing',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -206,7 +206,7 @@ const xboxGamesData = [
   },
   {
     name: 'Racing Evoluzione (PAL)',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -216,7 +216,7 @@ const xboxGamesData = [
   },
   {
     name: 'Aquaman: Battle for AtlantisArctic Thunder',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -226,7 +226,7 @@ const xboxGamesData = [
   },
   {
     name: 'Area 51',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -236,7 +236,7 @@ const xboxGamesData = [
   },
   {
     name: 'Arena Football',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -246,7 +246,7 @@ const xboxGamesData = [
   },
   {
     name: 'Armed and Dangerous',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -256,7 +256,7 @@ const xboxGamesData = [
   },
   {
     name: 'Army Men: Major Malfunction',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -266,7 +266,7 @@ const xboxGamesData = [
   },
   {
     name: "Army Men: Sarge's War",
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -276,7 +276,7 @@ const xboxGamesData = [
   },
   {
     name: 'Arx Fatalis',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -286,7 +286,7 @@ const xboxGamesData = [
   },
   {
     name: 'Atari Anthology',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -296,7 +296,7 @@ const xboxGamesData = [
   },
   {
     name: 'ATV Quad Power Racing 2',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -306,7 +306,7 @@ const xboxGamesData = [
   },
   {
     name: 'Auto Modellista',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -316,7 +316,7 @@ const xboxGamesData = [
   },
   {
     name: 'Avatar: The Last AirbenderAzurik: Rise of Perathia',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -326,7 +326,7 @@ const xboxGamesData = [
   },
   {
     name: "Backyard Wrestling: Don't Try This at Home",
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -336,7 +336,7 @@ const xboxGamesData = [
   },
   {
     name: 'Backyard Wrestling 2: There Goes the Neighborhood',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -346,7 +346,7 @@ const xboxGamesData = [
   },
   {
     name: "Baldur's Gate: Dark Alliance",
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -356,7 +356,7 @@ const xboxGamesData = [
   },
   {
     name: "Baldur's Gate: Dark Alliance II",
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -366,7 +366,7 @@ const xboxGamesData = [
   },
   {
     name: 'BarbarianBarbie Horse Adventures: Wild Horse Rescue',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -376,7 +376,7 @@ const xboxGamesData = [
   },
   {
     name: "The Bard's Tale",
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -386,7 +386,7 @@ const xboxGamesData = [
   },
   {
     name: 'Bass Pro Shops: Trophy Bass 2007',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -396,7 +396,7 @@ const xboxGamesData = [
   },
   {
     name: 'Bass Pro Shops Trophy Hunter 2007',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -406,7 +406,7 @@ const xboxGamesData = [
   },
   {
     name: 'Batman: Rise of Sin Tzu',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -416,7 +416,7 @@ const xboxGamesData = [
   },
   {
     name: 'Beat Down: Fists of Vengeance',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -426,7 +426,7 @@ const xboxGamesData = [
   },
   {
     name: 'Beyond Good & Evil',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -436,7 +436,7 @@ const xboxGamesData = [
   },
   {
     name: 'Bicycle Casino',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -446,7 +446,7 @@ const xboxGamesData = [
   },
   {
     name: 'Big Bumpin',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -456,7 +456,7 @@ const xboxGamesData = [
   },
   {
     name: 'Big Mutha Truckers',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -466,7 +466,7 @@ const xboxGamesData = [
   },
   {
     name: 'Big Mutha Truckers 2',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -476,7 +476,7 @@ const xboxGamesData = [
   },
   {
     name: 'Bistro Cupid 2',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -486,7 +486,7 @@ const xboxGamesData = [
   },
   {
     name: 'Black',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -496,7 +496,7 @@ const xboxGamesData = [
   },
   {
     name: 'Ex-Chaser (JP)',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -506,7 +506,7 @@ const xboxGamesData = [
   },
   {
     name: 'Blazing Angels: Squadrons of WWII',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -516,7 +516,7 @@ const xboxGamesData = [
   },
   {
     name: 'Blinx 2: Battle of Time and Space (JP)',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -526,7 +526,7 @@ const xboxGamesData = [
   },
   {
     name: 'Blitz: The League',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -536,7 +536,7 @@ const xboxGamesData = [
   },
   {
     name: 'Blood Omen 2',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -546,7 +546,7 @@ const xboxGamesData = [
   },
   {
     name: 'Blood Wake',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -556,7 +556,7 @@ const xboxGamesData = [
   },
   {
     name: 'BloodRayne',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -566,7 +566,7 @@ const xboxGamesData = [
   },
   {
     name: 'BloodRayne 2',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -576,7 +576,7 @@ const xboxGamesData = [
   },
   {
     name: 'Bloody Roar Extreme',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -586,7 +586,7 @@ const xboxGamesData = [
   },
   {
     name: 'BlowOut',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -596,7 +596,7 @@ const xboxGamesData = [
   },
   {
     name: 'BMX XXX',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -606,7 +606,7 @@ const xboxGamesData = [
   },
   {
     name: 'Break Nine: World Billiards TournamentBreakdown',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -616,7 +616,7 @@ const xboxGamesData = [
   },
   {
     name: 'Breeders Cup World Thoroughbred Championships',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -626,7 +626,7 @@ const xboxGamesData = [
   },
   {
     name: 'Brian Lara International Cricket 2005',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -636,7 +636,7 @@ const xboxGamesData = [
   },
   {
     name: 'Broken Sword: The Sleeping Dragon',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -646,7 +646,7 @@ const xboxGamesData = [
   },
   {
     name: 'Brothers in Arms: Earned in Blood',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -656,7 +656,7 @@ const xboxGamesData = [
   },
   {
     name: 'Brute Force',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -666,7 +666,7 @@ const xboxGamesData = [
   },
   {
     name: 'Buffy the Vampire Slayer',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -676,7 +676,7 @@ const xboxGamesData = [
   },
   {
     name: 'Buffy the Vampire Slayer: Chaos Bleeds',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -686,7 +686,7 @@ const xboxGamesData = [
   },
   {
     name: 'Burnout',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -696,7 +696,7 @@ const xboxGamesData = [
   },
   {
     name: 'Burnout 2: Point of Impact',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -706,7 +706,7 @@ const xboxGamesData = [
   },
   {
     name: 'Burnout 3: Takedown',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -716,7 +716,7 @@ const xboxGamesData = [
   },
   {
     name: "Cabela's Dangerous Hunts",
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -726,7 +726,7 @@ const xboxGamesData = [
   },
   {
     name: "Cabela's Deer Hunt: 2004 Season",
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -736,7 +736,7 @@ const xboxGamesData = [
   },
   {
     name: "Cabela's Deer Hunt: 2005 Season",
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -746,7 +746,7 @@ const xboxGamesData = [
   },
   {
     name: 'Call of Cthulhu: Dark Corners of the Earth',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -756,7 +756,7 @@ const xboxGamesData = [
   },
   {
     name: 'Call of Duty 3',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -766,7 +766,7 @@ const xboxGamesData = [
   },
   {
     name: 'Capcom Classics Collection Vol. 1',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -776,7 +776,7 @@ const xboxGamesData = [
   },
   {
     name: 'Capcom Fighting Jam (PAL) (JP)',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -786,7 +786,7 @@ const xboxGamesData = [
   },
   {
     name: 'Capcom vs. SNK 2 EO',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -796,7 +796,7 @@ const xboxGamesData = [
   },
   {
     name: 'Carmen Sandiego: The Secret of the Stolen Drums',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -806,7 +806,7 @@ const xboxGamesData = [
   },
   {
     name: 'Akumajo Dracula: Yami no Juin (JP)',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -816,7 +816,7 @@ const xboxGamesData = [
   },
   {
     name: 'Catwoman',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -826,7 +826,7 @@ const xboxGamesData = [
   },
   {
     name: 'Cel Damage',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -836,7 +836,7 @@ const xboxGamesData = [
   },
   {
     name: 'Celebrity Deathmatch',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -846,7 +846,7 @@ const xboxGamesData = [
   },
   {
     name: 'Championship Bowling',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -856,7 +856,7 @@ const xboxGamesData = [
   },
   {
     name: 'Championship Manager: Season 02/03',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -866,7 +866,7 @@ const xboxGamesData = [
   },
   {
     name: 'Championship Manager 2006',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -876,7 +876,7 @@ const xboxGamesData = [
   },
   {
     name: 'Championship Manager 5',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -886,7 +886,7 @@ const xboxGamesData = [
   },
   {
     name: 'Charlie and the Chocolate Factory',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -896,7 +896,7 @@ const xboxGamesData = [
   },
   {
     name: 'Chase: Hollywood Stunt Driver',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -906,7 +906,7 @@ const xboxGamesData = [
   },
   {
     name: 'Chessmaster 10th Edition',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -916,7 +916,7 @@ const xboxGamesData = [
   },
   {
     name: 'Chicago Enforcer',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -926,7 +926,7 @@ const xboxGamesData = [
   },
   {
     name: 'Chicken Little',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -936,7 +936,7 @@ const xboxGamesData = [
   },
   {
     name: 'The Chronicles of Narnia: The Lion, the Witch and the Wardrobe',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -946,7 +946,7 @@ const xboxGamesData = [
   },
   {
     name: 'The Chronicles of Riddick: Escape from Butcher Bay',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -956,7 +956,7 @@ const xboxGamesData = [
   },
   {
     name: 'Circus Maximus: Chariot Wars',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -966,7 +966,7 @@ const xboxGamesData = [
   },
   {
     name: 'Close Combat: First to Fight',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -976,7 +976,7 @@ const xboxGamesData = [
   },
   {
     name: 'Club Football 2005',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -986,7 +986,7 @@ const xboxGamesData = [
   },
   {
     name: 'Codename: Kids Next Door - Operation: V.I.D.E.O.G.A.M.E.',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -996,7 +996,7 @@ const xboxGamesData = [
   },
   {
     name: 'Cold Fear',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1006,7 +1006,7 @@ const xboxGamesData = [
   },
   {
     name: 'Cold War',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1016,7 +1016,7 @@ const xboxGamesData = [
   },
   {
     name: 'Colin McRae Rally 04',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1026,7 +1026,7 @@ const xboxGamesData = [
   },
   {
     name: 'Colin McRae Rally 2005',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1036,7 +1036,7 @@ const xboxGamesData = [
   },
   {
     name: 'Colin McRae Rally 3',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1046,7 +1046,7 @@ const xboxGamesData = [
   },
   {
     name: 'College Hoops 2K6',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1056,7 +1056,7 @@ const xboxGamesData = [
   },
   {
     name: 'College Hoops 2K7',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1066,7 +1066,7 @@ const xboxGamesData = [
   },
   {
     name: 'Combat Elite: WWII Paratroopers',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1076,7 +1076,7 @@ const xboxGamesData = [
   },
   {
     name: 'Combat: Task Force 121',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1086,7 +1086,7 @@ const xboxGamesData = [
   },
   {
     name: 'Commandos: Strike Force',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1096,7 +1096,7 @@ const xboxGamesData = [
   },
   {
     name: 'Commandos 2: Men of Courage',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1106,7 +1106,7 @@ const xboxGamesData = [
   },
   {
     name: 'Conan',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1116,7 +1116,7 @@ const xboxGamesData = [
   },
   {
     name: 'Conflict: Desert Storm',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1126,7 +1126,7 @@ const xboxGamesData = [
   },
   {
     name: 'Conker: Live & Reloaded',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1136,7 +1136,7 @@ const xboxGamesData = [
   },
   {
     name: 'Conspiracy: Weapons of Mass Destruction',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1146,7 +1146,7 @@ const xboxGamesData = [
   },
   {
     name: 'Constantine',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1156,7 +1156,7 @@ const xboxGamesData = [
   },
   {
     name: 'Corvette',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1166,7 +1166,7 @@ const xboxGamesData = [
   },
   {
     name: 'Counter-Strike',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1176,7 +1176,7 @@ const xboxGamesData = [
   },
   {
     name: 'Crash Bandicoot: The Wrath of Cortex',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1186,7 +1186,7 @@ const xboxGamesData = [
   },
   {
     name: 'Crash Tag Team Racing',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1196,7 +1196,7 @@ const xboxGamesData = [
   },
   {
     name: 'Crash Twinsanity',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1206,7 +1206,7 @@ const xboxGamesData = [
   },
   {
     name: 'Crazy Taxi 3: High Roller',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1216,7 +1216,7 @@ const xboxGamesData = [
   },
   {
     name: 'Cricket 2005',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1226,7 +1226,7 @@ const xboxGamesData = [
   },
   {
     name: 'Crime Life: Gang Wars',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1236,7 +1236,7 @@ const xboxGamesData = [
   },
   {
     name: 'Crimson Skies: High Road to Revenge',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1246,7 +1246,7 @@ const xboxGamesData = [
   },
   {
     name: 'Crouching Tiger, Hidden Dragon',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1256,7 +1256,7 @@ const xboxGamesData = [
   },
   {
     name: 'Crusty Demons',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1266,7 +1266,7 @@ const xboxGamesData = [
   },
   {
     name: 'Curse: The Eye of Isis',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1276,7 +1276,7 @@ const xboxGamesData = [
   },
   {
     name: 'The Da Vinci Code',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1286,7 +1286,7 @@ const xboxGamesData = [
   },
   {
     name: 'Daemon Vector',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1296,7 +1296,7 @@ const xboxGamesData = [
   },
   {
     name: 'Daisenryaku VII (JP)',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1306,7 +1306,7 @@ const xboxGamesData = [
   },
   {
     name: "Dakar 2: The World's Ultimate Rally",
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1316,7 +1316,7 @@ const xboxGamesData = [
   },
   {
     name: 'Dance Stage Unleashed (PAL)',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1326,7 +1326,7 @@ const xboxGamesData = [
   },
   {
     name: 'Dance Stage Unleashed 2 (PAL)',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1336,7 +1336,7 @@ const xboxGamesData = [
   },
   {
     name: 'Dance Stage Unleashed 3 (PAL)',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1346,7 +1346,7 @@ const xboxGamesData = [
   },
   {
     name: 'Dance Dance Revolution Ultramix 4Dance: UK',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1356,7 +1356,7 @@ const xboxGamesData = [
   },
   {
     name: 'Dark Summit',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1366,7 +1366,7 @@ const xboxGamesData = [
   },
   {
     name: 'Dave Mirra Freestyle BMX 2',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1376,7 +1376,7 @@ const xboxGamesData = [
   },
   {
     name: 'David Beckham Soccer',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1386,7 +1386,7 @@ const xboxGamesData = [
   },
   {
     name: "Dead Man's Hand",
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1396,7 +1396,7 @@ const xboxGamesData = [
   },
   {
     name: 'Dead or Alive 3',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1406,7 +1406,7 @@ const xboxGamesData = [
   },
   {
     name: 'Dead or Alive Ultimate',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1416,7 +1416,7 @@ const xboxGamesData = [
   },
   {
     name: 'Dead or Alive Xtreme Beach Volleyball',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1426,7 +1426,7 @@ const xboxGamesData = [
   },
   {
     name: 'Dead to Rights',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1436,7 +1436,7 @@ const xboxGamesData = [
   },
   {
     name: 'Dead to Rights II',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1446,7 +1446,7 @@ const xboxGamesData = [
   },
   {
     name: 'Defender',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1456,7 +1456,7 @@ const xboxGamesData = [
   },
   {
     name: 'Delta Force: Black Hawk Down',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1466,7 +1466,7 @@ const xboxGamesData = [
   },
   {
     name: 'Dennou Taisen: DroneZ',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1476,7 +1476,7 @@ const xboxGamesData = [
   },
   {
     name: 'Destroy All Humans!',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1486,7 +1486,7 @@ const xboxGamesData = [
   },
   {
     name: 'Dejimon Warudo X (JP)',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1496,7 +1496,7 @@ const xboxGamesData = [
   },
   {
     name: 'Dino Crisis 3',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1506,7 +1506,7 @@ const xboxGamesData = [
   },
   {
     name: 'Dinosaur Hunting',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1516,7 +1516,7 @@ const xboxGamesData = [
   },
   {
     name: "Disney's Extreme Skate Adventure",
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1526,7 +1526,7 @@ const xboxGamesData = [
   },
   {
     name: 'Doom 3',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1536,7 +1536,7 @@ const xboxGamesData = [
   },
   {
     name: 'Doom 3: Resurrection of Evil',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1546,7 +1546,7 @@ const xboxGamesData = [
   },
   {
     name: 'Dragon Ball Z: Sagas',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1556,7 +1556,7 @@ const xboxGamesData = [
   },
   {
     name: "Dragon's Lair 3D: Return to the Lair",
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1566,7 +1566,7 @@ const xboxGamesData = [
   },
   {
     name: 'Dreamfall: The Longest Journey',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1576,7 +1576,7 @@ const xboxGamesData = [
   },
   {
     name: 'DRIV3R',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1586,7 +1586,7 @@ const xboxGamesData = [
   },
   {
     name: 'Dungeons & Dragons: Heroes',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1596,7 +1596,7 @@ const xboxGamesData = [
   },
   {
     name: 'Shin Sangokumusou 2 (JP)',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1606,7 +1606,7 @@ const xboxGamesData = [
   },
   {
     name: 'Shin Sangokumusou 3 (JP)',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1616,7 +1616,7 @@ const xboxGamesData = [
   },
   {
     name: 'Shin Sangokumusou 4 (JP)',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1626,7 +1626,7 @@ const xboxGamesData = [
   },
   {
     name: 'Ed, Edd n Eddy: The Mis-Edventures',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1636,7 +1636,7 @@ const xboxGamesData = [
   },
   {
     name: 'Egg Mania: Eggstreme Madness',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1646,7 +1646,7 @@ const xboxGamesData = [
   },
   {
     name: 'The Elder Scrolls III: Morrowind',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1656,7 +1656,7 @@ const xboxGamesData = [
   },
   {
     name: 'Enclave',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1666,7 +1666,7 @@ const xboxGamesData = [
   },
   {
     name: 'Enter the Matrix',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1676,7 +1676,7 @@ const xboxGamesData = [
   },
   {
     name: 'Eragon',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1686,7 +1686,7 @@ const xboxGamesData = [
   },
   {
     name: 'ESPN College HoopsESPN College Hoops 2K5ESPN International Winter Sports 2002',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1696,7 +1696,7 @@ const xboxGamesData = [
   },
   {
     name: 'ESPN Major League BaseballESPN MLS ExtraTime 2002',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1706,7 +1706,7 @@ const xboxGamesData = [
   },
   {
     name: 'ESPN NBA 2K5',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1716,7 +1716,7 @@ const xboxGamesData = [
   },
   {
     name: 'ESPN NBA Basketball',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1726,7 +1726,7 @@ const xboxGamesData = [
   },
   {
     name: 'Evil Dead: A Fistful of Boomstick',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1736,7 +1736,7 @@ const xboxGamesData = [
   },
   {
     name: 'ExaSkeleton',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1746,7 +1746,7 @@ const xboxGamesData = [
   },
   {
     name: 'F1 2001',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1756,7 +1756,7 @@ const xboxGamesData = [
   },
   {
     name: 'F1 2002',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1766,7 +1766,7 @@ const xboxGamesData = [
   },
   {
     name: 'F1 Career Challenge',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1776,7 +1776,7 @@ const xboxGamesData = [
   },
   {
     name: 'Fable',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1786,7 +1786,7 @@ const xboxGamesData = [
   },
   {
     name: 'Fable: The Lost Chapters',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1796,7 +1796,7 @@ const xboxGamesData = [
   },
   {
     name: 'Fantastic 4',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1806,7 +1806,7 @@ const xboxGamesData = [
   },
   {
     name: 'FIFA 06 Soccer',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1816,7 +1816,7 @@ const xboxGamesData = [
   },
   {
     name: 'FIFA 07',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1826,7 +1826,7 @@ const xboxGamesData = [
   },
   {
     name: 'FIFA Football 2003',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1836,7 +1836,7 @@ const xboxGamesData = [
   },
   {
     name: 'FIFA Football 2004',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1846,7 +1846,7 @@ const xboxGamesData = [
   },
   {
     name: 'FIFA 2005',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1856,7 +1856,7 @@ const xboxGamesData = [
   },
   {
     name: 'FIFA Street',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1866,7 +1866,7 @@ const xboxGamesData = [
   },
   {
     name: 'FIFA Street 2',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1876,7 +1876,7 @@ const xboxGamesData = [
   },
   {
     name: 'FIFA World Cup: Germany 2006',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1886,7 +1886,7 @@ const xboxGamesData = [
   },
   {
     name: 'Fight Club',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1896,7 +1896,7 @@ const xboxGamesData = [
   },
   {
     name: 'Fight Night 2004',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1906,7 +1906,7 @@ const xboxGamesData = [
   },
   {
     name: 'Fight Night Round 2',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1916,7 +1916,7 @@ const xboxGamesData = [
   },
   {
     name: 'FILA World Tour TennisFinal Fight: Streetwise',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1926,7 +1926,7 @@ const xboxGamesData = [
   },
   {
     name: 'Fire Blade',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1936,7 +1936,7 @@ const xboxGamesData = [
   },
   {
     name: 'FlatOut',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1946,7 +1946,7 @@ const xboxGamesData = [
   },
   {
     name: 'FlatOut 2',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1956,7 +1956,7 @@ const xboxGamesData = [
   },
   {
     name: 'Flight Academy',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1966,7 +1966,7 @@ const xboxGamesData = [
   },
   {
     name: 'Ford Bold Moves Street RacingFord Mustang: The Legend Lives',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1976,7 +1976,7 @@ const xboxGamesData = [
   },
   {
     name: 'Ford Racing 3',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1986,7 +1986,7 @@ const xboxGamesData = [
   },
   {
     name: 'Forza Motorsport',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -1996,7 +1996,7 @@ const xboxGamesData = [
   },
   {
     name: 'Freaky Flyers',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2006,7 +2006,7 @@ const xboxGamesData = [
   },
   {
     name: 'Freedom Fighters',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2016,7 +2016,7 @@ const xboxGamesData = [
   },
   {
     name: 'Freestyle MetalX',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2026,7 +2026,7 @@ const xboxGamesData = [
   },
   {
     name: 'Freestyle Street Soccer',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2036,7 +2036,7 @@ const xboxGamesData = [
   },
   {
     name: 'Frogger Beyond',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2046,7 +2046,7 @@ const xboxGamesData = [
   },
   {
     name: 'Frogger: Ancient ShadowFull Spectrum Warrior',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2056,7 +2056,7 @@ const xboxGamesData = [
   },
   {
     name: 'Full Spectrum Warrior: Ten Hammers',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2066,7 +2066,7 @@ const xboxGamesData = [
   },
   {
     name: 'Galaxy AngelGalleon',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2076,7 +2076,7 @@ const xboxGamesData = [
   },
   {
     name: 'Gauntlet: Seven Sorrows',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2086,7 +2086,7 @@ const xboxGamesData = [
   },
   {
     name: 'Gene Troopers',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2096,7 +2096,7 @@ const xboxGamesData = [
   },
   {
     name: 'Genma Onimusha',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2106,7 +2106,7 @@ const xboxGamesData = [
   },
   {
     name: 'Ghost Master: The Gravenville Chronicles',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2116,7 +2116,7 @@ const xboxGamesData = [
   },
   {
     name: 'Gladiator: Sword of Vengeance',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2126,7 +2126,7 @@ const xboxGamesData = [
   },
   {
     name: 'Gladius',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2136,7 +2136,7 @@ const xboxGamesData = [
   },
   {
     name: 'Goblin Commander: Unleash the Horde',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2146,7 +2146,7 @@ const xboxGamesData = [
   },
   {
     name: 'The Godfather: The Game',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2156,7 +2156,7 @@ const xboxGamesData = [
   },
   {
     name: 'Godzilla: Destroy All Monsters MeleeGodzilla: Save the Earth',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2166,7 +2166,7 @@ const xboxGamesData = [
   },
   {
     name: 'GoldenEye: Rogue Agent',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2176,7 +2176,7 @@ const xboxGamesData = [
   },
   {
     name: 'Gotcha!',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2186,7 +2186,7 @@ const xboxGamesData = [
   },
   {
     name: 'Grabbed by the Ghoulies',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2196,7 +2196,7 @@ const xboxGamesData = [
   },
   {
     name: 'Grand Theft Auto III',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2206,7 +2206,7 @@ const xboxGamesData = [
   },
   {
     name: 'Grand Theft Auto: Double Pack',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2216,7 +2216,7 @@ const xboxGamesData = [
   },
   {
     name: 'Grand Theft Auto: The Trilogy',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2226,7 +2226,7 @@ const xboxGamesData = [
   },
   {
     name: 'Grand Theft Auto: Vice City',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2236,7 +2236,7 @@ const xboxGamesData = [
   },
   {
     name: 'The Great Escape',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2246,7 +2246,7 @@ const xboxGamesData = [
   },
   {
     name: 'Greg Hastings Tournament Paintball',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2256,7 +2256,7 @@ const xboxGamesData = [
   },
   {
     name: 'Greg Hastings Tournament Paintball Max',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2266,7 +2266,7 @@ const xboxGamesData = [
   },
   {
     name: 'Grooverider: Slot Car Thunder',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2276,7 +2276,7 @@ const xboxGamesData = [
   },
   {
     name: 'Guilty Gear Isuka[1',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2286,7 +2286,7 @@ const xboxGamesData = [
   },
   {
     name: 'Guilty Gear X2#Reload[2]',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2296,7 +2296,7 @@ const xboxGamesData = [
   },
   {
     name: 'Gun',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2306,7 +2306,7 @@ const xboxGamesData = [
   },
   {
     name: 'Gun Metal',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2316,7 +2316,7 @@ const xboxGamesData = [
   },
   {
     name: 'GunGriffon: Allied Strike',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2326,7 +2326,7 @@ const xboxGamesData = [
   },
   {
     name: 'Gunvalkyrie',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2336,7 +2336,7 @@ const xboxGamesData = [
   },
   {
     name: 'The Guy Game',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2346,7 +2346,7 @@ const xboxGamesData = [
   },
   {
     name: 'Halo: Combat Evolved',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2356,7 +2356,7 @@ const xboxGamesData = [
   },
   {
     name: 'Halo 2',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2366,7 +2366,7 @@ const xboxGamesData = [
   },
   {
     name: 'Halo 2 Multiplayer Map Pack',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2376,7 +2376,7 @@ const xboxGamesData = [
   },
   {
     name: 'Halo Triple Pack',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2386,7 +2386,7 @@ const xboxGamesData = [
   },
   {
     name: 'Harry Potter and the Chamber of Secrets',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2396,7 +2396,7 @@ const xboxGamesData = [
   },
   {
     name: 'Harry Potter and the Prisoner of Azkaban',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2406,7 +2406,7 @@ const xboxGamesData = [
   },
   {
     name: "Harry Potter and the Philosopher's Stone (PAL)",
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2416,7 +2416,7 @@ const xboxGamesData = [
   },
   {
     name: 'Harry Potter: Quidditch World Cup',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2426,7 +2426,7 @@ const xboxGamesData = [
   },
   {
     name: 'The Haunted Mansion',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2436,7 +2436,7 @@ const xboxGamesData = [
   },
   {
     name: 'Headhunter Redemption',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2446,7 +2446,7 @@ const xboxGamesData = [
   },
   {
     name: 'Hello Kitty: Mission Rescue (AS)',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2456,7 +2456,7 @@ const xboxGamesData = [
   },
   {
     name: 'High Heat Major League Baseball 2004',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2466,7 +2466,7 @@ const xboxGamesData = [
   },
   {
     name: 'High Rollers Casino',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2476,7 +2476,7 @@ const xboxGamesData = [
   },
   {
     name: 'Hitman: Blood Money',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2486,7 +2486,7 @@ const xboxGamesData = [
   },
   {
     name: 'Hitman: Contracts',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2496,7 +2496,7 @@ const xboxGamesData = [
   },
   {
     name: 'The Hobbit',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2506,7 +2506,7 @@ const xboxGamesData = [
   },
   {
     name: 'Hot Wheels: Stunt Track Challenge',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2516,7 +2516,7 @@ const xboxGamesData = [
   },
   {
     name: 'The House of the Dead III',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2526,7 +2526,7 @@ const xboxGamesData = [
   },
   {
     name: 'Hulk',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2536,7 +2536,7 @@ const xboxGamesData = [
   },
   {
     name: 'Hummer BadlandsHunter: The Reckoning',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2546,7 +2546,7 @@ const xboxGamesData = [
   },
   {
     name: 'Hunter: The Reckoning: Redeemer',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2556,7 +2556,7 @@ const xboxGamesData = [
   },
   {
     name: 'The Hustle: Detroit Streets',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2566,7 +2566,7 @@ const xboxGamesData = [
   },
   {
     name: 'I-NinjaIce Age 2: The Meltdown',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2576,7 +2576,7 @@ const xboxGamesData = [
   },
   {
     name: 'IHRA Drag Racing 2004',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2586,7 +2586,7 @@ const xboxGamesData = [
   },
   {
     name: 'IHRA Drag Racing: Sportsman Edition',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2596,7 +2596,7 @@ const xboxGamesData = [
   },
   {
     name: 'IHRA Professional Drag Racing 2005',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2606,7 +2606,7 @@ const xboxGamesData = [
   },
   {
     name: 'Innocent Tears',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2616,7 +2616,7 @@ const xboxGamesData = [
   },
   {
     name: 'The Incredible Hulk: Ultimate Destruction',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2626,7 +2626,7 @@ const xboxGamesData = [
   },
   {
     name: 'Mr. Incredible (JP)',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2636,7 +2636,7 @@ const xboxGamesData = [
   },
   {
     name: 'The Incredibles: Rise of the Underminer',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2646,7 +2646,7 @@ const xboxGamesData = [
   },
   {
     name: "Indiana Jones and the Emperor's Tomb",
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2656,7 +2656,7 @@ const xboxGamesData = [
   },
   {
     name: 'IndyCar Series 2005',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2666,7 +2666,7 @@ const xboxGamesData = [
   },
   {
     name: 'Inside Pitch 2003',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2676,7 +2676,7 @@ const xboxGamesData = [
   },
   {
     name: 'The Italian Job',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2686,7 +2686,7 @@ const xboxGamesData = [
   },
   {
     name: 'Intellivision Lives!',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2696,7 +2696,7 @@ const xboxGamesData = [
   },
   {
     name: 'International Superstar Soccer 2',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2706,7 +2706,7 @@ const xboxGamesData = [
   },
   {
     name: 'Iron Phoenix',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2716,7 +2716,7 @@ const xboxGamesData = [
   },
   {
     name: "James Cameron's Dark Angel",
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2726,7 +2726,7 @@ const xboxGamesData = [
   },
   {
     name: 'Jaws Unleashed',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2736,7 +2736,7 @@ const xboxGamesData = [
   },
   {
     name: 'Jet Set Radio Future',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2746,7 +2746,7 @@ const xboxGamesData = [
   },
   {
     name: 'Jikkyou World Soccer 2002',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2756,7 +2756,7 @@ const xboxGamesData = [
   },
   {
     name: "Jockey's Road",
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2766,7 +2766,7 @@ const xboxGamesData = [
   },
   {
     name: 'Juiced',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2776,7 +2776,7 @@ const xboxGamesData = [
   },
   {
     name: 'Just Cause',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2786,7 +2786,7 @@ const xboxGamesData = [
   },
   {
     name: 'Justice League Heroes',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2796,7 +2796,7 @@ const xboxGamesData = [
   },
   {
     name: 'Kabuki Warriors',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2806,7 +2806,7 @@ const xboxGamesData = [
   },
   {
     name: 'Kakuto Chojin',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2816,7 +2816,7 @@ const xboxGamesData = [
   },
   {
     name: "Karaoke RevolutionKaraoke Revolution PartyKelly Slater's Pro Surfer",
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2826,7 +2826,7 @@ const xboxGamesData = [
   },
   {
     name: 'Kikou Heidan J-Phoenix +Kill Switch',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2836,7 +2836,7 @@ const xboxGamesData = [
   },
   {
     name: 'King Arthur',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2846,7 +2846,7 @@ const xboxGamesData = [
   },
   {
     name: 'Kingdom Under Fire: The Crusaders',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2856,7 +2856,7 @@ const xboxGamesData = [
   },
   {
     name: 'The King of Fighters 02/03',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2866,7 +2866,7 @@ const xboxGamesData = [
   },
   {
     name: 'The King of Fighters 2002',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2876,7 +2876,7 @@ const xboxGamesData = [
   },
   {
     name: 'The King of Fighters 2003',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2886,7 +2886,7 @@ const xboxGamesData = [
   },
   {
     name: 'The King of Fighters Neowave',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2896,7 +2896,7 @@ const xboxGamesData = [
   },
   {
     name: 'The King of Fighters: Maximum Impact',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2906,7 +2906,7 @@ const xboxGamesData = [
   },
   {
     name: 'Knights of the Temple II',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2916,7 +2916,7 @@ const xboxGamesData = [
   },
   {
     name: 'L.A. Rush',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2926,7 +2926,7 @@ const xboxGamesData = [
   },
   {
     name: "Land of the Dead: Road to Fiddler's Green",
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2936,7 +2936,7 @@ const xboxGamesData = [
   },
   {
     name: 'Largo Winch: Empire Under ThreatLegacy of Kain: Defiance',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2946,7 +2946,7 @@ const xboxGamesData = [
   },
   {
     name: 'The Legend of Spyro: A New Beginning',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2956,7 +2956,7 @@ const xboxGamesData = [
   },
   {
     name: 'Legends of Wrestling',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2966,7 +2966,7 @@ const xboxGamesData = [
   },
   {
     name: 'Legends of Wrestling II',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2976,7 +2976,7 @@ const xboxGamesData = [
   },
   {
     name: 'Lego Star Wars',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2986,7 +2986,7 @@ const xboxGamesData = [
   },
   {
     name: 'Lego Star Wars II: The Original Trilogy',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -2996,7 +2996,7 @@ const xboxGamesData = [
   },
   {
     name: 'Leisure Suit Larry: Magna Cum Laude',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3006,7 +3006,7 @@ const xboxGamesData = [
   },
   {
     name: "Lemony Snicket's A Series of Unfortunate Events",
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3016,7 +3016,7 @@ const xboxGamesData = [
   },
   {
     name: 'LMA Manager 2003LMA Manager 2004LMA Manager 2005LMA Manager 2006Loons: The Fight for Fame',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3026,7 +3026,7 @@ const xboxGamesData = [
   },
   {
     name: 'The Lord of the Rings: The Return of the King',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3036,7 +3036,7 @@ const xboxGamesData = [
   },
   {
     name: 'The Lord of the Rings: The Third Age',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3046,7 +3046,7 @@ const xboxGamesData = [
   },
   {
     name: 'The Lord of the Rings: The Two Towers',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3056,7 +3056,7 @@ const xboxGamesData = [
   },
   {
     name: 'Lotus Challenge',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3066,7 +3066,7 @@ const xboxGamesData = [
   },
   {
     name: 'Mace Griffin: Bounty Hunter',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3076,7 +3076,7 @@ const xboxGamesData = [
   },
   {
     name: 'Mad Dash Racing',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3086,7 +3086,7 @@ const xboxGamesData = [
   },
   {
     name: 'Madden NFL 06',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3096,7 +3096,7 @@ const xboxGamesData = [
   },
   {
     name: 'Madden NFL 08',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3106,7 +3106,7 @@ const xboxGamesData = [
   },
   {
     name: 'Madden NFL 09',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3116,7 +3116,7 @@ const xboxGamesData = [
   },
   {
     name: 'Madden NFL 2002',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3126,7 +3126,7 @@ const xboxGamesData = [
   },
   {
     name: 'Madden NFL 2003',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3136,7 +3136,7 @@ const xboxGamesData = [
   },
   {
     name: 'Madden NFL 2004',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3146,7 +3146,7 @@ const xboxGamesData = [
   },
   {
     name: 'Madden NFL 2005',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3156,7 +3156,7 @@ const xboxGamesData = [
   },
   {
     name: 'Mafia: The City of Lost Heaven',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3166,7 +3166,7 @@ const xboxGamesData = [
   },
   {
     name: 'Magatama',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3176,7 +3176,7 @@ const xboxGamesData = [
   },
   {
     name: 'Magic the Gathering: Battlegrounds',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3186,7 +3186,7 @@ const xboxGamesData = [
   },
   {
     name: 'Major League Baseball 2K6',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3196,7 +3196,7 @@ const xboxGamesData = [
   },
   {
     name: 'Major League Baseball 2K7',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3206,7 +3206,7 @@ const xboxGamesData = [
   },
   {
     name: 'Malice',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3216,7 +3216,7 @@ const xboxGamesData = [
   },
   {
     name: 'Manchester United Manager 2005',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3226,7 +3226,7 @@ const xboxGamesData = [
   },
   {
     name: 'Manhunt',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3236,7 +3236,7 @@ const xboxGamesData = [
   },
   {
     name: "Marc Ecko's Getting Up: Contents Under Pressure",
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3246,7 +3246,7 @@ const xboxGamesData = [
   },
   {
     name: 'Marvel vs. Capcom 2',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3256,7 +3256,7 @@ const xboxGamesData = [
   },
   {
     name: 'Mashed: Fully Loaded',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3266,7 +3266,7 @@ const xboxGamesData = [
   },
   {
     name: "Mat Hoffman's Pro BMX 2",
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3276,7 +3276,7 @@ const xboxGamesData = [
   },
   {
     name: 'The Matrix: Path of Neo',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3286,7 +3286,7 @@ const xboxGamesData = [
   },
   {
     name: 'Max Payne 2: The Fall of Max Payne',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3296,7 +3296,7 @@ const xboxGamesData = [
   },
   {
     name: 'Maximum Chase',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3306,7 +3306,7 @@ const xboxGamesData = [
   },
   {
     name: 'MechAssault',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3316,7 +3316,7 @@ const xboxGamesData = [
   },
   {
     name: 'MechAssault 2: Lone Wolf',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3326,7 +3326,7 @@ const xboxGamesData = [
   },
   {
     name: 'Medal of Honor: European Assault',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3336,7 +3336,7 @@ const xboxGamesData = [
   },
   {
     name: 'Medal of Honor: Frontline',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3346,7 +3346,7 @@ const xboxGamesData = [
   },
   {
     name: 'Mega Man Anniversary Collection',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3356,7 +3356,7 @@ const xboxGamesData = [
   },
   {
     name: 'Frankie Dettori Racing (EUR)',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3366,7 +3366,7 @@ const xboxGamesData = [
   },
   {
     name: 'Mercenaries: Playground of Destruction',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3376,7 +3376,7 @@ const xboxGamesData = [
   },
   {
     name: 'Metal Arms: Glitch in the System',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3386,7 +3386,7 @@ const xboxGamesData = [
   },
   {
     name: 'Metal Dungeon',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3396,7 +3396,7 @@ const xboxGamesData = [
   },
   {
     name: 'Metal Slug 3',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3406,7 +3406,7 @@ const xboxGamesData = [
   },
   {
     name: 'Metal Slug 5',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3416,7 +3416,7 @@ const xboxGamesData = [
   },
   {
     name: 'Metal Wolf Chaos',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3426,7 +3426,7 @@ const xboxGamesData = [
   },
   {
     name: 'Miami Vice',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3436,7 +3436,7 @@ const xboxGamesData = [
   },
   {
     name: 'Micro Machines',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3446,7 +3446,7 @@ const xboxGamesData = [
   },
   {
     name: 'Midnight Club II',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3456,7 +3456,7 @@ const xboxGamesData = [
   },
   {
     name: 'Midnight Club 3: DUB Edition',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3466,7 +3466,7 @@ const xboxGamesData = [
   },
   {
     name: 'Midnight Club 3: DUB Edition Remix',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3476,7 +3476,7 @@ const xboxGamesData = [
   },
   {
     name: 'Midtown Madness 3',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3486,7 +3486,7 @@ const xboxGamesData = [
   },
   {
     name: 'Midway Arcade Treasures',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3496,7 +3496,7 @@ const xboxGamesData = [
   },
   {
     name: 'Midway Arcade Treasures 2',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3506,7 +3506,7 @@ const xboxGamesData = [
   },
   {
     name: 'Midway Arcade Treasures 3',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3516,7 +3516,7 @@ const xboxGamesData = [
   },
   {
     name: 'Mike Tyson Heavyweight Boxing',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3526,7 +3526,7 @@ const xboxGamesData = [
   },
   {
     name: 'Mission Impossible: Operation Surma',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3536,7 +3536,7 @@ const xboxGamesData = [
   },
   {
     name: 'MLB Slugfest 2004',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3546,7 +3546,7 @@ const xboxGamesData = [
   },
   {
     name: 'MLB Slugfest 2006',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3556,7 +3556,7 @@ const xboxGamesData = [
   },
   {
     name: 'MLB Slugfest: Loaded',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3566,7 +3566,7 @@ const xboxGamesData = [
   },
   {
     name: 'Mojo!',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3576,7 +3576,7 @@ const xboxGamesData = [
   },
   {
     name: 'Monopoly Party',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3586,7 +3586,7 @@ const xboxGamesData = [
   },
   {
     name: 'Monster 4x4: World Circuit',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3596,7 +3596,7 @@ const xboxGamesData = [
   },
   {
     name: 'Monster GarageMortal Kombat: Armageddon',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3606,7 +3606,7 @@ const xboxGamesData = [
   },
   {
     name: 'Mortal Kombat: Deadly Alliance',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3616,7 +3616,7 @@ const xboxGamesData = [
   },
   {
     name: 'Mortal Kombat: Deception',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3626,7 +3626,7 @@ const xboxGamesData = [
   },
   {
     name: 'Mortal Kombat: Shaolin Monks',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3636,7 +3636,7 @@ const xboxGamesData = [
   },
   {
     name: 'Motocross Mania 3',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3646,7 +3646,7 @@ const xboxGamesData = [
   },
   {
     name: 'MotoGP',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3656,7 +3656,7 @@ const xboxGamesData = [
   },
   {
     name: 'MTX: Mototrax',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3666,7 +3666,7 @@ const xboxGamesData = [
   },
   {
     name: 'Murakumo: Renegade Mech Pursuit',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3676,7 +3676,7 @@ const xboxGamesData = [
   },
   {
     name: 'Muzzle Flash',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3686,7 +3686,7 @@ const xboxGamesData = [
   },
   {
     name: 'MVP Baseball 2003',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3696,7 +3696,7 @@ const xboxGamesData = [
   },
   {
     name: 'MVP Baseball 2004',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3706,7 +3706,7 @@ const xboxGamesData = [
   },
   {
     name: 'MVP Baseball 2005',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3716,7 +3716,7 @@ const xboxGamesData = [
   },
   {
     name: 'MX 2002',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3726,7 +3726,7 @@ const xboxGamesData = [
   },
   {
     name: 'MX Superfly',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3736,7 +3736,7 @@ const xboxGamesData = [
   },
   {
     name: 'MX Unleashed',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3746,7 +3746,7 @@ const xboxGamesData = [
   },
   {
     name: 'Myst III: Exile',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3756,7 +3756,7 @@ const xboxGamesData = [
   },
   {
     name: 'N.U.D.E.@ Natural Ultimate Digital Experiment',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3766,7 +3766,7 @@ const xboxGamesData = [
   },
   {
     name: 'Namco Museum 50th Anniversary',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3776,7 +3776,7 @@ const xboxGamesData = [
   },
   {
     name: 'Narc',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3786,7 +3786,7 @@ const xboxGamesData = [
   },
   {
     name: 'NASCAR 06: Total Team Control',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3796,7 +3796,7 @@ const xboxGamesData = [
   },
   {
     name: 'NASCAR 07',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3806,7 +3806,7 @@ const xboxGamesData = [
   },
   {
     name: 'NASCAR 2005: Chase for the Cup',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3816,7 +3816,7 @@ const xboxGamesData = [
   },
   {
     name: 'NASCAR Heat 2002NASCAR Thunder 2002',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3826,7 +3826,7 @@ const xboxGamesData = [
   },
   {
     name: 'NASCAR Thunder 2003',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3836,7 +3836,7 @@ const xboxGamesData = [
   },
   {
     name: 'NASCAR Thunder 2004',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3846,7 +3846,7 @@ const xboxGamesData = [
   },
   {
     name: 'NBA 2K2NBA 2K3',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3856,7 +3856,7 @@ const xboxGamesData = [
   },
   {
     name: 'NBA 2K7',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3866,7 +3866,7 @@ const xboxGamesData = [
   },
   {
     name: 'NBA Ballers',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3876,7 +3876,7 @@ const xboxGamesData = [
   },
   {
     name: 'NBA Ballers: Phenom',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3886,7 +3886,7 @@ const xboxGamesData = [
   },
   {
     name: 'NBA Inside Drive 2002',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3896,7 +3896,7 @@ const xboxGamesData = [
   },
   {
     name: 'NBA Inside Drive 2003',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3906,7 +3906,7 @@ const xboxGamesData = [
   },
   {
     name: 'NBA Inside Drive 2004',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3916,7 +3916,7 @@ const xboxGamesData = [
   },
   {
     name: 'NBA Jam',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3926,7 +3926,7 @@ const xboxGamesData = [
   },
   {
     name: 'NBA Live 06',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3936,7 +3936,7 @@ const xboxGamesData = [
   },
   {
     name: 'NBA Live 2005',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3946,7 +3946,7 @@ const xboxGamesData = [
   },
   {
     name: 'NBA Starting Five',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3956,7 +3956,7 @@ const xboxGamesData = [
   },
   {
     name: 'NBA Street V3',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3966,7 +3966,7 @@ const xboxGamesData = [
   },
   {
     name: 'NBA Street Vol. 2',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3976,7 +3976,7 @@ const xboxGamesData = [
   },
   {
     name: 'NCAA College Basketball 2K3NCAA College Football 2K3NCAA Football 06',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3986,7 +3986,7 @@ const xboxGamesData = [
   },
   {
     name: 'NCAA Football 07',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -3996,7 +3996,7 @@ const xboxGamesData = [
   },
   {
     name: 'NCAA Football 08',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4006,7 +4006,7 @@ const xboxGamesData = [
   },
   {
     name: 'NCAA Football 2003',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4016,7 +4016,7 @@ const xboxGamesData = [
   },
   {
     name: 'NCAA Football 2004',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4026,7 +4026,7 @@ const xboxGamesData = [
   },
   {
     name: 'NCAA Football 2005',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4036,7 +4036,7 @@ const xboxGamesData = [
   },
   {
     name: 'NCAA March Madness 06',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4046,7 +4046,7 @@ const xboxGamesData = [
   },
   {
     name: 'NCAA March Madness 2004',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4056,7 +4056,7 @@ const xboxGamesData = [
   },
   {
     name: 'NCAA March Madness 2005',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4066,7 +4066,7 @@ const xboxGamesData = [
   },
   {
     name: 'Need for Speed: Carbon',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4076,7 +4076,7 @@ const xboxGamesData = [
   },
   {
     name: 'Need for Speed: Hot Pursuit 2',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4086,7 +4086,7 @@ const xboxGamesData = [
   },
   {
     name: 'Need for Speed: Most Wanted',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4096,7 +4096,7 @@ const xboxGamesData = [
   },
   {
     name: 'Need for Speed: Underground',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4106,7 +4106,7 @@ const xboxGamesData = [
   },
   {
     name: 'Need for Speed: Underground 2',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4116,7 +4116,7 @@ const xboxGamesData = [
   },
   {
     name: 'Neighbours from Hell',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4126,7 +4126,7 @@ const xboxGamesData = [
   },
   {
     name: 'New Legends',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4136,7 +4136,7 @@ const xboxGamesData = [
   },
   {
     name: 'NFL Blitz 2003',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4146,7 +4146,7 @@ const xboxGamesData = [
   },
   {
     name: 'NFL Blitz Pro',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4156,7 +4156,7 @@ const xboxGamesData = [
   },
   {
     name: 'NFL Fever 2002',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4166,7 +4166,7 @@ const xboxGamesData = [
   },
   {
     name: 'NFL Fever 2003',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4176,7 +4176,7 @@ const xboxGamesData = [
   },
   {
     name: 'NFL Fever 2004',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4186,7 +4186,7 @@ const xboxGamesData = [
   },
   {
     name: 'NFL Head Coach',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4196,7 +4196,7 @@ const xboxGamesData = [
   },
   {
     name: 'NFL Street',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4206,7 +4206,7 @@ const xboxGamesData = [
   },
   {
     name: 'NFL Street 2',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4216,7 +4216,7 @@ const xboxGamesData = [
   },
   {
     name: 'NHL 06',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4226,7 +4226,7 @@ const xboxGamesData = [
   },
   {
     name: 'NHL 07',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4236,7 +4236,7 @@ const xboxGamesData = [
   },
   {
     name: 'NHL 2002',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4246,7 +4246,7 @@ const xboxGamesData = [
   },
   {
     name: 'NHL 2003',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4256,7 +4256,7 @@ const xboxGamesData = [
   },
   {
     name: 'NHL 2004',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4266,7 +4266,7 @@ const xboxGamesData = [
   },
   {
     name: 'NHL 2005',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4276,7 +4276,7 @@ const xboxGamesData = [
   },
   {
     name: 'NHL 2K3',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4286,7 +4286,7 @@ const xboxGamesData = [
   },
   {
     name: 'NHL 2K6',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4296,7 +4296,7 @@ const xboxGamesData = [
   },
   {
     name: 'NHL 2K7',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4306,7 +4306,7 @@ const xboxGamesData = [
   },
   {
     name: 'NHL Hitz 20-02',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4316,7 +4316,7 @@ const xboxGamesData = [
   },
   {
     name: 'NHL Hitz 20-03',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4326,7 +4326,7 @@ const xboxGamesData = [
   },
   {
     name: 'NHL Hitz Pro',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4336,7 +4336,7 @@ const xboxGamesData = [
   },
   {
     name: 'NHL Rivals 2004',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4346,7 +4346,7 @@ const xboxGamesData = [
   },
   {
     name: 'Nickelodeon Party Blast',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4356,7 +4356,7 @@ const xboxGamesData = [
   },
   {
     name: 'NightCaster',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4366,7 +4366,7 @@ const xboxGamesData = [
   },
   {
     name: 'NightCaster II: Equinox',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4376,7 +4376,7 @@ const xboxGamesData = [
   },
   {
     name: 'Ninja Gaiden',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4386,7 +4386,7 @@ const xboxGamesData = [
   },
   {
     name: 'Ninja Gaiden Black',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4396,7 +4396,7 @@ const xboxGamesData = [
   },
   {
     name: 'Nobunaga no Yabou: Ranseiki',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4406,7 +4406,7 @@ const xboxGamesData = [
   },
   {
     name: 'ObsCure',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4416,7 +4416,7 @@ const xboxGamesData = [
   },
   {
     name: "Oddworld: Munch's Oddysee",
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4426,7 +4426,7 @@ const xboxGamesData = [
   },
   {
     name: 'Open Season',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4436,7 +4436,7 @@ const xboxGamesData = [
   },
   {
     name: 'Operation Flashpoint: Elite',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4446,7 +4446,7 @@ const xboxGamesData = [
   },
   {
     name: 'Otogi 2: Immortal Warriors',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4456,7 +4456,7 @@ const xboxGamesData = [
   },
   {
     name: 'Outlaw Golf',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4466,7 +4466,7 @@ const xboxGamesData = [
   },
   {
     name: 'Outlaw Golf 2',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4476,7 +4476,7 @@ const xboxGamesData = [
   },
   {
     name: 'Outlaw Golf: 9 Holes of X-Mas',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4486,7 +4486,7 @@ const xboxGamesData = [
   },
   {
     name: 'Outlaw Golf: 9 More Holes of X-Mas',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4496,7 +4496,7 @@ const xboxGamesData = [
   },
   {
     name: 'Outlaw Golf: Holiday Golf',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4506,7 +4506,7 @@ const xboxGamesData = [
   },
   {
     name: 'Outlaw Tennis',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4516,7 +4516,7 @@ const xboxGamesData = [
   },
   {
     name: 'Outlaw Volleyball',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4526,7 +4526,7 @@ const xboxGamesData = [
   },
   {
     name: 'Outlaw Volleyball: Red Hot',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4536,7 +4536,7 @@ const xboxGamesData = [
   },
   {
     name: 'OutRun 2',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4546,7 +4546,7 @@ const xboxGamesData = [
   },
   {
     name: 'OutRun 2006: Coast 2 Coast',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4556,7 +4556,7 @@ const xboxGamesData = [
   },
   {
     name: 'Pac-Man World 2',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4566,7 +4566,7 @@ const xboxGamesData = [
   },
   {
     name: 'Painkiller: Hell Wars',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4576,7 +4576,7 @@ const xboxGamesData = [
   },
   {
     name: 'Panzer Dragoon Orta',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4586,7 +4586,7 @@ const xboxGamesData = [
   },
   {
     name: 'Panzer Elite Action: Fields of Glory',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4596,7 +4596,7 @@ const xboxGamesData = [
   },
   {
     name: 'Pariah',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4606,7 +4606,7 @@ const xboxGamesData = [
   },
   {
     name: "Peter Jackson's King Kong",
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4616,7 +4616,7 @@ const xboxGamesData = [
   },
   {
     name: 'Petit Copter',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4626,7 +4626,7 @@ const xboxGamesData = [
   },
   {
     name: 'Phantasy Star Online Episode I & II',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4636,7 +4636,7 @@ const xboxGamesData = [
   },
   {
     name: 'Phantom Crash',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4646,7 +4646,7 @@ const xboxGamesData = [
   },
   {
     name: 'Phantom Dust',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4656,7 +4656,7 @@ const xboxGamesData = [
   },
   {
     name: 'Pilot Down: Behind Enemy Lines',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4666,7 +4666,7 @@ const xboxGamesData = [
   },
   {
     name: 'Pinball Hall of Fame',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4676,7 +4676,7 @@ const xboxGamesData = [
   },
   {
     name: 'Pirates of the Caribbean',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4686,7 +4686,7 @@ const xboxGamesData = [
   },
   {
     name: 'Pirates: The Legend of Black Kat',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4696,7 +4696,7 @@ const xboxGamesData = [
   },
   {
     name: 'Pitfall: The Lost Expedition',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4706,7 +4706,7 @@ const xboxGamesData = [
   },
   {
     name: 'Playboy: The Mansion',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4716,7 +4716,7 @@ const xboxGamesData = [
   },
   {
     name: 'PocketBike Racer',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4726,7 +4726,7 @@ const xboxGamesData = [
   },
   {
     name: 'Pool Shark 2',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4736,7 +4736,7 @@ const xboxGamesData = [
   },
   {
     name: 'Predator: Concrete Jungle',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4746,7 +4746,7 @@ const xboxGamesData = [
   },
   {
     name: 'Prince of Persia: The Sands of Time',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4756,7 +4756,7 @@ const xboxGamesData = [
   },
   {
     name: 'Pro Fishing ChallengePro Race Driver',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4766,7 +4766,7 @@ const xboxGamesData = [
   },
   {
     name: 'Project Gotham Racing',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4776,7 +4776,7 @@ const xboxGamesData = [
   },
   {
     name: 'Project Gotham Racing 2',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4786,7 +4786,7 @@ const xboxGamesData = [
   },
   {
     name: 'Project Snowblind',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4796,7 +4796,7 @@ const xboxGamesData = [
   },
   {
     name: 'ProStroke Golf: World Tour 2007',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4806,7 +4806,7 @@ const xboxGamesData = [
   },
   {
     name: 'Psi-Ops: The Mindgate Conspiracy',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4816,7 +4816,7 @@ const xboxGamesData = [
   },
   {
     name: 'Psyvariar 2',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4826,7 +4826,7 @@ const xboxGamesData = [
   },
   {
     name: 'Pulse Racer',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4836,7 +4836,7 @@ const xboxGamesData = [
   },
   {
     name: 'Pump It Up: ExceedThe Punisher',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4846,7 +4846,7 @@ const xboxGamesData = [
   },
   {
     name: 'Pure PinballPuyo Pop: Fever',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4856,7 +4856,7 @@ const xboxGamesData = [
   },
   {
     name: 'R: Racing Evolution',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4866,7 +4866,7 @@ const xboxGamesData = [
   },
   {
     name: 'Rallisport Challenge',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4876,7 +4876,7 @@ const xboxGamesData = [
   },
   {
     name: 'RalliSport Challenge 2',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4886,7 +4886,7 @@ const xboxGamesData = [
   },
   {
     name: 'Rally Fusion: Race of Champions',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4896,7 +4896,7 @@ const xboxGamesData = [
   },
   {
     name: 'Ratatouille',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4906,7 +4906,7 @@ const xboxGamesData = [
   },
   {
     name: 'Rayman 3: Hoodlum Havoc',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4916,7 +4916,7 @@ const xboxGamesData = [
   },
   {
     name: 'Rayman Arena',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4926,7 +4926,7 @@ const xboxGamesData = [
   },
   {
     name: "Raze's Hell",
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4936,7 +4936,7 @@ const xboxGamesData = [
   },
   {
     name: 'Real World GolfRed Dead Revolver',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4946,7 +4946,7 @@ const xboxGamesData = [
   },
   {
     name: 'Red Ninja: End of Honor',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4956,7 +4956,7 @@ const xboxGamesData = [
   },
   {
     name: 'RedCard 20-03',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4966,7 +4966,7 @@ const xboxGamesData = [
   },
   {
     name: 'Reign of Fire',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4976,7 +4976,7 @@ const xboxGamesData = [
   },
   {
     name: 'Rent-A-Hero No. 1',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4986,7 +4986,7 @@ const xboxGamesData = [
   },
   {
     name: 'Reservoir Dogs',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -4996,7 +4996,7 @@ const xboxGamesData = [
   },
   {
     name: 'Return to Castle Wolfenstein: Tides of War',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5006,7 +5006,7 @@ const xboxGamesData = [
   },
   {
     name: 'Richard Burns RallyRLH: Run Like Hell',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5016,7 +5016,7 @@ const xboxGamesData = [
   },
   {
     name: 'RoadKill',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5026,7 +5026,7 @@ const xboxGamesData = [
   },
   {
     name: 'Robin Hood: Defender of the Crown',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5036,7 +5036,7 @@ const xboxGamesData = [
   },
   {
     name: 'Robot Wars: Extreme DestructionRobotech: Battlecry',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5046,7 +5046,7 @@ const xboxGamesData = [
   },
   {
     name: 'Robotech: Invasion',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5056,7 +5056,7 @@ const xboxGamesData = [
   },
   {
     name: 'Robots',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5066,7 +5066,7 @@ const xboxGamesData = [
   },
   {
     name: 'Rocky',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5076,7 +5076,7 @@ const xboxGamesData = [
   },
   {
     name: 'Rogue Trooper',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5086,7 +5086,7 @@ const xboxGamesData = [
   },
   {
     name: 'RollerCoaster Tycoon',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5096,7 +5096,7 @@ const xboxGamesData = [
   },
   {
     name: 'Room Zoom',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5106,7 +5106,7 @@ const xboxGamesData = [
   },
   {
     name: 'Rugby 2005',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5116,7 +5116,7 @@ const xboxGamesData = [
   },
   {
     name: 'Rugby Challenge 2006',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5126,7 +5126,7 @@ const xboxGamesData = [
   },
   {
     name: 'Samurai Warriors',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5136,7 +5136,7 @@ const xboxGamesData = [
   },
   {
     name: 'Scarface: The World Is Yours',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5146,7 +5146,7 @@ const xboxGamesData = [
   },
   {
     name: 'Scooby-Doo! Mystery Mayhem',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5156,7 +5156,7 @@ const xboxGamesData = [
   },
   {
     name: 'Scooby-Doo! Night of 100 Frights',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5166,7 +5166,7 @@ const xboxGamesData = [
   },
   {
     name: 'Scooby-Doo! Unmasked',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5176,7 +5176,7 @@ const xboxGamesData = [
   },
   {
     name: 'American McGee Presents: Scrapland',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5186,7 +5186,7 @@ const xboxGamesData = [
   },
   {
     name: 'SeaBlade',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5196,7 +5196,7 @@ const xboxGamesData = [
   },
   {
     name: "SeaWorld: Shamu's Deep Sea Adventures",
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5206,7 +5206,7 @@ const xboxGamesData = [
   },
   {
     name: 'Second Sight',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5216,7 +5216,7 @@ const xboxGamesData = [
   },
   {
     name: 'Secret Weapons Over Normandy',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5226,7 +5226,7 @@ const xboxGamesData = [
   },
   {
     name: 'Sega GT Online',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5236,7 +5236,7 @@ const xboxGamesData = [
   },
   {
     name: 'Sega Soccer Slam',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5246,7 +5246,7 @@ const xboxGamesData = [
   },
   {
     name: 'Sensible Soccer 2006Sentou Yousei Yukikaze: Yousei no Mau Sora',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5256,7 +5256,7 @@ const xboxGamesData = [
   },
   {
     name: 'Serious Sam',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5266,7 +5266,7 @@ const xboxGamesData = [
   },
   {
     name: 'Serious Sam II',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5276,7 +5276,7 @@ const xboxGamesData = [
   },
   {
     name: 'Shadow Ops: Red Mercury',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5286,7 +5286,7 @@ const xboxGamesData = [
   },
   {
     name: 'Shark Tale',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5296,7 +5296,7 @@ const xboxGamesData = [
   },
   {
     name: 'Shattered Union',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5306,7 +5306,7 @@ const xboxGamesData = [
   },
   {
     name: "Shellshock: Nam '67",
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5316,7 +5316,7 @@ const xboxGamesData = [
   },
   {
     name: 'Shenmue II',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5326,7 +5326,7 @@ const xboxGamesData = [
   },
   {
     name: 'Shikigami no Shiro',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5336,7 +5336,7 @@ const xboxGamesData = [
   },
   {
     name: 'Shikigami no Shiro Evolution Blue',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5346,7 +5346,7 @@ const xboxGamesData = [
   },
   {
     name: 'Shikigami no Shiro Evolution Red',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5356,7 +5356,7 @@ const xboxGamesData = [
   },
   {
     name: 'Shikigami no Shiro II',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5366,7 +5366,7 @@ const xboxGamesData = [
   },
   {
     name: 'Shinchou Mahjong (Nobunaga Mahjong)',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5376,7 +5376,7 @@ const xboxGamesData = [
   },
   {
     name: 'Shin Megami Tensei: NineShowdown: Legends of Wrestling',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5386,7 +5386,7 @@ const xboxGamesData = [
   },
   {
     name: 'Shrek',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5396,7 +5396,7 @@ const xboxGamesData = [
   },
   {
     name: 'Shrek 2',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5406,7 +5406,7 @@ const xboxGamesData = [
   },
   {
     name: 'Shrek Super Party',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5416,7 +5416,7 @@ const xboxGamesData = [
   },
   {
     name: 'Shrek SuperSlam',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5426,7 +5426,7 @@ const xboxGamesData = [
   },
   {
     name: 'Silent Hill 2',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5436,7 +5436,7 @@ const xboxGamesData = [
   },
   {
     name: 'Silent Hill 4: The Room',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5446,7 +5446,7 @@ const xboxGamesData = [
   },
   {
     name: 'Silent Scope Complete',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5456,7 +5456,7 @@ const xboxGamesData = [
   },
   {
     name: 'The Simpsons: Hit & Run',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5466,7 +5466,7 @@ const xboxGamesData = [
   },
   {
     name: 'The Simpsons: Road Rage',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5476,7 +5476,7 @@ const xboxGamesData = [
   },
   {
     name: 'The Sims',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5486,7 +5486,7 @@ const xboxGamesData = [
   },
   {
     name: 'The Sims 2',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5496,7 +5496,7 @@ const xboxGamesData = [
   },
   {
     name: 'Slam Tennis',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5506,7 +5506,7 @@ const xboxGamesData = [
   },
   {
     name: 'Smashing Drive',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5516,7 +5516,7 @@ const xboxGamesData = [
   },
   {
     name: 'Sneak King',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5526,7 +5526,7 @@ const xboxGamesData = [
   },
   {
     name: 'Sneakers',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5536,7 +5536,7 @@ const xboxGamesData = [
   },
   {
     name: 'Sniper Elite',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5546,7 +5546,7 @@ const xboxGamesData = [
   },
   {
     name: 'Sonic Mega Collection Plus',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5556,7 +5556,7 @@ const xboxGamesData = [
   },
   {
     name: 'Sonic Riders',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5566,7 +5566,7 @@ const xboxGamesData = [
   },
   {
     name: 'Soul Calibur II',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5576,7 +5576,7 @@ const xboxGamesData = [
   },
   {
     name: 'Spartan: Total Warrior',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5586,7 +5586,7 @@ const xboxGamesData = [
   },
   {
     name: 'Spawn: Armageddon',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5596,7 +5596,7 @@ const xboxGamesData = [
   },
   {
     name: 'Counter Terrorist Special Forces: Fire for Effect (EUR)',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5606,7 +5606,7 @@ const xboxGamesData = [
   },
   {
     name: 'Speed Kings',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5616,7 +5616,7 @@ const xboxGamesData = [
   },
   {
     name: 'Sphinx and the Cursed Mummy',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5626,7 +5626,7 @@ const xboxGamesData = [
   },
   {
     name: 'Spider-Man',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5636,7 +5636,7 @@ const xboxGamesData = [
   },
   {
     name: 'Spider-Man 2',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5646,7 +5646,7 @@ const xboxGamesData = [
   },
   {
     name: 'Spikeout: Battle Street',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5656,7 +5656,7 @@ const xboxGamesData = [
   },
   {
     name: 'Splashdown',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5666,7 +5666,7 @@ const xboxGamesData = [
   },
   {
     name: 'SpongeBob SquarePants: Battle for Bikini Bottom',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5676,7 +5676,7 @@ const xboxGamesData = [
   },
   {
     name: 'SpongeBob SquarePants: Lights, Camera, Pants!',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5686,7 +5686,7 @@ const xboxGamesData = [
   },
   {
     name: 'Spy Hunter',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5696,7 +5696,7 @@ const xboxGamesData = [
   },
   {
     name: 'Spy Hunter 2',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5706,7 +5706,7 @@ const xboxGamesData = [
   },
   {
     name: 'Spy Hunter: Nowhere to Run',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5716,7 +5716,7 @@ const xboxGamesData = [
   },
   {
     name: 'Spy vs. Spy',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5726,7 +5726,7 @@ const xboxGamesData = [
   },
   {
     name: "Spyro: A Hero's Tail",
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5736,7 +5736,7 @@ const xboxGamesData = [
   },
   {
     name: 'SSX 3',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5746,7 +5746,7 @@ const xboxGamesData = [
   },
   {
     name: 'SSX On Tour',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5756,7 +5756,7 @@ const xboxGamesData = [
   },
   {
     name: 'SSX Tricky',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5766,7 +5766,7 @@ const xboxGamesData = [
   },
   {
     name: 'Stacked with Daniel Negreanu',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5776,7 +5776,7 @@ const xboxGamesData = [
   },
   {
     name: 'Stake: Fortune Fighters',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5786,7 +5786,7 @@ const xboxGamesData = [
   },
   {
     name: 'Star Trek: Shattered Universe',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5796,7 +5796,7 @@ const xboxGamesData = [
   },
   {
     name: 'Star Wars: Jedi Knight: Jedi Academy',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5806,7 +5806,7 @@ const xboxGamesData = [
   },
   {
     name: 'Star Wars: Jedi Knight II: Jedi Outcast',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5816,7 +5816,7 @@ const xboxGamesData = [
   },
   {
     name: 'Star Wars: Battlefront II',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5826,7 +5826,7 @@ const xboxGamesData = [
   },
   {
     name: 'Star Wars: Knights of the Old Republic',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5836,7 +5836,7 @@ const xboxGamesData = [
   },
   {
     name: 'Star Wars: Knights of the Old Republic II: The Sith Lords',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5846,7 +5846,7 @@ const xboxGamesData = [
   },
   {
     name: 'Star Wars: Republic Commando',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5856,7 +5856,7 @@ const xboxGamesData = [
   },
   {
     name: 'Star Wars',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5866,7 +5866,7 @@ const xboxGamesData = [
   },
   {
     name: 'Star Wars: The Clone Wars',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5876,7 +5876,7 @@ const xboxGamesData = [
   },
   {
     name: 'State of Emergency',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5886,7 +5886,7 @@ const xboxGamesData = [
   },
   {
     name: 'Steel Battalion',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5896,7 +5896,7 @@ const xboxGamesData = [
   },
   {
     name: 'Steel Battalion: Line of Contact',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5906,7 +5906,7 @@ const xboxGamesData = [
   },
   {
     name: 'Still Life',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5916,7 +5916,7 @@ const xboxGamesData = [
   },
   {
     name: 'Stolen',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5926,7 +5926,7 @@ const xboxGamesData = [
   },
   {
     name: 'Street Fighter Anniversary Collection',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5936,7 +5936,7 @@ const xboxGamesData = [
   },
   {
     name: 'Street Hoops',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5946,7 +5946,7 @@ const xboxGamesData = [
   },
   {
     name: 'Street Racing Syndicate',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5956,7 +5956,7 @@ const xboxGamesData = [
   },
   {
     name: 'Strike Force Bowling',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5966,7 +5966,7 @@ const xboxGamesData = [
   },
   {
     name: 'Sudeki',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5976,7 +5976,7 @@ const xboxGamesData = [
   },
   {
     name: 'The Suffering',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5986,7 +5986,7 @@ const xboxGamesData = [
   },
   {
     name: 'The Suffering: Ties That Bind',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -5996,7 +5996,7 @@ const xboxGamesData = [
   },
   {
     name: 'Super Bubble Pop',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6006,7 +6006,7 @@ const xboxGamesData = [
   },
   {
     name: 'Superman Returns',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6016,7 +6016,7 @@ const xboxGamesData = [
   },
   {
     name: 'Superman: The Man of Steel',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6026,7 +6026,7 @@ const xboxGamesData = [
   },
   {
     name: 'SWAT: Global Strike Team',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6036,7 +6036,7 @@ const xboxGamesData = [
   },
   {
     name: 'SX Superstar',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6046,7 +6046,7 @@ const xboxGamesData = [
   },
   {
     name: 'Syberia',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6056,7 +6056,7 @@ const xboxGamesData = [
   },
   {
     name: 'Taito Legends 2',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6066,7 +6066,7 @@ const xboxGamesData = [
   },
   {
     name: 'Tak: The Great Juju Challenge',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6076,7 +6076,7 @@ const xboxGamesData = [
   },
   {
     name: 'Taz: Wanted',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6086,7 +6086,7 @@ const xboxGamesData = [
   },
   {
     name: 'Teen Titans',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6096,7 +6096,7 @@ const xboxGamesData = [
   },
   {
     name: 'Teenage Mutant Ninja Turtles',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6106,7 +6106,7 @@ const xboxGamesData = [
   },
   {
     name: 'Teenage Mutant Ninja Turtles: Mutant MeleeTeenage Mutant Ninja Turtles 2: Battle Nexus',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6116,7 +6116,7 @@ const xboxGamesData = [
   },
   {
     name: 'Teenage Mutant Ninja Turtles 3: Mutant Nightmare',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6126,7 +6126,7 @@ const xboxGamesData = [
   },
   {
     name: 'Tenchu: Return from Darkness',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6136,7 +6136,7 @@ const xboxGamesData = [
   },
   {
     name: 'Tenerezza',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6146,7 +6146,7 @@ const xboxGamesData = [
   },
   {
     name: 'Tennis Masters Series 2003',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6156,7 +6156,7 @@ const xboxGamesData = [
   },
   {
     name: 'Terminator 3: The Redemption',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6166,7 +6166,7 @@ const xboxGamesData = [
   },
   {
     name: 'Tetris Worlds (Online Edition)',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6176,7 +6176,7 @@ const xboxGamesData = [
   },
   {
     name: 'The Thing',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6186,7 +6186,7 @@ const xboxGamesData = [
   },
   {
     name: 'Thousand Land',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6196,7 +6196,7 @@ const xboxGamesData = [
   },
   {
     name: 'Thrillville',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6206,7 +6206,7 @@ const xboxGamesData = [
   },
   {
     name: 'Tiger Woods PGA Tour 2003',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6216,7 +6216,7 @@ const xboxGamesData = [
   },
   {
     name: 'Tiger Woods PGA Tour 2004',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6226,7 +6226,7 @@ const xboxGamesData = [
   },
   {
     name: 'Tiger Woods PGA Tour 2005',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6236,7 +6236,7 @@ const xboxGamesData = [
   },
   {
     name: 'Tiger Woods PGA Tour 06',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6246,7 +6246,7 @@ const xboxGamesData = [
   },
   {
     name: 'Tiger Woods PGA Tour 07',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6256,7 +6256,7 @@ const xboxGamesData = [
   },
   {
     name: "Tim Burton's The Nightmare",
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6266,7 +6266,7 @@ const xboxGamesData = [
   },
   {
     name: 'TimeSplitters 2',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6276,7 +6276,7 @@ const xboxGamesData = [
   },
   {
     name: 'TimeSplitters: Future Perfect',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6286,7 +6286,7 @@ const xboxGamesData = [
   },
   {
     name: 'TOCA Race Driver 2: The Ultimate Racing Simulator',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6296,7 +6296,7 @@ const xboxGamesData = [
   },
   {
     name: 'TOCA Race Driver 3',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6306,7 +6306,7 @@ const xboxGamesData = [
   },
   {
     name: 'ToeJam & Earl III: Mission to Earth',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6316,7 +6316,7 @@ const xboxGamesData = [
   },
   {
     name: "Tom and Jerry in War of the WhiskersTom Clancy's Classic TrilogyTom Clancy's Ghost Recon",
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6326,7 +6326,7 @@ const xboxGamesData = [
   },
   {
     name: "Tom Clancy's Ghost Recon 2",
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6336,7 +6336,7 @@ const xboxGamesData = [
   },
   {
     name: "Tom Clancy's Ghost Recon 2: Summit Strike",
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6346,7 +6346,7 @@ const xboxGamesData = [
   },
   {
     name: "Tom Clancy's Ghost Recon: Advanced Warfighter",
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6356,7 +6356,7 @@ const xboxGamesData = [
   },
   {
     name: "Tom Clancy's Ghost Recon: Island Thunder",
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6366,7 +6366,7 @@ const xboxGamesData = [
   },
   {
     name: "Tom Clancy's Rainbow Six 3",
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6376,7 +6376,7 @@ const xboxGamesData = [
   },
   {
     name: "Tom Clancy's Rainbow Six 3: Black Arrow",
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6386,7 +6386,7 @@ const xboxGamesData = [
   },
   {
     name: "Tom Clancy's Rainbow Six: Critical Hour",
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6396,7 +6396,7 @@ const xboxGamesData = [
   },
   {
     name: "Tom Clancy's Rainbow Six: Lockdown",
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6406,7 +6406,7 @@ const xboxGamesData = [
   },
   {
     name: "Tom Clancy's Splinter Cell",
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6416,7 +6416,7 @@ const xboxGamesData = [
   },
   {
     name: "Tom Clancy's Splinter Cell: Chaos Theory",
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6426,7 +6426,7 @@ const xboxGamesData = [
   },
   {
     name: "Tom Clancy's Splinter Cell: Double Agent",
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6436,7 +6436,7 @@ const xboxGamesData = [
   },
   {
     name: "Tom Clancy's Splinter Cell: Pandora Tomorrow",
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6446,7 +6446,7 @@ const xboxGamesData = [
   },
   {
     name: 'Tomb Raider: Legend',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6456,7 +6456,7 @@ const xboxGamesData = [
   },
   {
     name: "Tony Hawk's American Wasteland",
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6466,7 +6466,7 @@ const xboxGamesData = [
   },
   {
     name: "Tony Hawk's Pro Skater 2x",
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6476,7 +6476,7 @@ const xboxGamesData = [
   },
   {
     name: "Tony Hawk's Pro Skater 3",
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6486,7 +6486,7 @@ const xboxGamesData = [
   },
   {
     name: "Tony Hawk's Pro Skater 4",
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6496,7 +6496,7 @@ const xboxGamesData = [
   },
   {
     name: "Tony Hawk's Project 8",
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6506,7 +6506,7 @@ const xboxGamesData = [
   },
   {
     name: "Tony Hawk's Underground 2",
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6516,7 +6516,7 @@ const xboxGamesData = [
   },
   {
     name: 'RPM Tuning (EUR)',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6526,7 +6526,7 @@ const xboxGamesData = [
   },
   {
     name: 'Top Spin Tennis',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6536,7 +6536,7 @@ const xboxGamesData = [
   },
   {
     name: 'Torino 2006',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6546,7 +6546,7 @@ const xboxGamesData = [
   },
   {
     name: 'Tork: Prehistoric Punk',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6556,7 +6556,7 @@ const xboxGamesData = [
   },
   {
     name: 'Total Club Manager 2004',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6566,7 +6566,7 @@ const xboxGamesData = [
   },
   {
     name: 'Total Club Manager 2005',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6576,7 +6576,7 @@ const xboxGamesData = [
   },
   {
     name: 'Total Immersion Racing',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6586,7 +6586,7 @@ const xboxGamesData = [
   },
   {
     name: 'Totaled!',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6596,7 +6596,7 @@ const xboxGamesData = [
   },
   {
     name: 'Touge RTour de France',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6606,7 +6606,7 @@ const xboxGamesData = [
   },
   {
     name: 'Toxic Grind',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6616,7 +6616,7 @@ const xboxGamesData = [
   },
   {
     name: 'TransWorld Surf',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6626,7 +6626,7 @@ const xboxGamesData = [
   },
   {
     name: 'Triangle Again 2',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6636,7 +6636,7 @@ const xboxGamesData = [
   },
   {
     name: 'Trigger Man',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6646,7 +6646,7 @@ const xboxGamesData = [
   },
   {
     name: 'Trivial Pursuit Unhinged',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6656,7 +6656,7 @@ const xboxGamesData = [
   },
   {
     name: 'Tron 2.0 Killer App',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6666,7 +6666,7 @@ const xboxGamesData = [
   },
   {
     name: 'True Crime: New York City',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6676,7 +6676,7 @@ const xboxGamesData = [
   },
   {
     name: 'True Crime: Streets of LA',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6686,7 +6686,7 @@ const xboxGamesData = [
   },
   {
     name: 'Turok: Evolution',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6696,7 +6696,7 @@ const xboxGamesData = [
   },
   {
     name: 'Ty the Tasmanian Tiger',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6706,7 +6706,7 @@ const xboxGamesData = [
   },
   {
     name: 'Ty the Tasmanian Tiger 2: Bush Rescue',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6716,7 +6716,7 @@ const xboxGamesData = [
   },
   {
     name: 'Ty the Tasmanian Tiger 3: Night of the Quinkan',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6726,7 +6726,7 @@ const xboxGamesData = [
   },
   {
     name: 'UEFA Champions League 2004-2005',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6736,7 +6736,7 @@ const xboxGamesData = [
   },
   {
     name: 'UEFA Euro 2004',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6746,7 +6746,7 @@ const xboxGamesData = [
   },
   {
     name: 'Ultra Puzzle Bobble (JP)',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6756,7 +6756,7 @@ const xboxGamesData = [
   },
   {
     name: 'Unreal II: The Awakening',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6766,7 +6766,7 @@ const xboxGamesData = [
   },
   {
     name: 'The Urbz: Sims in the City',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6776,7 +6776,7 @@ const xboxGamesData = [
   },
   {
     name: 'Vexx',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6786,7 +6786,7 @@ const xboxGamesData = [
   },
   {
     name: 'Vietcong: Purple Haze',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6796,7 +6796,7 @@ const xboxGamesData = [
   },
   {
     name: 'Virtual Pool: Tournament Edition',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6806,7 +6806,7 @@ const xboxGamesData = [
   },
   {
     name: 'Volvo: Drive For Life',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6816,7 +6816,7 @@ const xboxGamesData = [
   },
   {
     name: 'Wakeboarding Unleashed',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6826,7 +6826,7 @@ const xboxGamesData = [
   },
   {
     name: 'Wallace & Gromit in Project Zoo',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6836,7 +6836,7 @@ const xboxGamesData = [
   },
   {
     name: 'Wallace & Gromit: The Curse of the Were-Rabbit',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6846,7 +6846,7 @@ const xboxGamesData = [
   },
   {
     name: 'Warpath',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6856,7 +6856,7 @@ const xboxGamesData = [
   },
   {
     name: 'The Warriors',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6866,7 +6866,7 @@ const xboxGamesData = [
   },
   {
     name: 'Whacked!',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6876,7 +6876,7 @@ const xboxGamesData = [
   },
   {
     name: 'Whiplash',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6886,7 +6886,7 @@ const xboxGamesData = [
   },
   {
     name: 'The Wild Rings',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6896,7 +6896,7 @@ const xboxGamesData = [
   },
   {
     name: 'WinBack 2: Project Poseidon',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6906,7 +6906,7 @@ const xboxGamesData = [
   },
   {
     name: 'Wings of War',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6916,7 +6916,7 @@ const xboxGamesData = [
   },
   {
     name: 'Without Warning',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6926,7 +6926,7 @@ const xboxGamesData = [
   },
   {
     name: 'World Championship Poker',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6936,7 +6936,7 @@ const xboxGamesData = [
   },
   {
     name: 'World Championship Poker 2: Featuring Howard Lederer',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6946,7 +6946,7 @@ const xboxGamesData = [
   },
   {
     name: 'World Championship Pool 2004',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6956,7 +6956,7 @@ const xboxGamesData = [
   },
   {
     name: 'World Championship Rugby',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6966,7 +6966,7 @@ const xboxGamesData = [
   },
   {
     name: 'World Championship Snooker 2003World Championship Snooker 2004World Poker Tour',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6976,7 +6976,7 @@ const xboxGamesData = [
   },
   {
     name: 'World Series Baseball 2K3',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6986,7 +6986,7 @@ const xboxGamesData = [
   },
   {
     name: 'World Series of Poker',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -6996,7 +6996,7 @@ const xboxGamesData = [
   },
   {
     name: 'World Snooker Championship 2005Winning Eleven 8 (JP)',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -7006,7 +7006,7 @@ const xboxGamesData = [
   },
   {
     name: 'Winning Eleven 9 (JP)',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -7016,7 +7016,7 @@ const xboxGamesData = [
   },
   {
     name: 'World War II Combat: Iwo Jima',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -7026,7 +7026,7 @@ const xboxGamesData = [
   },
   {
     name: 'World War II Combat: Road to Berlin',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -7036,7 +7036,7 @@ const xboxGamesData = [
   },
   {
     name: 'Worms 3D',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -7046,7 +7046,7 @@ const xboxGamesData = [
   },
   {
     name: 'Worms 4: Mayhem',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -7056,7 +7056,7 @@ const xboxGamesData = [
   },
   {
     name: 'Wrath Unleashed',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -7066,7 +7066,7 @@ const xboxGamesData = [
   },
   {
     name: 'WTA Tour Tennis',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -7076,7 +7076,7 @@ const xboxGamesData = [
   },
   {
     name: 'WWE Raw 2',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -7086,7 +7086,7 @@ const xboxGamesData = [
   },
   {
     name: 'WWE WrestleMania 21',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -7096,7 +7096,7 @@ const xboxGamesData = [
   },
   {
     name: 'X-Men Legends',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -7106,7 +7106,7 @@ const xboxGamesData = [
   },
   {
     name: 'Xiaolin Showdown',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -7116,7 +7116,7 @@ const xboxGamesData = [
   },
   {
     name: 'XIII',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -7126,7 +7126,7 @@ const xboxGamesData = [
   },
   {
     name: 'Xyanide',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -7136,7 +7136,7 @@ const xboxGamesData = [
   },
   {
     name: 'Yager',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -7146,7 +7146,7 @@ const xboxGamesData = [
   },
   {
     name: 'Yonenaga Kunio no Shougi SeminarYourself!Fitness',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -7156,7 +7156,7 @@ const xboxGamesData = [
   },
   {
     name: 'Yu-Gi-Oh! The Dawn of Destiny',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -7166,7 +7166,7 @@ const xboxGamesData = [
   },
   {
     name: 'Zapper: One Wicked Cricket',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
@@ -7176,7 +7176,7 @@ const xboxGamesData = [
   },
   {
     name: 'ZillerNet',
-    categoryPath: 'Mídias > Jogos eletrônicos > Playstation',
+    categoryPath: 'Mídias > Jogos eletrônicos > Xbox',
     unitName: 'Unidade',
     costPrice: generateRandomFloat(40, 100),
     salePrice: generateRandomFloat(1, 39),
