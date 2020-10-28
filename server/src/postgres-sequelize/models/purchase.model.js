@@ -5,7 +5,7 @@ const History = require('./history.model');
 const PaymentMethod = require('./payment-method.model');
 
 const { DataTypes } = require('sequelize');
-const sequelize = require('../../loaders/databases/postgres-sequelize');
+const { sequelize } = require('../../loaders/databases/postgres-sequelize');
 
 const Purchase = sequelize.define(
   'purchase',

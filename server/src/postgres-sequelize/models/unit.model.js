@@ -2,7 +2,7 @@
 
 const { DataTypes } = require('sequelize');
 const Product = require('./product.model');
-const sequelize = require('../../loaders/databases/postgres-sequelize');
+const { sequelize } = require('../../loaders/databases/postgres-sequelize');
 
 const Unit = sequelize.define(
   'unit',

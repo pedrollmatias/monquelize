@@ -49,6 +49,10 @@ const productSchema = new Schema(
     costPrice: {
       type: Number,
     },
+    // disableInventoryChecks: {
+    //   type: Boolean,
+    //   default: false,
+    // },
     currentAmount: {
       type: Number,
       required: true,

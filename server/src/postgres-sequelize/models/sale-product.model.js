@@ -1,7 +1,7 @@
 'use strict';
 
 const { DataTypes } = require('sequelize');
-const sequelize = require('../../loaders/databases/postgres-sequelize');
+const { sequelize } = require('../../loaders/databases/postgres-sequelize');
 
 const SaleProduct = sequelize.define(
   'saleProduct',

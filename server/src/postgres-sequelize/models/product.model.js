@@ -9,7 +9,7 @@ const Purchase = require('./purchase.model');
 const Sale = require('./sale.model');
 
 const { DataTypes } = require('sequelize');
-const sequelize = require('../../loaders/databases/postgres-sequelize');
+const { sequelize } = require('../../loaders/databases/postgres-sequelize');
 
 const Product = sequelize.define(
   'product',

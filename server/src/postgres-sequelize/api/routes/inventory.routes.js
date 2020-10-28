@@ -4,7 +4,7 @@ const express = require('express');
 const router = express.Router();
 const { inventoryService } = require('../../services');
 const { timer } = require('../../../modules');
-const sequelize = require('../../../loaders/databases/postgres-sequelize');
+const { sequelize } = require('../../../loaders/databases/postgres-sequelize');
 
 module.exports = (app) => {
   app.use('/inventory', router);

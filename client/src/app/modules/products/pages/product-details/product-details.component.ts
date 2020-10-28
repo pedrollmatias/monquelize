@@ -165,7 +165,7 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   generateSKU(): string {
-    return Date.now().toString(16).split('').reverse().join('').toUpperCase();
+    return Date.now().toString(16).split('').join('').toUpperCase();
   }
 
   initFormData(product: IProduct): void {

@@ -44,6 +44,7 @@ export class ProductsComponent implements OnInit {
 
   fetchData(): void {
     this.productApi.getProducts().subscribe((res: IHttpResponse) => {
+      console.log(res);
       this.databaseTimes = this.utils.setTimes(res);
       this.products = this.getProducts(res);
       this.setDataSource(this.products);

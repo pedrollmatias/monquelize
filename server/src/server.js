@@ -4,7 +4,7 @@ const { servers } = require('./config');
 const express = require('express');
 const Logger = require('./loaders/logger');
 
-module.exports = async function startServer() {
+async function startServer() {
   for (const key of Object.keys(servers)) {
     const app = express();
 
@@ -18,4 +18,6 @@ module.exports = async function startServer() {
       Logger.info(`"${servers[key].name}" server listening on port ${servers[key].port}`);
     });
   }
-};
+}
+
+(async () => await startServer())();

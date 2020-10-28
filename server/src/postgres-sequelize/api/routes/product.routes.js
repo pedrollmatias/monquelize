@@ -4,7 +4,7 @@ const express = require('express');
 const router = express.Router();
 const { productService } = require('../../services');
 const { timer } = require('../../../modules');
-const sequelize = require('../../../loaders/databases/postgres-sequelize');
+const { sequelize } = require('../../../loaders/databases/postgres-sequelize');
 
 function normalizeProductBody(product) {
   const _product = { ...product, ...product.inventory };

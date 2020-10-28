@@ -4,12 +4,14 @@
   "scripts": {
     "ng": "ng",
     "client": "ng serve",
-    "server": "nodemon server/src/app.js",
+    "server": "nodemon server/src/server.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "dev": "npm-run-all -p server client"
+    "dev": "npm-run-all -p server client",
+    "basic-scenario-small": "SCENARIO=basic node server/database-population/populate",
+    "complete-scenario-small": "SCENARIO=complete node server/database-population/populate"
   },
   "private": true,
   "husky": {
