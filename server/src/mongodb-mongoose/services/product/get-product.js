@@ -9,5 +9,5 @@ module.exports = async function getProduct(productId) {
   ];
   const product = await productModel.retrieve(productId);
 
-  return product.populate(queryPopulate).execPopulate();
+  return product.execPopulate(queryPopulate).lean();
 };

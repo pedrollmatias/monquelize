@@ -2,6 +2,6 @@
 
 const { categoryModel } = require('../../models');
 
-module.exports = function addCategory(data) {
-  return categoryModel.add(data);
+module.exports = function addCategory(category) {
+  return categoryModel.add(category);
 };

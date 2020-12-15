@@ -30,17 +30,24 @@ const productSchema = new Schema(
       required: true,
       trim: true,
     },
+    createdAt: {
+      index: true,
+      type: Date,
+      default: Date.now,
+    },
     description: {
       type: String,
     },
     category: {
       type: Schema.Types.ObjectId,
       ref: 'Category',
+      index: true,
     },
     unit: {
       type: Schema.Types.ObjectId,
       ref: 'Unit',
       required: true,
+      index: true,
     },
     salePrice: {
       type: Number,
