@@ -72,7 +72,6 @@ export class ProductInventoryDetailsComponent implements OnInit {
         })
       )
       .subscribe((res: IHttpResponse) => {
-        console.log(res);
         this.databaseTimes = this.utils.setTimes(res);
         this.product = this.getProduct(res);
         this.pageTitle = `Product inventory - ${this.product.name} (${this.product.sku})`;

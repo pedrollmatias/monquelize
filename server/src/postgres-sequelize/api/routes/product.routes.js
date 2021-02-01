@@ -25,8 +25,6 @@ function normalizeProductBody(product) {
     _product.unitId = null;
   }
 
-  console.log(_product);
-
   return _product;
 }
 
@@ -42,6 +40,20 @@ module.exports = (app) => {
       const diffTime = timer.diffTimer();
 
       res.send({ res: products, time: diffTime });
+    } catch (err) {
+      next(err);
+    }
+  });
+
+  router.get('/count', async (req, res, next) => {
+    try {
+      timer.startTimer();
+
+      const count = await productService.count();
+
+      const diffTime = timer.diffTimer();
+
+      res.send({ res: count, time: diffTime });
     } catch (err) {
       next(err);
     }

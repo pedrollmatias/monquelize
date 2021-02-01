@@ -7,4 +7,5 @@ module.exports = {
   getByCategory: require('./get-products-by-category'),
   query: require('./get-product'),
   remove: require('./remove-product'),
+  count: require('./count-products'),
 };

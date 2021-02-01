@@ -14,6 +14,7 @@ export declare interface IProduct {
   currentAmount: number;
   minAmount: number;
   maxAmount: number;
+  createdAt?: Date;
 }
 
 export interface IInventoryMovement {

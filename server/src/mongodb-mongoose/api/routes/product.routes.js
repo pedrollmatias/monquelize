@@ -23,6 +23,20 @@ module.exports = (app) => {
     }
   });
 
+  router.get('/count', async (req, res, next) => {
+    try {
+      timer.startTimer();
+
+      const count = await productService.count();
+
+      const diffTime = timer.diffTimer();
+
+      res.send({ res: count, time: diffTime });
+    } catch (err) {
+      next(err);
+    }
+  });
+
   router.post('/add', async (req, res, next) => {
     try {
       timer.startTimer();

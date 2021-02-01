@@ -11,8 +11,8 @@ import { IPaths } from 'src/app/shared/models/paths.model';
 export class ApiProductService {
   constructor(private utils: UtilsService) {}
 
-  getProducts(): Observable<IHttpResponse> {
-    return this.utils.multiRequests('GET', '/products');
+  getProducts(params?: any): Observable<IHttpResponse> {
+    return this.utils.multiRequests('GET', '/products', { params });
   }
 
   getProduct(paths: IPaths): Observable<IHttpResponse> {
@@ -29,6 +29,10 @@ export class ApiProductService {
 
   removeProduct(paths: IPaths): Observable<IHttpResponse> {
     return this.utils.multiRequests('DELETE', paths);
+  }
+
+  countProducts(): Observable<IHttpResponse> {
+    return this.utils.multiRequests('GET', '/products/count');
   }
 
   // inventoryAdjustment(productId: string, data: any): Observable<IHttpResponse> {

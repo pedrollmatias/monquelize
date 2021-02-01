@@ -88,9 +88,9 @@ export class UtilsService {
   }
 
   splitResponsesByServerId(res: IHttpResponse): any {
-    return Object.keys(res).reduce((categories, serverId) => {
-      categories[serverId] = res[serverId].res;
-      return categories;
+    return Object.keys(res).reduce((elements, serverId) => {
+      elements[serverId] = res[serverId].res;
+      return elements;
     }, {});
   }
 
@@ -98,7 +98,7 @@ export class UtilsService {
     serversResponseData: IServersResponseData,
     pathSource: string,
     pathTarget?: string
-  ) {
+  ): any {
     pathTarget = pathTarget || pathSource;
     return serversResponseData.mongodbMongoose.map((data: any) => {
       const associatedIds: IAssociatedIds = {

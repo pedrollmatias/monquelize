@@ -10,6 +10,11 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { IAssociatedIds } from 'src/app/shared/models/associated-ids.model';
 import { IBreadcrumb } from 'src/app/shared/models/breadcrumb.model';
 import { IServersResponseData } from 'src/app/shared/models/servers-response-data';
+import { IPaginationControl } from 'src/app/shared/models/pagination-control.model';
+import { switchMap } from 'rxjs/operators';
+import { ElementPaginatorComponent } from 'src/app/shared/components/element-paginator/element-paginator.component';
+import { of } from 'rxjs';
+import { EventEmitter } from 'events';
 
 @Component({
   selector: 'app-products',
@@ -19,14 +24,21 @@ import { IServersResponseData } from 'src/app/shared/models/servers-response-dat
 export class ProductsComponent implements OnInit {
   breadcrumb: IBreadcrumb = [{ label: 'Settings', isLink: true, path: '/settings' }];
 
-  @ViewChild(MatPaginator) set paginator(paginator: MatPaginator) {
-    this.productsDataSource.paginator = paginator;
-  }
+  @ViewChild(ElementPaginatorComponent) elementPaginator: ElementPaginatorComponent;
+
+  // @ViewChild(MatPaginator) set paginator(paginator: MatPaginator) {
+  //   this.productsDataSource.paginator = paginator;
+  // }
 
   productsColumns: string[] = ['sku', 'name', 'category', 'unit', 'salePrice'];
   productsDataSource = new MatTableDataSource<IProduct>();
+  productsCount: number;
 
   products: IProduct[];
+
+  paginationControl: IPaginationControl;
+
+  databaseCountTimes: IDatabaseTimes;
 
   databaseTimes: IDatabaseTimes;
   associatedIds: IAssociatedIds;
@@ -43,12 +55,31 @@ export class ProductsComponent implements OnInit {
   }
 
   fetchData(): void {
-    this.productApi.getProducts().subscribe((res: IHttpResponse) => {
-      console.log(res);
-      this.databaseTimes = this.utils.setTimes(res);
-      this.products = this.getProducts(res);
-      this.setDataSource(this.products);
+    this.productApi
+      .countProducts()
+      .pipe(
+        switchMap((res: IHttpResponse) => {
+          this.databaseCountTimes = this.utils.setTimes(res);
+          this.productsCount = res.mongodbMongoose.res;
+
+          return this.productApi.getProducts(this.paginationControl);
+        })
+      )
+      .subscribe((res: IHttpResponse) => {
+        this.setData(res);
+      });
+  }
+
+  queryProducts(): void {
+    this.productApi.getProducts(this.paginationControl).subscribe((res: IHttpResponse) => {
+      this.setData(res);
     });
+  }
+
+  setData(res: IHttpResponse): void {
+    this.databaseTimes = this.utils.setTimes(res);
+    this.products = this.getProducts(res);
+    this.setDataSource(this.products);
   }
 
   getProducts(res: IHttpResponse): IProduct[] {
@@ -58,7 +89,6 @@ export class ProductsComponent implements OnInit {
 
   setDataSource(product: IProduct[]): void {
     this.productsDataSource = new MatTableDataSource(product);
-    this.productsDataSource.paginator = this.paginator;
   }
 
   navigateToEditProduct(product: IProduct): void {
@@ -77,7 +107,19 @@ export class ProductsComponent implements OnInit {
   }
 
   refreshComponent(): void {
+    this.resetPaginationControl();
     this.resetData();
     this.fetchData();
+  }
+
+  resetPaginationControl(): void {
+    this.elementPaginator.refreshComponent();
+    this.paginationControl = { page: 1, limit: 1 };
+  }
+
+  aoMudarPagina(paginationControl: IPaginationControl) {
+    this.paginationControl = { ...paginationControl };
+    this.resetData();
+    this.queryProducts();
   }
 }

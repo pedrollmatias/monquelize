@@ -5,9 +5,9 @@ const Schema = mongoose.Schema;
 const { mongooseModelMethodsFactory } = require('../../modules');
 
 const historyEnum = {
-  '100': 'Input',
-  '200': 'Output',
-  '300': 'Adjustment',
+  100: 'Input',
+  200: 'Output',
+  300: 'Adjustment',
 };
 
 const opts = {

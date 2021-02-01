@@ -7,4 +7,5 @@ module.exports = {
   edit: require('./edit-product'),
   remove: require('./remove-product'),
   adjustInventory: require('./adjust-inventory'),
+  count: require('./count-products'),
 };

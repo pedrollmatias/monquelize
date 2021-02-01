@@ -1,0 +1,21 @@
+<div class="d-flex align-items-center color-grey">
+  <div class="pr-5">
+    <span class="mat-caption">Total: {{ total }}</span>
+  </div>
+  <div class="pr-5">
+    <span class="mat-caption">Items per page: {{ limit }}</span>
+  </div>
+  <div>
+    <button mat-icon-button (click)="previousPage()" [disabled]="page <= 0">
+      <mat-icon>keyboard_arrow_left</mat-icon>
+    </button>
+  </div>
+  <div class="px-2">
+    <span class="mat-caption">{{ page + 1 }}</span>
+  </div>
+  <div>
+    <button mat-icon-button (click)="nextPage()" [disabled]="(page + 1) * limit >= total">
+      <mat-icon>keyboard_arrow_right</mat-icon>
+    </button>
+  </div>
+</div>

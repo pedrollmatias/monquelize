@@ -1,26 +1,31 @@
 'use strict';
 
 const { productModel } = require('../../models');
+const defaultLimit = 1;
+const defaultPage = 0;
 
 module.exports = async function getProducts(query) {
-  const _query = {};
+  let _query = {};
 
   if (query.search) {
-    _query.$or = [{ name: new RegExp(`/${query.search}`) }, { sku: new RegExp(`/${query.search}`) }];
+    _query = { $or: [{ name: new RegExp(`/${query.search}`) }, { sku: new RegExp(`/${query.search}`) }] };
   }
 
-  _query.$lte = { createdAt: query.createdAt };
+  const limit = Number(query.limit) || defaultLimit;
+  const page = query.page ? limit * Number(query.page) : defaultPage;
 
   const queryPopulate = [
     { path: 'category', select: 'name' },
     { path: 'unit', select: ['unit', 'shortUnit'] },
   ];
 
-  return productModel
+  const products = await productModel
     .find(_query)
-    .select({ _id: 1, sku: 1, name: 1, category: 1, unit: 1, salePrice: 1 })
-    .sort({ createdAt: 1 })
-    .limit(Number(query.limit))
-    .lean()
-    .populate(queryPopulate);
+    .select({ _id: 1, sku: 1, name: 1, category: 1, unit: 1, salePrice: 1, createdAt: 1 })
+    .skip(page)
+    .limit(limit)
+    .populate(queryPopulate)
+    .lean();
+
+  return products;
 };

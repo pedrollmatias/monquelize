@@ -48,7 +48,6 @@ export class NewSaleComponent implements OnInit {
     this.utils
       .multiRequests('GET', this.endpointPaths, { params: { getProducts: true } })
       .subscribe((res: IHttpResponse) => {
-        console.log(res);
         //   this.categories = categoryRes.res;
         //   this.mongodbMongooseTime = categoryRes.time;
         //   [this.currentCategory] = this.categories;
