@@ -13,6 +13,7 @@ import { IPaginationControl } from 'src/app/shared/models/pagination-control.mod
 import { IServersResponseData } from 'src/app/shared/models/servers-response-data';
 import { IProduct } from 'src/app/shared/models/views.model';
 
+const LIMIT = 1;
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
@@ -54,6 +55,7 @@ export class ProductsComponent implements OnInit {
         switchMap((res: IHttpResponse) => {
           this.databaseCountTimes = this.utils.setTimes(res);
           this.productsCount = res.mongodbMongoose.res;
+          this.initPaginationControl();
 
           return this.productApi.getProducts(this.paginationControl);
         })
@@ -105,9 +107,16 @@ export class ProductsComponent implements OnInit {
     this.fetchData();
   }
 
+  initPaginationControl(): void {
+    this.paginationControl = {
+      pagination: true,
+      page: 0,
+      limit: this.productsCount < LIMIT ? this.productsCount : LIMIT,
+    };
+  }
+
   resetPaginationControl(): void {
-    this.elementPaginator.refreshComponent();
-    this.paginationControl = { page: 1, limit: 1 };
+    this.initPaginationControl();
   }
 
   aoMudarPagina(paginationControl: IPaginationControl) {

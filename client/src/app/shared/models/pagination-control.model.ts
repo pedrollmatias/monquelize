@@ -1,6 +1,5 @@
 export interface IPaginationControl {
+  pagination: boolean;
   page: number;
   limit: number;
-  // isNextPage?: boolean;
-  // createdAt?: Date;
 }

@@ -81,6 +81,8 @@
           </table>
           <div class="d-flex justify-content-end py-2">
             <app-element-paginator
+              [page]="paginationControl.page"
+              [limit]="paginationControl.limit"
               [total]="productsCount"
               (paginationControl)="aoMudarPagina($event)"
             ></app-element-paginator>

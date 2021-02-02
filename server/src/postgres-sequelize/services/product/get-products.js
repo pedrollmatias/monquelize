@@ -17,15 +17,10 @@ module.exports = async function getProducts(query) {
     };
   }
 
-  const limit = Number(query.limit) || defaultLimit;
-  const page = query.page ? limit * Number(query.page) : defaultPage;
-
-  const products = await Product.findAll({
+  let options = {
     where: whereClause,
     attributes: ['_id', 'sku', 'name', 'salePrice', 'createdAt'],
     order: [['createdAt', 'ASC']],
-    limit,
-    offset: page,
     include: [
       {
         model: Category,
@@ -36,7 +31,16 @@ module.exports = async function getProducts(query) {
         as: 'unit',
       },
     ],
-  });
+  };
+
+  if (query.pagination) {
+    const limit = Number(query.limit) || defaultLimit;
+    const page = query.page ? limit * Number(query.page) : defaultPage;
+
+    options = { ...options, limit, offset: page };
+  }
+
+  const products = await Product.findAll(options);
 
   return products;
 };

@@ -7,8 +7,6 @@ const defaultPage = 0;
 module.exports = async function getProducts(query) {
   let _query = {};
 
-  console.log(query);
-
   if (query.search) {
     _query = {
       $or: [{ name: new RegExp(`^${query.search}`, 'u') }, { sku: new RegExp(`^${query.search}`, 'u') }],
@@ -23,13 +21,19 @@ module.exports = async function getProducts(query) {
     { path: 'unit', select: ['unit', 'shortUnit'] },
   ];
 
-  const products = await productModel
-    .find(_query)
-    .select({ _id: 1, sku: 1, name: 1, category: 1, unit: 1, salePrice: 1, createdAt: 1 })
-    .skip(page)
-    .limit(limit)
-    .populate(queryPopulate)
-    .lean();
+  const products = query.pagination
+    ? await productModel
+        .find(_query)
+        .select({ _id: 1, sku: 1, name: 1, category: 1, unit: 1, salePrice: 1, createdAt: 1 })
+        .skip(page)
+        .limit(limit)
+        .populate(queryPopulate)
+        .lean()
+    : await productModel
+        .find(_query)
+        .select({ _id: 1, sku: 1, name: 1, category: 1, unit: 1, salePrice: 1, createdAt: 1 })
+        .populate(queryPopulate)
+        .lean();
 
   return products;
 };
