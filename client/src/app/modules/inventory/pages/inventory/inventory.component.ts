@@ -1,16 +1,15 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
-import { IProduct } from 'src/app/shared/models/views.model';
-import { ApiProductService } from 'src/app/core/api/api-product.service';
-import { MatPaginator } from '@angular/material/paginator';
-import { UtilsService } from 'src/app/core/services/utils.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ApiInventoryService } from 'src/app/core/api/api-inventory.service';
+import { ApiProductService } from 'src/app/core/api/api-product.service';
+import { UtilsService } from 'src/app/core/services/utils.service';
 import { IAssociatedIds } from 'src/app/shared/models/associated-ids.model';
 import { IBreadcrumb } from 'src/app/shared/models/breadcrumb.model';
 import { IDatabaseTimes } from 'src/app/shared/models/database-times';
 import { IHttpResponse } from 'src/app/shared/models/http.model';
 import { IServersResponseData } from 'src/app/shared/models/servers-response-data';
+import { IProduct } from 'src/app/shared/models/views.model';
 
 @Component({
   selector: 'app-inventory',
@@ -20,31 +19,30 @@ import { IServersResponseData } from 'src/app/shared/models/servers-response-dat
 export class InventoryComponent implements OnInit {
   breadcrumb: IBreadcrumb = [{ label: 'Settings', isLink: true, path: '/settings' }];
 
-  @ViewChild(MatPaginator) set paginator(paginator: MatPaginator) {
-    this.inventoryDataSource.paginator = paginator;
-  }
+  searchProductFormControl = new FormControl();
 
-  inventoryColumns: string[] = ['sku', 'name', 'category', 'unit', 'currentAmount'];
-  inventoryDataSource = new MatTableDataSource<IProduct>();
+  productsColumns: string[] = ['sku', 'name', 'category', 'unit', 'salePrice'];
+  productsDataSource = new MatTableDataSource<IProduct>();
 
   products: IProduct[];
+
+  formControlHasValue = false;
 
   databaseTimes: IDatabaseTimes;
   associatedIds: IAssociatedIds;
 
   constructor(
-    private inventoryApi: ApiInventoryService,
+    private productApi: ApiProductService,
     private route: ActivatedRoute,
     private router: Router,
     public utils: UtilsService
   ) {}
 
-  ngOnInit(): void {
-    this.fetchData();
-  }
+  ngOnInit(): void {}
 
-  fetchData(): void {
-    this.inventoryApi.getInventory().subscribe((res: IHttpResponse) => {
+  fetchData(searchValue: string): void {
+    this.productApi.getProducts({ search: searchValue }).subscribe((res: IHttpResponse) => {
+      console.log(res);
       this.databaseTimes = this.utils.setTimes(res);
       this.products = this.getProducts(res);
       this.setDataSource(this.products);
@@ -57,8 +55,7 @@ export class InventoryComponent implements OnInit {
   }
 
   setDataSource(product: IProduct[]): void {
-    this.inventoryDataSource = new MatTableDataSource(product);
-    this.inventoryDataSource.paginator = this.paginator;
+    this.productsDataSource = new MatTableDataSource(product);
   }
 
   navigateToProductInventoryDetails(product: IProduct): void {
@@ -78,6 +75,15 @@ export class InventoryComponent implements OnInit {
 
   refreshComponent(): void {
     this.resetData();
-    this.fetchData();
+  }
+
+  onSearchFormControlChange(value: string) {
+    if (value) {
+      this.fetchData(value);
+      this.formControlHasValue = true;
+    } else {
+      this.products = undefined;
+      this.formControlHasValue = false;
+    }
   }
 }

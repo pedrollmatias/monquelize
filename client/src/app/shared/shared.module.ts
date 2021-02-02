@@ -19,6 +19,7 @@ import { SnackbarWarningComponent } from './components/snackbar-warning/snackbar
 import { MaterialModule } from './material.module';
 import { NoSanitizePipe } from './pipes/no-sanitize.pipe';
 import { ElementPaginatorComponent } from './components/element-paginator/element-paginator.component';
+import { ElemetSearchInputComponent } from './components/elemet-search-input/elemet-search-input.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { ElementPaginatorComponent } from './components/element-paginator/elemen
     DialogLoadingComponent,
     ElementDateSelectorComponent,
     ElementPaginatorComponent,
+    ElemetSearchInputComponent,
   ],
   imports: [CommonModule, FormsModule, ReactiveFormsModule, RouterModule, MaterialModule, NgxChartsModule],
   exports: [
@@ -54,6 +56,7 @@ import { ElementPaginatorComponent } from './components/element-paginator/elemen
     ElementButtonIconTextComponent,
     ElementDateSelectorComponent,
     ElementPaginatorComponent,
+    ElemetSearchInputComponent,
   ],
 })
 export class SharedModule {}

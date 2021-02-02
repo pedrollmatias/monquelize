@@ -41,7 +41,7 @@
     </div>
   </div>
   <div>
-    <ng-container *ngIf="true; else loading">
+    <ng-container *ngIf="products; else loading">
       <ng-container *ngIf="productsDataSource.data.length; else noProductsFound">
         <mat-card>
           <table mat-table [dataSource]="productsDataSource" class="w-100">

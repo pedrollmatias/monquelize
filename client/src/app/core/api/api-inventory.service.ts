@@ -11,10 +11,6 @@ import { IPaths } from 'src/app/shared/models/paths.model';
 export class ApiInventoryService {
   constructor(private utils: UtilsService) {}
 
-  getInventory(): Observable<IHttpResponse> {
-    return this.utils.multiRequests('GET', '/inventory');
-  }
-
   getProductInventory(paths: IPaths): Observable<IHttpResponse> {
     return this.utils.multiRequests('GET', paths);
   }

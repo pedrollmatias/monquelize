@@ -13,7 +13,7 @@ module.exports = async function getProducts(query) {
   if (query.search) {
     whereClause = {
       ...whereClause,
-      $or: [{ name: { [Op.like]: `%${query.search}%` } }, { sku: { [Op.like]: `%${query.search}%` } }],
+      [Op.or]: [{ name: { [Op.like]: `${query.search}%` } }, { sku: { [Op.like]: `${query.search}%` } }],
     };
   }
 

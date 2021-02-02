@@ -7,8 +7,12 @@ const defaultPage = 0;
 module.exports = async function getProducts(query) {
   let _query = {};
 
+  console.log(query);
+
   if (query.search) {
-    _query = { $or: [{ name: new RegExp(`/${query.search}`) }, { sku: new RegExp(`/${query.search}`) }] };
+    _query = {
+      $or: [{ name: new RegExp(`^${query.search}`, 'u') }, { sku: new RegExp(`^${query.search}`, 'u') }],
+    };
   }
 
   const limit = Number(query.limit) || defaultLimit;

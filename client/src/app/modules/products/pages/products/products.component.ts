@@ -1,20 +1,17 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import { ActivatedRoute, Router } from '@angular/router';
+import { switchMap } from 'rxjs/operators';
 import { ApiProductService } from 'src/app/core/api/api-product.service';
-import { MatPaginator } from '@angular/material/paginator';
-import { IDatabaseTimes } from 'src/app/shared/models/database-times';
 import { UtilsService } from 'src/app/core/services/utils.service';
-import { IHttpResponse } from 'src/app/shared/models/http.model';
-import { IProduct } from 'src/app/shared/models/views.model';
-import { Router, ActivatedRoute } from '@angular/router';
+import { ElementPaginatorComponent } from 'src/app/shared/components/element-paginator/element-paginator.component';
 import { IAssociatedIds } from 'src/app/shared/models/associated-ids.model';
 import { IBreadcrumb } from 'src/app/shared/models/breadcrumb.model';
-import { IServersResponseData } from 'src/app/shared/models/servers-response-data';
+import { IDatabaseTimes } from 'src/app/shared/models/database-times';
+import { IHttpResponse } from 'src/app/shared/models/http.model';
 import { IPaginationControl } from 'src/app/shared/models/pagination-control.model';
-import { switchMap } from 'rxjs/operators';
-import { ElementPaginatorComponent } from 'src/app/shared/components/element-paginator/element-paginator.component';
-import { of } from 'rxjs';
-import { EventEmitter } from 'events';
+import { IServersResponseData } from 'src/app/shared/models/servers-response-data';
+import { IProduct } from 'src/app/shared/models/views.model';
 
 @Component({
   selector: 'app-products',
@@ -25,10 +22,6 @@ export class ProductsComponent implements OnInit {
   breadcrumb: IBreadcrumb = [{ label: 'Settings', isLink: true, path: '/settings' }];
 
   @ViewChild(ElementPaginatorComponent) elementPaginator: ElementPaginatorComponent;
-
-  // @ViewChild(MatPaginator) set paginator(paginator: MatPaginator) {
-  //   this.productsDataSource.paginator = paginator;
-  // }
 
   productsColumns: string[] = ['sku', 'name', 'category', 'unit', 'salePrice'];
   productsDataSource = new MatTableDataSource<IProduct>();
