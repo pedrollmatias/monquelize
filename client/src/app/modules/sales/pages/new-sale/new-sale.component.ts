@@ -11,6 +11,8 @@ import { ApiProductService } from 'src/app/core/api/api-product.service';
 import { IHttpResponse } from 'src/app/shared/models/http.model';
 import { IPaths } from 'src/app/shared/models/paths.model';
 import { UtilsService } from 'src/app/core/services/utils.service';
+import { IAssociatedIds } from 'src/app/shared/models/associated-ids.model';
+import { IDatabaseTimes } from 'src/app/shared/models/database-times';
 
 const DEFAULT_AMOUNT = 1;
 
@@ -23,10 +25,12 @@ export class NewSaleComponent implements OnInit {
   showPageData = false;
 
   categories: ICategory[];
-  mongodbMongooseTime: number;
 
   currentCategory: ICategory;
   currentChildrenCategories: ICategory[];
+
+  databaseTimes: IDatabaseTimes;
+  associatedIds: IAssociatedIds;
 
   products: IOperationProduct[];
   searchInput = new FormControl();
@@ -48,6 +52,8 @@ export class NewSaleComponent implements OnInit {
     this.utils
       .multiRequests('GET', this.endpointPaths, { params: { getProducts: true } })
       .subscribe((res: IHttpResponse) => {
+        this.databaseTimes = this.utils.setTimes(res);
+        console.log(res);
         //   this.categories = categoryRes.res;
         //   this.mongodbMongooseTime = categoryRes.time;
         //   [this.currentCategory] = this.categories;
@@ -57,6 +63,8 @@ export class NewSaleComponent implements OnInit {
         //   this.showPageData = true;
       });
   }
+
+  openDatabaseTimesDialog(): void {}
 
   get endpointPaths(): IPaths {
     return {

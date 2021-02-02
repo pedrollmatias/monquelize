@@ -42,7 +42,6 @@ export class InventoryComponent implements OnInit {
 
   fetchData(searchValue: string): void {
     this.productApi.getProducts({ search: searchValue }).subscribe((res: IHttpResponse) => {
-      console.log(res);
       this.databaseTimes = this.utils.setTimes(res);
       this.products = this.getProducts(res);
       this.setDataSource(this.products);

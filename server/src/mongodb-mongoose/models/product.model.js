@@ -42,6 +42,7 @@ const productSchema = new Schema(
       type: Schema.Types.ObjectId,
       ref: 'Category',
       index: true,
+      required: true,
     },
     unit: {
       type: Schema.Types.ObjectId,

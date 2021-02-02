@@ -151,7 +151,7 @@ export class ProductDetailsComponent implements OnInit {
       sku: [this.generateSKU(), Validators.required],
       name: [null, Validators.required],
       description: null,
-      category: null,
+      category: [null, Validators.required],
       unit: [null, Validators.required],
       salePrice: [null, Validators.required],
       costPrice: [null],

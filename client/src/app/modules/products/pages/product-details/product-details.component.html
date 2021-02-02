@@ -79,8 +79,7 @@
             <div>
               <mat-form-field class="w-100">
                 <mat-label>Category</mat-label>
-                <mat-select matInput formControlName="category" [compareWith]="compareSelect">
-                  <mat-option [value]="null">None</mat-option>
+                <mat-select matInput formControlName="category" [compareWith]="compareSelect" required>
                   <ng-container *ngFor="let category of categories">
                     <mat-option [value]="category">
                       {{ category.path }}
