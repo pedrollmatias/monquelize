@@ -1,33 +1,17 @@
 'use strict';
 
-const productModel = require('../../models/product.model');
-const categoryModel = require('../../models/category.model');
-const saleModel = require('../../models/sale.model');
-const purchaseModel = require('../../models/purchase.model');
+const { productModel } = require('../../models');
+const { removeProduct: removeProductInCategory } = require('../category');
+
+const { removeProduct: removeProductInSales } = require('../sale');
+const { removeProduct: removeProductInPurchases } = require('../purchase');
 
 module.exports = async function removeProduct(productId, session) {
-  // Get product
   const product = await productModel.retrieve(productId, session);
 
-  // Remove product in category
-  if (product.category) {
-    const category = await categoryModel.retrieve(product.category, session);
-
-    await category.removeProduct(product._id);
-  }
-
-  // Remove product reference in sales and purchases
-  const query = { 'products.productRef': product._id };
-  const sales = await saleModel.find(query);
-  const purchases = await purchaseModel.find(query);
-
-  for (const sale of sales) {
-    await sale.removeProduct(product._id);
-  }
-
-  for (const purchase of purchases) {
-    await purchase.removeProduct(product._id);
-  }
+  await removeProductInCategory(product.category, product._id);
+  await removeProductInSales(product._id);
+  await removeProductInPurchases(product._id);
 
   return product.delete();
 };

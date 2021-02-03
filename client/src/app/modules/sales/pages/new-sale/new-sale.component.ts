@@ -66,6 +66,8 @@ export class NewSaleComponent implements OnInit {
 
   openDatabaseTimesDialog(): void {}
 
+  appendCategoryOnProduct(categories: ICategory[]) {}
+
   get endpointPaths(): IPaths {
     return {
       mongodbMongoose: '/categories',

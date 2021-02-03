@@ -1,7 +1,7 @@
 'use strict';
 
 const { Category } = require('../../models');
-const findCategoryChildren = require('./find-category-children');
+const getChildren = require('./get-childen-categories');
 
 module.exports = async function editCategory(categoryId, category) {
   const oldCategory = await Category.findOne({ where: { _id: categoryId }, raw: true });
@@ -14,7 +14,7 @@ module.exports = async function editCategory(categoryId, category) {
 
   updatedCategory = updatedCategory.dataValues;
 
-  const childrenCategories = await findCategoryChildren(oldCategory.name);
+  const childrenCategories = await getChildren(oldCategory.name);
 
   for (const childCategory of childrenCategories) {
     const childPathArray = childCategory.path.split(' > ');

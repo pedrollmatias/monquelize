@@ -46,15 +46,12 @@ const purchaseSchema = new Schema(
         category: {
           type: Schema.Types.ObjectId,
         },
-        unit: {
-          unitRef: {
-            type: Schema.Types.ObjectId,
-            required: true,
-          },
-          shortUnit: {
-            type: String,
-            required: true,
-          },
+        unitRef: {
+          type: Schema.Types.ObjectId,
+        },
+        shortUnit: {
+          type: String,
+          required: true,
         },
         price: {
           type: Number,
@@ -66,15 +63,13 @@ const purchaseSchema = new Schema(
         },
       },
     ],
-    paymentMethod: {
-      paymentMethodRef: {
-        type: Schema.Types.ObjectId,
-      },
-      name: {
-        type: String,
-        required: true,
-        trim: true,
-      },
+    paymentMethodRef: {
+      type: Schema.Types.ObjectId,
+    },
+    paymentMethodName: {
+      type: String,
+      required: true,
+      trim: true,
     },
     buyer: {
       type: Schema.Types.ObjectId,
@@ -106,40 +101,6 @@ purchaseSchema.pre('validate', async function () {
     await sequenceDoc.save();
     purchase.code = 1;
   }
-});
-
-purchaseSchema.method({
-  ...purchaseSchema.method,
-  async editProduct(product) {
-    const purchase = this;
-    const purchaseProducts = purchase.products.map((purchaseProduct) => {
-      if (purchaseProduct.productRef.equals(product._id)) {
-        purchaseProduct.sku = product.sku;
-        purchaseProduct.name = product.name;
-        purchaseProduct.category = (product.category && product.category._id) || undefined;
-        purchaseProduct.unit = {
-          unitRef: product.unit._id,
-          shortUnit: product.unit.shortUnit,
-        };
-      }
-
-      return purchaseProduct;
-    });
-
-    return purchase.edit({ products: purchaseProducts });
-  },
-  async removeProductRef(productId) {
-    const purchase = this;
-    const purchaseProducts = purchase.products.map((purchaseProduct) => {
-      if (purchaseProduct.productRef.equals(productId)) {
-        purchaseProduct.productRef = undefined;
-      }
-
-      return purchaseProduct;
-    });
-
-    return purchase.edit({ products: purchaseProducts });
-  },
 });
 
 module.exports = mongoose.model('Purchase', purchaseSchema);

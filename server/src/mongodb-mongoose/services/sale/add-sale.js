@@ -4,9 +4,8 @@ const { productModel, saleModel } = require('../../models');
 
 module.exports = async function addSale(data, session) {
   const sale = await saleModel.add(data, session);
-  const queryPopulate = [{ path: 'seller' }];
 
-  await sale.populate(queryPopulate).execPopulate();
+  await sale.populate([{ path: 'seller' }]).execPopulate();
 
   for (const product of sale.products) {
     const productDoc = await productModel.retrieve(product.productRef, session);

@@ -73,9 +73,11 @@ async function validateCategory(category) {
     if (!parent) {
       throw new Error('Parent category not found');
     }
+
     if (parent._id === category._id) {
       throw new Error('A category can not be its own subcategory');
     }
+
     if (isParent(category, parent)) {
       throw new Error('It is not possible to define as a parent category one of its child categories');
     }

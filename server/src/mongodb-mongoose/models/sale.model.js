@@ -46,15 +46,12 @@ const saleSchema = new Schema(
         category: {
           type: Schema.Types.ObjectId,
         },
-        unit: {
-          unitRef: {
-            type: Schema.Types.ObjectId,
-            required: true,
-          },
-          shortUnit: {
-            type: String,
-            required: true,
-          },
+        unitRef: {
+          type: Schema.Types.ObjectId,
+        },
+        shortUnit: {
+          type: String,
+          required: true,
         },
         price: {
           type: Number,
@@ -66,15 +63,13 @@ const saleSchema = new Schema(
         },
       },
     ],
-    paymentMethod: {
-      paymentMethodRef: {
-        type: Schema.Types.ObjectId,
-      },
-      name: {
-        type: String,
-        required: true,
-        trim: true,
-      },
+    paymentMethodRef: {
+      type: Schema.Types.ObjectId,
+    },
+    paymentMethodName: {
+      type: String,
+      required: true,
+      trim: true,
     },
     seller: {
       type: Schema.Types.ObjectId,
@@ -106,40 +101,6 @@ saleSchema.pre('validate', async function () {
     await sequenceDoc.save();
     sale.code = 1;
   }
-});
-
-saleSchema.method({
-  ...saleSchema.method,
-  async editProduct(product) {
-    const sale = this;
-    const saleProducts = sale.products.map((saleProduct) => {
-      if (saleProduct.productRef.equals(product._id)) {
-        saleProduct.sku = product.sku;
-        saleProduct.name = product.name;
-        saleProduct.category = (product.category && product.category._id) || undefined;
-        saleProduct.unit = {
-          unitRef: product.unit._id,
-          shortUnit: product.unit.shortUnit,
-        };
-      }
-
-      return saleProduct;
-    });
-
-    return sale.edit({ products: saleProducts });
-  },
-  async removeProductRef(productId) {
-    const sale = this;
-    const saleProducts = sale.products.map((saleProduct) => {
-      if (saleProduct.productRef.equals(productId)) {
-        saleProduct.productRef = undefined;
-      }
-
-      return saleProduct;
-    });
-
-    return sale.edit({ products: saleProducts });
-  },
 });
 
 module.exports = mongoose.model('Sale', saleSchema);

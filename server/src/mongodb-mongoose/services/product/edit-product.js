@@ -1,70 +1,59 @@
 'use strict';
 
-const { productModel, categoryModel, saleModel, purchaseModel } = require('../../models');
+const { productModel, saleModel, purchaseModel } = require('../../models');
+const {
+  editProduct: editProductInCategory,
+  addProduct: addProductInCategory,
+  removeProduct: removeProductInCategory,
+} = require('../category');
+
+const unpopulate = require('./unpopulate-product');
 
 module.exports = async function editProduct(productId, data, session) {
-  let product = await productModel.retrieve(productId, session);
-  const productObj = product.toObject();
-  const updatedProduct = await product.edit(data);
+  const productDoc = await productModel.retrieve(productId, session);
+  const updatedProductDoc = await productDoc.edit(data);
 
-  product = productObj;
+  await updatedProductDoc
+    .populate([
+      { path: 'category', select: 'name' },
+      { path: 'unit', select: ['unit', 'shortUnit'] },
+    ])
+    .execPopulate();
 
-  const queryPopulate = [
-    { path: 'category', select: 'name' },
-    { path: 'unit', select: ['unit', 'shortUnit'] },
-  ];
-
-  await updatedProduct.populate(queryPopulate).execPopulate();
-
-  // Update product in sales and purchases if sku, name, category, unit was modified
-  if (hasToUpdateInSalesOrPurchases(product, updatedProduct)) {
-    const query = { 'products.productRef': updatedProduct._id };
-    const sales = await saleModel.find(query);
-    const purchases = await purchaseModel.find(query);
-
-    for (const sale of sales) {
-      await sale.editProduct(updatedProduct);
-    }
-
-    for (const purchase of purchases) {
-      await purchase.editProduct(updatedProduct);
-    }
+  if (hasToUpdateInSalesOrPurchases(productDoc, updatedProductDoc)) {
+    await updateProductInSalesAndPurschases(updatedProductDoc);
   }
 
-  // Update product in category
-  if (updatedProduct.category) {
-    if (!product.category) {
-      // Add category
-      const category = await categoryModel.retrieve(updatedProduct.category, session);
+  await updateProductInCategory(productDoc, unpopulate(updatedProductDoc));
 
-      await category.addProduct(updatedProduct.toObject());
-    } else if (product.category && product.category.equals(updatedProduct.category._id)) {
-      // Same category
-      const category = await categoryModel.retrieve(updatedProduct.category._id, session);
-
-      await category.editProduct(updatedProduct);
-    } else if (product.category && !product.category.equals(updatedProduct.category._id)) {
-      // Change category
-      const oldCategory = await categoryModel.retrieve(product.category, session);
-      const category = await categoryModel.retrieve(updatedProduct.category._id, session);
-
-      await oldCategory.removeProduct(updatedProduct._id);
-      await category.addProduct(updatedProduct.toObject());
-    }
-  } else {
-    if (product.category) {
-      // Remove category
-      const category = await categoryModel.retrieve(product.category, session);
-
-      await category.removeProduct(updatedProduct._id);
-    }
-  }
-
-  return updatedProduct;
+  return updatedProductDoc;
 };
 
 function hasToUpdateInSalesOrPurchases(oldProduct, newProduct) {
   const relevantFields = ['sku', 'name', 'category', 'unit'];
 
   return relevantFields.some((field) => oldProduct[field] !== newProduct[field]);
+}
+
+async function updateProductInSalesAndPurschases(product) {
+  const query = { 'products.productRef': product._id };
+  const sales = await saleModel.find(query);
+  const purchases = await purchaseModel.find(query);
+
+  for (const sale of sales) {
+    await sale.editProduct(product);
+  }
+
+  for (const purchase of purchases) {
+    await purchase.editProduct(product);
+  }
+}
+
+async function updateProductInCategory(oldProduct, newProduct, session) {
+  if (oldProduct.category.equals(newProduct.category)) {
+    await editProductInCategory(oldProduct._id, newProduct, session);
+  } else {
+    await addProductInCategory(newProduct.category, newProduct._id);
+    await removeProductInCategory(oldProduct.category, oldProduct._id);
+  }
 }

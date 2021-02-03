@@ -8,4 +8,5 @@ module.exports = {
   remove: require('./remove-product'),
   adjustInventory: require('./adjust-inventory'),
   count: require('./count-products'),
+  unpopulate: require('./unpopulate-product'),
 };

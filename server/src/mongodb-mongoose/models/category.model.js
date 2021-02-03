@@ -4,9 +4,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const { mongooseModelMethodsFactory } = require('../../modules');
 
-function getPathRegex(name) {
-  return new RegExp(`(^|( > ))${name} > `);
-}
+const { getChildren } = require('../services/category');
 
 const categorySchema = new Schema(
   {
@@ -42,15 +40,13 @@ const categorySchema = new Schema(
         name: {
           type: String,
         },
-        unit: {
-          unitRef: {
-            type: Schema.Types.ObjectId,
-            required: true,
-          },
-          shortUnit: {
-            type: String,
-            required: true,
-          },
+        unitRef: {
+          type: Schema.Types.ObjectId,
+          required: true,
+        },
+        shortUnit: {
+          type: String,
+          required: true,
         },
         salePrice: {
           type: Number,
@@ -69,30 +65,36 @@ categorySchema.pre('validate', async function () {
 
   if (category.parent) {
     const Category = mongoose.model('Category');
-    const parent = await Category.findById(category.parent || null);
+    const parent = await Category.findById(category.parent);
 
     if (!parent) {
       return category.invalidate('parent', 'Parent category not found');
     }
+
     if (parent._id.equals(category._id)) {
       return category.invalidate('parent', 'A category can not be its own subcategory');
     }
-    if (category.isParent(parent)) {
+
+    if (isParentCategory(category, parent)) {
       return category.invalidate(
         'parent',
         'It is not possible to define as a parent category one of its child categories'
       );
     }
 
-    return category.setPath(parent);
+    const _category = setPath(category, parent);
+
+    return _category;
   }
 
-  return category.setPath();
+  const _category = setPath(category);
+
+  return _category;
 });
 
 categorySchema.pre('remove', async function preventRemoveCategoryWithChildren() {
   const category = this;
-  const childrenCategories = await category.findChildren(category.name);
+  const childrenCategories = await getChildren(category._id);
 
   if (childrenCategories.length) {
     throw new Error('Can not remove category with children categories');
@@ -103,74 +105,50 @@ categorySchema.pre('findOne', function populateCategory() {
   this.populate('parent');
 });
 
-categorySchema.method({
-  ...categorySchema.method,
-  isParent(category) {
-    return getPathRegex(this.name).test(category.path);
-  },
-  findChildren(oldName) {
-    const category = this;
+// categorySchema.method({
+//   ...categorySchema.method,
+//   isParent(category) {
+//     return getPathRegex(this.name).test(category.path);
+//   },
+//   findChildren(oldName) {
+//     const category = this;
 
-    return category.constructor.find({ path: getPathRegex(oldName) }).sort({ path: 1 });
-  },
-  setPath(parent) {
-    this.path = parent ? `${parent.path} > ${this.name}` : this.name;
-  },
-  async updateChildrenPaths(oldName) {
-    const category = this;
-    const children = await category.findChildren(oldName);
+//     return category.constructor.find({ path: getPathRegex(oldName) }).sort({ path: 1 });
+//   },
+//   setPath(parent) {
+//     this.path = parent ? `${parent.path} > ${this.name}` : this.name;
+//   },
+//   async updateChildrenPaths(oldName) {
+//     const category = this;
+//     const children = await category.findChildren(oldName);
 
-    for (const child of children) {
-      const childPathArray = child.path.split(' > ');
-      const parentPathIndex = childPathArray.findIndex((subPath) => subPath === oldName);
-      const newPath = category.path
-        .split(' > ')
-        .concat(childPathArray.slice(parentPathIndex + 1))
-        .join(' > ');
+//     for (const child of children) {
+//       const childPathArray = child.path.split(' > ');
+//       const parentPathIndex = childPathArray.findIndex((subPath) => subPath === oldName);
+//       const newPath = category.path
+//         .split(' > ')
+//         .concat(childPathArray.slice(parentPathIndex + 1))
+//         .join(' > ');
 
-      child.path = newPath;
+//       child.path = newPath;
 
-      await child.save();
-    }
-  },
-  async addProduct(product) {
-    const category = this;
+//       await child.save();
+//     }
+//   },
+// });
 
-    product.productRef = product._id;
-    product.unit.unitRef = product.unit.unitRef || product.unit._id;
+function getPathRegex(name) {
+  return new RegExp(`(^|( > ))${name} > `);
+}
 
-    const categoryProducts = category.products;
+function isParentCategory(category, parentCategory) {
+  return getPathRegex(category.name).test(parentCategory.path);
+}
 
-    categoryProducts.push(product);
+function setPath(category, parent) {
+  category.path = parent ? `${parent.path} > ${category.name}` : category.name;
 
-    return category.edit({ products: categoryProducts });
-  },
-  async editProduct(product) {
-    const category = this;
-    const categoryProducts = category.products.map((categoryProduct) => {
-      if (categoryProduct.productRef.equals(product._id)) {
-        categoryProduct.sku = product.sku;
-        categoryProduct.name = product.name;
-        categoryProduct.unit = {
-          unitRef: product.unit._id,
-          shortUnit: product.unit.shortUnit,
-        };
-        categoryProduct.salePrice = product.salePrice;
-      }
-
-      return categoryProduct;
-    });
-
-    return category.edit({ products: categoryProducts });
-  },
-  async removeProduct(productId) {
-    const category = this;
-    const categoryProducts = category.products.filter(
-      (categoryProduct) => !categoryProduct.productRef.equals(productId)
-    );
-
-    await category.edit({ products: categoryProducts });
-  },
-});
+  return category;
+}
 
 module.exports = mongoose.model('Category', categorySchema);
