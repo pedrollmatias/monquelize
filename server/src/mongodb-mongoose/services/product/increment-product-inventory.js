@@ -10,5 +10,5 @@ module.exports = async function incrementProductInventory(productId, amount, ses
   productHistory.push({ date: Date.now(), movementType: '200', amount });
   const data = { currentAmount, history: productHistory };
 
-  await productDoc.edit(data);
+  return productDoc.edit(data);
 };

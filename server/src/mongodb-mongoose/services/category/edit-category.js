@@ -5,10 +5,11 @@ const editChildrenPaths = require('./edit-children-categories-paths');
 const unpopulate = require('./unpopulate-category');
 
 module.exports = async function editCategory(categoryId, data) {
-  const category = await categoryModel.retrieve(categoryId);
-  const updatedCategory = await category.edit(unpopulate(data));
+  const categoryDoc = await categoryModel.retrieve(categoryId);
+  const categoryObj = categoryDoc.toObject();
+  const updatedCategory = await categoryDoc.edit(unpopulate(data));
 
-  await editChildrenPaths(category, updatedCategory);
+  await editChildrenPaths(categoryObj, updatedCategory);
 
   return updatedCategory;
 };

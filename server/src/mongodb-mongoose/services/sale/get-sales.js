@@ -2,9 +2,9 @@
 
 const { saleModel } = require('../../models');
 
-module.exports = async function getSales(query) {
-  query = query || {};
-  const queryPopulate = [{ path: 'seller' }];
-
-  return saleModel.find(query).populate(queryPopulate).lean();
+module.exports = async function getSales(query = {}) {
+  return saleModel
+    .find(query)
+    .populate([{ path: 'seller' }])
+    .lean();
 };

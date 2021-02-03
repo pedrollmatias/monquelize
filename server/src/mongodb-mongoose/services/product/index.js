@@ -9,4 +9,6 @@ module.exports = {
   adjustInventory: require('./adjust-inventory'),
   count: require('./count-products'),
   unpopulate: require('./unpopulate-product'),
+  incrementInventory: require('./increment-product-inventory'),
+  decrementInventory: require('./decrement-product-inventory'),
 };

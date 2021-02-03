@@ -1,30 +1,25 @@
 'use strict';
 
 const { productModel } = require('../../models');
+const {
+  decrementInventory: decrementProductInventory,
+  incrementInventory: incrementProductInventory,
+} = require('../product');
 
 module.exports = async function addInventoryMovement(productId, movement) {
-  const product = await productModel.retrieve(productId);
-  const productHistory = product.history || [];
+  const productDoc = await productModel.retrieve(productId);
 
   if (movement.movementType === '100') {
-    const currentAmount = Number(product.currentAmount) + Number(movement.amount);
-
-    productHistory.push(movement);
-    const data = { currentAmount, history: productHistory };
-
-    await product.edit(data);
-
-    return product;
-  } else if (movement.movementType === '200') {
-    const currentAmount = Number(product.currentAmount) - Number(movement.amount);
-
-    productHistory.push(movement);
-    const data = { currentAmount, history: productHistory };
-
-    await product.edit(data);
+    const product = await incrementProductInventory(productDoc._id, movement.amount);
 
     return product;
   }
 
-  return product;
+  if (movement.movementType === '200') {
+    const product = await decrementProductInventory(productDoc._id, movement.amount);
+
+    return product;
+  }
+
+  throw new Error('Movement type not suported');
 };

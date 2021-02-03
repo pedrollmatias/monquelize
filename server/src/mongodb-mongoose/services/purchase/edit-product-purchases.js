@@ -7,7 +7,7 @@ module.exports = async function editProductPurchase(productId, productPopulated)
 
   for (const purchase of purchases) {
     const purchaseProducts = purchase.products.map((purchaseProduct) => {
-      if (purchaseProduct.productRef.equals(productPopulated._id)) {
+      if (purchaseProduct.productRef.equals(productId)) {
         purchaseProduct.sku = productPopulated.sku;
         purchaseProduct.name = productPopulated.name;
         purchaseProduct.category = productPopulated.category._id;

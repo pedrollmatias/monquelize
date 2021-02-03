@@ -1,33 +1,17 @@
 'use strict';
 
-const { paymentMethodModel, saleModel, purchaseModel } = require('../../models');
+const { paymentMethodModel } = require('../../models');
+const { editPaymentMethod: editPaymentMethodSale } = require('../sale');
+const { editPaymentMethod: editPaymentMethodPurchase } = require('../purchase');
 
 module.exports = async function editPaymentMethod(paymentMethodId, data, session) {
-  const paymentMethod = await paymentMethodModel.retrieve(paymentMethodId, session);
-  const updatedPaymentMethod = await paymentMethod.edit(data);
+  const paymentMethodDoc = await paymentMethodModel.retrieve(paymentMethodId, session);
+  const updatedPaymentMethodDoc = await paymentMethodDoc.edit(data);
 
-  // Update payment method in sales and purchases if name was modified
   if (Object.prototype.hasOwnProperty.call(data, 'name')) {
-    const query = { 'payment.paymentMethodRef': updatedPaymentMethod._id };
-    const sales = await saleModel.find(query);
-    const purchases = await purchaseModel.find(query);
-
-    for (const sale of sales) {
-      const salePayment = sale.payment;
-
-      salePayment.name = updatedPaymentMethod;
-
-      await sale.edit({ payment: salePayment });
-    }
-
-    for (const purchase of purchases) {
-      const purchasePayment = purchase.payment;
-
-      purchasePayment.name = updatedPaymentMethod;
-
-      await purchase.edit({ payment: purchasePayment });
-    }
+    await editPaymentMethodSale(updatedPaymentMethodDoc);
+    await editPaymentMethodPurchase(updatedPaymentMethodDoc);
   }
 
-  return updatedPaymentMethod;
+  return updatedPaymentMethodDoc;
 };

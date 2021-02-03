@@ -1,23 +1,16 @@
 'use strict';
 
-const { productModel, purchaseModel } = require('../../models');
+const { purchaseModel } = require('../../models');
+const { incrementInventory: incrementProductInventory } = require('../product');
 
 module.exports = async function addPurchase(data, session) {
-  const purchase = await purchaseModel.add(data, session);
-  const queryPopulate = [{ path: 'buyer' }];
+  const purchaseDoc = await purchaseModel.add(data, session);
 
-  await purchase.populate(queryPopulate).execPopulate();
+  await purchaseDoc.populate([{ path: 'buyer' }]).execPopulate();
 
-  for (const product of purchase.products) {
-    const productDoc = await productModel.retrieve(product.productRef, session);
-    const productHistory = productDoc.history || [];
-    const currentAmount = productDoc.currentAmount + product.amount;
-
-    productHistory.push({ date: Date.now(), movementType: '100', amount: product.amount });
-    const data = { currentAmount, history: productHistory };
-
-    await productDoc.edit(data);
+  for (const product of purchaseDoc.products) {
+    incrementProductInventory(product._id, product.amount);
   }
 
-  return purchase;
+  return purchaseDoc;
 };

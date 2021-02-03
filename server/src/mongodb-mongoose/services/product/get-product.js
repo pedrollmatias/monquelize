@@ -2,12 +2,15 @@
 
 const { productModel } = require('../../models');
 
-module.exports = async function getProduct(productId) {
-  const queryPopulate = [
-    { path: 'category', select: 'name' },
-    { path: 'unit', select: ['unit', 'shortUnit'] },
-  ];
-  const product = await productModel.retrieve(productId);
+module.exports = async function getProduct(productId, options = {}) {
+  if (options.populate) {
+    const product = await productModel.retrieve(productId);
 
-  return product.execPopulate(queryPopulate);
+    return product.execPopulate([
+      { path: 'category', select: 'name' },
+      { path: 'unit', select: ['unit', 'shortUnit'] },
+    ]);
+  }
+
+  return productModel.retrieve(productId);
 };

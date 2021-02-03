@@ -1,30 +1,14 @@
 'use strict';
 
-const { paymentMethodModel, saleModel, purchaseModel } = require('../../models');
+const { paymentMethodModel } = require('../../models');
+const { removePaymentMethod: removePaymentMethodSales } = require('../sale');
+const { removePaymentMethod: removePaymentMethodPurchases } = require('../purchase');
 
 module.exports = async function removePaymentMethod(paymentMethodId, session) {
   const paymentMethod = await paymentMethodModel.retrieve(paymentMethodId, session);
 
-  // Remove payment method ref in sales and purchases
-  const query = { 'payment.paymentMethodRef': paymentMethod._id };
-  const sales = await saleModel.find(query);
-  const purchases = await purchaseModel.find(query);
-
-  for (const sale of sales) {
-    const salePayment = sale.payment;
-
-    salePayment.paymentMethodRef = undefined;
-
-    await sale.edit({ payment: salePayment });
-  }
-
-  for (const purchase of purchases) {
-    const purchasePayment = purchase.payment;
-
-    purchasePayment.paymentMethodRef = undefined;
-
-    await purchase.edit({ payment: purchasePayment });
-  }
+  await removePaymentMethodSales(paymentMethod);
+  await removePaymentMethodPurchases(paymentMethod);
 
   return paymentMethod.delete();
 };

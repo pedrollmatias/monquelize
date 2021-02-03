@@ -1,16 +1,18 @@
 'use strict';
 
-const { productModel, saleModel, purchaseModel } = require('../../models');
+const { productModel } = require('../../models');
+const { editProduct: editProductInSales } = require('../sale');
+const { editProduct: editProductInPurchases } = require('../purchase');
 const {
   editProduct: editProductInCategory,
   addProduct: addProductInCategory,
   removeProduct: removeProductInCategory,
 } = require('../category');
-
 const unpopulate = require('./unpopulate-product');
 
-module.exports = async function editProduct(productId, data, session) {
-  const productDoc = await productModel.retrieve(productId, session);
+module.exports = async function editProduct(productId, data) {
+  const productDoc = await productModel.retrieve(productId);
+  const productObj = productDoc.toObject();
   const updatedProductDoc = await productDoc.edit(data);
 
   await updatedProductDoc
@@ -20,11 +22,12 @@ module.exports = async function editProduct(productId, data, session) {
     ])
     .execPopulate();
 
-  if (hasToUpdateInSalesOrPurchases(productDoc, updatedProductDoc)) {
-    await updateProductInSalesAndPurschases(updatedProductDoc);
+  if (hasToUpdateInSalesOrPurchases(productObj, updatedProductDoc)) {
+    await editProductInPurchases(updatedProductDoc._id, updatedProductDoc);
+    await editProductInSales(updatedProductDoc._id, updatedProductDoc);
   }
 
-  await updateProductInCategory(productDoc, unpopulate(updatedProductDoc));
+  await updateProductInCategory(productObj, unpopulate(updatedProductDoc));
 
   return updatedProductDoc;
 };
@@ -33,20 +36,6 @@ function hasToUpdateInSalesOrPurchases(oldProduct, newProduct) {
   const relevantFields = ['sku', 'name', 'category', 'unit'];
 
   return relevantFields.some((field) => oldProduct[field] !== newProduct[field]);
-}
-
-async function updateProductInSalesAndPurschases(product) {
-  const query = { 'products.productRef': product._id };
-  const sales = await saleModel.find(query);
-  const purchases = await purchaseModel.find(query);
-
-  for (const sale of sales) {
-    await sale.editProduct(product);
-  }
-
-  for (const purchase of purchases) {
-    await purchase.editProduct(product);
-  }
 }
 
 async function updateProductInCategory(oldProduct, newProduct, session) {

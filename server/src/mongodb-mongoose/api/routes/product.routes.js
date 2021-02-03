@@ -57,7 +57,7 @@ module.exports = (app) => {
     try {
       timer.startTimer();
 
-      const products = await productService.query(req.params.productId);
+      const products = await productService.query(req.params.productId, { populate: true });
 
       const diffTime = timer.diffTimer();
 
