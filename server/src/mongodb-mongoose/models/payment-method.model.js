@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const { mongooseModelMethodsFactory } = require('../../modules');
 
-const caymentMethodSchema = new Schema(
+const paymentMethodSchema = new Schema(
   {
     name: {
       type: String,
@@ -19,6 +19,6 @@ const caymentMethodSchema = new Schema(
   { collection: 'paymentmethods' }
 );
 
-mongooseModelMethodsFactory.registerMethods(caymentMethodSchema);
+mongooseModelMethodsFactory.registerMethods(paymentMethodSchema);
 
-module.exports = mongoose.model('PaymentMethod', caymentMethodSchema);
+module.exports = mongoose.model('PaymentMethod', paymentMethodSchema);

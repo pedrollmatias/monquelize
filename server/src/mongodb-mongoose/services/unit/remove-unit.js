@@ -7,8 +7,8 @@ const { removeUnit: removeUnitInPurchases } = require('../purchase');
 module.exports = async function removeUnit(unitId, session) {
   const unitDoc = await unitModel.retrieve(unitId, session);
 
-  await removeUnitInSales(unitDoc);
-  await removeUnitInPurchases(unitDoc);
+  await removeUnitInSales(unitDoc, session);
+  await removeUnitInPurchases(unitDoc, session);
 
   return unitDoc.delete();
 };

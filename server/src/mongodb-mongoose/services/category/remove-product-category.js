@@ -2,8 +2,8 @@
 
 const { categoryModel } = require('../../models');
 
-module.exports = async function removeProductCategory(categoryId, productId) {
-  const categoryDoc = await categoryModel.retrieve(categoryId);
+module.exports = async function removeProductCategory(categoryId, productId, session) {
+  const categoryDoc = await categoryModel.retrieve(categoryId, session);
 
   const categoryProducts = categoryDoc.products.filter(
     (categoryProduct) => !categoryProduct.productRef.equals(productId)

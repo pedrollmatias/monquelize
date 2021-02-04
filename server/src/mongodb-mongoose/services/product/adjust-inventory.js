@@ -4,16 +4,16 @@ const { productModel } = require('../../models');
 
 module.exports = async function adjustInventory(productId, data, session) {
   const product = await productModel.retrieve(productId, session);
-  const productHistory = product.history || [];
+  let productHistory = product.history || [];
   const productInventory = product.inventory || {};
 
-  productHistory.push({ ...data, date: Date.now() });
+  productHistory = [...productHistory, { ...data, date: Date.now() }];
 
   switch (data.movementType) {
-    case '100': // Input
+    case '100':
       productInventory.currentAmount += Number(data.amount);
       break;
-    case '200': // Output
+    case '200':
       productInventory.currentAmount -= Number(data.amount);
       break;
   }

@@ -55,7 +55,9 @@ module.exports = (app) => {
     try {
       timer.startTimer();
 
-      const category = await categoryService.edit(req.params.categoryId, req.body);
+      const category = await withTransaction(async (session) => {
+        return categoryService.edit(req.params.categoryId, req.body, session);
+      });
 
       const diffTime = timer.diffTimer();
 

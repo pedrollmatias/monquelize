@@ -4,8 +4,6 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const { mongooseModelMethodsFactory } = require('../../modules');
 
-const { getChildren } = require('../services/category');
-
 const categorySchema = new Schema(
   {
     name: {
@@ -64,8 +62,8 @@ categorySchema.pre('validate', async function () {
   const category = this;
 
   if (category.parent) {
-    const Category = mongoose.model('Category');
-    const parent = await Category.findById(category.parent);
+    const categoryModel = mongoose.model('Category');
+    const parent = await categoryModel.findById(category.parent);
 
     if (!parent) {
       return category.invalidate('parent', 'Parent category not found');
@@ -94,7 +92,8 @@ categorySchema.pre('validate', async function () {
 
 categorySchema.pre('remove', async function preventRemoveCategoryWithChildren() {
   const category = this;
-  const childrenCategories = await getChildren(category._id);
+  const categoryModel = mongoose.model('Category');
+  const childrenCategories = await categoryModel.find({ parent: category._id });
 
   if (childrenCategories.length) {
     throw new Error('Can not remove category with children categories');
@@ -104,38 +103,6 @@ categorySchema.pre('remove', async function preventRemoveCategoryWithChildren() 
 categorySchema.pre('findOne', function populateCategory() {
   this.populate('parent');
 });
-
-// categorySchema.method({
-//   ...categorySchema.method,
-//   isParent(category) {
-//     return getPathRegex(this.name).test(category.path);
-//   },
-//   findChildren(oldName) {
-//     const category = this;
-
-//     return category.constructor.find({ path: getPathRegex(oldName) }).sort({ path: 1 });
-//   },
-//   setPath(parent) {
-//     this.path = parent ? `${parent.path} > ${this.name}` : this.name;
-//   },
-//   async updateChildrenPaths(oldName) {
-//     const category = this;
-//     const children = await category.findChildren(oldName);
-
-//     for (const child of children) {
-//       const childPathArray = child.path.split(' > ');
-//       const parentPathIndex = childPathArray.findIndex((subPath) => subPath === oldName);
-//       const newPath = category.path
-//         .split(' > ')
-//         .concat(childPathArray.slice(parentPathIndex + 1))
-//         .join(' > ');
-
-//       child.path = newPath;
-
-//       await child.save();
-//     }
-//   },
-// });
 
 function getPathRegex(name) {
   return new RegExp(`(^|( > ))${name} > `);

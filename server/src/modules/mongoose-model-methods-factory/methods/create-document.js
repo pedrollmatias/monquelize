@@ -1,7 +1,7 @@
 'use strict';
 
-module.exports = function create(model, data) {
+module.exports = function create(model, data, session) {
   const document = new model(data);
 
-  return document.save();
+  return document.save({ session });
 };

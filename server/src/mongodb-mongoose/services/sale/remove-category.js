@@ -2,8 +2,8 @@
 
 const { saleModel } = require('../../models');
 
-module.exports = async function removeCategoryInSales(category) {
-  const sales = await saleModel.find({ 'products.category': category._id });
+module.exports = async function removeCategoryInSales(category, session) {
+  const sales = await saleModel.get({ 'products.category': category._id }, session);
 
   for (const sale of sales) {
     const saleProducts = sale.products.map((saleProduct) => {

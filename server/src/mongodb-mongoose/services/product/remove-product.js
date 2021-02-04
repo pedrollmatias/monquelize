@@ -9,9 +9,9 @@ const { removeProduct: removeProductInPurchases } = require('../purchase');
 module.exports = async function removeProduct(productId, session) {
   const productDoc = await productModel.retrieve(productId, session);
 
-  await removeProductInCategory(productDoc.category, productDoc._id);
-  await removeProductInSales(productDoc._id);
-  await removeProductInPurchases(productDoc._id);
+  await removeProductInCategory(productDoc.category, productDoc._id, session);
+  await removeProductInSales(productDoc._id, session);
+  await removeProductInPurchases(productDoc._id, session);
 
   return productDoc.delete();
 };

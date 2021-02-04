@@ -2,8 +2,8 @@
 
 const { categoryModel } = require('../../models');
 
-module.exports = async function addProductCategory(categoryId, product) {
-  const categoryDoc = await categoryModel.retrieve(categoryId);
+module.exports = async function addProductCategory(categoryId, product, session) {
+  const categoryDoc = await categoryModel.retrieve(categoryId, session);
   const categoryProducts = [
     ...categoryDoc.products,
     {
@@ -16,5 +16,5 @@ module.exports = async function addProductCategory(categoryId, product) {
     },
   ];
 
-  await categoryDoc.edit({ products: categoryProducts });
+  return categoryDoc.edit({ products: categoryProducts });
 };

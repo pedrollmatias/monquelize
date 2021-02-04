@@ -16,13 +16,13 @@ module.exports = async function editSale(saleId, saleData, session) {
   await updatedSale.populate([{ path: 'seller' }]).execPopulate();
 
   for (const product of updatedSale.products) {
-    await incrementInventoryOfRemovedProducts(saleObj, updatedSale);
-    await decrementInventoryOfAddedProducts(saleObj, updatedSale);
+    await incrementInventoryOfRemovedProducts(saleObj, updatedSale, session);
+    await decrementInventoryOfAddedProducts(saleObj, updatedSale, session);
 
     const oldProduct = saleObj.products.find((_product) => _product.productRef.equals(product.productRef));
     const oldProductDoc = await getProduct(oldProduct.productRef);
 
-    await editInventoryOfEditedProduct(oldProductDoc, product);
+    await editInventoryOfEditedProduct(oldProductDoc, product, session);
   }
 
   return updatedSale;
@@ -40,24 +40,24 @@ async function incrementInventoryOfRemovedProducts(oldSale, newSale) {
   }
 }
 
-async function decrementInventoryOfAddedProducts(oldSale, newSale) {
+async function decrementInventoryOfAddedProducts(oldSale, newSale, session) {
   const addedProducts = newSale.products.filter((_updatedProduct) =>
     oldSale.products.some((_product) => !_product.productRef.equals(_updatedProduct.productRef))
   );
 
   if (addedProducts.length) {
     for (const addedProduct of addedProducts) {
-      await decrementProductInventory(addedProduct.productRef, addedProduct.amount);
+      await decrementProductInventory(addedProduct.productRef, addedProduct.amount, session);
     }
   }
 }
 
-async function editInventoryOfEditedProduct(oldProduct, newProduct) {
+async function editInventoryOfEditedProduct(oldProduct, newProduct, session) {
   const diffAmount = newProduct.amount - oldProduct.amount;
 
   if (diffAmount > 0) {
-    await incrementProductInventory(oldProduct._id, diffAmount);
+    await incrementProductInventory(oldProduct._id, diffAmount, session);
   } else if (diffAmount < 0) {
-    await decrementProductInventory(oldProduct._id, -diffAmount);
+    await decrementProductInventory(oldProduct._id, -diffAmount, session);
   }
 }

@@ -1,7 +1,7 @@
 'use strict';
 
-module.exports = function unpopulateCategory(category) {
-  category.parent = category.parent ? category.parent._id || category.parent : undefined;
+module.exports = function unpopulateCategory(categoryData) {
+  categoryData.parent = categoryData.parent ? categoryData.parent._id || categoryData.parent : undefined;
 
-  return category;
+  return categoryData;
 };

@@ -347,13 +347,9 @@ export class PurchaseDetailsComponent implements OnInit {
       amount: 1,
       price: product.costPrice || 0,
       subtotal: product.costPrice,
+      unitRef: product.unit._id,
+      shortUnit: product.unit.shortUnit,
     };
-    if (product.unit) {
-      productFormValue.unit = {
-        unitRef: product.unit._id,
-        shortUnit: product.unit.shortUnit,
-      };
-    }
     controle.at(index).patchValue(productFormValue);
     controle.at(index).get('amount').enable();
     controle.at(index).get('price').enable();

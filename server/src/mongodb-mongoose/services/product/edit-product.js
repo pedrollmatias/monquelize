@@ -10,10 +10,10 @@ const {
 } = require('../category');
 const unpopulate = require('./unpopulate-product');
 
-module.exports = async function editProduct(productId, data) {
-  const productDoc = await productModel.retrieve(productId);
+module.exports = async function editProduct(productId, productData, session) {
+  const productDoc = await productModel.retrieve(productId, session);
   const productObj = productDoc.toObject();
-  const updatedProductDoc = await productDoc.edit(data);
+  const updatedProductDoc = await productDoc.edit(productData);
 
   await updatedProductDoc
     .populate([
@@ -23,11 +23,11 @@ module.exports = async function editProduct(productId, data) {
     .execPopulate();
 
   if (hasToUpdateInSalesOrPurchases(productObj, updatedProductDoc)) {
-    await editProductInPurchases(updatedProductDoc._id, updatedProductDoc);
-    await editProductInSales(updatedProductDoc._id, updatedProductDoc);
+    await editProductInPurchases(updatedProductDoc._id, updatedProductDoc, session);
+    await editProductInSales(updatedProductDoc._id, updatedProductDoc, session);
   }
 
-  await updateProductInCategory(productObj, unpopulate(updatedProductDoc));
+  await updateProductInCategory(productObj, unpopulate(updatedProductDoc), session);
 
   return updatedProductDoc;
 };
@@ -42,7 +42,7 @@ async function updateProductInCategory(oldProduct, newProduct, session) {
   if (oldProduct.category.equals(newProduct.category)) {
     await editProductInCategory(oldProduct._id, newProduct, session);
   } else {
-    await addProductInCategory(newProduct.category, newProduct._id);
-    await removeProductInCategory(oldProduct.category, oldProduct._id);
+    await addProductInCategory(newProduct.category, newProduct._id, session);
+    await removeProductInCategory(oldProduct.category, oldProduct._id, session);
   }
 }

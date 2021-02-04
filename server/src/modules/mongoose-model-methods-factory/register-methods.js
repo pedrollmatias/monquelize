@@ -11,8 +11,8 @@ module.exports = function registerMethods(schema) {
     retrieve(docId, session) {
       return retriveDocument(this, docId, session);
     },
-    add(data) {
-      return createDocument(this, data);
+    add(data, session) {
+      return createDocument(this, data, session);
     },
   });
 

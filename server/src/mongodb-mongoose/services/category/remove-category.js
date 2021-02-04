@@ -7,8 +7,8 @@ const { removeCategory: removeCategoryInPurchases } = require('../purchase');
 module.exports = async function removeCategory(categoryId, session) {
   const category = await categoryModel.retrieve(categoryId, session);
 
-  await removeCategoryInSales(category);
-  await removeCategoryInPurchases(category);
+  await removeCategoryInSales(category, session);
+  await removeCategoryInPurchases(category, session);
 
   return category.delete();
 };

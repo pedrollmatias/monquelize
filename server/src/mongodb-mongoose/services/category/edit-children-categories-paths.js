@@ -2,8 +2,8 @@
 
 const { categoryModel } = require('../../models');
 
-module.exports = async function updateChildrenPaths(oldCategory, newCategory) {
-  const children = await getAllChildren(oldCategory);
+module.exports = async function updateChildrenPaths(oldCategory, newCategory, session) {
+  const children = await getAllChildren(oldCategory, session);
 
   for (const child of children) {
     const childPathArray = child.path.split(' > ');
@@ -19,8 +19,8 @@ module.exports = async function updateChildrenPaths(oldCategory, newCategory) {
   }
 };
 
-function getAllChildren(oldCategory) {
-  return categoryModel.find({ path: getPathRegex(oldCategory.name) }).sort({ path: 1 });
+function getAllChildren(oldCategory, session) {
+  return categoryModel.get({ path: getPathRegex(oldCategory.name) }, session).sort({ path: 1 });
 }
 
 function getPathRegex(name) {

@@ -1,15 +1,16 @@
 'use strict';
 
-module.exports = function unpopulateProduct(product) {
-  const _product = {
-    ...product,
-    unitRef: product.unit._id,
-    shortUnit: product.unit.shortUnit,
-    category: product.category._id,
+module.exports = function unpopulateProduct(productDoc) {
+  const productObj = productDoc.toObject();
+  const product = {
+    ...productObj,
+    unitRef: productObj.unit._id,
+    shortUnit: productObj.unit.shortUnit,
+    category: productObj.category._id,
   };
 
-  _product.unit = undefined;
-  _product.category = undefined;
+  product.unit = undefined;
+  product.category = undefined;
 
-  return _product;
+  return product;
 };

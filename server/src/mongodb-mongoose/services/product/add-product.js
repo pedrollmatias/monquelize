@@ -6,7 +6,7 @@ const unpopulate = require('./unpopulate-product');
 
 module.exports = async function addProduct(productData, session) {
   const _productData = appendProductDataHistorytMovement({ ...productData });
-  const productDoc = await productModel.add(_productData);
+  const productDoc = await productModel.add(_productData, session);
 
   await productDoc
     .populate([

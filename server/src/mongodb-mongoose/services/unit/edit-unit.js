@@ -10,8 +10,8 @@ module.exports = async function editUnit(unitId, unitData, session) {
   const updatedUnit = await unitDoc.edit(unitData);
 
   if (hasToUpdateInSalesOrPurchases(unitObj, updatedUnit)) {
-    await editUnitInPurchases(updatedUnit);
-    await editUnitInSales(updatedUnit);
+    await editUnitInPurchases(updatedUnit, session);
+    await editUnitInSales(updatedUnit, session);
   }
 
   return updatedUnit;

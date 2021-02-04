@@ -3,13 +3,13 @@
 const { saleModel } = require('../../models');
 const { decrementInventory: decrementProductInventory } = require('../product');
 
-module.exports = async function addSale(data, session) {
-  const saleDoc = await saleModel.add(data, session);
+module.exports = async function addSale(saleData, session) {
+  const saleDoc = await saleModel.add(saleData, session);
 
   await saleDoc.populate([{ path: 'seller' }]).execPopulate();
 
   for (const product of saleDoc.products) {
-    await decrementProductInventory(product.productRef, product.amount);
+    await decrementProductInventory(product.productRef, product.amount, session);
   }
 
   return saleDoc;

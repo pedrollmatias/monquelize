@@ -2,8 +2,8 @@
 
 const { saleModel } = require('../../models');
 
-module.exports = async function editProductSales(productId, productPopulated) {
-  const sales = await saleModel.find({ 'products.productRef': productId });
+module.exports = async function editProductSales(productId, productPopulated, session) {
+  const sales = await saleModel.get({ 'products.productRef': productId }, session);
 
   for (const sale of sales) {
     const saleProducts = sale.products.map((saleProduct) => {

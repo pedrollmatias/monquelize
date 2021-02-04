@@ -44,6 +44,7 @@ export class UsersComponent implements OnInit {
 
   fetchData(): void {
     this.userApi.getUsers().subscribe((res: IHttpResponse) => {
+      console.log(res);
       this.databaseTimes = this.utils.setTimes(res);
       this.users = this.getUsers(res);
       this.setDataSource(this.users);
