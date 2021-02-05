@@ -2,17 +2,17 @@
 
 const { categoryModel } = require('../../models');
 
-module.exports = async function addProductCategory(categoryId, product, session) {
+module.exports = async function addProductCategory(categoryId, productPopulated, session) {
   const categoryDoc = await categoryModel.retrieve(categoryId, session);
   const categoryProducts = [
     ...categoryDoc.products,
     {
-      productRef: product._id,
-      sku: product.sku,
-      name: product.name,
-      unitRef: product.unitRef,
-      shortUnit: product.shortUnit,
-      salePrice: product.salePrice,
+      productRef: productPopulated._id,
+      sku: productPopulated.sku,
+      name: productPopulated.name,
+      unitRef: productPopulated.unit._id,
+      shortUnit: productPopulated.unit.shortUnit,
+      salePrice: productPopulated.salePrice,
     },
   ];
 

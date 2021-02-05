@@ -21,7 +21,7 @@ export class InventoryComponent implements OnInit {
 
   searchProductFormControl = new FormControl();
 
-  productsColumns: string[] = ['sku', 'name', 'category', 'unit', 'salePrice'];
+  productsColumns: string[] = ['sku', 'name', 'category', 'unit', 'currentAmount'];
   productsDataSource = new MatTableDataSource<IProduct>();
 
   products: IProduct[];
@@ -44,6 +44,7 @@ export class InventoryComponent implements OnInit {
     this.productApi.getProducts({ search: searchValue }).subscribe((res: IHttpResponse) => {
       this.databaseTimes = this.utils.setTimes(res);
       this.products = this.getProducts(res);
+      console.log(this.products);
       this.setDataSource(this.products);
     });
   }

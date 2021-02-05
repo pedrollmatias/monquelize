@@ -24,14 +24,14 @@ module.exports = async function getProducts(query) {
   const products = query.pagination
     ? await productModel
         .find(_query)
-        .select({ _id: 1, sku: 1, name: 1, category: 1, unit: 1, salePrice: 1, createdAt: 1 })
+        .select({ _id: 1, sku: 1, name: 1, category: 1, unit: 1, salePrice: 1, createdAt: 1, currentAmount: 1 })
         .skip(page)
         .limit(limit)
         .populate(queryPopulate)
         .lean()
     : await productModel
         .find(_query)
-        .select({ _id: 1, sku: 1, name: 1, category: 1, unit: 1, salePrice: 1, createdAt: 1 })
+        .select({ _id: 1, sku: 1, name: 1, category: 1, unit: 1, salePrice: 1, createdAt: 1, currentAmount: 1 })
         .populate(queryPopulate)
         .lean();
 

@@ -154,7 +154,7 @@ export class SaleDetailsComponent implements OnInit {
     const sale = res.mongodbMongoose.res;
 
     const paymentMethodAssociatedIds = this.paymentMethods.find(
-      (paymentMethod) => paymentMethod.name === sale.paymentMethod.name
+      (paymentMethod) => paymentMethod.name === sale.paymentMethodName
     )?.associatedIds;
     sale.paymentMethod = { ...sale.paymentMethod, associatedIds: paymentMethodAssociatedIds };
 
@@ -280,8 +280,9 @@ export class SaleDetailsComponent implements OnInit {
       productRef: [product?.productRef || product?._id || null, Validators.required],
       sku: [product?.sku || null, Validators.required],
       name: [product?.name || null, Validators.required],
-      category: product?.category || null,
-      unit: product?.unit || null,
+      category: product?.category?._id || null,
+      unitRef: product?.unit?._id || null,
+      shortUnit: product?.unit?._id || null,
       amount: [{ value: product?.amount || null, disabled: product ? false : true }, Validators.required],
       price: [{ value: product?.price || null, disabled: product ? false : true }, Validators.required],
       subtotal: product?.amount && product.price ? product.amount * product.price : null,

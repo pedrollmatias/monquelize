@@ -9,7 +9,7 @@ module.exports = async function addPurchase(purchaseData, session) {
   await purchaseDoc.populate([{ path: 'buyer' }]).execPopulate();
 
   for (const product of purchaseDoc.products) {
-    incrementProductInventory(product._id, product.amount, session);
+    await incrementProductInventory(product._id, product.amount, session);
   }
 
   return purchaseDoc;

@@ -2,7 +2,6 @@
 
 const { productModel } = require('../../models');
 const { addProduct: addProductInCategory } = require('../category');
-const unpopulate = require('./unpopulate-product');
 
 module.exports = async function addProduct(productData, session) {
   const _productData = appendProductDataHistorytMovement({ ...productData });
@@ -15,7 +14,7 @@ module.exports = async function addProduct(productData, session) {
     ])
     .execPopulate();
 
-  await addProductInCategory(productDoc.category, unpopulate(productDoc), session);
+  await addProductInCategory(productDoc.category, productDoc, session);
 
   return productDoc;
 };

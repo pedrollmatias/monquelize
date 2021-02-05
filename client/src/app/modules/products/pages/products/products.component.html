@@ -84,7 +84,7 @@
               [page]="paginationControl.page"
               [limit]="paginationControl.limit"
               [total]="productsCount"
-              (paginationControl)="aoMudarPagina($event)"
+              (paginationControl)="onPageChange($event)"
             ></app-element-paginator>
           </div>
         </mat-card>

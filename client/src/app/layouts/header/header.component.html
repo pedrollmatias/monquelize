@@ -1,7 +1,18 @@
 <mat-toolbar class="navbar">
   <div class="d-flex justify-content-around align-items-center w-100">
-    <span><strong>Monquelize</strong></span>
+    <div>
+      <span><strong>Monquelize</strong></span>
+    </div>
     <div class="d-flex">
+      <div class="pr-2">
+        <app-element-button-icon-text
+          icon="desktop_windows"
+          text="Point of Sales"
+          color="primary"
+          [style]="'mat-flat-button'"
+          routerLink="sales/add-pos"
+        ></app-element-button-icon-text>
+      </div>
       <ng-container *ngFor="let navItem of navList">
         <div class="px-2">
           <button mat-button [routerLink]="navItem.path">

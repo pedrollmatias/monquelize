@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = async function retrieve(model, documentId, session) {
-  const document = session ? await model.findById(documentId).session(session) : await model.findById(documentId);
+  const document = session ? await model.findById(documentId) : await model.findById(documentId);
 
   if (!document) {
     const modelName = new model({}).instance.modelName;

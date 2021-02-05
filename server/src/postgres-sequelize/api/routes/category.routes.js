@@ -23,6 +23,20 @@ module.exports = (app) => {
     }
   });
 
+  router.get('/products', async (req, res, next) => {
+    try {
+      timer.startTimer();
+
+      const categories = await categoryService.getWithProducts();
+
+      const diffTime = timer.diffTimer();
+
+      res.send({ res: categories, time: diffTime });
+    } catch (err) {
+      next(err);
+    }
+  });
+
   router.post('/add', async (req, res, next) => {
     try {
       timer.startTimer();

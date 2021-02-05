@@ -2,16 +2,16 @@
 
 const { categoryModel } = require('../../models');
 
-module.exports = async function editProductCategory(categoryId, productData, session) {
+module.exports = async function editProductCategory(categoryId, productDataPopulated, session) {
   const category = await categoryModel.retrieve(categoryId, session);
 
   const categoryProducts = category.products.map((categoryProduct) => {
-    if (categoryProduct.productRef.equals(productData._id)) {
-      categoryProduct.sku = productData.sku;
-      categoryProduct.name = productData.name;
-      categoryProduct.unitRef = productData.unitRef;
-      categoryProduct.shortUnit = productData.shortUnit;
-      categoryProduct.salePrice = productData.salePrice;
+    if (categoryProduct.productRef.equals(productDataPopulated._id)) {
+      categoryProduct.sku = productDataPopulated.sku;
+      categoryProduct.name = productDataPopulated.name;
+      categoryProduct.unitRef = productDataPopulated.unit.unitRef;
+      categoryProduct.shortUnit = productDataPopulated.unit.shortUnit;
+      categoryProduct.salePrice = productDataPopulated.salePrice;
     }
 
     return categoryProduct;

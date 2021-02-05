@@ -119,7 +119,7 @@ export class ProductsComponent implements OnInit {
     this.initPaginationControl();
   }
 
-  aoMudarPagina(paginationControl: IPaginationControl) {
+  onPageChange(paginationControl: IPaginationControl) {
     this.paginationControl = { ...paginationControl };
     this.resetData();
     this.queryProducts();

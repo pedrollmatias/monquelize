@@ -65,8 +65,10 @@ const Product = sequelize.define(
 );
 
 Product.belongsTo(Category);
+Category.hasMany(Product);
 
 Product.belongsTo(Unit);
+Category.hasMany(Product);
 
 Product.hasMany(History, { as: 'history', foreignKey: 'productId' });
 History.belongsTo(Product, { foreignKey: 'productId' });

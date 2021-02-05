@@ -1,18 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiCategoryService } from 'src/app/core/api/api-category.service';
-import { ICategory } from 'src/app/shared/models/views.model';
-import { FormControl } from '@angular/forms';
-import { Observable, Subject } from 'rxjs';
-import { startWith, map } from 'rxjs/operators';
-import { SharedComponentsService } from 'src/app/core/services/shared-components.service';
 import { MatDialog } from '@angular/material/dialog';
-import { IOperationProduct } from 'src/app/shared/models/views.model';
-import { ApiProductService } from 'src/app/core/api/api-product.service';
-import { IHttpResponse } from 'src/app/shared/models/http.model';
-import { IPaths } from 'src/app/shared/models/paths.model';
+import { Subject } from 'rxjs';
+import { SharedComponentsService } from 'src/app/core/services/shared-components.service';
 import { UtilsService } from 'src/app/core/services/utils.service';
 import { IAssociatedIds } from 'src/app/shared/models/associated-ids.model';
 import { IDatabaseTimes } from 'src/app/shared/models/database-times';
+import { IHttpResponse } from 'src/app/shared/models/http.model';
+import { IPaths } from 'src/app/shared/models/paths.model';
+import { IServersResponseData } from 'src/app/shared/models/servers-response-data';
+import { ICategory, IOperationProduct } from 'src/app/shared/models/views.model';
+import { DialogPaymentComponent } from '../../components/dialog-payment/dialog-payment.component';
 
 const DEFAULT_AMOUNT = 1;
 
@@ -22,29 +19,27 @@ const DEFAULT_AMOUNT = 1;
   styleUrls: ['./new-sale.component.scss'],
 })
 export class NewSaleComponent implements OnInit {
-  showPageData = false;
+  showPos = false;
+  showData = false;
 
   categories: ICategory[];
 
   currentCategory: ICategory;
-  currentChildrenCategories: ICategory[];
+  currentCategories: ICategory[];
+  currentParentCategories: ICategory[];
 
   databaseTimes: IDatabaseTimes;
   associatedIds: IAssociatedIds;
 
   products: IOperationProduct[];
-  searchInput = new FormControl();
   productsList: IOperationProduct[] = [];
-  filteredProducts: Observable<any[]>;
   totalValue = 0;
 
   destroy$: Subject<void> = new Subject();
 
   constructor(
-    private categoryApi: ApiCategoryService,
-    private productApi: ApiProductService,
-    private sharedComponents: SharedComponentsService,
     private dialog: MatDialog,
+    private sharedComponents: SharedComponentsService,
     public utils: UtilsService
   ) {}
 
@@ -53,167 +48,178 @@ export class NewSaleComponent implements OnInit {
       .multiRequests('GET', this.endpointPaths, { params: { getProducts: true } })
       .subscribe((res: IHttpResponse) => {
         this.databaseTimes = this.utils.setTimes(res);
-        console.log(res);
-        //   this.categories = categoryRes.res;
-        //   this.mongodbMongooseTime = categoryRes.time;
-        //   [this.currentCategory] = this.categories;
-        //   this.currentChildrenCategories = this.getCurrentChildrenCategories(this.currentCategory, this.categories);
-        //   // this.products = this.getProducts(this.categories);
-        //   this.filterProducts();
-        //   this.showPageData = true;
+        this.categories = this.getCategories(res);
+        this.currentCategories = this.getRootCategories(this.categories);
+        this.showData = true;
       });
   }
-
-  openDatabaseTimesDialog(): void {}
-
-  appendCategoryOnProduct(categories: ICategory[]) {}
 
   get endpointPaths(): IPaths {
     return {
       mongodbMongoose: '/categories',
-      postgresSequelize: '/products/get-by-category',
+      postgresSequelize: '/categories/products',
     };
   }
 
-  // getCurrentChildrenCategories(category: ICategory, categories: ICategory[]): ICategory[] {
-  //   return categories.filter((_category) => _category.parent === category._id);
-  // }
+  getCategories(res: IHttpResponse): ICategory[] {
+    return res.mongodbMongoose.res.map((category: ICategory) => {
+      const mongodbMongooseProducts = category.products;
+      const postgresSequelizeEquivalentCategory = res.postgresSequelize.res.find(
+        (category: ICategory) => category.path === category.path
+      );
+      const postgresSequelizeProducts = postgresSequelizeEquivalentCategory.products;
+      const productByServer: IServersResponseData = {
+        mongodbMongoose: mongodbMongooseProducts,
+        postgresSequelize: postgresSequelizeProducts,
+      };
+      const associatedIdsProducts = this.utils.appendAssociatedIdsByUniqueCommonData(productByServer, 'sku');
+      return { ...category, products: associatedIdsProducts };
+    });
+  }
 
-  // hasParent(category: ICategory): boolean {
-  //   return category.parent ? true : false;
-  // }
+  getRootCategories(categories: ICategory[]): ICategory[] {
+    return categories.filter((category) => !category.parent);
+  }
 
-  // changeCurrentCategory(category: ICategory): void {
-  //   this.currentCategory = category;
-  //   this.currentChildrenCategories = this.getCurrentChildrenCategories(category, this.categories);
-  // }
+  onCategoryClick(category: ICategory) {
+    this.showData = false;
+    this.currentCategory = category;
+    const currentCategoriesBkp = [...this.currentCategories];
+    const childrenCategories = this.getCurrentCategoryChildren(this.currentCategory, this.categories);
+    this.currentCategories = childrenCategories?.length ? childrenCategories : currentCategoriesBkp;
+    this.showData = true;
+  }
 
-  // backToParentCategory(category: ICategory): void {
-  //   const currentCategory = this.categories.find((_category) => _category._id === category.parent);
-  //   this.changeCurrentCategory(currentCategory);
-  // }
+  onBackCategoryClick() {
+    this.showData = false;
 
-  // getProducts(categories: ICategory[]): IOperationProduct[] {
-  //   return categories.reduce((products, category) => [...products, ...category.products], []);
-  // }
+    const parentCategory = this.getCurrentCategoryParent(this.currentCategory, this.categories);
+    const parentOfParentCategory = this.getParentOfParentCategory(parentCategory, this.categories);
 
-  // filterProducts() {
-  //   this.filteredProducts = this.searchInput.valueChanges.pipe(
-  //     startWith<string | any>(''),
-  //     map((value) => (typeof value === 'string' ? value : value.name)),
-  //     map((name) => (name ? this._filter(name) : this.products.slice()))
-  //   );
-  // }
+    this.currentCategory = parentCategory || this.currentCategory;
 
-  // _filter(name: string): IOperationProduct[] {
-  //   const value = name.toLowerCase();
-  //   return this.products.filter((product) => {
-  //     const nameStr = product.name.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-  //     const normalizedProductStr = `(${product.sku}) ${nameStr}`;
-  //     const optionStr = `(${product.sku}) ${product.name}`;
-  //     return normalizedProductStr.toLowerCase().includes(value) || optionStr.toLowerCase().includes(value);
-  //   });
-  // }
+    this.currentCategories = parentOfParentCategory
+      ? this.getCurrentCategoryChildren(parentOfParentCategory, this.categories)
+      : this.getRootCategories(this.categories);
 
-  // createProduct(product: IOperationProduct, categoryId: string): IOperationProduct {
-  //   const productCopy = Object.assign({}, product);
-  //   productCopy.amount = DEFAULT_AMOUNT;
-  //   product.category = categoryId;
-  //   productCopy.subtotal = productCopy.salePrice * DEFAULT_AMOUNT;
+    this.showData = true;
+  }
 
-  //   return productCopy;
-  // }
+  getCurrentCategoryChildren(category: ICategory, categories: ICategory[]): ICategory[] {
+    return categories.filter((_category) => _category.parent === category._id);
+  }
 
-  // addProduct(product: any): void {
-  //   product = product instanceof FormControl ? product.value : product;
-  //   const productIndex = this.productsList.findIndex((_product) => _product._id === product._id);
-  //   if (productIndex > -1) {
-  //     this.addProductAmount(productIndex);
-  //   } else {
-  //     const newProduct = this.createProduct(product, this.currentCategory._id);
-  //     this.productsList.push(newProduct);
-  //     this.totalValue = this.calculateTotalValue(this.productsList);
-  //   }
-  //   this.searchInput.setValue('');
-  // }
+  getCurrentCategoryParent(currentCategory: ICategory, categories: ICategory[]): ICategory {
+    return categories.find((_category) => _category._id === currentCategory.parent);
+  }
 
-  // removeProduct(index: number): void {
-  //   this.productsList.splice(index, 1);
-  //   this.totalValue = this.calculateTotalValue(this.productsList);
-  // }
+  getParentOfParentCategory(parentCategory: ICategory, categories: ICategory[]): ICategory {
+    return categories.find((_category) => _category._id === parentCategory?.parent);
+  }
 
-  // addProductAmount(index: number): void {
-  //   this.productsList[index].amount++;
-  //   this.productsList[index].subtotal = this.calculateSubtotal(this.productsList[index]);
-  //   this.totalValue = this.calculateTotalValue(this.productsList);
-  // }
+  hasParentCategories(): boolean {
+    let category;
 
-  // subProductAmount(index: number): void {
-  //   this.productsList[index].amount--;
-  //   this.productsList[index].subtotal = this.calculateSubtotal(this.productsList[index]);
-  //   this.totalValue = this.calculateTotalValue(this.productsList);
-  // }
+    if (this.currentCategories?.length) {
+      [category] = this.currentCategories;
+    } else {
+      category = this.currentCategory;
+    }
 
-  // calculateTotalValue(productsList: IOperationProduct[]): number {
-  //   return productsList.reduce((totalValue, product, index) => {
-  //     if (product.amount <= 0 || !product.amount) {
-  //       this.productsList[index].subtotal = product.salePrice;
-  //     } else {
-  //       this.productsList[index].subtotal = product.amount * product.salePrice;
-  //     }
-  //     return (totalValue += this.productsList[index].subtotal);
-  //   }, 0);
-  // }
+    return Boolean(category?.parent);
+  }
 
-  // calculateSubtotal(product: IOperationProduct): number {
-  //   return product.amount * product.salePrice;
-  // }
+  getProducts(categories: ICategory[]): IOperationProduct[] {
+    return categories.reduce((products, category) => [...products, ...category.products], []);
+  }
 
-  // ongoingSale(): boolean {
-  //   return !this.productsList.length && !this.totalValue ? false : true;
-  // }
+  createProduct(product: IOperationProduct, categoryId: string): IOperationProduct {
+    const productCopy = Object.assign({}, product);
+    productCopy.amount = DEFAULT_AMOUNT;
+    product.category = categoryId;
+    productCopy.subtotal = productCopy.salePrice * DEFAULT_AMOUNT;
 
-  // resetPage(): void {
-  //   this.productsList = [];
-  //   this.totalValue = 0;
-  // }
+    return productCopy;
+  }
 
-  // cancelSale(): void {
-  //   if (this.ongoingSale()) {
-  //     const message = 'Current sale data will be lost. Are you sure?';
-  //     const dialogConfirmacaoRef = this.sharedComponents.openDialogConfirmation(
-  //       'warning',
-  //       'warn',
-  //       'Attention',
-  //       message,
-  //       'Cance sale'
-  //     );
-  //     dialogConfirmacaoRef.beforeClosed().subscribe((data) => {
-  //       if (data?.confirmed) {
-  //         this.resetPage();
-  //       }
-  //     });
-  //   }
-  // }
+  addProduct(product: any): void {
+    const productIndex = this.productsList.findIndex((_product) => _product._id === product._id);
+    if (productIndex > -1) {
+      this.addProductAmount(productIndex);
+    } else {
+      const newProduct = this.createProduct(product, this.currentCategory._id);
+      this.productsList.push(newProduct);
+      this.totalValue = this.calculateTotalValue(this.productsList);
+    }
+  }
 
-  // nagevarParaRotaAnterior(): void {
-  //   if (this.ongoingSale()) {
-  //     const msg = 'Os dados da venda atual serão perdidos. Tem certeza que deseja executar esta ação?';
-  //     const dialogConfirmacaoRef = this.sharedComponents.abrirDialogConfirmacao('warning', 'warn', 'Atenção', msg);
-  //     dialogConfirmacaoRef.beforeClosed().subscribe((dados) => {
-  //       if (dados?.confirmado) {
-  //         this.router.navigateByUrl(this.rotaAnterior);
-  //       }
-  //     });
-  //   } else {
-  //     this.router.navigateByUrl(this.rotaAnterior);
-  //   }
-  // }
+  removeProduct(index: number): void {
+    this.productsList.splice(index, 1);
+    this.totalValue = this.calculateTotalValue(this.productsList);
+  }
 
-  // confirmarVenda(): void {
-  //   this.confirmar.next({ valorTotal: this.totalValue, produtos: this.productsList });
-  //   if (this.ehComanda) {
-  //     this.resetarPagina();
-  //   }
-  // }
+  addProductAmount(index: number): void {
+    this.productsList[index].amount++;
+    this.productsList[index].subtotal = this.calculateSubtotal(this.productsList[index]);
+    this.totalValue = this.calculateTotalValue(this.productsList);
+  }
+
+  subProductAmount(index: number): void {
+    this.productsList[index].amount--;
+    this.productsList[index].subtotal = this.calculateSubtotal(this.productsList[index]);
+    this.totalValue = this.calculateTotalValue(this.productsList);
+  }
+
+  calculateTotalValue(productsList: IOperationProduct[]): number {
+    return productsList.reduce((totalValue, product, index) => {
+      if (product.amount <= 0 || !product.amount) {
+        this.productsList[index].subtotal = product.salePrice;
+      } else {
+        this.productsList[index].subtotal = product.amount * product.salePrice;
+      }
+      return (totalValue += this.productsList[index].subtotal);
+    }, 0);
+  }
+
+  calculateSubtotal(product: IOperationProduct): number {
+    return product.amount * product.salePrice;
+  }
+
+  ongoingSale(): boolean {
+    return !this.productsList.length && !this.totalValue ? false : true;
+  }
+
+  resetPage(): void {
+    this.productsList = [];
+    this.totalValue = 0;
+  }
+
+  cancelSale(): void {
+    if (this.ongoingSale()) {
+      const message = 'Current sale data will be lost. Are you sure?';
+      const dialogConfirmacaoRef = this.sharedComponents.openDialogConfirmation(
+        'warning',
+        'warn',
+        'Attention',
+        message,
+        'Cance sale'
+      );
+      dialogConfirmacaoRef.beforeClosed().subscribe((data) => {
+        if (data?.confirmed) {
+          this.resetPage();
+        }
+      });
+    }
+  }
+
+  openDialogPayment(): void {
+    this.dialog.open(DialogPaymentComponent, {
+      autoFocus: false,
+      restoreFocus: false,
+      width: '70vw',
+      data: {
+        products: this.productsList,
+      },
+    });
+  }
 }
