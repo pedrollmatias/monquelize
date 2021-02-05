@@ -20,9 +20,14 @@
       </div>
       <ng-container *ngFor="let navItem of navList">
         <div class="px-2">
-          <button mat-button [routerLink]="navItem.path">
-            <span class="nav-item">{{ navItem.label }}</span>
-          </button>
+          <app-element-button-icon-text
+            [style]="'mat-button'"
+            [icon]="navItem.icon"
+            [text]="navItem.label"
+            [routerLink]="navItem.path"
+            [routerLink]="navItem.path"
+          >
+          </app-element-button-icon-text>
         </div>
       </ng-container>
     </div>
