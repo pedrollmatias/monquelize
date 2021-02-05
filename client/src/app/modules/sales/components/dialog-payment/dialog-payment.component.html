@@ -56,10 +56,12 @@
 
     <div class="d-flex justify-content-center align-items-center pb-5">
       <div class="pr-5">
-        <button mat-button (click)="closeDialog()">Cancel</button>
+        <button mat-button (click)="closeDialog(false)">Cancel</button>
       </div>
       <div>
-        <button mat-flat-button color="primary" [disabled]="!showConfirmSaleButton">Confirm sale</button>
+        <button mat-flat-button color="primary" (click)="saveSale()" [disabled]="!showConfirmSaleButton">
+          Confirm sale
+        </button>
       </div>
     </div>
   </ng-template>

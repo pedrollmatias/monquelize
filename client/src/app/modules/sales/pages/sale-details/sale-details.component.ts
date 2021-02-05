@@ -408,6 +408,7 @@ export class SaleDetailsComponent implements OnInit {
       this.sharedComponents.openSnackbarWarning('There are fields with invalid values');
     } else {
       const sale = { ...this.saleForm.value, timestamp: new Date().getTime() };
+      console.log(sale);
       if (this.isNewSale) {
         this.sharedComponents
           .openLoadingDialog(this.saleApi.createSale(sale))

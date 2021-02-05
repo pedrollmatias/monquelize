@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Subject } from 'rxjs';
+import { ApiSaleService } from 'src/app/core/api/api-sale.service';
 import { SharedComponentsService } from 'src/app/core/services/shared-components.service';
 import { UtilsService } from 'src/app/core/services/utils.service';
 import { IAssociatedIds } from 'src/app/shared/models/associated-ids.model';
@@ -50,6 +51,7 @@ export class NewSaleComponent implements OnInit {
         this.databaseTimes = this.utils.setTimes(res);
         this.categories = this.getCategories(res);
         this.currentCategories = this.getRootCategories(this.categories);
+        [this.currentCategory] = this.currentCategories;
         this.showData = true;
       });
   }
@@ -136,7 +138,7 @@ export class NewSaleComponent implements OnInit {
   createProduct(product: IOperationProduct, categoryId: string): IOperationProduct {
     const productCopy = Object.assign({}, product);
     productCopy.amount = DEFAULT_AMOUNT;
-    product.category = categoryId;
+    productCopy.category = categoryId;
     productCopy.subtotal = productCopy.salePrice * DEFAULT_AMOUNT;
 
     return productCopy;
@@ -192,6 +194,8 @@ export class NewSaleComponent implements OnInit {
   resetPage(): void {
     this.productsList = [];
     this.totalValue = 0;
+    this.currentCategories = this.getRootCategories(this.categories);
+    [this.currentCategory] = this.currentCategories;
   }
 
   cancelSale(): void {
@@ -213,13 +217,20 @@ export class NewSaleComponent implements OnInit {
   }
 
   openDialogPayment(): void {
-    this.dialog.open(DialogPaymentComponent, {
+    const dialogRef = this.dialog.open(DialogPaymentComponent, {
       autoFocus: false,
       restoreFocus: false,
       width: '70vw',
       data: {
         products: this.productsList,
       },
+    });
+
+    dialogRef.beforeClosed().subscribe((confirmed) => {
+      console.log(confirmed);
+      if (confirmed) {
+        this.resetPage();
+      }
     });
   }
 }

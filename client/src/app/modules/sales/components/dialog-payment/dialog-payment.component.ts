@@ -3,11 +3,13 @@ import { FormControl } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { forkJoin, Observable } from 'rxjs';
 import { ApiPaymentMethodService } from 'src/app/core/api/api-payment-method.service';
+import { ApiSaleService } from 'src/app/core/api/api-sale.service';
 import { ApiUserService } from 'src/app/core/api/api-user.service';
+import { SharedComponentsService } from 'src/app/core/services/shared-components.service';
 import { UtilsService } from 'src/app/core/services/utils.service';
 import { IHttpResponse } from 'src/app/shared/models/http.model';
 import { IServersResponseData } from 'src/app/shared/models/servers-response-data';
-import { IPaymentMethod, IProduct, IUser } from 'src/app/shared/models/views.model';
+import { IPaymentMethod, IOperationProduct, IUser, ISale } from 'src/app/shared/models/views.model';
 
 declare interface IInitialRequests {
   paymentMethods: Observable<IHttpResponse>;
@@ -27,7 +29,7 @@ declare interface IInitialResponse {
 export class DialogPaymentComponent implements OnInit {
   showPageData = false;
 
-  products: IProduct[];
+  products: IOperationProduct[];
 
   paymentMethods: IPaymentMethod[];
   users: IUser[];
@@ -40,12 +42,15 @@ export class DialogPaymentComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any,
     public dialogRef: MatDialogRef<DialogPaymentComponent>,
     private paymentMethodApi: ApiPaymentMethodService,
+    private saleApi: ApiSaleService,
+    private sharedComponents: SharedComponentsService,
     private userApi: ApiUserService,
     public utils: UtilsService
   ) {}
 
   ngOnInit(): void {
     this.products = [...this.data.products];
+    console.log(this.products);
     const initialRequests: IInitialRequests = {
       paymentMethods: this.paymentMethodApi.getPaymentMethods(),
       users: this.userApi.getUsers(),
@@ -59,7 +64,7 @@ export class DialogPaymentComponent implements OnInit {
   }
 
   closeDialog(confirmed: boolean = null): void {
-    this.dialogRef.close({ confirmed: confirmed });
+    this.dialogRef.close(confirmed);
   }
 
   getUsers(res: IHttpResponse): IUser[] {
@@ -82,5 +87,23 @@ export class DialogPaymentComponent implements OnInit {
 
   get showConfirmSaleButton() {
     return Boolean(this.paymentMethod);
+  }
+
+  formatSale(productsList: IOperationProduct[], paymentMethod: IPaymentMethod, seller: IUser): ISale {
+    return {
+      date: new Date(),
+      timestamp: new Date().getTime(),
+      products: productsList.map((product) => ({ ...product, price: product.salePrice })),
+      paymentMethod,
+      seller,
+    };
+  }
+
+  saveSale(): void {
+    const sale: ISale = this.formatSale(this.products, this.paymentMethod, this.sellerFormControl.value);
+    this.saleApi.createSale(sale).subscribe(() => {
+      this.closeDialog(true);
+      this.sharedComponents.openSnackbarSuccess('Sale confirmed successfully');
+    });
   }
 }

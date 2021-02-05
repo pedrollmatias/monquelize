@@ -85,7 +85,8 @@ export interface ISale {
   associatedIds?: IAssociatedIds;
   code?: string;
   date: Date;
-  status: string;
+  timestamp?: number;
+  status?: string;
   customer?: string;
   products?: any;
   paymentMethod?: any;
