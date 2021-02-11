@@ -1,7 +1,7 @@
 'use strict';
 
 const { productModel } = require('../../models');
-const defaultLimit = 1;
+const defaultLimit = 50;
 const defaultPage = 0;
 
 module.exports = async function getProducts(query) {

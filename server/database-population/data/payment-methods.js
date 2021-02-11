@@ -15,7 +15,4 @@ const paymentMethods = [
   },
 ];
 
-module.exports = {
-  basic: paymentMethods,
-  complete: paymentMethods,
-};
+module.exports = paymentMethods;

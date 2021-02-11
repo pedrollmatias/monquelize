@@ -44,7 +44,6 @@ export class InventoryComponent implements OnInit {
     this.productApi.getProducts({ search: searchValue }).subscribe((res: IHttpResponse) => {
       this.databaseTimes = this.utils.setTimes(res);
       this.products = this.getProducts(res);
-      console.log(this.products);
       this.setDataSource(this.products);
     });
   }

@@ -227,7 +227,6 @@ export class NewSaleComponent implements OnInit {
     });
 
     dialogRef.beforeClosed().subscribe((confirmed) => {
-      console.log(confirmed);
       if (confirmed) {
         this.resetPage();
       }

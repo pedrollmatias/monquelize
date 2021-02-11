@@ -13,7 +13,7 @@ import { IPaginationControl } from 'src/app/shared/models/pagination-control.mod
 import { IServersResponseData } from 'src/app/shared/models/servers-response-data';
 import { IProduct } from 'src/app/shared/models/views.model';
 
-const LIMIT = 1;
+const LIMIT = 50;
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',

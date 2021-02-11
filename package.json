@@ -10,8 +10,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "dev": "npm-run-all -p server client",
-    "basic-scenario-small": "SCENARIO=basic node server/database-population/populate",
-    "complete-scenario-small": "SCENARIO=complete node server/database-population/populate"
+    "scenario-small": "SCENARIO=small node server/database-population/small/populate"
   },
   "private": true,
   "husky": {

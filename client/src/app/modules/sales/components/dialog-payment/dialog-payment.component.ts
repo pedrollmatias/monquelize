@@ -50,7 +50,6 @@ export class DialogPaymentComponent implements OnInit {
 
   ngOnInit(): void {
     this.products = [...this.data.products];
-    console.log(this.products);
     const initialRequests: IInitialRequests = {
       paymentMethods: this.paymentMethodApi.getPaymentMethods(),
       users: this.userApi.getUsers(),

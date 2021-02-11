@@ -4,6 +4,7 @@ const units = [
   {
     unit: 'Unidade',
     shortUnit: 'un',
+    mainUnit: true,
   },
   {
     unit: 'Metro',
@@ -11,7 +12,4 @@ const units = [
   },
 ];
 
-module.exports = {
-  basic: units,
-  complete: units,
-};
+module.exports = units;
