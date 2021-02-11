@@ -1,19 +1,18 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { IBreadcrumb } from 'src/app/shared/models/breadcrumb.model';
-import { IProduct, IHistory } from 'src/app/shared/models/views.model';
-import { ApiProductService } from 'src/app/core/api/api-product.service';
-import { ActivatedRoute, Params } from '@angular/router';
-import { MatTableDataSource } from '@angular/material/table';
-import { MatPaginator } from '@angular/material/paginator';
 import { MatDialog } from '@angular/material/dialog';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
+import { ActivatedRoute, Params } from '@angular/router';
 import { of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
-import { IDatabaseTimes } from 'src/app/shared/models/database-times';
-import { IAssociatedIds } from 'src/app/shared/models/associated-ids.model';
-import { ApiInventoryService } from 'src/app/core/api/api-inventory.service';
-import { IPaths } from 'src/app/shared/models/paths.model';
+import { ApiProductService } from 'src/app/core/api/api-product.service';
 import { UtilsService } from 'src/app/core/services/utils.service';
+import { IAssociatedIds } from 'src/app/shared/models/associated-ids.model';
+import { IBreadcrumb } from 'src/app/shared/models/breadcrumb.model';
+import { IDatabaseTimes } from 'src/app/shared/models/database-times';
 import { IHttpResponse } from 'src/app/shared/models/http.model';
+import { IPaths } from 'src/app/shared/models/paths.model';
+import { IHistory, IProduct } from 'src/app/shared/models/views.model';
 import { DialogAddInventoryMovementComponent } from '../../components/dialog-add-inventory-movement/dialog-add-inventory-movement.component';
 import { DialogAdjustProductInventoryComponent } from '../../components/dialog-inventory-adjustment/dialog-adjust-product-inventory.component';
 
@@ -52,7 +51,7 @@ export class ProductInventoryDetailsComponent implements OnInit {
   historyDataSouce = new MatTableDataSource<IHistory>();
 
   constructor(
-    private inventoryApi: ApiInventoryService,
+    private productApi: ApiProductService,
     private route: ActivatedRoute,
     private dialog: MatDialog,
     public utils: UtilsService
@@ -67,8 +66,8 @@ export class ProductInventoryDetailsComponent implements OnInit {
       .pipe(
         switchMap((params) => {
           this.associatedIds = this.getAssociatedIds(params);
-          this.endpointPaths = this.utils.getEndpointPaths('/inventory', this.associatedIds);
-          return this.inventoryApi.getProductInventory(this.endpointPaths);
+          this.endpointPaths = this.utils.getEndpointPaths('/products', this.associatedIds);
+          return this.productApi.getProduct(this.endpointPaths);
         })
       )
       .subscribe((res: IHttpResponse) => {

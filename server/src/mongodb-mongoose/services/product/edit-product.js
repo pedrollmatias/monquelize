@@ -8,7 +8,6 @@ const {
   addProduct: addProductInCategory,
   removeProduct: removeProductInCategory,
 } = require('../category');
-const unpopulate = require('./unpopulate-product');
 
 module.exports = async function editProduct(productId, productData, session) {
   const productDoc = await productModel.retrieve(productId, session);
@@ -41,10 +40,12 @@ function hasToUpdateInSalesOrPurchases(oldProduct, newProduct) {
 }
 
 async function updateProductInCategory(oldProduct, newProduct, session) {
-  if (oldProduct.category.equals(newProduct.category)) {
-    await editProductInCategory(oldProduct._id, newProduct, session);
+  console.log(oldProduct);
+  console.log(newProduct);
+  if (oldProduct.category.equals(newProduct.category._id)) {
+    await editProductInCategory(oldProduct.category, newProduct, session);
   } else {
-    await addProductInCategory(newProduct.category, newProduct, session);
-    await removeProductInCategory(oldProduct.category, oldProduct, session);
+    await addProductInCategory(newProduct.category._id, newProduct, session);
+    await removeProductInCategory(oldProduct.category, oldProduct._id, session);
   }
 }

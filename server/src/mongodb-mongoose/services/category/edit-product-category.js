@@ -9,7 +9,7 @@ module.exports = async function editProductCategory(categoryId, productDataPopul
     if (categoryProduct.productRef.equals(productDataPopulated._id)) {
       categoryProduct.sku = productDataPopulated.sku;
       categoryProduct.name = productDataPopulated.name;
-      categoryProduct.unitRef = productDataPopulated.unit.unitRef;
+      categoryProduct.unitRef = productDataPopulated.unit._id;
       categoryProduct.shortUnit = productDataPopulated.unit.shortUnit;
       categoryProduct.salePrice = productDataPopulated.salePrice;
     }
