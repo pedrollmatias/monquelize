@@ -89,7 +89,9 @@ export interface ISale {
   status?: string;
   customer?: string;
   products?: any;
-  paymentMethod?: any;
+  paymentMethod?: IPaymentMethod;
+  paymentMethodRef?: string;
+  paymentMethodName?: string;
   seller?: any;
 }
 
@@ -101,6 +103,8 @@ export interface IPurchase {
   status: string;
   vendor?: string;
   products?: any;
-  paymentMethod?: any;
+  paymentMethod?: IPaymentMethod;
+  paymentMethodRef?: string;
+  paymentMethodName?: string;
   buyer?: any;
 }

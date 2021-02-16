@@ -143,7 +143,7 @@ export class ProductInventoryDetailsComponent implements OnInit {
         switchMap((confirmed) => {
           if (confirmed) {
             this.showPageData = false;
-            return this.inventoryApi.getProductInventory(this.endpointPaths);
+            return this.productApi.getProduct(this.endpointPaths);
           } else {
             return of();
           }
@@ -174,7 +174,7 @@ export class ProductInventoryDetailsComponent implements OnInit {
         switchMap((confirmed) => {
           if (confirmed) {
             this.showPageData = false;
-            return this.inventoryApi.getProductInventory(this.endpointPaths);
+            return this.productApi.getProduct(this.endpointPaths);
           } else {
             return of();
           }

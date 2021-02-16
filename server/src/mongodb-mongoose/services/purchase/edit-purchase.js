@@ -1,11 +1,8 @@
 'use strict';
 
 const { purchaseModel } = require('../../models');
-const {
-  query: getProduct,
-  decrementInventory: decrementProductInventory,
-  incrementInventory: incrementProductInventory,
-} = require('../product');
+const decrementProductInventory = require('../product/decrement-product-inventory');
+const incrementProductInventory = require('../product/increment-product-inventory');
 
 module.exports = async function editPurchase(purchaseId, purchaseData, session) {
   const purchaseDoc = await purchaseModel.retrieve(purchaseId, session);
@@ -20,9 +17,8 @@ module.exports = async function editPurchase(purchaseId, purchaseData, session) 
     await incrementInventoryOfAddedProducts(purchaseObj, updatedPurchase, session);
 
     const oldProduct = purchaseObj.products.find((_product) => _product.productRef.equals(product.productRef));
-    const oldProductDoc = await getProduct(oldProduct.productRef);
 
-    await editInventoryOfEditedProduct(oldProductDoc, product, session);
+    await editInventoryOfEditedProduct(oldProduct, product, session);
   }
 
   return updatedPurchase;
@@ -56,8 +52,8 @@ async function editInventoryOfEditedProduct(oldProduct, newProduct, session) {
   const diffAmount = newProduct.amount - oldProduct.amount;
 
   if (diffAmount > 0) {
-    await incrementProductInventory(oldProduct._id, diffAmount, session);
+    await incrementProductInventory(oldProduct.productRef, diffAmount, session);
   } else if (diffAmount < 0) {
-    await decrementProductInventory(oldProduct._id, -diffAmount, session);
+    await decrementProductInventory(oldProduct.productRef, -diffAmount, session);
   }
 }

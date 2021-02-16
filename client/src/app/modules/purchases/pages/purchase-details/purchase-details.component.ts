@@ -64,7 +64,7 @@ export class PurchaseDetailsComponent implements OnInit {
   showLoadingArea = false;
 
   paymentMethodFormControl = new FormControl(null, Validators.required);
-  sellerFormControl = new FormControl();
+  buyerFormControl = new FormControl();
   totalValue = 0;
 
   removedProducts: any[] = [];
@@ -163,9 +163,9 @@ export class PurchaseDetailsComponent implements OnInit {
     )?.associatedIds;
     purchase.paymentMethod = { ...purchase.paymentMethod, associatedIds: paymentMethodAssociatedIds };
 
-    if (purchase.seller) {
-      const sellerAssociatedIds = this.users.find((user) => user.username === purchase.seller.username)?.associatedIds;
-      purchase.seller = { ...purchase.seller, associatedIds: sellerAssociatedIds };
+    if (purchase.buyer) {
+      const buyerAssociatedIds = this.users.find((user) => user.username === purchase.buyer.username)?.associatedIds;
+      purchase.buyer = { ...purchase.buyer, associatedIds: buyerAssociatedIds };
     }
 
     purchase.products = purchase.products.map((product: IProduct) => {
@@ -210,7 +210,7 @@ export class PurchaseDetailsComponent implements OnInit {
         },
         Validators.required
       ),
-      seller: null,
+      buyer: null,
     });
   }
 
@@ -221,8 +221,16 @@ export class PurchaseDetailsComponent implements OnInit {
       this.addProduct(product);
     });
 
-    this.paymentMethodFormControl.setValue(this.purchaseForm.get('paymentMethod').value);
-    this.sellerFormControl.setValue(this.purchaseForm.get('seller').value);
+    const currentPaymentMethod = this.paymentMethods.find(
+      (paymentMethod) => paymentMethod._id === this.purchase.paymentMethodRef
+    );
+    this.purchaseForm.get('paymentMethod').patchValue({
+      associatedIds: currentPaymentMethod.associatedIds,
+      paymentMethodRef: currentPaymentMethod._id,
+      name: currentPaymentMethod.name,
+    });
+    this.paymentMethodFormControl.setValue(currentPaymentMethod);
+    this.buyerFormControl.setValue(this.purchaseForm.get('buyer').value);
   }
 
   activateFilters(): void {
@@ -390,8 +398,8 @@ export class PurchaseDetailsComponent implements OnInit {
     this.purchaseForm.get('paymentMethod').patchValue(paymentMethodFormValue);
   }
 
-  handleSellerSelection(seller: IUser): void {
-    this.purchaseForm.get('seller').setValue(seller);
+  handleBuyerSelection(buyer: IUser): void {
+    this.purchaseForm.get('buyer').setValue(buyer);
   }
 
   comparePaymentMethod(option: any, selection: any) {
@@ -402,7 +410,7 @@ export class PurchaseDetailsComponent implements OnInit {
     );
   }
 
-  compareSeller(option: any, selection: any) {
+  compareBuyer(option: any, selection: any) {
     return option && selection && option._id === selection._id;
   }
 

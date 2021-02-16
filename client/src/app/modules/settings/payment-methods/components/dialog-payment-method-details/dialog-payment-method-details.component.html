@@ -6,7 +6,7 @@
     <div class="pr-5" *ngIf="!isNewPaymentMethod && paymentMethod">
       <app-element-button-icon-text
         icon="delete"
-        text="Remove paymentMethod"
+        text="Remove Payment Method"
         (btnClick)="removePaymentMethod()"
       ></app-element-button-icon-text>
     </div>
@@ -39,9 +39,7 @@
             </mat-form-field>
           </div>
           <div>
-            <mat-slide-toggle color="primary" formControlName="acceptChange">
-              Accept change
-            </mat-slide-toggle>
+            <mat-slide-toggle color="primary" formControlName="acceptChange"> Accept change </mat-slide-toggle>
           </div>
         </div>
       </form>

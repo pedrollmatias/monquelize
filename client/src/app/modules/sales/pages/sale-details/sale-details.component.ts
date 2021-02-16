@@ -216,7 +216,15 @@ export class SaleDetailsComponent implements OnInit {
       this.addProduct(product);
     });
 
-    this.paymentMethodFormControl.setValue(this.saleForm.get('paymentMethod').value);
+    const currentPaymentMethod = this.paymentMethods.find(
+      (paymentMethod) => paymentMethod._id === this.sale.paymentMethodRef
+    );
+    this.saleForm.get('paymentMethod').patchValue({
+      associatedIds: currentPaymentMethod.associatedIds,
+      paymentMethodRef: currentPaymentMethod._id,
+      name: currentPaymentMethod.name,
+    });
+    this.paymentMethodFormControl.setValue(currentPaymentMethod);
     this.sellerFormControl.setValue(this.saleForm.get('seller').value);
   }
 
@@ -280,9 +288,9 @@ export class SaleDetailsComponent implements OnInit {
       productRef: [product?.productRef || product?._id || null, Validators.required],
       sku: [product?.sku || null, Validators.required],
       name: [product?.name || null, Validators.required],
-      category: product?.category?._id || null,
-      unitRef: product?.unit?._id || null,
-      shortUnit: product?.unit?._id || null,
+      category: product?.category?._id || product?.category || null,
+      unitRef: product?.unit?._id || product?.unitRef || null,
+      shortUnit: product?.unit?._id || product?.shortUnit || null,
       amount: [{ value: product?.amount || null, disabled: product ? false : true }, Validators.required],
       price: [{ value: product?.price || null, disabled: product ? false : true }, Validators.required],
       subtotal: product?.amount && product.price ? product.amount * product.price : null,
@@ -413,16 +421,13 @@ export class SaleDetailsComponent implements OnInit {
           .openLoadingDialog(this.saleApi.createSale(sale))
           .beforeClosed()
           .subscribe((res: IHttpResponse) => {
-            const params = {
-              postgresSequelize: res.postgresSequelize.res._id,
-            };
             this.router.navigateByUrl('/sales');
           });
       } else {
         this.sharedComponents
           .openLoadingDialog(this.saleApi.editSale(this.endpointPaths, sale))
           .beforeClosed()
-          .subscribe((res: IHttpResponse) => {
+          .subscribe(() => {
             this.ngOnInit();
           });
       }

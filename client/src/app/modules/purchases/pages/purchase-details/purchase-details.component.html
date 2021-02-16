@@ -185,14 +185,14 @@
           </div>
           <div>
             <mat-form-field class="w-100">
-              <mat-label>Seller</mat-label>
+              <mat-label>Buyer</mat-label>
               <mat-select
-                [formControl]="sellerFormControl"
-                (selectionChange)="handleSellerSelection($event.value)"
-                [compareWith]="compareSeller"
+                [formControl]="buyerFormControl"
+                (selectionChange)="handleBuyerSelection($event.value)"
+                [compareWith]="compareBuyer"
               >
-                <mat-option *ngFor="let seller of users" [value]="seller">
-                  <span>{{ seller.fullName }}</span>
+                <mat-option *ngFor="let buyer of users" [value]="buyer">
+                  <span>{{ buyer.fullName }}</span>
                 </mat-option>
               </mat-select>
             </mat-form-field>

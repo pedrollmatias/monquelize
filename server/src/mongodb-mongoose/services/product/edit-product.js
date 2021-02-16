@@ -40,8 +40,6 @@ function hasToUpdateInSalesOrPurchases(oldProduct, newProduct) {
 }
 
 async function updateProductInCategory(oldProduct, newProduct, session) {
-  console.log(oldProduct);
-  console.log(newProduct);
   if (oldProduct.category.equals(newProduct.category._id)) {
     await editProductInCategory(oldProduct.category, newProduct, session);
   } else {

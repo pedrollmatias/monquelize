@@ -4,6 +4,7 @@ const { saleModel } = require('../../models');
 const decrementInventory = require('../product/decrement-product-inventory');
 
 module.exports = async function addSale(saleData, session) {
+  console.log(saleData);
   const _saleData = {
     ...saleData,
     paymentMethodRef: saleData.paymentMethod.paymentMethodRef,

@@ -118,7 +118,7 @@ export class DialogPaymentMethodDetailsComponent implements OnInit {
       'warn',
       'Attention',
       message,
-      'Remove paymentMethod'
+      'Remove Payment Method'
     );
 
     dialogRef.beforeClosed().subscribe((confirmed) => {
