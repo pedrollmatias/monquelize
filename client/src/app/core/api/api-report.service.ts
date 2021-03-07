@@ -9,7 +9,11 @@ import { UtilsService } from '../services/utils.service';
 export class ApiReportService {
   constructor(private utils: UtilsService) {}
 
-  getSalesAmountByDateRange(query: any): Observable<IHttpResponse> {
+  getSalesAmountTotalByDateRange(query: any): Observable<IHttpResponse> {
     return this.utils.multiRequests('GET', '/reports/get-sales-amount-total-by-date-range', { params: query });
+  }
+
+  getSalesProductsByCategoryByDateRange(query: any): Observable<IHttpResponse> {
+    return this.utils.multiRequests('GET', '/reports/get-sales-products-by-category-by-date-range', { params: query });
   }
 }

@@ -2,7 +2,7 @@
 
 const { saleModel } = require('../../models');
 
-module.exports = function getSalesAmountTotalByDayMonth(query) {
+module.exports = function getSalesProductsByCategoryByDateRange(query) {
   return saleModel.aggregate([
     { $match: query },
     { $unwind: '$products' },

@@ -6,11 +6,14 @@
     <span class="mat-title">Sales by date</span>
   </div>
   <div>
-    <app-element-date-selector [optionsList]="['month', 'year']"></app-element-date-selector>
+    <app-element-date-selector
+      [optionsList]="['month', 'year']"
+      (dateSelector)="onDateRangeChange($event)"
+    ></app-element-date-selector>
   </div>
 </div>
 <div>
-  <ng-container *ngIf="showChartData; else loadingSalesByDateReport">
+  <ng-container *ngIf="showChartData; else loadingReports">
     <mat-card class="sales-by-date-card w-100">
       <mat-tab-group mat-stretch-tabs class="h-100">
         <mat-tab label="Amount">
@@ -48,7 +51,7 @@
       </mat-tab-group>
     </mat-card>
   </ng-container>
-  <ng-template #loadingSalesByDateReport>
+  <ng-template #loadingReports>
     <div class="d-flex justify-content-center align-items-center py-5">
       <mat-spinner [diameter]="30"></mat-spinner>
     </div>

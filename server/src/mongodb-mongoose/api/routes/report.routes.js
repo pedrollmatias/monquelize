@@ -33,7 +33,7 @@ module.exports = (app) => {
     }
   });
 
-  router.get('/get-sales-by-category-by-date-range', async (req, res, next) => {
+  router.get('/get-sales-products-by-category-by-date-range', async (req, res, next) => {
     try {
       timer.startTimer();
 
@@ -41,7 +41,7 @@ module.exports = (app) => {
       const endDate = new Date(req.query.endDate);
       const query = { date: { $gte: startDate, $lte: endDate } };
 
-      const salesReport = await reportService.getSalesByCategoryByDateRange(query);
+      const salesReport = await reportService.getSalesProductsByCategoryByDateRange(query);
 
       const diffTime = timer.diffTimer();
 

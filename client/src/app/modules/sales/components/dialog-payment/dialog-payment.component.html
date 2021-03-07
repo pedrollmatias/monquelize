@@ -46,9 +46,6 @@
         <mat-select [formControl]="sellerFormControl" (selectionChange)="handleSellerSelection($event.value)">
           <mat-option *ngFor="let seller of users" [value]="seller">
             <span class="pr-3">{{ seller.fullName }}</span>
-            <span class="color-grey">
-              <em>@{{ seller.username }}</em>
-            </span>
           </mat-option>
         </mat-select>
       </mat-form-field>
