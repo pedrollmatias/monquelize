@@ -1,0 +1,63 @@
+<!--
+<div class="pb-5">
+  <app-element-loading-area
+    [mongodbMongooseTime]="salesReportsResControl?.salesByDate?.times?.mognodbMongoose"
+  ></app-element-loading-area>
+</div>
+<div class="d-flex justify-content-between align-items-center pb-4">
+  <div>
+    <span class="mat-title">Sales by date</span>
+  </div>
+  <div>
+    <app-element-date-selector
+      [optionsList]="['month', 'year']"
+      (dateSelector)="onDateRangeSaleByDateChange($event)"
+    ></app-element-date-selector>
+  </div>
+</div>
+<div>
+  <ng-container *ngIf="salesReportsResControl?.salesByDate?.showChartData; else loadingSalesByDateReport">
+    <mat-card class="sales-by-date-card w-100">
+      <mat-tab-group mat-stretch-tabs class="h-100">
+        <mat-tab label="Amount">
+          <div class="pt-3 h-100">
+            <div class="d-flex justify-content-center align-items-center">
+              <ngx-charts-line-chart
+                [showXAxisLabel]="true"
+                [showYAxisLabel]="true"
+                [xAxis]="true"
+                [yAxis]="true"
+                xAxisLabel="Day"
+                yAxisLabel="Amount"
+                [results]="chartsResults?.salesAmountByDate"
+              >
+              </ngx-charts-line-chart>
+            </div>
+          </div>
+        </mat-tab>
+        <mat-tab label="Value">
+          <div class="pt-3 h-100">
+            <div class="d-flex justify-content-center align-items-center">
+              <ngx-charts-line-chart
+                [showXAxisLabel]="true"
+                [showYAxisLabel]="true"
+                [xAxis]="true"
+                [yAxis]="true"
+                xAxisLabel="Day"
+                yyAxisLabel="Total value"
+                [results]="chartsResults?.salesTotalByDate"
+              >
+              </ngx-charts-line-chart>
+            </div>
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+    </mat-card>
+  </ng-container>
+  <ng-template #loadingSalesByDateReport>
+    <div class="d-flex justify-content-center align-items-center py-5">
+      <mat-spinner [diameter]="30"></mat-spinner>
+    </div>
+  </ng-template>
+</div>
+</div> -->

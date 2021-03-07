@@ -6,6 +6,7 @@ module.exports = {
   paymentMethods: require('./payment-method.routes'),
   product: require('./product.routes'),
   purchase: require('./purchase.routes'),
+  report: require('./report.routes'),
   sales: require('./sale.routes'),
   unit: require('./unit.routes'),
   user: require('./user.routes'),

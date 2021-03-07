@@ -49,7 +49,6 @@ async function decrementInventoryOfAddedProducts(oldSale, newSale, session) {
 }
 
 async function editInventoryOfEditedProduct(oldProduct, newProduct, session) {
-  console.log(oldProduct, newProduct);
   const diffAmount = newProduct.amount - oldProduct.amount;
 
   if (diffAmount > 0) {
