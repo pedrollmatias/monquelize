@@ -215,7 +215,6 @@ export class SaleDetailsComponent implements OnInit {
     this.sale.products.forEach((product: any) => {
       this.addProduct(product);
     });
-
     const currentPaymentMethod = this.paymentMethods.find(
       (paymentMethod) => paymentMethod._id === this.sale.paymentMethodRef
     );
@@ -420,7 +419,7 @@ export class SaleDetailsComponent implements OnInit {
         this.sharedComponents
           .openLoadingDialog(this.saleApi.createSale(sale))
           .beforeClosed()
-          .subscribe((res: IHttpResponse) => {
+          .subscribe(() => {
             this.router.navigateByUrl('/sales');
           });
       } else {

@@ -93,7 +93,10 @@ export class DialogPaymentComponent implements OnInit {
       date: new Date(),
       timestamp: new Date().getTime(),
       products: productsList.map((product) => ({ ...product, price: product.salePrice })),
-      paymentMethod,
+      paymentMethod: {
+        ...paymentMethod,
+        paymentMethodRef: paymentMethod._id,
+      },
       seller,
     };
   }

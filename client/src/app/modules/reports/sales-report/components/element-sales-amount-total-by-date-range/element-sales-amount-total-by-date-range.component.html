@@ -1,22 +1,16 @@
-<!--
 <div class="pb-5">
-  <app-element-loading-area
-    [mongodbMongooseTime]="salesReportsResControl?.salesByDate?.times?.mognodbMongoose"
-  ></app-element-loading-area>
+  <app-element-loading-area [databaseTimes]="databaseTimes"></app-element-loading-area>
 </div>
 <div class="d-flex justify-content-between align-items-center pb-4">
   <div>
     <span class="mat-title">Sales by date</span>
   </div>
   <div>
-    <app-element-date-selector
-      [optionsList]="['month', 'year']"
-      (dateSelector)="onDateRangeSaleByDateChange($event)"
-    ></app-element-date-selector>
+    <app-element-date-selector [optionsList]="['month', 'year']"></app-element-date-selector>
   </div>
 </div>
 <div>
-  <ng-container *ngIf="salesReportsResControl?.salesByDate?.showChartData; else loadingSalesByDateReport">
+  <ng-container *ngIf="showChartData; else loadingSalesByDateReport">
     <mat-card class="sales-by-date-card w-100">
       <mat-tab-group mat-stretch-tabs class="h-100">
         <mat-tab label="Amount">
@@ -29,7 +23,7 @@
                 [yAxis]="true"
                 xAxisLabel="Day"
                 yAxisLabel="Amount"
-                [results]="chartsResults?.salesAmountByDate"
+                [results]="salesAmountChartResult"
               >
               </ngx-charts-line-chart>
             </div>
@@ -45,7 +39,7 @@
                 [yAxis]="true"
                 xAxisLabel="Day"
                 yyAxisLabel="Total value"
-                [results]="chartsResults?.salesTotalByDate"
+                [results]="salesTotalChartResult"
               >
               </ngx-charts-line-chart>
             </div>
@@ -60,4 +54,3 @@
     </div>
   </ng-template>
 </div>
-</div> -->

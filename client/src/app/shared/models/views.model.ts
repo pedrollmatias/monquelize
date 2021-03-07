@@ -40,6 +40,7 @@ export interface ICategory {
 
 export interface IPaymentMethod {
   _id?: string;
+  paymentMethodRef?: string;
   associatedIds?: IAssociatedIds;
   name: string;
   acceptChange: boolean;
