@@ -10,14 +10,13 @@ module.exports = async function removePurchase(purchaseId) {
     const _product = await getProduct(product.productId);
     const history = await History.create({ amount: product.amount, movementType: '200' });
 
-    // Add product history register
     await _product.addHistory(history);
-    // Update current product amount
+
     _product.currentAmount -= product.amount;
+
     await _product.save();
   }
 
-  // Remove relation purchase_product
   await PurchaseProduct.destroy({ where: { purchaseId: purchaseId } });
 
   return Purchase.destroy({ where: { _id: purchaseId } });

@@ -131,7 +131,6 @@ async function populateSales(paymentMethods, users, products, salesAveragePerDay
   const diffInDays = endDate.diff(startDate, 'day');
 
   for (const day of Array.from({ length: diffInDays }).keys()) {
-    console.log(day);
     const currentDate = startDate.add(day, 'day');
 
     const randomDiff = chance.floating({ min: -0.3, max: 0.3, fixed: 2 });

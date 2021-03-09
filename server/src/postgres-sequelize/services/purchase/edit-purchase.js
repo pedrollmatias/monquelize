@@ -18,7 +18,6 @@ module.exports = async function editPurchase(purchaseId, purchase) {
       where: { productId: _product._id, purchaseId: updatedPurchase._id },
     });
 
-    // Add product history register and update current product amount
     const amountDifference = product.amount - purchaseProductRelation.toJSON().amount;
 
     if (amountDifference > 0) {
@@ -47,7 +46,6 @@ module.exports = async function editPurchase(purchaseId, purchase) {
       await _product.save();
     }
 
-    // Update purchase_product relation
     purchaseProductRelation.amount = product.amount;
     purchaseProductRelation.price = product.price;
 
