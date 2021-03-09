@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { NgxMaskModule } from 'ngx-mask';
 import { DialogConfirmationComponent } from './components/dialog-confirmation/dialog-confirmation.component';
 import { DialogLoadingComponent } from './components/dialog-loading/dialog-loading.component';
 import { DialogMessageComponent } from './components/dialog-message/dialog-message.component';
@@ -20,7 +21,6 @@ import { MaterialModule } from './material.module';
 import { NoSanitizePipe } from './pipes/no-sanitize.pipe';
 import { ElementPaginatorComponent } from './components/element-paginator/element-paginator.component';
 import { ElemetSearchInputComponent } from './components/elemet-search-input/elemet-search-input.component';
-
 @NgModule({
   declarations: [
     ElementLoadingAreaComponent,
@@ -40,7 +40,15 @@ import { ElemetSearchInputComponent } from './components/elemet-search-input/ele
     ElementPaginatorComponent,
     ElemetSearchInputComponent,
   ],
-  imports: [CommonModule, FormsModule, ReactiveFormsModule, RouterModule, MaterialModule, NgxChartsModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule,
+    MaterialModule,
+    NgxChartsModule,
+    NgxMaskModule.forChild(),
+  ],
   exports: [
     CommonModule,
     FormsModule,
@@ -48,6 +56,7 @@ import { ElemetSearchInputComponent } from './components/elemet-search-input/ele
     RouterModule,
     MaterialModule,
     NgxChartsModule,
+    NgxMaskModule,
     ElementLoadingAreaComponent,
     ElementRequestBtnComponent,
     ElementBreadcrumbComponent,

@@ -167,4 +167,17 @@ export class UtilsService {
   isObject(obj: any) {
     return typeof obj === 'object' && obj !== null;
   }
+
+  getDateHour(date: Date) {
+    return dayjs(date).format('DD/MM/YYYY - HH:mm');
+  }
+
+  formatCurrency(value: number): string {
+    const formatter = new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD',
+    });
+
+    return formatter.format(value);
+  }
 }

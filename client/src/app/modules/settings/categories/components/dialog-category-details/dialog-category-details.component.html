@@ -36,6 +36,7 @@
             <mat-form-field class="w-100">
               <mat-label>Name</mat-label>
               <input matInput formControlName="name" required />
+              <mat-error> Invalid field </mat-error>
             </mat-form-field>
           </div>
           <div class="flex-grow-1">
@@ -47,6 +48,7 @@
                   {{ parentCategory.path }}
                 </mat-option>
               </mat-select>
+              <mat-error> Invalid field </mat-error>
             </mat-form-field>
           </div>
         </div>

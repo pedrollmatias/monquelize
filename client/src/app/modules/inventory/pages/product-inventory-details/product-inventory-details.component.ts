@@ -7,6 +7,7 @@ import { of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { ApiProductService } from 'src/app/core/api/api-product.service';
 import { UtilsService } from 'src/app/core/services/utils.service';
+import { MovementTypes } from 'src/app/shared/enums/movement-types.enum';
 import { IAssociatedIds } from 'src/app/shared/models/associated-ids.model';
 import { IBreadcrumb } from 'src/app/shared/models/breadcrumb.model';
 import { IDatabaseTimes } from 'src/app/shared/models/database-times';
@@ -49,6 +50,8 @@ export class ProductInventoryDetailsComponent implements OnInit {
 
   historyColumns: string[] = ['date', 'movementType', 'amount'];
   historyDataSouce = new MatTableDataSource<IHistory>();
+
+  movementTypesEnum = MovementTypes;
 
   constructor(
     private productApi: ApiProductService,

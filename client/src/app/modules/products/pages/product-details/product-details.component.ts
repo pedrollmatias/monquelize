@@ -67,7 +67,7 @@ export class ProductDetailsComponent implements OnInit {
     private unitApi: ApiUnitService,
     private productApi: ApiProductService,
     private sharedComponents: SharedComponentsService,
-    private utils: UtilsService
+    public utils: UtilsService
   ) {}
 
   ngOnInit(): void {

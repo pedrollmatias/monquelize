@@ -36,18 +36,21 @@
             <mat-form-field class="w-100">
               <mat-label>Unit</mat-label>
               <input matInput formControlName="unit" required />
+              <mat-error> Invalid field </mat-error>
             </mat-form-field>
           </div>
           <div class="flex-grow-1 pr-5">
             <mat-form-field class="w-100">
               <mat-label>Short unit</mat-label>
               <input matInput formControlName="shortUnit" required />
+              <mat-error> Invalid field </mat-error>
             </mat-form-field>
           </div>
           <div class="flex-grow-1">
             <mat-form-field class="w-100">
-              <mat-label>Decimal plances</mat-label>
-              <input matInput formControlName="decimalPlaces" />
+              <mat-label>Decimal places</mat-label>
+              <input matInput formControlName="decimalPlaces" mask="0*" />
+              <mat-error> Invalid field </mat-error>
             </mat-form-field>
           </div>
         </div>

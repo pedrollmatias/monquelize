@@ -48,7 +48,7 @@
             <ng-container matColumnDef="date">
               <th mat-header-cell *matHeaderCellDef>Date</th>
               <td mat-cell class="cursor-pointer" *matCellDef="let sale" (click)="navigateToEditSale(sale)">
-                {{ sale.date }}
+                {{ utils.getDateHour(sale.date) }}
               </td>
             </ng-container>
 
@@ -62,7 +62,7 @@
             <ng-container matColumnDef="totalValue">
               <th mat-header-cell *matHeaderCellDef>Total value</th>
               <td mat-cell class="cursor-pointer" *matCellDef="let sale" (click)="navigateToEditSale(sale)">
-                $ {{ sale.totalValue }}
+                {{ utils.formatCurrency(sale.totalValue) }}
               </td>
             </ng-container>
 

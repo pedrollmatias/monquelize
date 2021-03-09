@@ -31,12 +31,14 @@
                   {{ movementType.name }}
                 </mat-option>
               </mat-select>
+              <mat-error> Invalid field </mat-error>
             </mat-form-field>
           </div>
           <div class="flex-grow-1">
             <mat-form-field class="w-100">
               <mat-label>Amount</mat-label>
-              <input matInput formControlName="amount" required />
+              <input matInput formControlName="amount" mask="0*" required />
+              <mat-error> Invalid field </mat-error>
             </mat-form-field>
           </div>
         </div>

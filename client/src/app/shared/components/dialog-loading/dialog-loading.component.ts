@@ -24,22 +24,15 @@ export class DialogLoadingComponent implements OnInit {
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: IDialogLoading,
     public dialogRef: MatDialogRef<DialogLoadingComponent>,
-    private utils: UtilsService
+    public utils: UtilsService
   ) {}
 
   ngOnInit(): void {
     this.httpResponse$ = this.data.httpResponse$;
-    this.httpResponse$
-      // .pipe
-      // // catchError((err) => {
-      // //   this.mongodbMongooseTime = err.error.time;
-      // //   return throwError(err);
-      // // })
-      // ()
-      .subscribe((res: IHttpResponse) => {
-        this.httpResponse = res;
-        this.databaseTimes = this.utils.setTimes(res);
-      });
+    this.httpResponse$.subscribe((res: IHttpResponse) => {
+      this.httpResponse = res;
+      this.databaseTimes = this.utils.setTimes(res);
+    });
   }
 
   closeDialog(): void {

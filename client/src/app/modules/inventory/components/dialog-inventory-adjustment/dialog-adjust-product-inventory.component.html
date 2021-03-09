@@ -24,7 +24,8 @@
       <form [formGroup]="adjustProductInventoryForm">
         <mat-form-field class="w-100">
           <mat-label>Amount</mat-label>
-          <input matInput formControlName="amount" required />
+          <input matInput formControlName="amount" mask="0*" required />
+          <mat-error> Invalid field </mat-error>
         </mat-form-field>
       </form>
     </div>

@@ -67,12 +67,20 @@
           <table mat-table [dataSource]="historyDataSouce" class="w-100">
             <ng-container matColumnDef="date">
               <th mat-header-cell *matHeaderCellDef>Date</th>
-              <td mat-cell *matCellDef="let historyRegister">{{ historyRegister.date }}</td>
+              <td mat-cell *matCellDef="let historyRegister">{{ utils.getDateHour(historyRegister.date) }}</td>
             </ng-container>
 
             <ng-container matColumnDef="movementType">
               <th mat-header-cell *matHeaderCellDef>Movement type</th>
-              <td mat-cell *matCellDef="let historyRegister">{{ historyRegister.movementType }}</td>
+              <td mat-cell *matCellDef="let historyRegister">
+                {{
+                  historyRegister.movementType === movementTypesEnum.INPUT
+                    ? 'Input'
+                    : historyRegister.movementType === movementTypesEnum.OUTPUT
+                    ? 'Output'
+                    : 'Adjustment'
+                }}
+              </td>
             </ng-container>
 
             <ng-container matColumnDef="amount">

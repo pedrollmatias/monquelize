@@ -6,7 +6,7 @@ import { SettingsComponent } from './settings.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
-	declarations: [SettingsComponent],
-	imports: [CommonModule, SettingsRoutingModule, SharedModule],
+  declarations: [SettingsComponent],
+  imports: [CommonModule, SettingsRoutingModule, SharedModule],
 })
 export class SettingsModule {}

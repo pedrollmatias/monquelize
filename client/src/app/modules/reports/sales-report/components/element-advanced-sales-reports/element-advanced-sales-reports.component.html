@@ -131,7 +131,7 @@
                 <span class="mat-title m-0">{{ cardsResult?.amount }}</span>
               </div>
               <div>
-                <span class="mat-caption">Sales amount</span>
+                <span class="mat-caption">Amount</span>
               </div>
             </div>
           </mat-card>
@@ -143,10 +143,10 @@
             </div>
             <div>
               <div class="d-flex justify-content-center align-items-center pb-3">
-                <span class="mat-title m-0">{{ cardsResult?.total }}</span>
+                <span class="mat-title m-0">$ {{ cardsResult?.total }}</span>
               </div>
               <div>
-                <span class="mat-caption">Sales total value</span>
+                <span class="mat-caption">Total value</span>
               </div>
             </div>
           </mat-card>
@@ -179,7 +179,7 @@
             <ng-container matColumnDef="totalValue">
               <th mat-header-cell *matHeaderCellDef>Total value</th>
               <td mat-cell *matCellDef="let sale" [routerLink]="['/sales', 'edit', sale._id]">
-                ${{ sale.totalValue }}
+                {{ utils.formatCurrency(sale.totalValue) }}
               </td>
             </ng-container>
 

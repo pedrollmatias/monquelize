@@ -9,6 +9,7 @@ import { SharedModule } from './shared/shared.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { LayoutsModule } from './layouts/layouts.module';
 import { HomeComponent } from './modules/home/home.component';
+import { NgxMaskModule } from 'ngx-mask';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent],
@@ -20,6 +21,7 @@ import { HomeComponent } from './modules/home/home.component';
     AuthModule,
     CoreModule,
     SharedModule,
+    NgxMaskModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],

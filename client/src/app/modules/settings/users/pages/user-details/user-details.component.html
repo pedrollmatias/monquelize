@@ -32,21 +32,34 @@
             <div class="flex-grow-1 pr-5">
               <mat-form-field class="w-100">
                 <mat-label>First name</mat-label>
-                <input mat-input matInput formControlName="firstName" required />
+                <input mat-input matInput type="text" formControlName="firstName" mask="0.0" required />
+                <mat-error> Invalid field </mat-error>
               </mat-form-field>
             </div>
             <div class="flex-grow-1 pr-5">
               <mat-form-field class="w-100">
                 <mat-label>Last name</mat-label>
                 <input mat-input matInput formControlName="lastName" required />
+                <mat-error> Invalid field </mat-error>
               </mat-form-field>
             </div>
             <div class="flex-grow-1 pr-5">
               <mat-form-field class="w-100">
                 <mat-label>Born date</mat-label>
-                <input matInput formControlName="bornDate" [matDatepicker]="picker" required />
+                <input matInput formControlName="bornDate" [matDatepicker]="picker" readonly required />
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
+                <mat-datepicker #picker disabled="false"></mat-datepicker>
+                <button
+                  mat-button
+                  *ngIf="userForm.get('bornDate').value"
+                  matSuffix
+                  mat-icon-button
+                  aria-label="Clear"
+                  (click)="userForm.get('bornDate').setValue(null)"
+                >
+                  <mat-icon>close</mat-icon>
+                </button>
+                <mat-error> Invalid field </mat-error>
               </mat-form-field>
             </div>
             <div class="flex-grow-1">
@@ -56,6 +69,7 @@
                   <mat-option value="male">Male</mat-option>
                   <mat-option value="female">Female</mat-option>
                 </mat-select>
+                <mat-error> Invalid field </mat-error>
               </mat-form-field>
             </div>
           </div>
@@ -64,12 +78,14 @@
               <mat-form-field class="w-100">
                 <mat-label>E-mail</mat-label>
                 <input mat-input matInput formControlName="email" required />
+                <mat-error> Invalid field </mat-error>
               </mat-form-field>
             </div>
             <div class="flex-grow-1">
               <mat-form-field class="w-100">
                 <mat-label>Username</mat-label>
                 <input mat-input matInput formControlName="username" required />
+                <mat-error> Invalid field </mat-error>
               </mat-form-field>
             </div>
           </div>

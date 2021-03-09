@@ -48,7 +48,7 @@ export class UserDetailsComponent implements OnInit {
     private route: ActivatedRoute,
     private userApi: ApiUserService,
     private sharedComponents: SharedComponentsService,
-    private utils: UtilsService
+    public utils: UtilsService
   ) {}
 
   ngOnInit(): void {
@@ -117,7 +117,7 @@ export class UserDetailsComponent implements OnInit {
           const params = {
             postgresSequelize: res.postgresSequelize.res._id,
           };
-          this.router.navigate(['/settings', 'users', 'edit', res.mongodbMongoose.res._id, params]);
+          this.router.navigate(['/settings/users']);
         });
     } else {
       const user = this.userForm.value;
