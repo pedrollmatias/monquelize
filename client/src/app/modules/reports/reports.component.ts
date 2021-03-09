@@ -14,9 +14,9 @@ declare interface IReportItem {
 })
 export class ReportsComponent implements OnInit {
   reportsList: IReportItem[] = [
-    { title: 'Sales', icon: 'trending_up', description: 'test', path: 'sales-report' },
-    { title: 'Purchases', icon: 'trending_down', description: 'test', path: 'purchases-report' },
-    { title: 'Inventory', icon: 'archive', description: 'test', path: 'inventory-report' },
+    { title: 'Sales', icon: 'trending_up', description: 'Sales reports', path: 'sales-report' },
+    { title: 'Purchases', icon: 'trending_down', description: 'Purchases reports', path: 'purchases-report' },
+    { title: 'Inventory', icon: 'archive', description: 'Inventory reports', path: 'inventory-report' },
   ];
 
   constructor() {}

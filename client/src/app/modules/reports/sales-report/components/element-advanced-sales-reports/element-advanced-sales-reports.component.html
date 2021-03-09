@@ -1,0 +1,204 @@
+<ng-container *ngIf="showForm; else loadingAdvancedReportForm">
+  <div class="pb-5">
+    <form [formGroup]="advancedSearchForm" (ngSubmit)="submitAdvancedSearch()">
+      <div class="pb-4">
+        <mat-card class="px-4">
+          <div class="d-flex justify-content-between pb-2">
+            <div>
+              <span class="mat-title m-0">Advanced search</span>
+            </div>
+            <div>
+              <app-element-button-icon-text
+                icon="close"
+                text="Clear form"
+                color="primary"
+                btnType="button"
+                (btnClick)="clearAdvancedSearchForm()"
+              ></app-element-button-icon-text>
+            </div>
+          </div>
+          <div class="d-flex align-items-center">
+            <div class="flex-grow-1">
+              <mat-form-field class="w-100">
+                <mat-label>Start</mat-label>
+                <input matInput formControlName="startDate" [matDatepicker]="startDatePicker" />
+                <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+                <mat-datepicker #startDatePicker></mat-datepicker>
+              </mat-form-field>
+            </div>
+            <div class="px-4">
+              <span>to</span>
+            </div>
+            <div class="flex-grow-1">
+              <mat-form-field class="w-100">
+                <mat-label>End</mat-label>
+                <input matInput formControlName="endDate" [matDatepicker]="endDatePicker" />
+                <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
+                <mat-datepicker #endDatePicker></mat-datepicker>
+              </mat-form-field>
+            </div>
+          </div>
+          <div>
+            <mat-form-field class="w-100">
+              <mat-label>Categories</mat-label>
+              <mat-select formControlName="categories" multiple (selectionChange)="onCategoriesChanges($event.value)">
+                <mat-option *ngFor="let category of categories" [value]="category">
+                  {{ category.name }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field class="w-100">
+              <mat-label>Products</mat-label>
+              <mat-select formControlName="products" multiple>
+                <mat-option *ngFor="let product of filteredProducts" [value]="product">
+                  {{ product.name }} ({{ product.sku }})
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field class="w-100">
+              <mat-label>Units</mat-label>
+              <mat-select formControlName="units" multiple>
+                <mat-option *ngFor="let unit of units" [value]="unit"> {{ unit.unit }}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field class="w-100">
+              <mat-label>Payment methods</mat-label>
+              <mat-select formControlName="paymentMethods" multiple>
+                <mat-option *ngFor="let paymentMethod of paymentMethods" [value]="paymentMethod">
+                  {{ paymentMethod.name }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field class="w-100">
+              <mat-label>Sellers</mat-label>
+              <mat-select formControlName="sellers" multiple>
+                <mat-option *ngFor="let seller of sellers" [value]="seller">
+                  {{ seller.fullName }} - @{{ seller.username }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </mat-card>
+      </div>
+      <div class="d-flex justify-content-end">
+        <app-element-button-icon-text
+          icon="search"
+          text="Search"
+          color="primary"
+          [style]="'mat-flat-button'"
+          btnType="submit"
+        ></app-element-button-icon-text>
+      </div>
+    </form>
+  </div>
+</ng-container>
+<ng-template #loadingAdvancedReportForm>
+  <div class="d-flex justify-content-center align-items-center py-5">
+    <mat-spinner [diameter]="30" [strokeWidth]="3"></mat-spinner>
+  </div>
+</ng-template>
+<ng-container *ngIf="requestAttempt">
+  <!-- <div class="pb-5">
+    <app-element-loading-area
+      [data]="salesReportsResControl?.advancedReport?.times?.mognodbMongoose"
+    ></app-element-loading-area>
+  </div> -->
+</ng-container>
+<ng-container *ngIf="requestAttempt && !showResult; else advancedReportSection">
+  <div class="d-flex justify-content-center align-items-center py-5">
+    <mat-spinner [diameter]="30" [strokeWidth]="3"></mat-spinner>
+  </div>
+</ng-container>
+<ng-template #advancedReportSection>
+  <ng-container *ngIf="requestAttempt">
+    <ng-container *ngIf="report?.length; else noAdvancesSalesReportFound">
+      <div class="d-flex flex-wrap pb-5">
+        <div class="flex-grow-1 d-flex justify-content-center p-3">
+          <mat-card class="info-card d-flex align-items-center">
+            <div class="d-flex align-items-center pr-5">
+              <i class="material-icons-outlined color-primary">swap_vert</i>
+            </div>
+            <div>
+              <div class="d-flex justify-content-center align-items-center pb-3">
+                <span class="mat-title m-0">{{ cardsResult?.amount }}</span>
+              </div>
+              <div>
+                <span class="mat-caption">Sales amount</span>
+              </div>
+            </div>
+          </mat-card>
+        </div>
+        <div class="flex-grow-1 d-flex justify-content-center p-3">
+          <mat-card class="info-card d-flex align-items-center">
+            <div class="d-flex align-items-center pr-5">
+              <i class="material-icons-outlined color-primary">swap_vert</i>
+            </div>
+            <div>
+              <div class="d-flex justify-content-center align-items-center pb-3">
+                <span class="mat-title m-0">{{ cardsResult?.total }}</span>
+              </div>
+              <div>
+                <span class="mat-caption">Sales total value</span>
+              </div>
+            </div>
+          </mat-card>
+        </div>
+      </div>
+      <div>
+        <mat-card>
+          <table mat-table [dataSource]="advancesSalesReportDataSouce" class="w-100">
+            <ng-container matColumnDef="code">
+              <th mat-header-cell *matHeaderCellDef>#</th>
+              <td mat-cell *matCellDef="let sale" [routerLink]="['/sales', 'edit', sale._id]">
+                {{ sale.code }}
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="date">
+              <th mat-header-cell *matHeaderCellDef>Date</th>
+              <td mat-cell *matCellDef="let sale" [routerLink]="['/sales', 'edit', sale._id]">
+                {{ sale.date }}
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="customer">
+              <th mat-header-cell *matHeaderCellDef>Customer</th>
+              <td mat-cell *matCellDef="let sale" [routerLink]="['/sales', 'edit', sale._id]">
+                {{ sale.customer }}
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="totalValue">
+              <th mat-header-cell *matHeaderCellDef>Total value</th>
+              <td mat-cell *matCellDef="let sale" [routerLink]="['/sales', 'edit', sale._id]">
+                ${{ sale.totalValue }}
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="seller">
+              <th mat-header-cell *matHeaderCellDef>Status</th>
+              <td mat-cell *matCellDef="let sale" [routerLink]="['/sales', 'edit', sale._id]">
+                {{ sale.seller }}
+              </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="advancesSalesReportColumns"></tr>
+            <tr mat-row class="cursor-pointer" *matRowDef="let row; columns: advancesSalesReportColumns"></tr>
+          </table>
+          <mat-paginator [pageSize]="20" [pageSizeOptions]="[20, 50, 100]"> </mat-paginator>
+        </mat-card>
+      </div>
+    </ng-container>
+    <ng-template #noAdvancesSalesReportFound>
+      <app-element-card-no-data-found text="No sales found"></app-element-card-no-data-found>
+    </ng-template>
+  </ng-container>
+</ng-template>

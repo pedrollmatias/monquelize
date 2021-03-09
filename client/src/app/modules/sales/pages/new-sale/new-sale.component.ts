@@ -67,7 +67,7 @@ export class NewSaleComponent implements OnInit {
     return res.mongodbMongoose.res.map((category: ICategory) => {
       const mongodbMongooseProducts = category.products;
       const postgresSequelizeEquivalentCategory = res.postgresSequelize.res.find(
-        (category: ICategory) => category.path === category.path
+        (_category: ICategory) => _category.path === category.path
       );
       const postgresSequelizeProducts = postgresSequelizeEquivalentCategory.products;
       const productByServer: IServersResponseData = {

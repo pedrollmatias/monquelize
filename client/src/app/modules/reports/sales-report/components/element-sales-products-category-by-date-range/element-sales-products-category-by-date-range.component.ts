@@ -48,7 +48,6 @@ export class ElementSalesProductsCategoryByDateRangeComponent implements OnInit 
       endDate: this.dateSelector.dateRange.end.toString(),
     };
     this.reportApi.getSalesProductsByCategoryByDateRange(query).subscribe((res: IHttpResponse) => {
-      console.log(res);
       this.databaseTimes = this.utils.setTimes(res);
       this.report = res.mongodbMongoose.res;
       this.setChartsData(this.report);

@@ -51,47 +51,16 @@ module.exports = (app) => {
     }
   });
 
-  //   router.get('/get-advanced-sales-report', async (req, res, next) => {
-  //     try {
-  //       timer.startTimer();
-  //       let query = {};
+  router.get('/get-advanced-sales-report', async (req, res, next) => {
+    try {
+      timer.startTimer();
 
-  //       const startDate = req.query.startDate ? new Date(req.query.startDate) : undefined;
-  //       const endDate = req.query.endDate ? new Date(req.query.endDate) : undefined;
+      const salesReport = await reportService.getAdvancesSalesReport(req.query);
+      const diffTime = timer.diffTimer();
 
-  //       if (startDate && endDate) {
-  //         query = { ...query, date: { $gte: startDate, $lte: endDate } };
-  //       } else if (startDate) {
-  //         query = { ...query, date: { $gte: startDate } };
-  //       } else if (endDate) {
-  //         query = { ...query, date: { $lte: endDate } };
-  //       }
-
-  //       if (req.query.categories) {
-  //         query = { ...query, 'products.category': { $in: castToObjectIdArray(req.query.categories) } };
-  //       }
-  //       if (req.query.products) {
-  //         query = { ...query, 'products._id': { $in: castToObjectIdArray(req.query.products) } };
-  //       }
-  //       if (req.query.units) {
-  //         query = { ...query, 'products.unit.unitRef': { $in: castToObjectIdArray(req.query.units) } };
-  //       }
-  //       if (req.query.paymentMethods) {
-  //         query = {
-  //           ...query,
-  //           'products.paymentMethod.paymentMethodRef': { $in: castToObjectIdArray(req.query.paymentMethods) },
-  //         };
-  //       }
-  //       if (req.query.sellers) {
-  //         query = { ...query, seller: { $in: castToObjectIdArray(req.query.sellers) } };
-  //       }
-
-  //       const salesReport = await reportService.getAdvancesSalesReport(query);
-  //       const diffTime = timer.diffTimer();
-
-  //       res.send({ res: salesReport, time: diffTime });
-  //     } catch (err) {
-  //       next(err);
-  //     }
-  //   });
+      res.send({ res: salesReport, time: diffTime });
+    } catch (err) {
+      next(err);
+    }
+  });
 };

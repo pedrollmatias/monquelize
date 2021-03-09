@@ -9,18 +9,8 @@ import { IHttpResponse, IApiRes, IHttpRequest } from 'src/app/shared/models/http
 import { IAssociatedIds } from 'src/app/shared/models/associated-ids.model';
 import { IPaths } from 'src/app/shared/models/paths.model';
 import { IServersResponseData } from 'src/app/shared/models/servers-response-data';
-
-enum HttpMethods {
-  GET = 'GET',
-  POST = 'POST',
-  PUT = 'PUT',
-  DELETE = 'DELETE',
-}
-
-enum BaseUrls {
-  MONGODB_MONGOOSE = 'http://localhost:9001/api',
-  POSTGRES_SEQUELIZE = 'http://localhost:8001/api',
-}
+import { HttpMethods } from 'src/app/shared/enums/http-methods.enum';
+import { BaseUrls } from 'src/app/shared/enums/base-urls.enum';
 
 @Injectable({
   providedIn: 'root',
