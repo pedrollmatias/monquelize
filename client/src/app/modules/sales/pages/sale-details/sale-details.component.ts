@@ -215,8 +215,12 @@ export class SaleDetailsComponent implements OnInit {
     this.sale.products.forEach((product: any) => {
       this.addProduct(product);
     });
+    console.log(this.paymentMethods);
+    console.log(this.sale);
     const currentPaymentMethod = this.paymentMethods.find(
-      (paymentMethod) => paymentMethod._id === this.sale.paymentMethodRef
+      (paymentMethod) =>
+        paymentMethod._id === this.sale.paymentMethodRef ||
+        paymentMethod._id === this.sale.paymentMethod?.associatedIds?.mongodbMongooseId
     );
     this.saleForm.get('paymentMethod').patchValue({
       associatedIds: currentPaymentMethod.associatedIds,
