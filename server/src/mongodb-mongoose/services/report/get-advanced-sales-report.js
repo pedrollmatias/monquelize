@@ -42,8 +42,6 @@ module.exports = function getSalesAmountTotalByDayMonth(query = {}) {
     match = { ...match, seller: { $in: castToObjectIdArray(query.sellers) } };
   }
 
-  // console.log(match);
-
   return saleModel.aggregate([
     { $match: match },
     { $unwind: '$products' },

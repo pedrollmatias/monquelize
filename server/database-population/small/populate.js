@@ -7,32 +7,59 @@ const mongooseModels = require('../../src/mongodb-mongoose/models');
 const postgresSequelizeModels = require('../../src/postgres-sequelize/models');
 const { dbConnect, dbDisconnect, clearMongodbMongooseCollections, clearPostrgresSequelizeTables } = require('../utils');
 const data = require('../data');
+const Chance = require('chance');
+const chance = new Chance();
+const dayjs = require('dayjs');
+const withTransaction = require('../../src/mongodb-mongoose/api/middlewares/with-transaction');
 
-async function populateUnits() {
-  const units = data.units;
+const diffMonth = 6;
 
-  for (const unit of units) {
-    await Promise.all([mongodbMongooseServices.unitService.add(unit), postgresSequelizeServices.unitService.add(unit)]);
-  }
+function populateUnits(units) {
+  return Promise.all(
+    units.map(async (unit) => {
+      const [mongodbMongooseUnit, postgresSequelizeUnit] = await Promise.all([
+        mongodbMongooseServices.unitService.add(unit),
+        postgresSequelizeServices.unitService.add(unit),
+      ]);
+
+      return {
+        mongodbMongoose: mongodbMongooseUnit,
+        postgresSequelize: postgresSequelizeUnit,
+      };
+    })
+  );
 }
 
-async function populateUsers() {
-  const users = data.users;
+function populateUsers(users) {
+  return Promise.all(
+    users.map(async (user) => {
+      const [mongodbMongooseUser, postgresSequelizeUser] = await Promise.all([
+        mongodbMongooseServices.userService.add(user),
+        postgresSequelizeServices.userService.add(user),
+      ]);
 
-  for (const user of users) {
-    await Promise.all([mongodbMongooseServices.userService.add(user), postgresSequelizeServices.userService.add(user)]);
-  }
+      return {
+        mongodbMongoose: mongodbMongooseUser,
+        postgresSequelize: postgresSequelizeUser,
+      };
+    })
+  );
 }
 
-async function populatePaymentMethods() {
-  const paymentMethods = data.paymentMethods;
+function populatePaymentMethods(paymentMethods) {
+  return Promise.all(
+    paymentMethods.map(async (paymentMethod) => {
+      const [mongodbMongoosePaymentMethod, postgresSequelizePaymentMethod] = await Promise.all([
+        mongodbMongooseServices.paymentMethodService.add(paymentMethod),
+        postgresSequelizeServices.paymentMethodService.add(paymentMethod),
+      ]);
 
-  for (const paymentMethod of paymentMethods) {
-    await Promise.all([
-      mongodbMongooseServices.paymentMethodService.add(paymentMethod),
-      postgresSequelizeServices.paymentMethodService.add(paymentMethod),
-    ]);
-  }
+      return {
+        mongodbMongoose: mongodbMongoosePaymentMethod,
+        postgresSequelize: postgresSequelizePaymentMethod,
+      };
+    })
+  );
 }
 
 async function populateCategories(categories, parent = {}) {
@@ -58,6 +85,8 @@ async function populateCategories(categories, parent = {}) {
 }
 
 async function populateProducts(products) {
+  const _products = [];
+
   for (const product of products) {
     const [
       categoryMongodbMongoose,
@@ -65,8 +94,8 @@ async function populateProducts(products) {
       categoryPostgresSequelize,
       unitPostgresSequelize,
     ] = await Promise.all([
-      mongooseModels.categoryModel.findOne({ path: product.categoryPathRef }),
-      mongooseModels.unitModel.findOne({ unit: product.unitNameRef }),
+      mongooseModels.categoryModel.findOne({ path: product.categoryPathRef }, { __v: 0 }),
+      mongooseModels.unitModel.findOne({ unit: product.unitNameRef }, { __v: 0 }),
       postgresSequelizeModels.Category.findOne({
         where: { path: product.categoryPathRef },
       }),
@@ -82,16 +111,91 @@ async function populateProducts(products) {
       unitId: unitPostgresSequelize._id,
     };
 
-    await Promise.all([
-      mongodbMongooseServices.productService.add(mongodbMongooseProduct),
+    const [_mongodbMongooseProduct, _postgresSequelizeProduct] = await Promise.all([
+      withTransaction(async (session) => mongodbMongooseServices.productService.add(mongodbMongooseProduct, session)),
       postgresSequelizeServices.productService.add(postgresSequelizeProduct),
     ]);
+
+    _products.push({
+      mongodbMongoose: _mongodbMongooseProduct,
+      postgresSequelize: _postgresSequelizeProduct,
+    });
+  }
+
+  return _products;
+}
+
+async function populateSales(paymentMethods, users, products, salesAveragePerDay) {
+  const startDate = dayjs().subtract(diffMonth, 'month').startOf('month');
+  const endDate = dayjs().add(diffMonth, 'month').endOf('month');
+  const diffInDays = endDate.diff(startDate, 'day');
+
+  for (const day of Array.from({ length: diffInDays }).keys()) {
+    console.log(day);
+    const currentDate = startDate.add(day, 'day');
+
+    const randomDiff = chance.floating({ min: -0.3, max: 0.3, fixed: 2 });
+    const minSalesAmount = Math.floor(salesAveragePerDay + salesAveragePerDay * randomDiff);
+    const maxSalesAmount = Math.ceil(salesAveragePerDay + salesAveragePerDay * randomDiff);
+    const randomSalesAmountInDay = chance.integer({ min: minSalesAmount, max: maxSalesAmount });
+
+    // eslint-disable-next-line no-unused-vars
+    for (const _ of Array.from({ length: randomSalesAmountInDay }).keys()) {
+      let sale = { date: currentDate.toDate(), timestamp: currentDate.toDate().getTime() };
+
+      const productsAmountToBeSold = chance.integer({ min: 1, max: 10 });
+
+      const saleProducts = Array.from({ length: productsAmountToBeSold }).map(() => {
+        const randomProductIndex = chance.integer({ min: 0, max: products.length - 1 });
+        const randomProductAmount = chance.integer({ min: 1, max: 3 });
+        const mongodbMongooseProduct = products[randomProductIndex].mongodbMongoose;
+
+        return {
+          ...mongodbMongooseProduct.toJSON(),
+          productId: products[randomProductIndex].postgresSequelize._id,
+          productRef: products[randomProductIndex].mongodbMongoose._id,
+          category: mongodbMongooseProduct.category._id,
+          unitRef: mongodbMongooseProduct.unit._id,
+          shortUnit: mongodbMongooseProduct.unit.shortUnit,
+          amount: randomProductAmount,
+          price: mongodbMongooseProduct.salePrice,
+        };
+      });
+
+      sale = { ...sale, products: saleProducts };
+
+      const saleHasSeller = chance.bool({ likelihood: 70 });
+
+      if (saleHasSeller) {
+        const randomUserIndex = chance.integer({ min: 0, max: users.length - 1 });
+
+        sale = {
+          ...sale,
+          seller: users[randomUserIndex].mongodbMongoose,
+          sellerId: users[randomUserIndex].postgresSequelize._id,
+        };
+      }
+
+      const randomPaymentMethodIndex = chance.integer({ min: 0, max: paymentMethods.length - 1 });
+
+      sale = {
+        ...sale,
+        paymentMethod: paymentMethods[randomPaymentMethodIndex].mongodbMongoose,
+        paymentMethodId: paymentMethods[randomPaymentMethodIndex].postgresSequelize._id,
+      };
+
+      await Promise.all([
+        withTransaction(async (session) => mongodbMongooseServices.saleService.add(sale, session)),
+        postgresSequelizeServices.saleService.add(sale),
+      ]);
+    }
   }
 }
 
 (async function populate() {
   try {
     const scenario = process.env.SCENARIO;
+    const salesAverage = Number(process.env.SALES_AVG);
 
     Logger.info('Connecting to databases...');
     await dbConnect();
@@ -103,9 +207,13 @@ async function populateProducts(products) {
     Logger.info('Populating Databases...');
     await populateCategories(data.categories[scenario]);
     await populateUnits(data.units);
-    await populatePaymentMethods(data.paymentMethods);
-    await populateUsers(data.users);
-    await populateProducts(data.products[scenario]);
+
+    const paymentMethods = await populatePaymentMethods(data.paymentMethods);
+    const users = await populateUsers(data.users);
+    const products = await populateProducts(data.products[scenario]);
+
+    await populateSales(paymentMethods, users, products, salesAverage);
+
     dbDisconnect();
     Logger.info('Databases disconnected');
   } catch (err) {

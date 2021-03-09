@@ -82,14 +82,10 @@ async function validateCategory(category) {
       throw new Error('It is not possible to define as a parent category one of its child categories');
     }
 
-    setPath(category, parent);
-
-    return category;
+    category = setPath(category, parent);
+  } else {
+    category = setPath(category);
   }
-
-  setPath(category);
-
-  return category;
 }
 
 Category.beforeValidate(validateCategory);
