@@ -1,12 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { IHttpResponse } from 'src/app/shared/models/http.model';
 import { IPaths } from 'src/app/shared/models/paths.model';
 import { IUser } from 'src/app/shared/models/views.model';
 import { UtilsService } from '../services/utils.service';
-// import { IHttpRes } from 'src/app/shared/models/http-res.model';
-// import { IUser } from 'src/app/shared/models/views.model';
 
 @Injectable({
   providedIn: 'root',

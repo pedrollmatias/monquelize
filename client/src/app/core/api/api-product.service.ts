@@ -34,9 +34,4 @@ export class ApiProductService {
   countProducts(): Observable<IHttpResponse> {
     return this.utils.multiRequests('GET', '/products/count');
   }
-
-  // inventoryAdjustment(productId: string, data: any): Observable<IHttpResponse> {
-  //   const uri = `products/${productId}/inventory`;
-  //   return this.http.post<IHttpResponse>(uri, data);
-  // }
 }

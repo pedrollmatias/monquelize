@@ -13,11 +13,9 @@ export class GlobalErrorHandler implements ErrorHandler {
 
     let message: string;
     if (err instanceof HttpErrorResponse) {
-      // Server Error
       message = errorService.getServerMessage(err);
       sharedComponents.openSnackbarError(message);
     } else {
-      // Client Error
       message = errorService.getClientMessage(err);
       sharedComponents.openSnackbarError(message);
     }

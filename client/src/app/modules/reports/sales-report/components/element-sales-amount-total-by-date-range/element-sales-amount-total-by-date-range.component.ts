@@ -41,6 +41,10 @@ export class ElementSalesAmountTotalByDateRangeComponent implements OnInit {
 
   databaseTimes: IDatabaseTimes;
 
+  colorScheme = {
+    domain: ['#009688'],
+  };
+
   constructor(private reportApi: ApiReportService, public utils: UtilsService, private fb: FormBuilder) {}
 
   ngOnInit(): void {

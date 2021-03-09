@@ -4,7 +4,6 @@ const expressLoader = require('./express');
 const { mongodbMongooseDb, postgresSequelizeDb } = require('./databases');
 const Logger = require('./logger');
 
-// Compile sequelize models
 require('../modules/sequelize-model-register/register');
 
 module.exports = async (app, serverId, serverName) => {
@@ -19,7 +18,6 @@ module.exports = async (app, serverId, serverName) => {
 
       const sequelize = postgresSequelizeDb.sequelize;
 
-      // await sequelize.sync({ force: true });
       await sequelize.sync({ alter: { drop: false } });
 
       break;

@@ -27,12 +27,7 @@ export class ElementSalesProductsCategoryByDateRangeComponent implements OnInit 
 
   databaseTimes: IDatabaseTimes;
 
-  constructor(
-    private categoryApi: ApiCategoryService,
-    private reportApi: ApiReportService,
-    public utils: UtilsService,
-    private fb: FormBuilder
-  ) {}
+  constructor(private reportApi: ApiReportService, public utils: UtilsService) {}
 
   ngOnInit(): void {
     this.dateSelector = {
@@ -84,51 +79,4 @@ export class ElementSalesProductsCategoryByDateRangeComponent implements OnInit 
       };
     });
   }
-
-  // setChartsData(data: any): void {
-  //   let monthDays: number;
-  //   if (
-  //     this.utils.getMonthName(this.dateSelector.dateRange.start) ===
-  //       this.utils.getMonthName(this.utils.getCurrentDate()) &&
-  //     this.utils.getFullYear(this.dateSelector.dateRange.start) === this.utils.getFullYear(this.utils.getCurrentDate())
-  //   ) {
-  //     monthDays = this.utils.getDayNumber(this.utils.getCurrentDate());
-  //   } else {
-  //     monthDays = this.utils.getMonthDaysAmount(this.dateSelector.dateRange.start);
-  //   }
-  //   this.setSalesAmountChartData(data, monthDays);
-  //   this.setSalesTotalChartData(data, monthDays);
-  // }
-
-  // setSalesAmountChartData(data: any[], monthDays: number): void {
-  //   const salesAmountSeries = [...Array(monthDays).keys()].map((_, i) => {
-  //     const dayNumber = i + 1;
-  //     return {
-  //       name: dayNumber.toString().padStart(2, '0'),
-  //       value: data.find((info) => this.utils.getDayNumber(info.date) === dayNumber)?.amount || 0,
-  //     };
-  //   });
-  //   this.salesCategoryAmountChartResult = [
-  //     {
-  //       name: this.utils.getMonthName(this.dateSelector.dateRange.start),
-  //       series: salesAmountSeries,
-  //     },
-  //   ];
-  // }
-
-  // setSalesTotalChartData(data: any[], monthDays: number): void {
-  //   const salesTotalSeries = [...Array(monthDays).keys()].map((_, i) => {
-  //     const dayNumber = i + 1;
-  //     return {
-  //       name: dayNumber.toString().padStart(2, '0'),
-  //       value: data.find((info) => this.utils.getDayNumber(info.date) === dayNumber)?.total || 0,
-  //     };
-  //   });
-  //   this.salesCategoryTotalChartResult = [
-  //     {
-  //       name: this.utils.getMonthName(this.dateSelector.dateRange.start),
-  //       series: salesTotalSeries,
-  //     },
-  //   ];
-  // }
 }

@@ -1,13 +1,12 @@
 'use strict';
 
-const bodyParser = require('body-parser');
+const express = require('express');
 const cors = require('cors');
 const { routeRegister, timer } = require('../modules');
 const config = require('../config');
 const Logger = require('./logger');
 
 module.exports = (app, serverId) => {
-  // Health Check endpoints
   app.get('/status', (req, res) => {
     res.status(200).end();
   });
@@ -17,7 +16,7 @@ module.exports = (app, serverId) => {
 
   app.enable('trust proxy');
   app.use(cors());
-  app.use(bodyParser.json());
+  app.use(express.json());
 
   app.use((req, res, next) => {
     const fullUrl = `${req.protocol}://${req.get('host')}${req.originalUrl}`;
@@ -28,13 +27,12 @@ module.exports = (app, serverId) => {
 
   app.use(config.api.prefix, routeRegister(serverId));
 
-  // /// catch 404 and forward to error handler
-  // app.use((req, res, next) => {
-  //   const err = new Error('Not Found');
+  app.use((req, res, next) => {
+    const err = new Error('Not Found');
 
-  //   err.status = 404;
-  //   next(err);
-  // });
+    err.status = 404;
+    next(err);
+  });
 
   app.use((err, req, res, next) => {
     Logger.error(err.stack);

@@ -44,18 +44,4 @@ export class ApiReportService {
     };
     return forkJoin(requests);
   }
-
-  // buildObjParams(query: IQuery): HttpParams {
-  //   let httpParams = new HttpParams();
-
-  //   for (const server of Object.keys(query)) {
-  //     for (const key of Object.keys(query[server])) {
-  //       for (const element of key) {
-  //         httpParams = httpParams.append(`${server}.${key}[]`, element);
-  //       }
-  //     }
-  //   }
-
-  //   return httpParams;
-  // }
 }

@@ -1,16 +1,9 @@
 'use strict';
 
-// const mongoose = require('mongoose');
 const express = require('express');
 const router = express.Router();
 const { reportService } = require('../../services');
 const { timer } = require('../../../modules');
-
-// function castToObjectIdArray(obj) {
-//   const array = Array.isArray(obj) ? obj : [obj];
-
-//   return array.map((element) => mongoose.Types.ObjectId(element));
-// }
 
 module.exports = (app) => {
   app.use('/reports', router);

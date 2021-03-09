@@ -177,6 +177,7 @@ export class ElementAdvancedSalesReportsComponent implements OnInit {
   }
 
   submitAdvancedSearch(): void {
+    this.databaseTimes = this.utils.resetTimes();
     this.requestAttempt = true;
     this.showResult = false;
     const queryParams = this.formatQueryParams(this.advancedSearchForm.value);
