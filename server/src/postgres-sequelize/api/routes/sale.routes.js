@@ -30,11 +30,7 @@ module.exports = (app) => {
     try {
       timer.startTimer();
 
-      const startDate = new Date(req.query.startDate);
-      const endDate = new Date(req.query.endDate);
-      const query = { where: { date: { $between: [startDate, endDate] } } };
-
-      const sales = await saleService.get(query);
+      const sales = await saleService.get(req.query);
 
       const diffTime = timer.diffTimer();
 

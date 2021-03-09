@@ -57,6 +57,7 @@ export class SalesComponent implements OnInit {
 
   getSales(res: IHttpResponse): ISale[] {
     const salesByServer: IHttpResponse = this.utils.splitResponsesByServerId(res);
+    console.log(salesByServer);
     return this.utils.appendAssociatedIdsByUniqueCommonData(salesByServer, 'timestamp');
   }
 
