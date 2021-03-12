@@ -1,7 +1,9 @@
 'use strict';
 
-const { Sale, SaleProduct, History } = require('../../models');
+const { Sale, SaleProduct } = require('../../models');
 const getProduct = require('../product/get-product');
+const incrementProductInventory = require('../product/increment-product-inventory');
+const decremenetProductInventory = require('../product/decremenet-product-inventory');
 
 module.exports = async function editSale(saleId, sale) {
   let [, updatedSale] = await Sale.update(sale, {
@@ -21,21 +23,9 @@ module.exports = async function editSale(saleId, sale) {
     const amountDifference = product.amount - saleProductRelation.toJSON().amount;
 
     if (amountDifference > 0) {
-      const history = await History.create({ amount: product.amount, movementType: '100', saleId: updatedSale._id });
-
-      await _product.addHistory(history);
-
-      _product.currentAmount += amountDifference;
-
-      await _product.save();
+      await incrementProductInventory(_product, updatedSale._id, product.amount, amountDifference);
     } else if (amountDifference < 0) {
-      const history = await History.create({ amount: product.amount, movementType: '200', saleId: updatedSale._id });
-
-      await _product.addHistory(history);
-
-      _product.currentAmount -= amountDifference;
-
-      await _product.save();
+      await decremenetProductInventory(_product, updatedSale._id, product.amount, amountDifference);
     }
 
     saleProductRelation.amount = product.amount;
