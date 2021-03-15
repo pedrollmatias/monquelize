@@ -18,6 +18,7 @@ module.exports = async (app, serverId, serverName) => {
 
       const sequelize = postgresSequelizeDb.sequelize;
 
+      // await sequelize.sync({ force: true });
       await sequelize.sync({ alter: { drop: false } });
 
       break;

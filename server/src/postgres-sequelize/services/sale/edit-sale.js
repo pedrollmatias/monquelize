@@ -3,7 +3,7 @@
 const { Sale, SaleProduct } = require('../../models');
 const getProduct = require('../product/get-product');
 const incrementProductInventory = require('../product/increment-product-inventory');
-const decremenetProductInventory = require('../product/decremenet-product-inventory');
+const decremenetProductInventory = require('../product/decrement-product-inventory');
 
 module.exports = async function editSale(saleId, sale) {
   let [, updatedSale] = await Sale.update(sale, {

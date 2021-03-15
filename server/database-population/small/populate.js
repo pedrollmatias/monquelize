@@ -12,7 +12,7 @@ const chance = new Chance();
 const dayjs = require('dayjs');
 const withTransaction = require('../../src/mongodb-mongoose/api/middlewares/with-transaction');
 
-const diffMonth = 6;
+const diffMonth = 1;
 
 function populateUnits(units) {
   return Promise.all(
@@ -133,8 +133,8 @@ async function populateSales(paymentMethods, users, products, salesAveragePerDay
   for (const day of Array.from({ length: diffInDays }).keys()) {
     const currentDate = startDate.add(day, 'day');
 
-    const randomDiff = chance.floating({ min: -0.3, max: 0.3, fixed: 2 });
-    const minSalesAmount = Math.floor(salesAveragePerDay + salesAveragePerDay * randomDiff);
+    const randomDiff = chance.floating({ min: 0, max: 0.3, fixed: 2 });
+    const minSalesAmount = Math.floor(salesAveragePerDay + salesAveragePerDay * -randomDiff);
     const maxSalesAmount = Math.ceil(salesAveragePerDay + salesAveragePerDay * randomDiff);
     const randomSalesAmountInDay = chance.integer({ min: minSalesAmount, max: maxSalesAmount });
 
@@ -181,6 +181,7 @@ async function populateSales(paymentMethods, users, products, salesAveragePerDay
         ...sale,
         paymentMethod: paymentMethods[randomPaymentMethodIndex].mongodbMongoose,
         paymentMethodId: paymentMethods[randomPaymentMethodIndex].postgresSequelize._id,
+        paymentMethodRef: paymentMethods[randomPaymentMethodIndex].postgresSequelize._id,
       };
 
       await Promise.all([

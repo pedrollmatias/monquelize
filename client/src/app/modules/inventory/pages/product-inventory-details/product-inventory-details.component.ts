@@ -116,7 +116,7 @@ export class ProductInventoryDetailsComponent implements OnInit {
         icon: 'attach_money',
         iconColor: 'primary',
         title: 'Inventory value',
-        value: product.salePrice * product.currentAmount || '-',
+        value: this.utils.formatCurrency(product.salePrice * product.currentAmount) || '-',
       },
     ];
   }
